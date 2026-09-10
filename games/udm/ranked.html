@@ -33,6 +33,7 @@
 
         const style = doc.createElement('style');
         style.textContent = `
+          #startHighScoreText { display:none !important; }
           #globalLeaderboardWrap { width:min(100%,420px); margin:12px auto 16px; box-sizing:border-box; background:rgba(255,255,255,.62); border:2px dashed #71a8c7; border-radius:16px; padding:11px 14px; }
           #globalLeaderboardTitle { margin:0 0 7px; color:#1c6fb0; font-family:'Gaegu','Malgun Gothic','Apple SD Gothic Neo',sans-serif; font-size:16px; font-weight:700; }
           #globalLeaderboardList { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:4px; }
@@ -46,10 +47,20 @@
         const wrap = doc.createElement('section');
         wrap.id = 'globalLeaderboardWrap';
         wrap.setAttribute('aria-labelledby', 'globalLeaderboardTitle');
-        wrap.innerHTML = '<h2 id="globalLeaderboardTitle">🌍 전체 TOP 5</h2><ol id="globalLeaderboardList"><li class="lbEmpty">랭킹을 불러오는 중...</li></ol><p id="globalLeaderboardStatus" aria-live="polite"></p>';
+        wrap.innerHTML = '<h2 id="globalLeaderboardTitle">🙂 쉬움 TOP 5</h2><ol id="globalLeaderboardList"><li class="lbEmpty">랭킹을 불러오는 중...</li></ol><p id="globalLeaderboardStatus" aria-live="polite"></p>';
         startPanel.insertBefore(wrap, startButton);
         const globalList = doc.getElementById('globalLeaderboardList');
+        const globalTitle = doc.getElementById('globalLeaderboardTitle');
         const status = doc.getElementById('globalLeaderboardStatus');
+
+        function activeMode() {
+          return doc.querySelector('.modeBtn.active')?.dataset.mode || 'easy';
+        }
+
+        function modeTitle(mode) {
+          const icons = { easy: '🙂', hard: '🔥', infinite: '🎲' };
+          return `${icons[mode] || '🏆'} ${MODE_LABELS[mode] || mode} TOP 5`;
+        }
 
         function makeRow(entry, index, highlight) {
           const li = doc.createElement('li');
@@ -71,13 +82,16 @@
           rows.forEach((entry, index) => target.appendChild(makeRow(entry, index, highlight)));
         }
 
-        async function loadTop5(highlight = null, onGameOver = false) {
-          const { data, error } = await db.from('udm_scores').select('name, score, mode, created_at').order('score', { ascending: false }).order('created_at', { ascending: true }).limit(5);
+        async function loadTop5(highlight = null, onGameOver = false, requestedMode = activeMode()) {
+          globalTitle.textContent = modeTitle(requestedMode);
+          status.textContent = `${MODE_LABELS[requestedMode]} 랭킹을 불러오는 중...`;
+          const { data, error } = await db.from('udm_scores').select('name, score, mode, created_at').eq('mode', requestedMode).order('score', { ascending: false }).order('created_at', { ascending: true }).limit(5);
           if (error) { status.textContent = '온라인 랭킹을 잠시 불러오지 못했어요.'; return; }
+          if (requestedMode !== activeMode() && !onGameOver) return;
           render(globalList, data || [], highlight);
-          status.textContent = '모든 플레이어의 점수를 합산한 실시간 랭킹입니다.';
+          status.textContent = `${MODE_LABELS[requestedMode]} 모드의 실시간 랭킹입니다.`;
           if (onGameOver && !gameOver.classList.contains('hidden')) {
-            leaderboardTitle.textContent = '🌍 전체 TOP 5';
+            leaderboardTitle.textContent = modeTitle(requestedMode);
             render(leaderboardList, data || [], highlight);
           }
         }
@@ -101,18 +115,21 @@
           const entry = {
             name: doc.getElementById('playerNameInput').value,
             score: doc.getElementById('scoreVal').textContent,
-            mode: doc.querySelector('.modeBtn.active')?.dataset.mode || 'easy'
+            mode: activeMode()
           };
-          leaderboardTitle.textContent = '🌍 전체 TOP 5 · 업데이트 중...';
+          leaderboardTitle.textContent = `${modeTitle(entry.mode)} · 업데이트 중...`;
           try {
             const saved = await submitScore(entry);
-            await loadTop5(saved, true);
+            await loadTop5(saved, true, saved.mode);
           } catch (error) {
             leaderboardTitle.textContent = '🏅 기기 내 명예의 전당';
             status.textContent = '점수 전송에 실패했어요. 기기 내 기록은 저장됐습니다.';
           }
         });
         observer.observe(gameOver, { attributes: true, attributeFilter: ['class'] });
+        doc.querySelectorAll('.modeBtn').forEach(button => {
+          button.addEventListener('click', () => loadTop5(null, false, button.dataset.mode));
+        });
         loadTop5();
         win.addEventListener('focus', () => loadTop5());
       });
