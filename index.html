@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PLAY LAB — 게임센터</title>
+<meta name="description" content="직접 만든 게임을 즐길 수 있는 게임센터입니다.">
+<style>
+  :root {
+    --bg: #ffffff;
+    --ink: #111111;
+    --muted: #6b6b6b;
+    --card-radius: 28px;
+    --focus: #1e6bff;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  a { color: inherit; }
+
+  /* 접근성: 스킵 링크 */
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    background: var(--ink);
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 0 0 10px 0;
+    z-index: 1000;
+    font-weight: 700;
+  }
+  .skip-link:focus {
+    left: 0;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 3px;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 28px 32px 0;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .logo {
+    font-size: clamp(22px, 3vw, 32px);
+    letter-spacing: 2px;
+    text-decoration: none;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 28px;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav a {
+    text-decoration: none;
+    font-size: 15px;
+    padding: 8px 4px;
+  }
+
+  nav a:hover { color: var(--focus); }
+
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+  }
+  .menu-toggle span {
+    display: block;
+    width: 26px;
+    height: 3px;
+    background: var(--ink);
+    margin: 5px 0;
+    border-radius: 2px;
+  }
+
+  @media (max-width: 720px) {
+    nav { position: relative; }
+    nav ul {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 44px;
+      background: #fff;
+      flex-direction: column;
+      border: 2px solid var(--ink);
+      border-radius: 16px;
+      padding: 12px;
+      gap: 4px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+    nav ul.open { display: flex; }
+    .menu-toggle { display: block; }
+  }
+
+  .tagline {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 18px 32px 40px;
+    font-size: clamp(14px, 1.6vw, 17px);
+    color: var(--muted);
+  }
+
+  main {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 32px 80px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  @media (max-width: 980px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    aspect-ratio: 3 / 4;
+    border-radius: var(--card-radius);
+    padding: 24px;
+    text-decoration: none;
+    color: #fff;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .card:hover, .card:focus-visible {
+    transform: translateY(-6px) scale(1.015);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.18);
+  }
+
+  .card:focus-visible {
+    outline: 4px solid var(--ink);
+    outline-offset: 4px;
+  }
+
+  .card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 45%);
+    pointer-events: none;
+  }
+
+  .card .emoji {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    font-size: clamp(64px, 12vw, 120px);
+    opacity: 0.85;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .card .tag {
+    position: relative;
+    z-index: 1;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    background: rgba(0,0,0,0.45);
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 999px;
+    align-self: flex-start;
+  }
+
+  .card h2 {
+    margin: 0;
+    font-size: clamp(24px, 3vw, 34px);
+    line-height: 1.15;
+    position: relative;
+    z-index: 1;
+  }
+
+  .card p {
+    margin: 8px 0 0;
+    font-size: 14px;
+    font-weight: 600;
+    opacity: 0.9;
+    position: relative;
+    z-index: 1;
+  }
+
+  .card-1 { background: linear-gradient(160deg, #ff5f6d, #ffc371); }
+  .card-2 { background: linear-gradient(160deg, #4facfe, #0072e6); }
+  .card-3 { background: linear-gradient(160deg, #8e2de2, #4a00e0); }
+
+  footer {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 32px 60px;
+    border-top: 2px solid #eee;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  footer a { text-decoration: underline; }
+
+  .back-to-top {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: #fff;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  }
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">본문으로 바로가기</a>
+
+<header>
+  <a href="#top" class="logo" id="top">PLAY LAB</a>
+  <nav aria-label="주요 메뉴">
+    <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="navList" aria-label="메뉴 열기">
+      <span></span><span></span><span></span>
+    </button>
+    <ul id="navList">
+      <li><a href="#games">games</a></li>
+      <li><a href="#about">about</a></li>
+      <li><a href="#contact">contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<p class="tagline">we create<br>play experience</p>
+
+<main id="main">
+  <section class="grid" id="games" aria-label="게임 목록">
+
+    <a class="card card-1" href="../소나기/소나기%20업그레이드/UDM_산성비_게임_v2_UI리뉴얼.html" aria-describedby="game1-desc">
+      <span class="tag">dodge</span>
+      <span class="emoji" aria-hidden="true">🌧️</span>
+      <div>
+        <h2>UDM, 너의 이름은?</h2>
+        <p id="game1-desc">쏟아지는 산성비를 피해 살아남아라.</p>
+      </div>
+    </a>
+
+    <a class="card card-2" href="../자동차게임/260907/index.html" aria-describedby="game2-desc">
+      <span class="tag">racing</span>
+      <span class="emoji" aria-hidden="true">🚗</span>
+      <div>
+        <h2>RUNNER : 도주극 IV</h2>
+        <p id="game2-desc">구도심을 질주하는 추격 러너 게임.</p>
+      </div>
+    </a>
+
+    <a class="card card-3" href="#" aria-describedby="game3-desc">
+      <span class="tag">arcade</span>
+      <span class="emoji" aria-hidden="true">🎮</span>
+      <div>
+        <h2>게임 이름 3</h2>
+        <p id="game3-desc">한 줄 소개를 여기에 적어주세요.</p>
+      </div>
+    </a>
+
+  </section>
+</main>
+
+<footer id="about">
+  <p id="contact">PLAY LAB · 직접 만든 게임을 모아두는 공간입니다.</p>
+  <p>© 2026 PLAY LAB. All rights reserved.</p>
+</footer>
+
+<button class="back-to-top" id="backToTop" type="button" aria-label="맨 위로 이동">↑</button>
+
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const navList = document.getElementById('navList');
+  menuToggle.addEventListener('click', () => {
+    const open = navList.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', String(open));
+  });
+
+  document.getElementById('backToTop').addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+
+</body>
+</html>
