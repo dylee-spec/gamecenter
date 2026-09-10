@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>UDM, 너의 이름은? · 전체 랭킹</title>
+  <style>
+    html, body, iframe { width: 100%; height: 100%; margin: 0; border: 0; }
+    body { overflow: hidden; background: #eef7fb; }
+    iframe { display: block; }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <iframe id="game" src="UDM_산성비_게임_v2_UI리뉴얼.html" title="UDM, 너의 이름은? 게임" allow="autoplay"></iframe>
+  <script>
+    (() => {
+      const SUPABASE_URL = 'https://ptwupwbdedgenmbwniwj.supabase.co';
+      const SUPABASE_KEY = 'sb_publishable_42ATZwFevpMbuN5gL36kxg_FtOqmDL1';
+      const MODE_LABELS = { easy: '쉬움', hard: '어려움', infinite: '무한' };
+      const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+      const frame = document.getElementById('game');
+
+      frame.addEventListener('load', () => {
+        const doc = frame.contentDocument;
+        const win = frame.contentWindow;
+        const startPanel = doc.querySelector('#startOverlay .panel');
+        const startButton = doc.getElementById('startBtn');
+        const gameOver = doc.getElementById('gameOverOverlay');
+        const leaderboardTitle = doc.getElementById('leaderboardTitle');
+        const leaderboardList = doc.getElementById('leaderboardList');
+        if (!startPanel || !startButton || !gameOver) return;
+
+        const style = doc.createElement('style');
+        style.textContent = `
+          #globalLeaderboardWrap { width:min(100%,420px); margin:12px auto 16px; box-sizing:border-box; background:rgba(255,255,255,.62); border:2px dashed #71a8c7; border-radius:16px; padding:11px 14px; }
+          #globalLeaderboardTitle { margin:0 0 7px; color:#1c6fb0; font-family:'Gaegu','Malgun Gothic','Apple SD Gothic Neo',sans-serif; font-size:16px; font-weight:700; }
+          #globalLeaderboardList { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:4px; }
+          #globalLeaderboardStatus { margin:7px 0 0; color:#786a58; font-size:11px; }
+          .lbMode { min-width:52px; color:#6f7f8f; font-size:11px; text-align:right; }
+          #app.mode-hard #globalLeaderboardWrap { border-color:#9db3c2; }
+          #app.mode-hard #globalLeaderboardTitle { color:#52697b; }
+        `;
+        doc.head.appendChild(style);
+
+        const wrap = doc.createElement('section');
+        wrap.id = 'globalLeaderboardWrap';
+        wrap.setAttribute('aria-labelledby', 'globalLeaderboardTitle');
+        wrap.innerHTML = '<h2 id="globalLeaderboardTitle">🌍 전체 TOP 5</h2><ol id="globalLeaderboardList"><li class="lbEmpty">랭킹을 불러오는 중...</li></ol><p id="globalLeaderboardStatus" aria-live="polite"></p>';
+        startPanel.insertBefore(wrap, startButton);
+        const globalList = doc.getElementById('globalLeaderboardList');
+        const status = doc.getElementById('globalLeaderboardStatus');
+
+        function makeRow(entry, index, highlight) {
+          const li = doc.createElement('li');
+          li.className = 'lbRow';
+          if (highlight && entry.name === highlight.name && Number(entry.score) === Number(highlight.score)) li.classList.add('me');
+          const rank = doc.createElement('span'); rank.className = 'lbRank'; rank.textContent = index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : String(index + 1);
+          const name = doc.createElement('span'); name.className = 'lbName'; name.textContent = entry.name;
+          const mode = doc.createElement('span'); mode.className = 'lbMode'; mode.textContent = MODE_LABELS[entry.mode] || entry.mode;
+          const score = doc.createElement('span'); score.className = 'lbScore'; score.textContent = `${Number(entry.score).toLocaleString()}점`;
+          li.append(rank, name, mode, score);
+          return li;
+        }
+
+        function render(target, rows, highlight) {
+          target.replaceChildren();
+          if (!rows.length) {
+            const empty = doc.createElement('li'); empty.className = 'lbEmpty'; empty.textContent = '첫 번째 기록의 주인공이 되어보세요!'; target.appendChild(empty); return;
+          }
+          rows.forEach((entry, index) => target.appendChild(makeRow(entry, index, highlight)));
+        }
+
+        async function loadTop5(highlight = null, onGameOver = false) {
+          const { data, error } = await db.from('udm_scores').select('name, score, mode, created_at').order('score', { ascending: false }).order('created_at', { ascending: true }).limit(5);
+          if (error) { status.textContent = '온라인 랭킹을 잠시 불러오지 못했어요.'; return; }
+          render(globalList, data || [], highlight);
+          status.textContent = '모든 플레이어의 점수를 합산한 실시간 랭킹입니다.';
+          if (onGameOver && !gameOver.classList.contains('hidden')) {
+            leaderboardTitle.textContent = '🌍 전체 TOP 5';
+            render(leaderboardList, data || [], highlight);
+          }
+        }
+
+        async function submitScore(entry) {
+          const clean = {
+            name: String(entry.name || '익명').trim().slice(0, 10) || '익명',
+            score: Math.max(0, Math.min(1000000, Math.floor(Number(entry.score) || 0))),
+            mode: MODE_LABELS[entry.mode] ? entry.mode : 'easy'
+          };
+          const { error } = await db.from('udm_scores').insert(clean);
+          if (error) throw error;
+          return clean;
+        }
+
+        let submittedThisRound = false;
+        const observer = new MutationObserver(async () => {
+          if (gameOver.classList.contains('hidden')) { submittedThisRound = false; return; }
+          if (submittedThisRound) return;
+          submittedThisRound = true;
+          const entry = {
+            name: doc.getElementById('playerNameInput').value,
+            score: doc.getElementById('scoreVal').textContent,
+            mode: doc.querySelector('.modeBtn.active')?.dataset.mode || 'easy'
+          };
+          leaderboardTitle.textContent = '🌍 전체 TOP 5 · 업데이트 중...';
+          try {
+            const saved = await submitScore(entry);
+            await loadTop5(saved, true);
+          } catch (error) {
+            leaderboardTitle.textContent = '🏅 기기 내 명예의 전당';
+            status.textContent = '점수 전송에 실패했어요. 기기 내 기록은 저장됐습니다.';
+          }
+        });
+        observer.observe(gameOver, { attributes: true, attributeFilter: ['class'] });
+        loadTop5();
+        win.addEventListener('focus', () => loadTop5());
+      });
+    })();
+  </script>
+</body>
+</html>
