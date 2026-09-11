@@ -223,6 +223,9 @@
   .card-1 { background: linear-gradient(160deg, #ff5f6d, #ffc371); }
   .card-2 { background: linear-gradient(160deg, #4facfe, #0072e6); }
   .card-3 { background: linear-gradient(160deg, #8e2de2, #4a00e0); }
+  .card-soon { background: #eeeeef; color: #63636c; border: 2px dashed #c9c9d0; box-shadow: none; }
+  .card-soon .tag { background: #dedee4; }
+  .card-soon .emoji { opacity: .25; }
 
   footer {
     max-width: 1400px;
@@ -296,15 +299,27 @@
       </div>
     </a>
 
-    <a class="card card-3" href="#" aria-describedby="game3-desc">
-      <span class="tag">arcade</span>
-      <span class="emoji" aria-hidden="true">🎮</span>
+    <a class="card card-3" href="games/survival/index.html" aria-describedby="game3-desc">
+      <span class="tag">survival</span>
+      <span class="emoji" aria-hidden="true">🦇</span>
       <div>
-        <h2>게임 이름 3</h2>
-        <p id="game3-desc">한 줄 소개를 여기에 적어주세요.</p>
+        <h2>벰파이어 서바이벌<br>베낀게임</h2>
+        <p id="game3-desc">무기를 진화시키며 몰려오는 적들 사이에서 살아남으세요.</p>
       </div>
     </a>
 
+    <article class="card card-soon" aria-label="네 번째 게임 준비 중">
+      <span class="tag">coming soon · 04</span><span class="emoji" aria-hidden="true">＋</span>
+      <div><h2>다음 게임 준비 중</h2><p>새로운 플레이가 곧 찾아옵니다.</p></div>
+    </article>
+    <article class="card card-soon" aria-label="다섯 번째 게임 준비 중">
+      <span class="tag">coming soon · 05</span><span class="emoji" aria-hidden="true">＋</span>
+      <div><h2>다음 게임 준비 중</h2><p>새로운 플레이가 곧 찾아옵니다.</p></div>
+    </article>
+    <article class="card card-soon" aria-label="여섯 번째 게임 준비 중">
+      <span class="tag">coming soon · 06</span><span class="emoji" aria-hidden="true">＋</span>
+      <div><h2>다음 게임 준비 중</h2><p>새로운 플레이가 곧 찾아옵니다.</p></div>
+    </article>
   </section>
 </main>
 
