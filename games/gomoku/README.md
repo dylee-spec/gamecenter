@@ -15,9 +15,12 @@
 - Rooms stay open while any player or spectator remains. On host departure, a remaining player is preferred, then the earliest spectator. Seats are freed without moving the remaining player's color. The host can restart when both seats are occupied. Empty rooms are marked closed, not deleted. No fixed room lifetime.
 - Room chat is available to players and spectators, password/membership protected, plain text only. Max 300 characters, one message per second per member, rolling last 50 messages. Polls request incremental chat messages.
 
+- Room view lists spectators by nickname. Players and spectators can switch roles between matches, not during one.
+- Winning players see a trophy dialog with a synthesized fanfare (Web Audio) and confetti (skipped with reduced motion).
+
 ## Backend
 
-For a fresh install, apply `schema.sql` then `upgrade-v2.sql`. For the existing installation, apply only `upgrade-v2.sql`. The scripts use isolated private tables and the `public.gomoku_api` RPC. They do not modify UDM rankings. No table grants or private token/password hashes are exposed to clients. The publishable key in HTML is intentionally public, not a service role key. The current RPC requires `p_data.client = '2'`; older clients get an update/reload message.
+For a fresh install, apply `schema.sql`, `upgrade-v2.sql`, then `upgrade-v3.sql`. V3 is additive: room state includes `spectator_list` and a `spectate` action lets a seated player become a spectator when no match is in progress (spectators take a free seat with `join` role `player`). The scripts use isolated private tables and the `public.gomoku_api` RPC. They do not modify UDM rankings. No table grants or private token/password hashes are exposed to clients. The publishable key in HTML is intentionally public, not a service role key. The current RPC requires `p_data.client = '2'`; older clients get an update/reload message.
 
 The security-definer RPC has an empty search path and explicit schema qualification. Room row locks serialize joins, starts, moves, chat and departures. Server validates membership, host permission, passwords, seats, round numbers, turns, occupied cells and wins. Tokens are stored hashed; room passwords use SHA-256 then salted bcrypt. Failed-password attempts are limited per session. A session may only be in one open room. Limits: 100 open rooms and 50,000 anonymous sessions.
 
