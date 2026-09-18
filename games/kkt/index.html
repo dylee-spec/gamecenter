@@ -6,173 +6,215 @@
 <title>끝말잇기 — PLAY LAB</title>
 <meta name="description" content="온라인 끝말잇기. 2~8명이 닉네임만으로 바로 시작합니다.">
 <meta name="theme-color" content="#e2e2df">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500&family=Gothic+A1:wght@800&family=IBM+Plex+Sans+KR:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
+  /* 색은 그대로 유지 */
   --ember:#fc5000; --plasma:#524ae9; --sulfur:#f5f28e;
-  --limestone:#f7f6f2; --pumice:#e2e2df; --obsidian:#070607; --chalk:#fff;
-  --ink-60:#07060799; --ink-45:#07060773;
-  --display:"Gothic A1","DM Sans",sans-serif;
-  --body:"IBM Plex Sans KR","DM Sans",system-ui,sans-serif;
-  --r-card:40px; --r-pill:800px; --r-input:100px;
-  --gap:16px; --pad:40px; --max:1280px;
+  --limestone:#f7f6f2; --pumice:#e2e2df; --ink:#070607; --chalk:#fff;
+  --muted:#6f6b64; --line:#d3d0c9; --line-soft:#e8e5dd;
+  font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  color:var(--ink);background:var(--pumice);font-synthesis:none;
 }
 *{box-sizing:border-box}
-html,body{margin:0;background:var(--pumice);color:var(--obsidian);
-  font-family:var(--body);font-weight:500;font-size:16px;line-height:1.55;word-break:keep-all;
-  -webkit-font-smoothing:antialiased}
-h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:.02em;margin:0;line-height:1}
-button,input,select{font:inherit;color:inherit}
-button{border:0;background:none;cursor:pointer}
-[hidden]{display:none !important}
-.page{max-width:var(--max);margin:0 auto;padding:20px 20px 64px}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:var(--gap);
-  background:var(--limestone);border-radius:var(--r-pill);padding:10px 12px 10px 24px;margin-bottom:32px}
-.brand{font-family:var(--display);font-weight:800;font-size:20px;letter-spacing:.02em;display:flex;align-items:center;gap:10px}
-.brand i{width:10px;height:10px;border-radius:var(--r-pill);background:var(--ember);display:block}
-.nav-right{display:flex;align-items:center;gap:4px}
-.ghost{border-radius:var(--r-pill);padding:10px 16px;font-size:14px;color:var(--obsidian);text-decoration:none;display:inline-block}
-.ghost:hover{background:#0706070d}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  background:var(--ember);color:var(--obsidian);border-radius:var(--r-pill);
-  padding:12px 24px;min-height:44px;font-size:16px;transition:filter .12s}
-.btn:hover:not(:disabled){filter:brightness(1.06)}
-.btn:disabled{background:#0706071a;color:var(--ink-45);cursor:not-allowed}
-.btn-line{background:transparent;border:1.5px solid var(--obsidian);border-radius:var(--r-pill);
-  padding:12px 24px;min-height:44px;font-size:16px}
-.btn-line:hover:not(:disabled){background:#0706070d}
-.btn-line:disabled{border-color:#07060733;color:var(--ink-45);cursor:not-allowed}
-.btn-sm{padding:9px 18px;min-height:38px;font-size:14px}
-.card{background:var(--limestone);border-radius:var(--r-card);padding:var(--pad)}
-.card-tight{padding:24px}
-.tag{display:inline-block;background:var(--sulfur);color:var(--obsidian);
-  border-radius:var(--r-pill);padding:4px 12px;font-size:12px;font-family:var(--body);font-weight:500}
-.tag-line{background:transparent;border:1.5px solid #07060733}
-.caption{font-size:12px;line-height:1.35;color:var(--ink-60);font-weight:400;margin:0}
-.meta{font-size:14px;color:var(--ink-60);margin:0}
-.section-label{font-size:12px;letter-spacing:.06em;color:var(--ink-60);font-weight:500;
-  margin-bottom:12px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
-.input{width:100%;background:var(--chalk);border:1.5px solid #07060726;border-radius:var(--r-input);
-  padding:14px 24px;min-height:52px;outline:none;font-weight:500}
-.input:focus{border-color:var(--obsidian)}
-.input:disabled{background:#0706070a;color:var(--ink-45)}
-.input::placeholder{color:var(--ink-45)}
-.halftone{border-radius:var(--r-card);background:
-  radial-gradient(circle at 1.5px 1.5px, #fc5000cc 1.4px, transparent 1.6px) 0 0/12px 12px,
-  linear-gradient(135deg,var(--plasma),var(--ember));min-height:280px}
-.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:var(--gap);align-items:stretch}
-.hero-copy{display:flex;flex-direction:column;justify-content:center;gap:24px}
-.hero h1{font-size:clamp(56px,8.5vw,96px);line-height:.98}
-.hero p{margin:0;max-width:26em;color:var(--ink-60)}
-.hero form{display:flex;gap:12px;flex-wrap:wrap;max-width:560px}
-.hero form .input{flex:1 1 240px}
-.head{display:flex;justify-content:space-between;align-items:flex-end;gap:var(--gap);margin-bottom:24px;flex-wrap:wrap}
-.head h2{font-size:48px}
-.head .actions{display:flex;gap:8px}
-.rooms{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:var(--gap)}
-.room{display:flex;flex-direction:column;gap:16px;text-align:left}
-.room h3{font-size:32px;overflow-wrap:anywhere}
-.room dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin:0;font-size:14px}
-.room dt{color:var(--ink-60)}
+body{margin:0;font-size:16px;line-height:1.7;word-break:keep-all;-webkit-font-smoothing:antialiased}
+button,input,select{font:inherit}
+button,input,a{-webkit-tap-highlight-color:transparent}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+[hidden]{display:none!important}
+h1,h2,h3{margin:0;font-weight:700}
+h1{font-size:clamp(34px,5vw,56px);line-height:1.1;letter-spacing:-2.6px}
+h2{font-size:22px;letter-spacing:-.7px}
+h3{font-size:18px;letter-spacing:-.4px}
+p{margin:0}
+.muted{color:var(--muted)}
+.small{font-size:13px;line-height:1.6}
+.caption{font-size:12px;line-height:1.6;color:var(--muted);margin:0}
+.meta{font-size:13px;color:var(--muted);margin:0}
+.label{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.num{font-variant-numeric:tabular-nums}
+/* 상단 */
+header{border-bottom:1px solid var(--line)}
+.header-inner{max-width:1180px;margin:auto;padding:0 32px;height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;font-size:17px;font-weight:700;letter-spacing:-.6px}
+.brand i{width:9px;height:9px;border-radius:50%;background:var(--ember);display:block}
+.header-right{display:flex;align-items:center;gap:6px}
+.quiet{background:none;border:0;cursor:pointer;color:var(--muted);font-size:13px;padding:8px 10px;border-radius:8px}
+.quiet:hover{color:var(--ink);background:#07060709}
+main{max-width:1180px;margin:auto;padding:44px 32px 40px}
+/* 버튼 */
+button.btn,button.btn-line{cursor:pointer;border-radius:12px;padding:12px 18px;min-height:44px;font-weight:600;font-size:15px;transition:filter .15s,transform .15s,background .15s}
+button.btn{border:0;background:var(--ember);color:var(--ink)}
+button.btn:hover:not(:disabled){filter:brightness(1.05)}
+button.btn:active:not(:disabled){transform:scale(.99)}
+button.btn:disabled{background:#0706070f;color:#07060759;cursor:not-allowed}
+button.btn-line{background:var(--limestone);border:1px solid var(--line);color:var(--ink)}
+button.btn-line:hover:not(:disabled){background:#efece5}
+button.btn-line:disabled{color:#07060759;cursor:not-allowed}
+.btn-sm{padding:9px 14px!important;min-height:38px!important;font-size:13px!important}
+/* 입력 */
+.input{width:100%;padding:13px 15px;min-height:48px;border:1px solid #cdc9c1;border-radius:12px;background:var(--chalk);color:var(--ink);outline:none}
+.input:focus{border-color:var(--ink)}
+.input:disabled{background:#0706070a;color:#07060759}
+.input::placeholder{color:#9a958c}
+select.input{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--ink) 50%),linear-gradient(135deg,var(--ink) 50%,transparent 50%);background-position:calc(100% - 20px) 21px,calc(100% - 14px) 21px;background-size:6px 6px;background-repeat:no-repeat}
+/* 카드 */
+.card{background:var(--limestone);border:1px solid var(--line-soft);border-radius:20px}
+.card-pad{padding:24px}
+.tag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.02em;padding:4px 9px;border-radius:999px;background:var(--sulfur);color:var(--ink)}
+.tag-line{background:transparent;border:1px solid var(--line);color:var(--muted)}
+/* 1. 시작 */
+.entry{display:grid;grid-template-columns:1fr 1.05fr;gap:72px;align-items:center;min-height:560px;padding-bottom:40px}
+.entry-copy{max-width:420px}
+.entry-copy h1{margin-bottom:18px}
+.entry-copy>p{font-size:17px;color:var(--muted);margin-bottom:30px;line-height:1.7}
+.entry form{max-width:360px}
+.entry form .input{margin-bottom:12px}
+.entry form button{width:100%}
+.field-label{display:block;font-size:13px;font-weight:600;margin-bottom:8px}
+/* 히어로 미리보기: 단어 사슬 */
+.preview{position:relative;padding:36px 32px;background:var(--limestone);border:1px solid var(--line-soft);border-radius:24px;transform:rotate(-2deg);box-shadow:0 28px 70px #5543221a}
+.preview .label{margin-bottom:18px}
+.chain{display:flex;flex-direction:column;gap:0}
+.chain-row{display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--line-soft)}
+.chain-row:last-child{border-bottom:0}
+.chain-word{font-size:22px;font-weight:700;letter-spacing:-.8px}
+.chain-word em{font-style:normal;color:var(--ember)}
+.chain-by{margin-left:auto;font-size:12px;color:var(--muted)}
+.chain-row.ghost .chain-word{color:#0706074d}
+/* 2. 로비 */
+.bar{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;flex-wrap:wrap;margin-bottom:24px}
+.bar h1{font-size:38px;letter-spacing:-1.6px;margin-bottom:8px}
+.bar-actions{display:flex;gap:8px}
+.rooms{display:grid;grid-template-columns:repeat(auto-fill,minmax(304px,1fr));gap:14px}
+.room{padding:24px;display:flex;flex-direction:column;gap:14px}
+.room h3{overflow-wrap:anywhere}
+.room dl{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:0;font-size:13px}
+.room dt{color:var(--muted)}
 .room dd{margin:0}
-.empty{grid-column:1/-1;display:flex;flex-direction:column;align-items:flex-start;gap:16px}
-.empty h3{font-size:32px}
-.room-grid{display:grid;grid-template-columns:320px 1fr;gap:var(--gap);align-items:start}
-.stack{display:flex;flex-direction:column;gap:var(--gap)}
-.players{display:flex;flex-direction:column;gap:8px;margin:0;padding:0;list-style:none}
-.player{display:flex;align-items:center;gap:12px;padding:8px 18px;border-radius:var(--r-pill);
-  background:#0706070a;min-height:48px}
-.player.turn{background:var(--ember);color:var(--chalk)}
-.player .nm{font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.player .sc{font-family:var(--display);font-weight:800;font-size:16px}
-.player .sub{font-size:12px;color:var(--ink-60);line-height:1.2}
-.player.turn .sub{color:#ffffffcc}
-.turn-mark{font-size:12px}
-.board{display:flex;flex-direction:column;gap:20px;align-items:center;text-align:center}
-.board-top{display:flex;justify-content:space-between;align-items:center;width:100%;gap:12px;flex-wrap:wrap}
-.cue{font-family:var(--display);font-weight:800;font-size:96px;line-height:.95;letter-spacing:.02em}
-.timer{width:100%;max-width:520px;display:flex;flex-direction:column;gap:8px}
-.timer-track{height:14px;border-radius:var(--r-pill);background:#07060714;overflow:hidden}
-.timer-fill{height:100%;border-radius:var(--r-pill);background:var(--obsidian);width:100%}
+.room .btn,.room .btn-line{width:100%}
+.empty{grid-column:1/-1;padding:64px 28px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px}
+/* 3. 방 */
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 316px;gap:28px;align-items:start}
+.side{display:flex;flex-direction:column;gap:14px}
+.players{margin:0;padding:0;list-style:none}
+.player{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--line-soft)}
+.player:last-child{border-bottom:0}
+.dot{width:9px;height:9px;border-radius:50%;background:#0706071f;flex:none}
+.player.turn .dot{background:var(--ember)}
+.player.turn .nm{color:var(--ember)}
+.nm{font-size:14px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sub{font-size:12px;color:var(--muted);margin-top:2px}
+.sc{margin-left:auto;font-size:15px;font-weight:700;letter-spacing:-.4px}
+.side-actions{margin-top:16px;display:flex;flex-direction:column;gap:8px}
+.side-actions .btn,.side-actions .btn-line{width:100%}
+/* 게임판 */
+.board{padding:40px 32px 32px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:22px}
+.board-top{width:100%;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.cue{font-size:clamp(56px,9vw,84px);font-weight:700;letter-spacing:-4px;line-height:1}
+.cue-note{font-size:13px;color:var(--muted)}
+.timer{width:100%;max-width:460px;display:flex;flex-direction:column;gap:9px}
+.timer-head{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;gap:12px}
+.timer-head strong{font-weight:600}
+.timer-track{height:6px;border-radius:999px;background:#0706071a;overflow:hidden}
+.timer-fill{height:100%;border-radius:999px;background:var(--ink);width:100%}
 .timer.urgent .timer-fill{background:var(--ember)}
-.timer-row{display:flex;justify-content:space-between;align-items:baseline;font-size:14px;gap:12px}
-.answer{display:flex;gap:12px;width:100%;max-width:520px}
-.answer .input{flex:1;text-align:center;font-size:20px}
-.notice{min-height:26px;font-size:14px;margin:0}
-.notice .pill{display:inline-block;background:var(--sulfur);border-radius:var(--r-pill);padding:6px 16px}
-.notice.good .pill{background:var(--obsidian);color:var(--chalk)}
-.history{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:0;padding:0;list-style:none}
-.word{background:#0706070a;border-radius:var(--r-pill);padding:8px 16px;font-size:14px}
-.word b{font-family:var(--display);font-weight:800;margin-right:6px}
-.word.miss{background:var(--sulfur)}
-.word .by{color:var(--ink-60);font-size:12px;margin-left:6px}
-.chat-log{height:170px;overflow-y:auto;display:flex;flex-direction:column;gap:8px;font-size:14px;padding-right:4px}
-.chat-log b{font-family:var(--display);font-weight:800;margin-right:6px;font-size:13px}
-.chat-form{display:flex;gap:8px;margin-top:12px}
-.chat-form .input{padding:10px 20px;min-height:44px;font-size:14px}
-.rank{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px;width:100%;max-width:520px}
-.rank li{display:flex;align-items:center;gap:12px;padding:12px 20px;border-radius:var(--r-pill);background:#0706070a;min-height:48px}
-.rank li:first-child{background:var(--ember);color:var(--chalk)}
-.rank .no{font-family:var(--display);font-weight:800;width:24px}
-.rank .nm{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:14px}
-.rank .sc{font-family:var(--display);font-weight:800}
-.scrim{position:fixed;inset:0;background:#07060766;display:grid;place-items:center;padding:20px;z-index:20}
-.dialog{background:var(--limestone);border-radius:var(--r-card);padding:32px;width:min(460px,100%);display:flex;flex-direction:column;gap:16px}
-.dialog h2{font-size:32px}
-.dialog .row{display:flex;gap:8px;flex-wrap:wrap}
-.dialog .row>button{flex:1}
-.field{display:flex;flex-direction:column;gap:6px}
-.field label{font-size:14px}
+.answer{display:flex;gap:10px;width:100%;max-width:460px}
+.answer .input{flex:1;text-align:center;font-size:19px;font-weight:600;letter-spacing:-.4px}
+.notice{min-height:22px;font-size:13px;color:var(--muted)}
+.notice.bad{color:#a8320a}
+.notice.good{color:#07060f}
+.history{width:100%;border-top:1px solid var(--line-soft);padding-top:18px;display:flex;flex-direction:column;gap:10px}
+.history-head{display:flex;justify-content:space-between;align-items:baseline}
+.words{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin:0;padding:0;list-style:none}
+.word{font-size:13px;padding:6px 12px;border-radius:999px;border:1px solid var(--line-soft);background:var(--chalk)}
+.word b{font-weight:700;letter-spacing:-.3px}
+.word span{color:var(--muted);font-size:11px;margin-left:6px}
+.word.miss{background:#faf7e3;border-color:#eae4bd}
+/* 대화 */
+.chat-log{height:200px;overflow-y:auto;overscroll-behavior:contain;display:flex;flex-direction:column;gap:10px;font-size:13px;line-height:1.6;margin-top:12px}
+.chat-log b{display:block;font-size:12px;color:var(--plasma);font-weight:700}
+.chat-form{display:flex;gap:8px;margin-top:12px;padding-top:12px;border-top:1px solid var(--line-soft)}
+.chat-form .input{min-height:42px;padding:10px 13px;font-size:13px}
+/* 결과 */
+.rank{margin:0;padding:0;list-style:none;width:100%;max-width:460px}
+.rank li{display:flex;align-items:center;gap:12px;padding:13px 2px;border-bottom:1px solid var(--line-soft)}
+.rank li:last-child{border-bottom:0}
+.rank .no{width:20px;font-weight:700;color:var(--muted);font-size:13px}
+.rank li:first-child .no{color:var(--ember)}
+.rank .nm{flex:1;font-size:14px}
+.rank .sc{font-size:15px}
+/* 대화상자 */
+.scrim{position:fixed;inset:0;background:#17171a44;backdrop-filter:blur(5px);display:grid;place-items:center;padding:20px;z-index:20}
+.dialog{background:var(--limestone);border:1px solid var(--line-soft);border-radius:24px;padding:30px;width:min(430px,100%);display:flex;flex-direction:column;gap:14px;box-shadow:0 24px 80px #33210f2e}
+.dialog h2{letter-spacing:-1px}
+.dialog .row{display:flex;gap:8px;justify-content:flex-end;margin-top:6px}
+.field{display:flex;flex-direction:column;gap:7px}
+.field label{font-size:13px;font-weight:600}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:30;
-  background:var(--obsidian);color:var(--chalk);border-radius:var(--r-pill);padding:14px 24px;font-size:14px;
-  display:flex;align-items:center;gap:12px;max-width:min(560px,92vw)}
-footer{margin-top:64px;text-align:center}
+/* 토스트 */
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#242220;color:#fff;padding:13px 20px;border-radius:14px;font-size:13px;z-index:30;max-width:min(90%,560px);box-shadow:0 8px 32px #0002}
+footer{max-width:1180px;margin:auto;padding:36px 32px 40px;text-align:center}
 @media(max-width:900px){
-  :root{--pad:24px}
-  .hero{grid-template-columns:1fr}
-  .halftone{min-height:150px;order:-1}
-  .room-grid{grid-template-columns:1fr}
-  .head h2{font-size:40px}
-  .cue{font-size:72px}
+  .header-inner,main,footer{padding-left:20px;padding-right:20px}
+  main{padding-top:28px}
+  .entry{grid-template-columns:1fr;gap:34px;min-height:0;padding-bottom:20px}
+  .entry-copy{max-width:none}
+  .preview{order:2;transform:none;box-shadow:none}
+  .layout{grid-template-columns:1fr;gap:16px}
+  .side{order:-1}
+  .board{padding:28px 20px 24px}
+  .bar h1{font-size:30px;letter-spacing:-1.2px}
+  .chat-log{height:150px}
 }
-@media(prefers-reduced-motion:reduce){*{transition:none !important}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
 <body>
-<div class="page">
-  <nav class="nav">
+<header>
+  <div class="header-inner">
     <div class="brand"><i></i>끝말잇기</div>
-    <div class="nav-right">
-      <button class="ghost" id="soundBtn" aria-pressed="false">소리 켜기</button>
-      <a class="ghost" href="../../index.html">게임센터로 가기</a>
+    <div class="header-right">
+      <button class="quiet" id="soundBtn" aria-pressed="false">소리 켜기</button>
+      <a class="quiet" href="../../index.html">게임센터로 가기</a>
     </div>
-  </nav>
+  </div>
+</header>
 
+<main>
+  <!-- 1. 닉네임 -->
   <section id="viewGate">
-    <div class="hero">
-      <div class="hero-copy">
+    <div class="entry">
+      <div class="entry-copy">
         <h1>끝말잇기</h1>
-        <p>닉네임만 정하면 바로 시작합니다. 2~8명이 함께 단어를 이어가고, 이어갈수록 생각할 시간이 10초에서 1초까지 줄어듭니다.</p>
+        <p>닉네임만 정하면 바로 시작합니다. 2~8명이 번갈아 단어를 잇고, 이어갈수록 생각할 시간이 10초에서 1초까지 줄어듭니다.</p>
         <form id="gateForm">
-          <input class="input" id="nick" maxlength="10" placeholder="닉네임 (1~10자)" autocomplete="nickname" aria-label="닉네임">
+          <label class="field-label" for="nick">닉네임</label>
+          <input class="input" id="nick" maxlength="10" placeholder="1~10자" autocomplete="nickname">
           <button class="btn" type="submit" id="gateBtn">닉네임 정하고 시작하기</button>
         </form>
-        <p class="caption" id="gateHint">닉네임은 이 브라우저에 저장되어 다음에도 그대로 쓸 수 있습니다.</p>
+        <p class="caption" id="gateHint" style="margin-top:14px">닉네임은 이 브라우저에 저장되어 다음에도 그대로 쓸 수 있습니다.</p>
       </div>
-      <div class="halftone" aria-hidden="true"></div>
+      <div class="preview" aria-hidden="true">
+        <div class="label">이어지는 중</div>
+        <div class="chain">
+          <div class="chain-row"><span class="chain-word">고구<em>마</em></span><span class="chain-by">단어왕 +92</span></div>
+          <div class="chain-row"><span class="chain-word">마늘<em>종</em></span><span class="chain-by">세글자 +78</span></div>
+          <div class="chain-row"><span class="chain-word">종달<em>새</em></span><span class="chain-by">나야나 +85</span></div>
+          <div class="chain-row ghost"><span class="chain-word">새…</span><span class="chain-by">3.2초</span></div>
+        </div>
+      </div>
     </div>
   </section>
 
+  <!-- 2. 로비 -->
   <section id="viewLobby" hidden>
-    <div class="head">
+    <div class="bar">
       <div>
-        <h2>방 목록</h2>
+        <h1>방 목록</h1>
         <p class="meta" id="lobbyCount">방을 불러오는 중입니다</p>
       </div>
-      <div class="actions">
+      <div class="bar-actions">
         <button class="btn-line btn-sm" id="refreshBtn">목록 새로고침</button>
         <button class="btn btn-sm" id="createBtn">방 만들기</button>
       </div>
@@ -180,23 +222,27 @@ footer{margin-top:64px;text-align:center}
     <div class="rooms" id="roomList"></div>
   </section>
 
+  <!-- 3. 방 -->
   <section id="viewRoom" hidden>
-    <div class="head">
+    <div class="bar">
       <div>
-        <h2 id="roomTitle">방</h2>
+        <h1 id="roomTitle">방</h1>
         <p class="meta" id="roomMeta"></p>
       </div>
       <button class="btn-line btn-sm" id="leaveBtn">방 나가기</button>
     </div>
-    <div class="room-grid">
-      <div class="stack">
-        <div class="card card-tight">
-          <div class="section-label"><span>참가자</span><span id="playerCount"></span></div>
+    <div class="layout">
+      <div class="card" id="boardCard"></div>
+      <div class="side">
+        <div class="card card-pad">
+          <div class="bar" style="margin-bottom:6px">
+            <span class="label">참가자</span><span class="caption num" id="playerCount"></span>
+          </div>
           <ul class="players" id="players"></ul>
-          <div id="roomAction" class="stack" style="margin-top:16px;gap:8px"></div>
+          <div class="side-actions" id="roomAction"></div>
         </div>
-        <div class="card card-tight">
-          <div class="section-label"><span>대화</span></div>
+        <div class="card card-pad">
+          <span class="label">대화</span>
           <div class="chat-log" id="chatLog"></div>
           <form class="chat-form" id="chatForm">
             <input class="input" id="chatInput" maxlength="200" placeholder="메시지 입력" aria-label="대화 메시지">
@@ -204,14 +250,13 @@ footer{margin-top:64px;text-align:center}
           </form>
         </div>
       </div>
-      <div class="card" id="boardCard"></div>
     </div>
   </section>
+</main>
 
-  <footer>
-    <p class="caption">PLAY LAB · 끝말잇기 · 단어는 국립국어원 표준국어대사전 명사(CC BY-SA)를 가공해 사용합니다. 닉네임 외의 개인정보는 저장하지 않습니다.</p>
-  </footer>
-</div>
+<footer>
+  <p class="caption">PLAY LAB · 끝말잇기 · 단어는 국립국어원 표준국어대사전 명사(CC BY-SA)를 가공해 사용합니다. 닉네임 외의 개인정보는 저장하지 않습니다.</p>
+</footer>
 
 <script>
 'use strict';
@@ -289,7 +334,7 @@ function dialog(title, bodyNodes, actions) {
   box.append(el('h2', '', title), ...bodyNodes);
   const row = el('div', 'row');
   for (const a of actions) {
-    const b = el('button', a.primary ? 'btn' : 'btn-line', a.label);
+    const b = el('button', (a.primary ? 'btn' : 'btn-line') + ' btn-sm', a.label);
     b.onclick = () => a.run(box, () => scrim.remove());
     row.append(b);
   }
@@ -332,7 +377,7 @@ async function loadRooms() {
   const list = $('roomList'); list.replaceChildren();
   if (!rooms.length) {
     const box = el('div', 'card empty');
-    box.append(el('span', 'tag', '방 없음'), el('h3', '', '아직 만들어진 방이 없습니다'),
+    box.append(el('span', 'tag', '방 없음'), el('h2', '', '아직 만들어진 방이 없습니다'),
       el('p', 'meta', '첫 방을 만들면 다른 사람이 들어올 수 있습니다. 2명이 모이면 바로 시작할 수 있습니다.'));
     const b = el('button', 'btn', '방 만들기'); b.onclick = openCreate; box.append(b);
     list.append(box); return;
@@ -340,14 +385,14 @@ async function loadRooms() {
   for (const r of rooms) {
     const card = el('div', 'card room');
     const playing = r.status === 'playing', full = r.players >= r.max;
-    const top = el('div'); top.style.cssText = 'display:flex;gap:8px;flex-wrap:wrap';
+    const top = el('div'); top.style.cssText = 'display:flex;gap:6px;flex-wrap:wrap';
     top.append(el('span', 'tag', playing ? '게임 중' : r.status === 'finished' ? '게임 끝남' : '대기 중'));
     if (r.locked) top.append(el('span', 'tag tag-line', '비밀번호 필요'));
     const dl = el('dl');
     dl.append(el('dt', '', '방장'), el('dd', '', r.host_name || '없음'),
       el('dt', '', '참가자'), el('dd', '', `${r.players} / ${r.max}명`),
       el('dt', '', '라운드'), el('dd', '', `${r.rounds}라운드`));
-    const btn = el('button', 'btn', '이 방 들어가기');
+    const btn = el('button', full || playing ? 'btn-line' : 'btn', '이 방 들어가기');
     btn.disabled = playing || full;
     btn.onclick = () => joinRoom(r, btn);
     card.append(top, el('h3', '', r.title), dl, btn);
@@ -494,11 +539,11 @@ function paintPlayers(st) {
     const mine = p.id === st.turn_id && st.status === 'playing';
     const li = el('li', 'player' + (mine ? ' turn' : ''));
     const col = el('div'); col.style.cssText = 'flex:1;min-width:0';
+    const sub = p.host ? '방장' : waiting ? (p.ready ? '준비 완료' : '준비 전') : '참가자';
     col.append(el('div', 'nm', p.name + (p.me ? ' (나)' : '')),
-      el('div', 'sub', p.host ? '방장' : waiting ? (p.ready ? '준비 완료' : '준비 전') : '참가자'));
-    li.append(col);
-    if (mine) li.append(el('span', 'turn-mark', '차례'));
-    if (!(st.status === 'waiting' && st.round === 0)) li.append(el('span', 'sc', String(p.score)));
+      el('div', 'sub', mine ? sub + ' · 차례' : sub));
+    li.append(el('span', 'dot'), col);
+    if (!(st.status === 'waiting' && st.round === 0)) li.append(el('span', 'sc num', String(p.score)));
     box.append(li);
   }
   const act = $('roomAction'); act.replaceChildren();
@@ -532,14 +577,14 @@ function buildBoard() {
   const c = $('boardCard'); c.replaceChildren();
   const wrap = el('div', 'board');
   const top = el('div', 'board-top');
-  top.append(el('span', 'tag', '라운드'), el('span', 'meta', ''));
+  top.append(el('span', 'label', '라운드'), el('span', 'caption num', ''));
   const cue = el('div', 'cue', '?');
-  const alt = el('p', 'meta', '');
+  const alt = el('p', 'cue-note', '');
   const timer = el('div', 'timer');
-  const row = el('div', 'timer-row');
-  row.append(el('span', '', '남은 시간'), el('span', '', ''));
+  const head = el('div', 'timer-head');
+  head.append(el('strong', '', '남은 시간'), el('span', 'num', ''));
   const track = el('div', 'timer-track'); track.append(el('div', 'timer-fill'));
-  timer.append(row, track);
+  timer.append(head, track);
   const guide = el('p', 'caption', '');
   const form = el('form', 'answer');
   const input = el('input', 'input'); input.id = 'wordInput'; input.maxLength = 12; input.autocomplete = 'off';
@@ -547,10 +592,11 @@ function buildBoard() {
   const send = el('button', 'btn', '단어 보내기'); send.type = 'submit';
   form.append(input, send); form.onsubmit = submitWord;
   const notice = el('p', 'notice', '');
-  const histLabel = el('div', 'section-label'); histLabel.style.width = '100%';
-  histLabel.append(el('span', '', '이번 라운드 단어'), el('span', '', ''));
-  const hist = el('ul', 'history');
-  wrap.append(top, cue, alt, timer, guide, form, notice, histLabel, hist);
+  const hist = el('div', 'history');
+  const histHead = el('div', 'history-head');
+  histHead.append(el('span', 'label', '이번 라운드 단어'), el('span', 'caption num', ''));
+  hist.append(histHead, el('ul', 'words'));
+  wrap.append(top, cue, alt, timer, guide, form, notice, hist);
   c.append(wrap);
   S.boardBuilt = true;
   return wrap;
@@ -563,18 +609,18 @@ function paintBoard(st, prev) {
     c.replaceChildren();
     const box = el('div', 'board');
     if (st.status === 'finished') {
-      box.append(el('span', 'tag', '결과'), el('h2', '', `${st.winner_name || '-'} 님이 1위입니다`),
+      box.append(el('span', 'label', '결과'), el('h2', '', `${st.winner_name || '-'} 님이 1위입니다`),
         el('p', 'meta', `${st.rounds}라운드를 모두 마쳤습니다. 방장이 새 게임을 시작하면 점수는 0부터 다시 시작합니다.`));
       const rank = el('ul', 'rank');
       [...st.players].sort((a, b) => b.score - a.score).forEach((p, i) => {
         const li = el('li');
-        li.append(el('span', 'no', String(i + 1)), el('span', 'nm', p.name + (p.me ? ' (나)' : '')), el('span', 'sc', String(p.score)));
+        li.append(el('span', 'no num', String(i + 1)), el('span', 'nm', p.name + (p.me ? ' (나)' : '')), el('span', 'sc num', String(p.score)));
         rank.append(li);
       });
       box.append(rank);
       if (prev && prev.status === 'playing') SFX.done();
     } else {
-      box.append(el('span', 'tag', '대기 중'), el('h2', '', '참가자를 기다리는 중입니다'),
+      box.append(el('span', 'label', '대기 중'), el('h2', '', '참가자를 기다리는 중입니다'),
         el('p', 'meta', '끝 글자로 시작하는 단어를 번갈아 입력합니다. 두 글자 이상이면 길이는 자유이고, 표준국어대사전에 있는 단어만 인정됩니다.'),
         el('p', 'meta', `최대 ${st.max}명 · ${st.rounds}라운드 · 제한시간은 10초에서 시작해 점점 줄어듭니다.`));
     }
@@ -585,17 +631,17 @@ function paintBoard(st, prev) {
   const wrap = S.boardBuilt && c.querySelector('.board') ? c.querySelector('.board') : buildBoard();
   const top = wrap.querySelector('.board-top');
   top.children[0].textContent = `${st.round} / ${st.rounds} 라운드`;
-  top.children[1].textContent = `이번 라운드 ${st.chain}번째 단어`;
+  top.children[1].textContent = `${st.chain}번째 단어`;
   wrap.querySelector('.cue').textContent = st.cur_char || '?';
   const others = (st.cur_chars || []).filter(ch => ch !== st.cur_char);
-  wrap.querySelectorAll('.meta')[1].textContent = others.length
+  wrap.querySelector('.cue-note').textContent = others.length
     ? `${st.cur_char} 또는 두음법칙을 적용한 ${others.join(', ')} 로 시작하면 됩니다`
     : `${st.cur_char} 로 시작하는 단어를 입력합니다`;
 
   const mine = st.turn_id === st.me;
   const who = st.players.find(p => p.id === st.turn_id);
-  wrap.querySelector('.timer-row').children[0].textContent = mine
-    ? '내 차례 — 남은 시간' : `${who ? who.name : '다른 참가자'} 님의 차례 — 남은 시간`;
+  wrap.querySelector('.timer-head').children[0].textContent = mine
+    ? '내 차례 — 남은 시간' : `${who ? who.name : '다른 참가자'} 님의 차례`;
   wrap.querySelector('.caption').textContent = mine
     ? 'Enter를 눌러 바로 보낼 수 있습니다.'
     : '차례가 오면 입력칸이 열립니다. 그동안 다음 단어를 생각해 둘 수 있습니다.';
@@ -610,14 +656,14 @@ function paintBoard(st, prev) {
 
   if (st.history.length !== S.lastHistory) {
     S.lastHistory = st.history.length;
-    const hist = wrap.querySelector('.history'); hist.replaceChildren();
-    wrap.querySelector('.section-label').children[1].textContent = `${st.chain}개 이어짐`;
-    if (!st.history.length) hist.append(el('li', 'caption', '이번 라운드의 첫 단어를 기다리는 중입니다.'));
+    const list = wrap.querySelector('.words'); list.replaceChildren();
+    wrap.querySelector('.history-head').children[1].textContent = `${st.chain}개 이어짐`;
+    if (!st.history.length) list.append(el('li', 'caption', '이번 라운드의 첫 단어를 기다리는 중입니다.'));
     for (const h of st.history.slice(-12)) {
       const li = el('li', 'word' + (h.ok ? '' : ' miss'));
-      if (h.ok) li.append(el('b', '', h.word), el('span', 'by', `${h.name} +${h.score}`));
-      else li.append(el('span', '', `${h.name} 시간 초과`), el('span', 'by', String(h.score)));
-      hist.append(li);
+      if (h.ok) li.append(el('b', '', h.word), el('span', '', `${h.name} +${h.score}`));
+      else li.append(el('span', '', `${h.name} 시간 초과 ${h.score}`));
+      list.append(li);
     }
   }
   startTimer(st, wrap);
@@ -626,7 +672,7 @@ function paintBoard(st, prev) {
 function startTimer(st, wrap) {
   cancelAnimationFrame(S.raf);
   const timer = wrap.querySelector('.timer'), fill = wrap.querySelector('.timer-fill'),
-    secs = wrap.querySelector('.timer-row').children[1];
+    secs = wrap.querySelector('.timer-head').children[1];
   const total = st.turn_time || 1, begin = st.remain, t0 = performance.now();
   let lastSec = Math.ceil(begin / 1000);
   const step = () => {
@@ -645,8 +691,8 @@ function startTimer(st, wrap) {
 function say(text, good) {
   const n = document.querySelector('.notice');
   if (!n) return;
-  n.className = 'notice' + (good ? ' good' : '');
-  n.replaceChildren(el('span', 'pill', text));
+  n.className = 'notice ' + (good ? 'good' : 'bad');
+  n.textContent = text;
 }
 async function submitWord(e) {
   e.preventDefault();
