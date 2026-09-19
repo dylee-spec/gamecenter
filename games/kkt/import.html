@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>사전 넣기 — 끝말잇기</title>
+<meta name="robots" content="noindex">
+<style>
+:root{--ember:#fc5000;--limestone:#f7f6f2;--pumice:#e2e2df;--ink:#070607;--muted:#6f6b64;--line:#d3d0c9;--line-soft:#e8e5dd;
+  font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;color:var(--ink);background:var(--pumice)}
+*{box-sizing:border-box}
+body{margin:0;line-height:1.7;word-break:keep-all}
+.wrap{max-width:720px;margin:auto;padding:48px 24px 64px}
+h1{font-size:40px;letter-spacing:-2px;margin:0 0 10px}
+p{margin:0 0 14px;color:var(--muted)}
+.card{background:var(--limestone);border:1px solid var(--line-soft);border-radius:20px;padding:28px;margin-top:20px}
+label{display:block;font-size:13px;font-weight:600;margin-bottom:8px;color:var(--ink)}
+input{width:100%;padding:13px 15px;min-height:48px;border:1px solid #cdc9c1;border-radius:12px;background:#fff;font:inherit;outline:none}
+input:focus{border-color:var(--ink)}
+button{cursor:pointer;border:0;border-radius:12px;padding:12px 18px;min-height:46px;font:inherit;font-weight:600;background:var(--ember);color:var(--ink);margin-top:14px}
+button:disabled{background:#0706070f;color:#07060759;cursor:not-allowed}
+.bar{height:8px;border-radius:999px;background:#0706071a;overflow:hidden;margin:16px 0 8px}
+.bar i{display:block;height:100%;background:var(--ink);width:0}
+.log{font-size:13px;color:var(--muted);white-space:pre-wrap;margin-top:8px}
+.ok{color:#1c6b3f;font-weight:600}
+.err{color:#a8320a;font-weight:600}
+a{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>사전 넣기</h1>
+  <p>끝말잇기가 쓰는 단어 사전을 새 파일로 교체합니다. 파일은 이 브라우저에서 바로 읽어 서버로 보냅니다. 한 번만 하면 됩니다.</p>
+
+  <div class="card">
+    <label for="key">가져오기 암호</label>
+    <input id="key" type="password" placeholder="전달받은 암호" autocomplete="off">
+
+    <label for="file" style="margin-top:18px">사전 파일</label>
+    <input id="file" type="file" accept=".zip,.gz,.json">
+    <p class="log">wordchain-package.zip 을 그대로 골라도 되고, 압축을 풀었다면 wordchain-lite.json.gz 또는 wordchain-lite.json 을 골라도 됩니다.</p>
+
+    <button id="go" disabled>사전 넣기</button>
+    <div class="bar"><i id="bar"></i></div>
+    <div class="log" id="log">파일을 고르면 시작할 수 있습니다.</div>
+  </div>
+
+  <p style="margin-top:20px"><a href="index.html">← 끝말잇기로 돌아가기</a></p>
+</div>
+
+<script>
+'use strict';
+const API = 'https://ptwupwbdedgenmbwniwj.supabase.co/rest/v1/rpc/';
+const KEY = 'sb_publishable_42ATZwFevpMbuN5gL36kxg_FtOqmDL1';
+const $ = id => document.getElementById(id);
+let words = null;
+
+function say(text, cls) { const l = $('log'); l.textContent = text; l.className = 'log' + (cls ? ' ' + cls : ''); }
+async function rpc(name, body) {
+  const res = await fetch(API + name, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', apikey: KEY, Authorization: 'Bearer ' + KEY },
+    body: JSON.stringify(body)
+  });
+  const text = await res.text();
+  if (!res.ok) throw new Error(text.slice(0, 200));
+  try { return JSON.parse(text); } catch { return text; }
+}
+async function gunzip(buf) {
+  const s = new Blob([buf]).stream().pipeThrough(new DecompressionStream('gzip'));
+  return new Response(s).arrayBuffer();
+}
+/* 최소 ZIP 리더: 중앙 디렉터리에서 원하는 항목만 꺼낸다 */
+async function fromZip(buf, wanted) {
+  const dv = new DataView(buf), u8 = new Uint8Array(buf);
+  let end = -1;
+  for (let i = u8.length - 22; i >= 0 && i > u8.length - 66000; i--) if (dv.getUint32(i, true) === 0x06054b50) { end = i; break; }
+  if (end < 0) throw new Error('zip 구조를 읽지 못했습니다.');
+  let n = dv.getUint16(end + 10, true), off = dv.getUint32(end + 16, true);
+  const dec = new TextDecoder();
+  for (let i = 0; i < n; i++) {
+    const nameLen = dv.getUint16(off + 28, true), extLen = dv.getUint16(off + 30, true), cmtLen = dv.getUint16(off + 32, true);
+    const name = dec.decode(u8.subarray(off + 46, off + 46 + nameLen));
+    const method = dv.getUint16(off + 10, true), size = dv.getUint32(off + 20, true);
+    const local = dv.getUint32(off + 42, true);
+    if (wanted.test(name)) {
+      const lNameLen = dv.getUint16(local + 26, true), lExtLen = dv.getUint16(local + 28, true);
+      const start = local + 30 + lNameLen + lExtLen;
+      const raw = buf.slice(start, start + size);
+      if (method === 0) return { name, buf: raw };
+      const s = new Blob([raw]).stream().pipeThrough(new DecompressionStream('deflate-raw'));
+      return { name, buf: await new Response(s).arrayBuffer() };
+    }
+    off += 46 + nameLen + extLen + cmtLen;
+  }
+  throw new Error('zip 안에서 wordchain-lite 파일을 찾지 못했습니다.');
+}
+$('file').onchange = async e => {
+  const f = e.target.files && e.target.files[0]; words = null; $('go').disabled = true;
+  if (!f) return;
+  try {
+    say('파일을 읽는 중…');
+    let buf = await f.arrayBuffer();
+    if (/\.zip$/i.test(f.name)) {
+      const got = await fromZip(buf, /wordchain-lite\.json(\.gz)?$/i);
+      buf = /\.gz$/i.test(got.name) ? await gunzip(got.buf) : got.buf;
+    } else if (/\.gz$/i.test(f.name)) buf = await gunzip(buf);
+    const data = JSON.parse(new TextDecoder().decode(buf));
+    const src = data.words || data;
+    words = Array.isArray(src) ? src.map(x => [x.word || x[0], x.definition || x[1] || '']) : Object.entries(src);
+    words = words.filter(([w]) => /^[가-힣]{2,}$/.test(w));
+    if (!words.length) throw new Error('단어를 찾지 못했습니다.');
+    say(`단어 ${words.length.toLocaleString()}개를 읽었습니다. 암호를 넣고 "사전 넣기"를 누르세요.`, 'ok');
+    $('go').disabled = false;
+  } catch (err) { say('읽지 못했습니다: ' + err.message, 'err'); }
+};
+$('go').onclick = async () => {
+  const secret = $('key').value.trim();
+  if (!secret) { say('가져오기 암호를 입력해 주세요.', 'err'); return; }
+  $('go').disabled = true; $('file').disabled = true;
+  const CHUNK = 3000; let sent = 0;
+  try {
+    for (let i = 0; i < words.length; i += CHUNK) {
+      await rpc('kkt_import_words', { p_secret: secret, p_rows: words.slice(i, i + CHUNK) });
+      sent = Math.min(words.length, i + CHUNK);
+      $('bar').style.width = (sent / words.length * 100).toFixed(1) + '%';
+      say(`보내는 중… ${sent.toLocaleString()} / ${words.length.toLocaleString()}`);
+    }
+    say('마무리하는 중… 기존 사전을 새 사전으로 교체합니다.');
+    const out = await rpc('kkt_import_finish', { p_secret: secret });
+    say(`끝났습니다. 단어 ${Number(out.words).toLocaleString()}개, 시작 글자 ${out.heads}종. 이제 게임에서 바로 쓰입니다.`, 'ok');
+  } catch (err) {
+    say('중단했습니다: ' + err.message + '\n기존 사전은 그대로입니다. 암호를 확인하고 다시 시도할 수 있습니다.', 'err');
+    $('go').disabled = false; $('file').disabled = false;
+  }
+};
+</script>
+</body>
+</html>
