@@ -234,7 +234,11 @@ main{max-width:1440px;margin:0 auto;padding:24px 24px 40px}
 .pc .sc{font-size:16px;font-weight:700;color:var(--g700);margin-top:2px}
 .pc.turn{background:var(--gr50);box-shadow:inset 0 0 0 2px var(--gr500)}
 .pc.turn .n,.pc.turn b{color:var(--gr600)}
-.pc.done{opacity:.5}
+.pc.done>:not(.say-wrap){opacity:.5}
+.say-wrap{position:absolute;left:50%;top:24px;width:0;height:0;z-index:3;pointer-events:none}
+.say{position:absolute;left:0;bottom:0;display:flex;flex-direction:column;align-items:center;transform:translateX(-50%) scale(0);transform-origin:50% 100%;filter:drop-shadow(0 6px 14px rgba(0,0,0,.16))}
+.say-body{background:var(--w);color:var(--g900);font-size:16px;font-weight:700;line-height:22px;letter-spacing:-.3px;padding:8px 14px;border-radius:14px;white-space:nowrap;max-width:220px;overflow:hidden;text-overflow:ellipsis}
+.say-tail{width:14px;height:8px;margin-top:-1px;background:var(--w);clip-path:polygon(0 0,100% 0,50% 100%)}
 .answer{display:grid;grid-template-columns:1fr 148px;gap:12px;margin-top:30px}
 .answer .input{height:64px;border-radius:16px;font-size:20px;font-weight:700;padding:0 22px;background:var(--w);box-shadow:inset 0 0 0 2px var(--gr500)}
 .answer .input:disabled{background:var(--g100);box-shadow:none;font-weight:400;font-size:18px}
@@ -394,7 +398,7 @@ main{max-width:1440px;margin:0 auto;padding:24px 24px 40px}
         <div class="panel chat" id="chatPanel">
           <h3>채팅</h3>
           <div class="chat-log" id="chatLog"></div>
-          <p class="chat-note" id="chatNote" hidden>게임 중에는 왼쪽 입력칸 하나로 채팅과 단어를 함께 보내요. 내 차례에 한글 단어를 치면 정답으로 제출돼요.</p>
+          <p class="chat-note" id="chatNote" hidden>게임 중에는 왼쪽 입력칸 하나로 채팅과 단어를 함께 보내요. 채팅은 여기에, 정답 시도는 캐릭터 카드 위 말풍선으로 보여요.</p>
           <form class="chat-form" id="chatForm">
             <input class="input" id="chatInput" maxlength="200" placeholder="메시지를 입력해주세요" aria-label="채팅 메시지" autocomplete="off">
             <button class="btn" type="submit">보내기</button>
@@ -700,7 +704,7 @@ async function joinRoom(r, btn) {
 function stopPolling() { clearInterval(S.poll); S.poll = null; cancelAnimationFrame(S.raf); cancelAnimationFrame(S.craf); }
 function openRoom(st) {
   stopPolling();
-  Object.assign(S, { room: st.id, chatSeq: 0, lastRound: 0, lastTurn: null, lastStatus: null, built: null, mean: null, lastCount: -1 });
+  Object.assign(S, { room: st.id, chatSeq: 0, lastRound: 0, lastTurn: null, lastStatus: null, built: null, mean: null, lastCount: -1, attemptSeen: null, cards: null });
   $('chatLog').replaceChildren();
   view('Room'); apply(st);
   S.poll = setInterval(pollRoom, 850);
@@ -741,7 +745,9 @@ function apply(st) {
     if (st.round !== S.lastRound) { S.lastRound = st.round; S.mean = null; SFX.round(); }
     if (st.turn_id !== S.lastTurn) { S.lastTurn = st.turn_id; if (st.turn_id === st.me && !(st.countdown > 0)) SFX.myTurn(); }
     paintPlaying(st);
+    processAttempts(st);
   } else if (st.status === 'finished') {
+    processAttempts(st);
     paintResult(st, prev);
   } else {
     paintWaiting(st);
@@ -857,7 +863,57 @@ function buildPlaying() {
     <ul class="words" id="words"></ul>`;
   pane.append(b);
   $('answer').onsubmit = submitWord;
-  S.built = 'play';
+  S.built = 'play'; S.cards = new Map();
+}
+function renderOrder(st, list, turnIdx, counting) {
+  const order = $('order');
+  if (!S.cards) S.cards = new Map();
+  const alive = new Set();
+  list.forEach((p, i) => {
+    alive.add(p.id);
+    let c = S.cards.get(p.id);
+    if (!c) {
+      c = el('div', 'pc');
+      c.append(el('span', 'n num'), el('span', 'badge'), el('div', 'say-wrap'), el('div', 'av-slot'), el('b'), el('span', 'sc num'));
+      S.cards.set(p.id, c);
+    }
+    const turn = p.id === st.turn_id;
+    c.className = 'pc' + (turn ? ' turn' : '') + (!counting && turnIdx >= 0 && i < turnIdx ? ' done' : '');
+    c.querySelector('.n').textContent = String(i + 1);
+    const badge = c.querySelector('.badge'); badge.hidden = !turn; badge.textContent = counting ? '첫 차례' : '차례';
+    const avKey = p.avatar ? 'img' + p.avatar.length + p.avatar.slice(-24) : 'def' + p.id;
+    const slot = c.querySelector('.av-slot');
+    if (slot.dataset.key !== avKey) { slot.dataset.key = avKey; slot.replaceChildren(avatar(p, 56)); }
+    c.querySelector('b').textContent = p.name + (p.me ? ' (나)' : '');
+    c.querySelector('.sc').textContent = String(p.score);
+    order.append(c); // 순서 유지 (기존 노드는 이동만 되므로 말풍선이 남아 있음)
+  });
+  for (const [id, c] of S.cards) if (!alive.has(id)) { c.remove(); S.cards.delete(id); }
+}
+
+/* 정답 시도 말풍선: 꼬리 끝 기준으로 0→100% 나타났다가 2초 뒤 100→0% 사라짐 */
+function showSay(personId, text) {
+  const card = S.cards && S.cards.get(personId); if (!card) return;
+  const wrap = card.querySelector('.say-wrap');
+  clearTimeout(card._sayTimer);
+  for (const old of [...wrap.children]) { old.getAnimations().forEach(a => a.cancel()); old.remove(); } // 2초 안에 새 답이 오면 즉시 교체
+  const say = el('div', 'say'); say.append(el('span', 'say-body', text), el('span', 'say-tail'));
+  wrap.append(say);
+  const fast = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  say.animate([{ transform: 'translateX(-50%) scale(0)' }, { transform: 'translateX(-50%) scale(1)' }],
+    { duration: fast ? 1 : 200, easing: 'cubic-bezier(.2,.9,.3,1.25)', fill: 'forwards' });
+  card._sayTimer = setTimeout(() => {
+    const out = say.animate([{ transform: 'translateX(-50%) scale(1)' }, { transform: 'translateX(-50%) scale(0)' }],
+      { duration: fast ? 1 : 180, easing: 'cubic-bezier(.5,0,.8,.4)', fill: 'forwards' });
+    out.onfinish = () => say.remove();
+  }, 2000);
+}
+function processAttempts(st) {
+  const seq = st.attempt_seq || 0;
+  if (S.attemptSeen == null || st.status !== 'playing') { S.attemptSeen = seq; return; }
+  const fresh = (st.attempts || []).filter(a => a.id > S.attemptSeen).sort((a, b) => a.id - b.id);
+  for (const a of fresh) showSay(a.person, a.text);
+  S.attemptSeen = Math.max(S.attemptSeen, seq);
 }
 function paintPlaying(st) {
   if (S.built !== 'play') buildPlaying();
@@ -887,16 +943,8 @@ function paintPlaying(st) {
     if (alts.length) cueAlt.append(el('span', 'chip chip-green', `‘${alts.join('’, ‘')}’으로 시작해도 돼요 · 두음법칙`));
   }
 
-  // 순서 카드
-  const order = $('order'); order.replaceChildren();
-  list.forEach((p, i) => {
-    const turn = p.id === st.turn_id;
-    const c = el('div', 'pc' + (turn ? ' turn' : '') + (!counting && turnIdx >= 0 && i < turnIdx ? ' done' : ''));
-    c.append(el('span', 'n num', String(i + 1)));
-    if (turn) c.append(el('span', 'badge', counting ? '첫 차례' : '차례'));
-    c.append(avatar(p, 56), el('b', '', p.name + (p.me ? ' (나)' : '')), el('span', 'sc num', String(p.score)));
-    order.append(c);
-  });
+  // 순서 카드 (한 번 만든 카드를 갱신해서 말풍선이 지워지지 않게)
+  renderOrder(st, list, turnIdx, counting);
 
   // 입력
   const input = $('wordInput'), send = $('sendBtn'), wordMode = mine && !counting;
@@ -982,18 +1030,18 @@ async function submitWord(e) {
   const wordMode = S.st.turn_id === S.st.me && !(S.st.countdown > 0);
   if (!wordMode || !/^[가-힣]{2,}$/.test(word)) { await sendChat(word, input); return; }
   S.busy = true;
+  input.value = ''; // 보내는 즉시 비움 (내 답은 카드 말풍선으로 보임)
   try {
     const st = await api('submit', { room: S.room, word, round: S.st.round, chat_since: S.chatSeq });
-    if (st.reject) { say(st.reject + ' 다른 단어로 다시 보내주세요.', true); SFX.no(); }
+    if (st.reject) { say(st.reject, true); SFX.no(); }
     else if (st.late) { say('시간이 끝나 이번 차례가 넘어갔어요.', true); SFX.no(); }
     else if (st.accepted != null) {
       SFX.ok(); $('notice').className = 'notice';
       S.mean = { word: st.word || word, def: st.definition, score: st.accepted, round: st.round, shownTurn: st.turn_id };
     }
-    const keep = st.reject ? word : '';
     apply(st);
-    const next = $('wordInput'); if (next && keep) { next.value = keep; next.focus(); }
-  } catch (err) { say(err.message, true); SFX.no(); }
+    const next = $('wordInput'); if (next) next.focus();
+  } catch (err) { input.value = word; say(err.message, true); SFX.no(); }
   finally { S.busy = false; }
 }
 
