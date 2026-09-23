@@ -38,3 +38,4 @@
 
 ## 클라이언트 브랜드 동향 (`clients`)
 - 수치는 그대로 두고 손대지 않아요. 클라이언트 목록은 `scripts/weeklip/config.json`의 clientBrands에서 관리해요.
+- 화면에는 브랜드별 문단으로 자동 표시돼요. 더 자연스럽게 다듬고 싶으면 각 브랜드에 `summary`(HTML 문단, 수치는 데이터 그대로)를, 섹션 앞에 `clientsIntro`(이번 주 전체 흐름 1~2문장)를 넣어요.
