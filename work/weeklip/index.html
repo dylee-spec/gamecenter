@@ -93,8 +93,8 @@ img{max-width:100%;display:block}
 .play{position:absolute;inset:0;display:grid;place-items:center}
 .play span{width:64px;height:64px;border-radius:50%;background:rgba(25,31,40,.72);display:grid;place-items:center}
 .figure figcaption{margin-top:10px;font-size:13px;color:var(--g500)}
-.post p.body{font-size:17px;line-height:1.9;color:var(--g800);margin-top:20px}
-.post p.body b{color:var(--g900)}
+.post p.body,.case p.body{font-size:17px;line-height:1.9;color:var(--g800);margin-top:20px}
+.post p.body b,.case p.body b{color:var(--g900)}
 .suggest{margin-top:28px;padding:24px 28px;border-radius:20px;background:var(--blue-bg)}
 .suggest b{display:block;font-size:15px;color:var(--blue-dark)}
 .suggest p{margin-top:8px;font-size:16px;line-height:1.8;color:var(--g800)}
@@ -116,6 +116,7 @@ img{max-width:100%;display:block}
 .dchips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.dchip{font-size:13px;padding:6px 10px;border-radius:8px;background:var(--g100);color:var(--g700)}.dchip b{color:var(--g900)}.dchip.season{background:var(--orange-bg);color:var(--orange)}.dchip.new{background:var(--blue-bg);color:var(--blue-dark)}
 .clients{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}.client{border:1px solid var(--g200);border-radius:20px;padding:20px}.client-top{display:flex;justify-content:space-between;align-items:center}.client-top b{font-size:18px}.client-top .up{color:var(--blue-dark);font-weight:700}.client-top .down{color:var(--g600);font-weight:700}.client-top .na{color:var(--g400);font-size:13px}.client>p{margin-top:6px;font-size:13px;color:var(--g600)}.client a{display:grid;grid-template-columns:96px 1fr;gap:12px;margin-top:12px;align-items:center}.client a img{width:96px;aspect-ratio:16/9;object-fit:cover;border-radius:8px;background:var(--g100)}.client a strong{display:block;font-size:14px}.client a span span{display:block;font-size:13px;color:var(--g600);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.client .none{font-size:13px;color:var(--g400);margin-top:12px}
 @media (max-width:860px){.clients{grid-template-columns:1fr}}
+.steps{margin:16px 0 0 20px;display:grid;gap:6px;font-size:16px;line-height:1.7;color:var(--g800)}.ref-ph{width:120px;aspect-ratio:16/9;border-radius:10px;background:var(--g100);display:grid;place-items:center;font-size:13px;font-weight:700;color:var(--g600)}
 .srcs a{text-decoration:underline;text-underline-offset:2px}
 .pager{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:40px auto 80px}
 .pager a,.pager div{background:#fff;border-radius:20px;padding:22px 24px;display:flex;flex-direction:column;gap:6px}
@@ -163,6 +164,14 @@ const dataChips=t=>{const c=[];
   if(t.demo&&t.demo.femalePct!=null)c.push(`<span class="dchip">쇼핑 클릭 여성 <b>${t.demo.femalePct}%</b></span>`);
   if(t.demo&&t.demo.topAge)c.push(`<span class="dchip">최다 연령 <b>${t.demo.topAge} ${t.demo.topAgePct}%</b></span>`);
   return c.length?`<div class="dchips">${c.join('')}</div>`:''};
+const ytId=u=>{const m=(u||'').match(/(?:v=|youtu\.be\/|shorts\/)([\w-]{11})/);return m?m[1]:null};
+const formatsHTML=is=>!(is.formats&&is.formats.length)?'':`<div class="cases-head"><h2>이번 주 유행 포맷</h2><p>업종과 상관없이 요즘 릴스·틱톡·쇼츠에서 많이 쓰이는 영상 구성과 챌린지예요. 뷰티 브랜드라면 어떻게 가져올 수 있을지도 함께 적었어요.</p></div>
+  ${is.formats.map((f,i)=>`<section class="case fmt" id="f${i+1}"><div class="case-top">${(f.platforms||[]).map(p=>`<span class="plat ${/릴스/.test(p)?'reels':/인스타/.test(p)?'ig':/틱톡/.test(p)?'tt':/유튜브|쇼츠/.test(p)?'yt':''}">${p}</span>`).join('')}${f.origin?`<span class="chip">처음 뜬 곳 · ${f.origin}</span>`:''}</div>
+    <h3>${f.title}</h3>${(f.body||[]).map(p=>`<p class="body">${p}</p>`).join('')}
+    ${f.steps&&f.steps.length?`<ol class="steps">${f.steps.map(x=>`<li>${x}</li>`).join('')}</ol>`:''}
+    ${f.beautyIdea?`<div class="suggest"><b>뷰티 브랜드라면 이렇게</b><p>${f.beautyIdea}</p><small>위클립 편집부의 제안이에요.</small></div>`:''}
+    ${f.refs&&f.refs.length?`<div class="refs"><b>직접 보고 참고하세요</b><div class="ref-list">${f.refs.map(r=>{const id=ytId(r.url);return `<a class="ref" href="${r.url}" target="_blank" rel="noopener noreferrer">${id?`<img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt="" loading="lazy">`:`<span class="ref-ph">${r.platform||'영상'}</span>`}<span><strong>${r.ch||r.platform||''}</strong><span class="cap">${r.title||''}</span></span><span class="arrow">↗</span></a>`}).join('')}</div></div>`:''}
+    ${f.src&&f.src.length?`<p class="srcs">출처 · ${f.src.map(s=>`<a href="${s.url}" target="_blank" rel="noopener noreferrer">${s.name}</a>${s.date?' '+s.date:''}`).join(' · ')}</p>`:''}</section>`).join('')}`;
 const clientsHTML=is=>!(is.clients&&is.clients.length)?'':`<div class="cases-head"><h2>우리 클라이언트 브랜드 동향</h2><p>지난주(${is.dataRange}) 네이버 검색량 변화, 기사 수, 조회수가 가장 높았던 관련 영상이에요.</p></div>
   <div class="clients">${is.clients.map(c=>`<div class="client"><div class="client-top"><b>${c.brand}</b>${c.growthPct!=null?`<span class="${c.growthPct>=0?'up':'down'}">${sgn(c.growthPct)}</span>`:'<span class="na">데이터 부족</span>'}</div>
     <p>직전 4주 평균 대비 검색 변화${c.yoyPct!=null?` · 작년 같은 주 대비 ${sgn(c.yoyPct)}`:''}${c.news!=null?` · 지난주 기사 ${c.news}건`:''}</p>
@@ -223,7 +232,7 @@ function renderIssue(id,idx){
     <p class="issue-meta"><b>${is.label}</b> · ${is.range} · ${is.pub}</p>
     <h1>${is.headline.replace(/\n/g,'<br>')}</h1>
     <p class="intro">${is.intro}</p>
-    <nav class="toc" aria-label="이번 호 목차"><b>이번 호에서 다룬 트렌드</b><ol>${is.trends.map((t,k)=>`<li><a href="#/issue/${is.id}/${k+1}"><span class="num">${pad(k+1)}</span>${t.t}</a></li>`).join('')}</ol></nav>
+    <nav class="toc" aria-label="이번 호 목차"><b>이번 호에서 다룬 트렌드</b><ol>${is.trends.map((t,k)=>`<li><a href="#/issue/${is.id}/${k+1}"><span class="num">${pad(k+1)}</span>${t.t}</a></li>`).join('')}</ol>${is.formats&&is.formats.length?`<b style="display:block;margin-top:16px">이번 주 유행 포맷</b><ol>${is.formats.map(f=>`<li><span class="toc-f">· ${f.title}</span></li>`).join('')}</ol>`:''}</nav>
     ${is.trends.map((t,k)=>{const f=t.refs[0];return `<section class="post" id="t${k+1}">
       <div class="post-head"><span class="no">${pad(k+1)}</span><h2>${t.t}</h2></div>
       <div class="data-line">${spark(t.series)}<div><b>직전 4주 평균 대비 ${t.growthPct>=0?"+":""}${t.growthPct}%</b><span>네이버 검색 추이 · 지난주(${is.dataRange}) 기준</span></div></div>
@@ -235,6 +244,7 @@ function renderIssue(id,idx){
       <div class="refs"><b>직접 보고 참고하세요</b><div class="ref-list">${t.refs.map(r=>`<a class="ref" href="${watch(r.id)}" target="_blank" rel="noopener noreferrer"><img src="${thumb(r.id)}" alt="" loading="lazy"><span><strong>${r.ch}</strong><span class="cap">${r.title}</span><span class="cap">조회수 ${r.views.toLocaleString("ko-KR")}회 · ${r.published} 게시</span></span><span class="arrow">↗</span></a>`).join('')}</div></div>
       <p class="srcs">출처 · ${t.src.map(s=>`<a href="${s.url}" target="_blank" rel="noopener noreferrer">${s.name}</a>`).join(' · ')}</p>
     </section>`}).join('')}
+    ${formatsHTML(is)}
     ${(is.cases&&is.cases.length)?`<div class="cases-head"><h2>이번 주 브랜드 사례</h2><p>${is.cases[0].mode==='news'?'지난주 보도된 기사 중 뷰티 브랜드의 인스타그램·릴스·틱톡·유튜브 활용 소식을 모았어요. 요약은 기사 원문 일부이니 자세한 내용은 원문에서 확인하세요.':'지난주 기사와 공개 자료에 소개된 뷰티 브랜드의 인스타그램·릴스·틱톡·유튜브 활용 사례예요. 출처에 적힌 내용만 옮겼어요.'}</p></div>
     ${is.cases.map(c=>{const k=/릴스/.test(c.platform)?'reels':/인스타/.test(c.platform)?'ig':/틱톡/.test(c.platform)?'tt':/유튜브/.test(c.platform)?'yt':'';return `<section class="case"><div class="case-top"><span class="plat ${k}">${c.platform}</span>${c.brand?`<span class="chip">${c.brand}</span>`:""}</div>
       <h3>${c.title}</h3>${c.body.map(p=>`<p class="body">${p}</p>`).join('')}
