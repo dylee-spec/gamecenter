@@ -2,6 +2,8 @@
 // 원칙: 수치는 API 원본 그대로 쓰고, 확인되지 않은 사실은 쓰지 않는다.
 // 필요 환경변수: NAVER_CLIENT_ID, NAVER_CLIENT_SECRET, YOUTUBE_API_KEY, (선택) ANTHROPIC_API_KEY
 import fs from 'node:fs';
+import { findCases } from './cases.mjs';
+import { shoppingClicks, shoppingDemo, clientWatch, bannedIn } from './extras.mjs';
 
 const CFG = JSON.parse(fs.readFileSync('scripts/weeklip/config.json', 'utf8'));
 const ISSUES_PATH = 'work/weeklip/issues.json';
@@ -19,6 +21,7 @@ const issueMon = new Date(monday);                                // 이번 호�
 const issueSun = new Date(+issueMon + 6 * DAY);
 const dataEnd = new Date(+issueMon - DAY);                        // 지난주 일요일
 const dataStart = new Date(+issueMon - CFG.weeksOfHistory * 7 * DAY); // 지난주 포함 N주
+const yoyStart = new Date(+issueMon - (52 + CFG.weeksOfHistory) * 7 * DAY); // 작년 비교용
 const M = d => d.getUTCMonth() + 1, D = d => d.getUTCDate();
 const first = new Date(Date.UTC(issueMon.getUTCFullYear(), issueMon.getUTCMonth(), 1));
 const weekNo = Math.ceil((D(issueMon) + (first.getUTCDay() + 6) % 7) / 7);
@@ -67,7 +70,7 @@ async function naverTrend(words) {
   const out = [];
   for (let i = 0; i < words.length; i += 4) {
     const group = words.slice(i, i + 4);
-    const body = { startDate: ymd(dataStart), endDate: ymd(dataEnd), timeUnit: 'week',
+    const body = { startDate: ymd(yoyStart), endDate: ymd(dataEnd), timeUnit: 'week',
       keywordGroups: [CFG.anchorKeyword, ...group].map(k => ({ groupName: k, keywords: [k] })) };
     // 2026-07-31 이후 신규 키는 NAVER API HUB(네이버 클라우드), 이전 키는 개발자센터(레거시)
     const hub = CFG.naverApi !== 'legacy';
@@ -82,8 +85,15 @@ async function naverTrend(words) {
       const d = r.data; if (d.length < 3) continue;
       const last = d.at(-1).ratio, prev = d.slice(-5, -1).map(x => x.ratio);
       const prevAvg = prev.reduce((a, b) => a + b, 0) / (prev.length || 1);
-      out.push({ keyword: r.title, series: d.map(x => ({ period: x.period, ratio: +x.ratio.toFixed(2) })),
-        last, prevAvg, growthPct: prevAvg > 0 ? Math.round((last / prevAvg - 1) * 100) : null,
+      let yoyPct = null, lastYearGrowthPct = null;
+      if (d.length >= 58) {
+        const ly = d.at(-53).ratio, lyPrev = d.slice(-57, -53).map(x => x.ratio), lyAvg = lyPrev.reduce((a, b) => a + b, 0) / 4;
+        if (ly > 0) yoyPct = Math.round((last / ly - 1) * 100);
+        if (lyAvg > 0) lastYearGrowthPct = Math.round((ly / lyAvg - 1) * 100);
+      }
+      out.push({ keyword: r.title, series: d.slice(-CFG.weeksOfHistory).map(x => ({ period: x.period, ratio: +x.ratio.toFixed(2) })),
+        last, prevAvg, growthPct: prevAvg > 0 ? Math.round((last / prevAvg - 1) * 100) : null, yoyPct, lastYearGrowthPct,
+        seasonal: lastYearGrowthPct !== null && lastYearGrowthPct >= CFG.minGrowthPct,
         volumeIndex: anchorLast > 0 ? +(last / anchorLast).toFixed(3) : null });
     }
     await sleep(300);
@@ -92,8 +102,8 @@ async function naverTrend(words) {
 }
 
 // ---------- 3) 레퍼런스: 최근 영상 중 조회수 상위, 공개·재생 가능만 ----------
-async function refsFor(keyword) {
-  for (const days of [7, 14]) {
+async function refsFor(keyword, windows = [7, 14]) {
+  for (const days of windows) {
     const after = new Date(Date.now() - days * DAY).toISOString();
     const s = await getJSON(`${YT}/search?part=snippet&type=video&videoDuration=short&order=viewCount&regionCode=KR&relevanceLanguage=ko&maxResults=15&publishedAfter=${after}&q=${encodeURIComponent(keyword)}&key=${YOUTUBE_API_KEY}`);
     const ids = s.items.map(i => i.id.videoId).join(',');
@@ -102,21 +112,28 @@ async function refsFor(keyword) {
     const ok = v.items.filter(x => x.status.privacyStatus === 'public' && x.status.uploadStatus === 'processed')
       .map(x => ({ id: x.id, ch: x.snippet.channelTitle, title: x.snippet.title, views: +(x.statistics.viewCount || 0), published: x.snippet.publishedAt.slice(0, 10), windowDays: days }))
       .sort((a, b) => (/[가-힣]/.test(b.title) - /[가-힣]/.test(a.title)) || (b.views - a.views)).slice(0, 3); // 한국어 영상 우선
-    if (ok.length >= 2) return ok;
+    if (ok.length >= 2 || windows.length === 1) return ok;
   }
   return [];
 }
 
 // ---------- 4) 글 초안: 주어진 사실만 사용 ----------
 function fallbackText(t) {
-  return { title: t.keyword,
-    body: [`네이버 데이터랩 기준으로 지난주 '${t.keyword}' 검색량이 직전 4주 평균보다 ${t.growthPct}% 늘었어요.`,
-           `최근 올라온 관련 쇼츠 중 조회수가 가장 높은 영상은 '${t.refs[0].ch}' 채널의 영상으로, 조회수 ${t.refs[0].views.toLocaleString('ko-KR')}회를 기록하고 있어요.`],
+  const p1 = [`네이버 데이터랩 기준으로 지난주 '${t.keyword}' 검색량이 직전 4주 평균보다 ${t.growthPct}% 늘었어요.`];
+  if (t.yoyPct !== null) p1.push(`작년 같은 주와 비교하면 ${Math.abs(t.yoyPct)}% ${t.yoyPct >= 0 ? '많았어요' : '적었어요'}.`);
+  if (t.lastYearGrowthPct !== null) p1.push(t.seasonal ? `작년 이맘때도 ${t.lastYearGrowthPct}% 올랐던 키워드라, 해마다 이 시기에 오르는 흐름일 수 있어요.` : `작년 이맘때는 이런 상승이 없었어요.`);
+  const p2 = [];
+  if (t.clickGrowthPct != null) p2.push(`네이버쇼핑 화장품/미용 분야에서 이 키워드의 클릭은 직전 4주 평균보다 ${Math.abs(t.clickGrowthPct)}% ${t.clickGrowthPct >= 0 ? '늘었어요' : '줄었어요'}.`);
+  if (t.demo?.femalePct != null) p2.push(`지난주 쇼핑 클릭 중 여성 비중은 ${t.demo.femalePct}%였어요.`);
+  if (t.demo?.topAge) p2.push(`연령대로는 ${t.demo.topAge}가 ${t.demo.topAgePct}%로 가장 많았어요.`);
+  const body = [p1.join(' ')]; if (p2.length) body.push(p2.join(' '));
+  body.push(`최근 올라온 관련 쇼츠 중 조회수가 가장 높은 영상은 '${t.refs[0].ch}' 채널의 영상으로, 조회수 ${t.refs[0].views.toLocaleString('ko-KR')}회를 기록하고 있어요.`);
+  return { title: t.keyword, body,
     idea: '(편집자 작성 필요) 이 트렌드를 우리 브랜드 콘텐츠로 옮길 아이디어를 적어 주세요.' };
 }
 async function draftText(t) {
   if (!ANTHROPIC_API_KEY) return fallbackText(t);
-  const facts = { 키워드: t.keyword, 데이터기간: issue.dataRange, 지난주대비증가율: `${t.growthPct}%`, 주간검색지수: t.series,
+  const facts = { 키워드: t.keyword, 데이터기간: issue.dataRange, 직전4주평균대비: `${t.growthPct}%`, 작년같은주대비: t.yoyPct, 작년이맘때상승률: t.lastYearGrowthPct, 쇼핑클릭증가율: t.clickGrowthPct, 쇼핑클릭여성비중: t.demo?.femalePct, 쇼핑클릭최다연령: t.demo?.topAge, 최다연령비중: t.demo?.topAgePct, 주간검색지수: t.series,
     참고영상: t.refs.map(r => ({ 채널: r.ch, 제목: r.title, 조회수: r.views, 게시일: r.published })) };
   const prompt = `당신은 뷰티 마케터용 트렌드 뉴스레터 '위클립'의 에디터입니다. 아래 사실만 사용해서 한국어 블로그 섹션을 쓰세요.
 규칙:
@@ -135,7 +152,8 @@ async function draftText(t) {
 }
 // 본문 숫자 검사: 데이터에 없는 숫자가 있으면 검수 경고
 function unknownNumbers(text, t) {
-  const allowed = new Set([String(t.growthPct), ...t.refs.map(r => String(r.views)), ...t.refs.map(r => r.views.toLocaleString('ko-KR')),
+  const extra = [t.yoyPct, t.lastYearGrowthPct, t.clickGrowthPct, t.demo?.femalePct, t.demo?.topAgePct, t.demo?.topAge && parseInt(t.demo.topAge)].filter(v => v != null).map(v => String(Math.abs(v)));
+  const allowed = new Set([...extra, String(t.growthPct), ...t.refs.map(r => String(r.views)), ...t.refs.map(r => r.views.toLocaleString('ko-KR')),
     ...t.series.map(s => String(s.ratio)), ...issue.dataRange.match(/\d+/g), '2', '3', '4', '1']);
   return (text.match(/\d[\d,.]*/g) || []).filter(n => !allowed.has(n) && !allowed.has(n.replace(/,/g, '')));
 }
@@ -146,31 +164,48 @@ const candidates = [...new Set([...CFG.seedKeywords, ...discovered])];
 console.log(`후보 ${candidates.length}개 (고정 ${CFG.seedKeywords.length}, 유튜브 발견 ${discovered.length})`);
 const trends = (await naverTrend(candidates))
   .filter(t => t.growthPct !== null && t.growthPct >= CFG.minGrowthPct && t.volumeIndex >= CFG.minVolumeIndex)
-  .sort((a, b) => b.growthPct - a.growthPct);
+  .sort((a, b) => (a.seasonal - b.seasonal) || (b.growthPct - a.growthPct)); // 올해 새로 뜬 흐름을 계절성보다 먼저
 
 const picked = [], warnings = [];
 for (const t of trends) {
   if (picked.length >= CFG.maxTrends) break;
   t.refs = await refsFor(t.keyword);
   if (t.refs.length < 2) { warnings.push(`'${t.keyword}': 참고 영상이 2개 미만이라 제외`); continue; }
+  const sw = { from: dataStart, to: dataEnd, id: NAVER_CLIENT_ID, secret: NAVER_CLIENT_SECRET };
+  t.clickGrowthPct = (await shoppingClicks([t.keyword], sw))[t.keyword] ?? null;
+  t.demo = await shoppingDemo(t.keyword, { ...sw, from: new Date(+dataEnd - 6 * DAY) });
   let txt = await draftText(t);
   const bad = unknownNumbers([...txt.body, txt.idea].join(' '), t);
   if (bad.length) { warnings.push(`'${t.keyword}': 데이터에 없는 숫자(${bad.join(', ')})가 있어 기본 문장으로 대체`); txt = fallbackText(t); }
+  const banned = bannedIn([...txt.body, txt.idea || ''].join(' '));
+  if (banned.length) { warnings.push(`'${t.keyword}': 광고 금지 표현(${banned.join(', ')})이 있어 기본 문장으로 대체`); txt = fallbackText(t); }
   picked.push({ t: txt.title || t.keyword, keyword: t.keyword, growthPct: t.growthPct, volumeIndex: t.volumeIndex,
+    yoyPct: t.yoyPct, lastYearGrowthPct: t.lastYearGrowthPct, seasonal: t.seasonal, clickGrowthPct: t.clickGrowthPct, demo: t.demo,
     series: t.series, body: txt.body, idea: txt.idea, refs: t.refs,
     src: [{ name: '네이버 데이터랩 검색어 트렌드', url: 'https://datalab.naver.com/keyword/trendSearch.naver' }, { name: 'YouTube Data API', url: 'https://www.youtube.com/results?search_query=' + encodeURIComponent(t.keyword) }] });
 }
 
-if (!picked.length) { console.log('기준을 넘은 트렌드가 없어 이번 주는 발행하지 않아요.'); fs.writeFileSync('/tmp/weeklip_skip', '1'); process.exit(0); }
+// 클라이언트 브랜드 동향
+const newsCount = async q => {
+  try { const r = await fetch(`https://naverapihub.apigw.ntruss.com/search/v1/news?query=${encodeURIComponent(q)}&display=100&start=1&sort=date&format=json`, { headers: { 'X-NCP-APIGW-API-KEY-ID': NAVER_CLIENT_ID, 'X-NCP-APIGW-API-KEY': NAVER_CLIENT_SECRET } });
+    if (!r.ok) return null; const from = new Date(+dataEnd - 6 * DAY), to = new Date(+dataEnd + DAY);
+    return ((await r.json()).items || []).filter(i => { const d = new Date(i.pubDate); return d >= from && d < to; }).length; } catch { return null; }
+};
+const topVideo = async q => { try { const v = await refsFor(q, [7]); return v[0] || null; } catch { return null; } };
+const clients = CFG.clientBrands?.length ? await clientWatch(CFG.clientBrands, { trendFn: naverTrend, newsCount, topVideo }) : [];
+const caseRes = await findCases({ apiKey: ANTHROPIC_API_KEY, model: CFG.claudeModel, from: new Date(+dataEnd - 6 * DAY), to: dataEnd, max: CFG.maxCases || 5,
+  naverId: NAVER_CLIENT_ID, naverSecret: NAVER_CLIENT_SECRET, newsQueries: CFG.newsQueries, beautyWords: CFG.beautyWords });
+warnings.push(...caseRes.notes);
+if (!picked.length && !caseRes.cases.length) { console.log('기준을 넘은 트렌드가 없어 이번 주는 발행하지 않아요.'); fs.writeFileSync('/tmp/weeklip_skip', '1'); process.exit(0); }
 const all = fs.existsSync(ISSUES_PATH) ? JSON.parse(fs.readFileSync(ISSUES_PATH, 'utf8')) : [];
 const newIssue = { ...issue,
   headline: picked.length ? `이번 주 검색량이 가장 크게 오른\n뷰티 키워드는 '${picked[0].keyword}'${((picked[0].keyword.at(-1).charCodeAt(0) - 0xAC00) % 28) ? '이에요' : '예요'}` : '이번 주는 기준을 넘은 트렌드가 없었어요',
   intro: `지난주(${issue.dataRange}) 네이버 검색 데이터에서 직전 4주 평균보다 ${CFG.minGrowthPct}% 이상 오른 뷰티 키워드 ${picked.length}개를 골랐어요. 키워드마다 최근 올라온 쇼츠 중 조회수가 높은 영상을 참고용으로 붙였어요.`,
-  trends: picked };
+  trends: picked, cases: caseRes.cases, clients };
 const next = all.filter(i => i.id !== issue.id).concat(newIssue);
 fs.writeFileSync(ISSUES_PATH, JSON.stringify(next, null, 2) + '\n');
 
-const pr = [`## 위클립 ${issue.label} 초안`, '', `데이터 기간: ${issue.dataRange}`, `선정된 트렌드: ${picked.length}개`, '',
+const pr = [`## 위클립 ${issue.label} 초안`, '', `데이터 기간: ${issue.dataRange}`, `선정된 트렌드: ${picked.length}개`, `브랜드 사례: ${caseRes.cases.length}개`, '',
   ...picked.map((p, i) => `${i + 1}. **${p.keyword}** · 직전 4주 평균 대비 +${p.growthPct}% · 참고 영상 ${p.refs.length}개`),
   '', warnings.length ? '### 검수 필요\n' + warnings.map(w => '- ' + w).join('\n') : '### 자동 검사 통과', '',
   '---', '검수 후 이 PR에 **발행 승인** 라벨을 붙이면 월요일 오전 9시에 자동 발행돼요. 본문은 이 PR의 파일 변경 탭에서 바로 고칠 수 있어요.'].join('\n');
