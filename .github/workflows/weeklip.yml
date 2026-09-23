@@ -1,34 +1,28 @@
-name: 위클립 주간 발행
+name: 위클립 데이터 수집
 on:
-  schedule:
-    - cron: '0 0 * * 1'    # 매주 월요일 09:00 (KST) 수집 후 바로 발행
-  workflow_dispatch:
+  workflow_dispatch:   # 예약 실행 없음. 발행 요청이 있을 때만 수동 실행
 permissions:
   contents: write
-  pages: write
 jobs:
-  publish:
+  collect:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v5
         with: { node-version: 22 }
-      - name: 데이터 수집과 글 작성
+      - name: 데이터 수집 (사이트에는 올리지 않음)
         env:
+          WEEKLIP_OUT: draft
           NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
           NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: node scripts/weeklip/collect.mjs
-      - name: 바로 발행
-        env: { GH_TOKEN: '${{ github.token }}' }
+      - name: 수집 결과 저장 (work/weeklip/draft.json)
         run: |
-          [ -f /tmp/weeklip_skip ] && { echo "이번 주는 발행할 트렌드가 없어요"; exit 0; }
-          source /tmp/weeklip_meta.env
           git config user.name "weeklip-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add work/weeklip/issues.json
-          git diff --cached --quiet && { echo "변경 없음"; exit 0; }
-          git commit -m "위클립 $ISSUE_LABEL 자동 발행"
+          [ -f work/weeklip/draft.json ] || { echo "수집된 트렌드가 없어요"; exit 0; }
+          git add work/weeklip/draft.json
+          git diff --cached --quiet && exit 0
+          git commit -m "위클립 데이터 수집 결과"
           git push
-          gh api -X POST "repos/$GITHUB_REPOSITORY/pages/builds" || true
