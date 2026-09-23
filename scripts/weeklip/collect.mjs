@@ -26,7 +26,7 @@ const issue = {
   id: `${issueMon.getUTCFullYear()}-${String(M(issueMon)).padStart(2, '0')}-w${weekNo}`,
   label: `${issueMon.getUTCFullYear()}년 ${M(issueMon)}월 ${weekNo}주차`,
   range: `${M(issueMon)}월 ${D(issueMon)}일 ~ ${M(issueSun)}월 ${D(issueSun)}일`,
-  pub: `${M(issueMon)}월 ${D(issueMon)}일 발행`,
+  pub: `${kstNow.getUTCMonth() + 1}월 ${kstNow.getUTCDate()}일 발행`,
   dataRange: `${M(new Date(+dataEnd - 6 * DAY))}월 ${D(new Date(+dataEnd - 6 * DAY))}일 ~ ${M(dataEnd)}월 ${D(dataEnd)}일`,
   historyRange: `${M(dataStart)}월 ${D(dataStart)}일 ~ ${M(dataEnd)}월 ${D(dataEnd)}일`,
 };
@@ -101,7 +101,7 @@ async function refsFor(keyword) {
     const v = await getJSON(`${YT}/videos?part=snippet,statistics,status&id=${ids}&key=${YOUTUBE_API_KEY}`);
     const ok = v.items.filter(x => x.status.privacyStatus === 'public' && x.status.uploadStatus === 'processed')
       .map(x => ({ id: x.id, ch: x.snippet.channelTitle, title: x.snippet.title, views: +(x.statistics.viewCount || 0), published: x.snippet.publishedAt.slice(0, 10), windowDays: days }))
-      .sort((a, b) => b.views - a.views).slice(0, 3);
+      .sort((a, b) => (/[가-힣]/.test(b.title) - /[가-힣]/.test(a.title)) || (b.views - a.views)).slice(0, 3); // 한국어 영상 우선
     if (ok.length >= 2) return ok;
   }
   return [];
@@ -153,17 +153,18 @@ for (const t of trends) {
   if (picked.length >= CFG.maxTrends) break;
   t.refs = await refsFor(t.keyword);
   if (t.refs.length < 2) { warnings.push(`'${t.keyword}': 참고 영상이 2개 미만이라 제외`); continue; }
-  const txt = await draftText(t);
+  let txt = await draftText(t);
   const bad = unknownNumbers([...txt.body, txt.idea].join(' '), t);
-  if (bad.length) warnings.push(`'${t.keyword}': 데이터에 없는 숫자 확인 필요 → ${bad.join(', ')}`);
+  if (bad.length) { warnings.push(`'${t.keyword}': 데이터에 없는 숫자(${bad.join(', ')})가 있어 기본 문장으로 대체`); txt = fallbackText(t); }
   picked.push({ t: txt.title || t.keyword, keyword: t.keyword, growthPct: t.growthPct, volumeIndex: t.volumeIndex,
     series: t.series, body: txt.body, idea: txt.idea, refs: t.refs,
     src: [{ name: '네이버 데이터랩 검색어 트렌드', url: 'https://datalab.naver.com/keyword/trendSearch.naver' }, { name: 'YouTube Data API', url: 'https://www.youtube.com/results?search_query=' + encodeURIComponent(t.keyword) }] });
 }
 
+if (!picked.length) { console.log('기준을 넘은 트렌드가 없어 이번 주는 발행하지 않아요.'); fs.writeFileSync('/tmp/weeklip_skip', '1'); process.exit(0); }
 const all = fs.existsSync(ISSUES_PATH) ? JSON.parse(fs.readFileSync(ISSUES_PATH, 'utf8')) : [];
 const newIssue = { ...issue,
-  headline: picked.length ? `이번 주 검색량이 가장 크게 오른\n뷰티 키워드는 '${picked[0].keyword}'예요` : '이번 주는 기준을 넘은 트렌드가 없었어요',
+  headline: picked.length ? `이번 주 검색량이 가장 크게 오른\n뷰티 키워드는 '${picked[0].keyword}'${((picked[0].keyword.at(-1).charCodeAt(0) - 0xAC00) % 28) ? '이에요' : '예요'}` : '이번 주는 기준을 넘은 트렌드가 없었어요',
   intro: `지난주(${issue.dataRange}) 네이버 검색 데이터에서 직전 4주 평균보다 ${CFG.minGrowthPct}% 이상 오른 뷰티 키워드 ${picked.length}개를 골랐어요. 키워드마다 최근 올라온 쇼츠 중 조회수가 높은 영상을 참고용으로 붙였어요.`,
   trends: picked };
 const next = all.filter(i => i.id !== issue.id).concat(newIssue);
