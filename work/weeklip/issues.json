@@ -1,1 +1,354 @@
-[]
+[
+  {
+    "id": "2026-09-w4",
+    "label": "2026년 9월 4주차",
+    "range": "9월 21일 ~ 9월 27일",
+    "pub": "9월 21일 발행",
+    "dataRange": "9월 14일 ~ 9월 20일",
+    "historyRange": "7월 20일 ~ 9월 20일",
+    "headline": "이번 주 검색량이 가장 크게 오른\n뷰티 키워드는 '바디로션'예요",
+    "intro": "지난주(9월 14일 ~ 9월 20일) 네이버 검색 데이터에서 직전 4주 평균보다 30% 이상 오른 뷰티 키워드 4개를 골랐어요. 키워드마다 최근 올라온 쇼츠 중 조회수가 높은 영상을 참고용으로 붙였어요.",
+    "trends": [
+      {
+        "t": "바디로션",
+        "keyword": "바디로션",
+        "growthPct": 40,
+        "volumeIndex": 2.944,
+        "series": [
+          {
+            "period": "2026-07-20",
+            "ratio": 18.63
+          },
+          {
+            "period": "2026-07-27",
+            "ratio": 20.64
+          },
+          {
+            "period": "2026-08-03",
+            "ratio": 19.42
+          },
+          {
+            "period": "2026-08-10",
+            "ratio": 20.27
+          },
+          {
+            "period": "2026-08-17",
+            "ratio": 21.15
+          },
+          {
+            "period": "2026-08-24",
+            "ratio": 27.14
+          },
+          {
+            "period": "2026-08-31",
+            "ratio": 32.48
+          },
+          {
+            "period": "2026-09-07",
+            "ratio": 35.49
+          },
+          {
+            "period": "2026-09-14",
+            "ratio": 40.66
+          }
+        ],
+        "body": [
+          "네이버 데이터랩 기준으로 지난주 '바디로션' 검색량이 직전 4주 평균보다 40% 늘었어요.",
+          "최근 올라온 관련 쇼츠 중 조회수가 가장 높은 영상은 '뷰돈나' 채널의 영상으로, 조회수 791,065회를 기록하고 있어요."
+        ],
+        "idea": "(편집자 작성 필요) 이 트렌드를 우리 브랜드 콘텐츠로 옮길 아이디어를 적어 주세요.",
+        "refs": [
+          {
+            "id": "GHYFtlQWVVA",
+            "ch": "뷰돈나",
+            "title": "제니 바디로션 꿀조합‼️  #kbeauty #꿀템",
+            "views": 791065,
+            "published": "2026-09-16",
+            "windowDays": 7
+          },
+          {
+            "id": "y5ev7pddJpU",
+            "ch": "NIVEA Malaysia",
+            "title": "My Long-Run Essential 🏃🏻‍♀️ NIVEA Pearl & Beauty Shaveless for Lasting Freshness & Softer Hair",
+            "views": 80582,
+            "published": "2026-09-17",
+            "windowDays": 7
+          },
+          {
+            "id": "l2DnxBdvfVc",
+            "ch": "isLeaf (貝拉美人)",
+            "title": "跟著熙靜一起打造美背計畫！isLeaf 2%水楊酸煥采淨膚身體乳",
+            "views": 68207,
+            "published": "2026-09-18",
+            "windowDays": 7
+          }
+        ],
+        "src": [
+          {
+            "name": "네이버 데이터랩 검색어 트렌드",
+            "url": "https://datalab.naver.com/keyword/trendSearch.naver"
+          },
+          {
+            "name": "YouTube Data API",
+            "url": "https://www.youtube.com/results?search_query=%EB%B0%94%EB%94%94%EB%A1%9C%EC%85%98"
+          }
+        ]
+      },
+      {
+        "t": "세라마이드",
+        "keyword": "세라마이드",
+        "growthPct": 35,
+        "volumeIndex": 0.311,
+        "series": [
+          {
+            "period": "2026-07-20",
+            "ratio": 18.56
+          },
+          {
+            "period": "2026-07-27",
+            "ratio": 17.02
+          },
+          {
+            "period": "2026-08-03",
+            "ratio": 17.25
+          },
+          {
+            "period": "2026-08-10",
+            "ratio": 18.09
+          },
+          {
+            "period": "2026-08-17",
+            "ratio": 18.65
+          },
+          {
+            "period": "2026-08-24",
+            "ratio": 19.04
+          },
+          {
+            "period": "2026-08-31",
+            "ratio": 24.82
+          },
+          {
+            "period": "2026-09-07",
+            "ratio": 24.74
+          },
+          {
+            "period": "2026-09-14",
+            "ratio": 29.43
+          }
+        ],
+        "body": [
+          "네이버 데이터랩 기준으로 지난주 '세라마이드' 검색량이 직전 4주 평균보다 35% 늘었어요.",
+          "최근 올라온 관련 쇼츠 중 조회수가 가장 높은 영상은 'Unbox & Glow' 채널의 영상으로, 조회수 8,657회를 기록하고 있어요."
+        ],
+        "idea": "(편집자 작성 필요) 이 트렌드를 우리 브랜드 콘텐츠로 옮길 아이디어를 적어 주세요.",
+        "refs": [
+          {
+            "id": "-Br1OrBXUmI",
+            "ch": "Unbox & Glow",
+            "title": "The Prettiest Tinted Lip Balm with SPF 50! 🍉✨WishCare Ceramide Lip Balm #shorts #viral #lipbalm #fy",
+            "views": 8657,
+            "published": "2026-09-20",
+            "windowDays": 7
+          },
+          {
+            "id": "rDR__g5EWes",
+            "ch": "Hey Vanshika",
+            "title": "#milk #skincare #toner #ceramide #greentea #hydrating #dryskin #glowingskin #glassskin",
+            "views": 7341,
+            "published": "2026-09-22",
+            "windowDays": 7
+          },
+          {
+            "id": "p9774v2ubt8",
+            "ch": "なぎ | スキンケア研究室",
+            "title": "セラミドの効果を高める相性のいい成分4選✨",
+            "views": 6476,
+            "published": "2026-09-17",
+            "windowDays": 7
+          }
+        ],
+        "src": [
+          {
+            "name": "네이버 데이터랩 검색어 트렌드",
+            "url": "https://datalab.naver.com/keyword/trendSearch.naver"
+          },
+          {
+            "name": "YouTube Data API",
+            "url": "https://www.youtube.com/results?search_query=%EC%84%B8%EB%9D%BC%EB%A7%88%EC%9D%B4%EB%93%9C"
+          }
+        ]
+      },
+      {
+        "t": "립밤",
+        "keyword": "립밤",
+        "growthPct": 31,
+        "volumeIndex": 2.07,
+        "series": [
+          {
+            "period": "2026-07-20",
+            "ratio": 42.77
+          },
+          {
+            "period": "2026-07-27",
+            "ratio": 48.47
+          },
+          {
+            "period": "2026-08-03",
+            "ratio": 47.97
+          },
+          {
+            "period": "2026-08-10",
+            "ratio": 48.28
+          },
+          {
+            "period": "2026-08-17",
+            "ratio": 54.14
+          },
+          {
+            "period": "2026-08-24",
+            "ratio": 73.72
+          },
+          {
+            "period": "2026-08-31",
+            "ratio": 88.45
+          },
+          {
+            "period": "2026-09-07",
+            "ratio": 88.38
+          },
+          {
+            "period": "2026-09-14",
+            "ratio": 100
+          }
+        ],
+        "body": [
+          "네이버 데이터랩 기준으로 지난주 '립밤' 검색량이 직전 4주 평균보다 31% 늘었어요.",
+          "최근 올라온 관련 쇼츠 중 조회수가 가장 높은 영상은 '뷰티조아' 채널의 영상으로, 조회수 322,365회를 기록하고 있어요."
+        ],
+        "idea": "(편집자 작성 필요) 이 트렌드를 우리 브랜드 콘텐츠로 옮길 아이디어를 적어 주세요.",
+        "refs": [
+          {
+            "id": "Ckiqo8mwQj0",
+            "ch": "뷰티조아",
+            "title": "여배우 원픽! 혈색 립밤",
+            "views": 322365,
+            "published": "2026-09-18",
+            "windowDays": 7
+          },
+          {
+            "id": "VGY7nEuNwRE",
+            "ch": "만불",
+            "title": "유튜버 추천템 이제 안믿습니다…",
+            "views": 274745,
+            "published": "2026-09-16",
+            "windowDays": 7
+          },
+          {
+            "id": "T_9PBiHFIhk",
+            "ch": "Daily소현",
+            "title": "최애 립밤이 바뀐 날🍦•Daily소현 #16년생 #학생브이로그 #minivlog #fyp",
+            "views": 108871,
+            "published": "2026-09-20",
+            "windowDays": 7
+          }
+        ],
+        "src": [
+          {
+            "name": "네이버 데이터랩 검색어 트렌드",
+            "url": "https://datalab.naver.com/keyword/trendSearch.naver"
+          },
+          {
+            "name": "YouTube Data API",
+            "url": "https://www.youtube.com/results?search_query=%EB%A6%BD%EB%B0%A4"
+          }
+        ]
+      },
+      {
+        "t": "토너패드",
+        "keyword": "토너패드",
+        "growthPct": 30,
+        "volumeIndex": 0.468,
+        "series": [
+          {
+            "period": "2026-07-20",
+            "ratio": 15.6
+          },
+          {
+            "period": "2026-07-27",
+            "ratio": 15.7
+          },
+          {
+            "period": "2026-08-03",
+            "ratio": 20.53
+          },
+          {
+            "period": "2026-08-10",
+            "ratio": 20.39
+          },
+          {
+            "period": "2026-08-17",
+            "ratio": 16.46
+          },
+          {
+            "period": "2026-08-24",
+            "ratio": 15.94
+          },
+          {
+            "period": "2026-08-31",
+            "ratio": 18.28
+          },
+          {
+            "period": "2026-09-07",
+            "ratio": 16.73
+          },
+          {
+            "period": "2026-09-14",
+            "ratio": 21.98
+          }
+        ],
+        "body": [
+          "네이버 데이터랩 기준으로 지난주 '토너패드' 검색량이 직전 4주 평균보다 30% 늘었어요.",
+          "최근 올라온 관련 쇼츠 중 조회수가 가장 높은 영상은 '와니쥬니(WannyJunny)' 채널의 영상으로, 조회수 7,923회를 기록하고 있어요."
+        ],
+        "idea": "(편집자 작성 필요) 이 트렌드를 우리 브랜드 콘텐츠로 옮길 아이디어를 적어 주세요.",
+        "refs": [
+          {
+            "id": "wrsiZHK7jcw",
+            "ch": "와니쥬니(WannyJunny)",
+            "title": "아직도 통패드 쓰세요?｜통패드 마지막에 찝찝했던 사람 주목!｜통패드의 불편함(단점)을 바꾼 클라미에르 찰싹패드｜올리브영 입점 기념 할인, 세일 이벤트!",
+            "views": 7923,
+            "published": "2026-09-18",
+            "windowDays": 7
+          },
+          {
+            "id": "gtR8n3sbbyA",
+            "ch": "MEDIHEAL 메디힐",
+            "title": "MEDIHEAL X KAI｜메디힐 더마 패드",
+            "views": 1480,
+            "published": "2026-09-21",
+            "windowDays": 7
+          },
+          {
+            "id": "jUx_Xteoqa4",
+            "ch": "피부당당",
+            "title": "토너패드, 매일 닦고 계세요?",
+            "views": 1352,
+            "published": "2026-09-17",
+            "windowDays": 7
+          }
+        ],
+        "src": [
+          {
+            "name": "네이버 데이터랩 검색어 트렌드",
+            "url": "https://datalab.naver.com/keyword/trendSearch.naver"
+          },
+          {
+            "name": "YouTube Data API",
+            "url": "https://www.youtube.com/results?search_query=%ED%86%A0%EB%84%88%ED%8C%A8%EB%93%9C"
+          }
+        ]
+      }
+    ]
+  }
+]
