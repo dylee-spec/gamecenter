@@ -28,6 +28,11 @@ a{color:inherit;text-decoration:none}
 .nav a{font-size:15px;font-weight:500;color:var(--g600);padding:6px 2px;border-radius:8px}
 .nav a:hover{color:var(--g900)}
 .nav a[aria-current="page"]{color:var(--g900);font-weight:700}
+.tab{background:none;border:0;cursor:pointer;font:inherit;font-size:15px;font-weight:500;color:var(--g600);padding:6px 2px;border-radius:8px}
+.tab:hover{color:var(--g900)}
+.tab[aria-current="page"]{color:var(--g900);font-weight:700}
+.view{display:none}
+.view.active{display:block}
 
 main{max-width:1440px;margin:0 auto;padding:32px 24px 32px}
 
@@ -73,15 +78,15 @@ footer p{margin:0;font-size:13px;color:var(--g600)}
 <header class="hd">
   <div class="hd-in">
     <span class="logo">PLAY LAB</span>
-    <nav class="nav">
-      <a href="#games" aria-current="page">게임</a>
-      <a href="games/udm/ranked.html">랭킹</a>
-      <a href="#about">만든 사람</a>
+    <nav class="nav" role="tablist" aria-label="게임센터 섹션">
+      <button class="tab" id="tabGame" role="tab" aria-current="page" aria-selected="true">게임</button>
+      <button class="tab" id="tabWork" role="tab" aria-selected="false">업무</button>
     </nav>
   </div>
 </header>
 
 <main>
+  <section id="viewGame" class="view active" role="tabpanel" aria-labelledby="tabGame">
   <section class="hero">
     <h1>오늘은 어떤 게임을 해볼까요?</h1>
     <p>설치 없이 바로 시작하는 게임</p>
@@ -140,10 +145,45 @@ footer p{margin:0;font-size:13px;color:var(--g600)}
     <div class="card soon"><span class="tile" style="background:#eef2f7"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 10V22M10 16H22" stroke="#8B95A1" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h2>준비 중인 게임</h2><p>새로운 플레이가<br>곧 찾아와요.</p><span class="foot"><span class="chip">coming soon</span></span></div>
 
   </section>
+  </section>
+
+  <section id="viewWork" class="view" role="tabpanel" aria-labelledby="tabWork">
+  <section class="hero">
+    <h1>오늘은 어떤 업무를 해볼까요?</h1>
+    <p>필요한 업무 도구를 여기에 모아둘 예정이에요</p>
+  </section>
+
+  <section class="grid" aria-label="업무 도구 목록">
+    <div class="card soon"><span class="tile" style="background:#eef2f7"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 10V22M10 16H22" stroke="#8B95A1" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h2>업무 도구</h2><p>필요한 도구가<br>곧 추가돼요.</p><span class="foot"><span class="chip">coming soon</span></span></div>
+    <div class="card soon"><span class="tile" style="background:#eef2f7"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 10V22M10 16H22" stroke="#8B95A1" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h2>업무 도구</h2><p>필요한 도구가<br>곧 추가돼요.</p><span class="foot"><span class="chip">coming soon</span></span></div>
+    <div class="card soon"><span class="tile" style="background:#eef2f7"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 10V22M10 16H22" stroke="#8B95A1" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h2>업무 도구</h2><p>필요한 도구가<br>곧 추가돼요.</p><span class="foot"><span class="chip">coming soon</span></span></div>
+    <div class="card soon"><span class="tile" style="background:#eef2f7"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 10V22M10 16H22" stroke="#8B95A1" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h2>업무 도구</h2><p>필요한 도구가<br>곧 추가돼요.</p><span class="foot"><span class="chip">coming soon</span></span></div>
+    <div class="card soon"><span class="tile" style="background:#eef2f7"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 10V22M10 16H22" stroke="#8B95A1" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h2>업무 도구</h2><p>필요한 도구가<br>곧 추가돼요.</p><span class="foot"><span class="chip">coming soon</span></span></div>
+    <div class="card soon"><span class="tile" style="background:#eef2f7"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 10V22M10 16H22" stroke="#8B95A1" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h2>업무 도구</h2><p>필요한 도구가<br>곧 추가돼요.</p><span class="foot"><span class="chip">coming soon</span></span></div>
+  </section>
+  </section>
 </main>
 
 <footer id="about">
   <p>PLAY LAB · 직접 만든 게임을 모아두는 공간입니다.</p>
 </footer>
+<script>
+(function(){
+  var tabs = { game: [document.getElementById('tabGame'), document.getElementById('viewGame')],
+               work: [document.getElementById('tabWork'), document.getElementById('viewWork')] };
+  function show(name){
+    for (var k in tabs) {
+      var active = k === name;
+      tabs[k][0].setAttribute('aria-current', active ? 'page' : 'false');
+      tabs[k][0].setAttribute('aria-selected', active ? 'true' : 'false');
+      tabs[k][1].classList.toggle('active', active);
+    }
+    if (location.hash.replace('#','') !== name) history.replaceState(null, '', '#' + name);
+  }
+  tabs.game[0].addEventListener('click', function(){ show('game'); });
+  tabs.work[0].addEventListener('click', function(){ show('work'); });
+  show(location.hash === '#work' ? 'work' : 'game');
+})();
+</script>
 </body>
 </html>
