@@ -117,6 +117,7 @@ img{max-width:100%;display:block}
 .clients{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}.client{border:1px solid var(--g200);border-radius:20px;padding:20px}.client-top{display:flex;justify-content:space-between;align-items:center}.client-top b{font-size:18px}.client-top .up{color:var(--blue-dark);font-weight:700}.client-top .down{color:var(--g600);font-weight:700}.client-top .na{color:var(--g400);font-size:13px}.client>p{margin-top:6px;font-size:13px;color:var(--g600)}.client a{display:grid;grid-template-columns:96px 1fr;gap:12px;margin-top:12px;align-items:center}.client a img{width:96px;aspect-ratio:16/9;object-fit:cover;border-radius:8px;background:var(--g100)}.client a strong{display:block;font-size:14px}.client a span span{display:block;font-size:13px;color:var(--g600);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.client .none{font-size:13px;color:var(--g400);margin-top:12px}
 @media (max-width:860px){.clients{grid-template-columns:1fr}}
 .steps{margin:16px 0 0 20px;display:grid;gap:6px;font-size:16px;line-height:1.7;color:var(--g800)}.ref-ph{width:120px;aspect-ratio:16/9;border-radius:10px;background:var(--g100);display:grid;place-items:center;font-size:13px;font-weight:700;color:var(--g600)}
+.client-prose p.body,.client-intro{font-size:17px;line-height:1.9;color:var(--g800);margin-top:18px}.client-prose a{color:var(--blue-dark);text-decoration:underline;text-underline-offset:2px}
 .srcs a{text-decoration:underline;text-underline-offset:2px}
 .pager{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:40px auto 80px}
 .pager a,.pager div{background:#fff;border-radius:20px;padding:22px 24px;display:flex;flex-direction:column;gap:6px}
@@ -172,10 +173,15 @@ const formatsHTML=is=>!(is.formats&&is.formats.length)?'':`<div class="cases-hea
     ${f.beautyIdea?`<div class="suggest"><b>뷰티 브랜드라면 이렇게</b><p>${f.beautyIdea}</p><small>위클립 편집부의 제안이에요.</small></div>`:''}
     ${f.refs&&f.refs.length?`<div class="refs"><b>직접 보고 참고하세요</b><div class="ref-list">${f.refs.map(r=>{const id=ytId(r.url);return `<a class="ref" href="${r.url}" target="_blank" rel="noopener noreferrer">${id?`<img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt="" loading="lazy">`:`<span class="ref-ph">${r.platform||'영상'}</span>`}<span><strong>${r.ch||r.platform||''}</strong><span class="cap">${r.title||''}</span></span><span class="arrow">↗</span></a>`}).join('')}</div></div>`:''}
     ${f.src&&f.src.length?`<p class="srcs">출처 · ${f.src.map(s=>`<a href="${s.url}" target="_blank" rel="noopener noreferrer">${s.name}</a>${s.date?' '+s.date:''}`).join(' · ')}</p>`:''}</section>`).join('')}`;
-const clientsHTML=is=>!(is.clients&&is.clients.length)?'':`<div class="cases-head"><h2>우리 클라이언트 브랜드 동향</h2><p>지난주(${is.dataRange}) 네이버 검색량 변화, 기사 수, 조회수가 가장 높았던 관련 영상이에요.</p></div>
-  <div class="clients">${is.clients.map(c=>`<div class="client"><div class="client-top"><b>${c.brand}</b>${c.growthPct!=null?`<span class="${c.growthPct>=0?'up':'down'}">${sgn(c.growthPct)}</span>`:'<span class="na">데이터 부족</span>'}</div>
-    <p>직전 4주 평균 대비 검색 변화${c.yoyPct!=null?` · 작년 같은 주 대비 ${sgn(c.yoyPct)}`:''}${c.news!=null?` · 지난주 기사 ${c.news}건`:''}</p>
-    ${c.video?`<a href="https://www.youtube.com/watch?v=${c.video.id}" target="_blank" rel="noopener noreferrer"><img src="https://i.ytimg.com/vi/${c.video.id}/hqdefault.jpg" alt="" loading="lazy"><span><strong>${c.video.ch}</strong><span>${c.video.title}</span><span>조회수 ${c.video.views.toLocaleString('ko-KR')}회</span></span></a>`:'<p class="none">지난주 관련 영상 없음</p>'}</div>`).join('')}</div>`;
+const josa=(w,a,b)=>{const c=w.charCodeAt(w.length-1);return (c>=0xAC00&&c<=0xD7A3&&(c-0xAC00)%28)?a:b};
+const clientLine=(c,is)=>{if(c.summary)return c.summary;const p=[];const nm=`<b>${c.brand}</b>${josa(c.brand,'은','는')}`;
+  if(c.growthPct!=null)p.push(`${nm} 지난주 네이버 검색이 직전 4주 평균보다 ${Math.abs(c.growthPct)}% ${c.growthPct>=0?'늘었어요':'줄었어요'}${c.yoyPct!=null?`(작년 같은 주 대비 ${sgn(c.yoyPct)})`:''}.`);else p.push(`${nm} 지난주 검색 데이터가 충분하지 않았어요.`);
+  if(c.news!=null)p.push(c.news>0?`지난주 기사는 ${c.news}건이었어요.`:`지난주 기사는 없었어요.`);
+  p.push(c.video?`조회수가 가장 높았던 관련 영상은 '${c.video.ch}' 채널의 <a href="https://www.youtube.com/watch?v=${c.video.id}" target="_blank" rel="noopener noreferrer">${c.video.title}</a>(조회수 ${c.video.views.toLocaleString('ko-KR')}회)이에요.`:`지난주 올라온 관련 영상은 찾지 못했어요.`);
+  return p.join(' ')};
+const clientsHTML=is=>!(is.clients&&is.clients.length)?'':`<div class="cases-head"><h2>우리 클라이언트 브랜드 동향</h2><p>지난주(${is.dataRange}) 네이버 검색량 변화와 기사 수, 조회수가 가장 높았던 관련 영상을 브랜드별로 정리했어요.</p></div>
+  ${is.clientsIntro?`<p class="body client-intro">${is.clientsIntro}</p>`:''}
+  <div class="client-prose">${is.clients.map(c=>`<p class="body">${clientLine(c,is)}</p>`).join('')}</div>`;
 const spark=s=>{if(!s||s.length<2)return'';const W=160,H=40,mx=Math.max(...s.map(x=>x.ratio))||1;const pts=s.map((x,i)=>`${(i/(s.length-1)*W).toFixed(1)},${(H-2-x.ratio/mx*(H-6)).toFixed(1)}`).join(' ');const last=pts.split(' ').pop().split(',');return `<svg class="spark" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" aria-hidden="true"><polyline points="${pts}" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="${last[0]}" cy="${last[1]}" r="3.5" fill="var(--blue)"/></svg>`};
 
 const pad=n=>String(n).padStart(2,'0');
