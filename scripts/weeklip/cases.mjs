@@ -17,9 +17,9 @@ async function verify(c, from, to) {
 // 키가 없을 때: 네이버 뉴스 검색(API HUB)으로 지난주 기사 모음
 const decode = s => s.replace(/<[^>]+>/g, '').replace(/&quot;/g, '"').replace(/&apos;|&#39;/g, "'").replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').trim();
 const PLATFORM = [['릴스', /릴스|reels/i], ['틱톡', /틱톡|tiktok/i], ['유튜브', /유튜브|쇼츠|youtube/i], ['인스타그램', /인스타|instagram/i], ['SNS', /SNS|숏폼|소셜/i]];
-async function newsCases({ naverId, naverSecret, queries, beautyWords, from, to, max }) {
+export async function newsCases({ naverId, naverSecret, queries, beautyWords = [], from, to, max }) {
   const seen = new Set(), seenTitle = new Set(), out = [], notes = [];
-  const beauty = new RegExp(beautyWords.join('|'));
+  const beauty = beautyWords.length ? new RegExp(beautyWords.join('|')) : null;
   for (const q of queries) {
     const r = await fetch(`https://naverapihub.apigw.ntruss.com/search/v1/news?query=${encodeURIComponent(q)}&display=50&start=1&sort=date&format=json`,
       { headers: { 'X-NCP-APIGW-API-KEY-ID': naverId, 'X-NCP-APIGW-API-KEY': naverSecret } });
@@ -27,7 +27,7 @@ async function newsCases({ naverId, naverSecret, queries, beautyWords, from, to,
     for (const it of (await r.json()).items || []) {
       const d = new Date(it.pubDate); if (isNaN(d) || d < from || d > to) continue;
       const title = decode(it.title), desc = decode(it.description), text = title + ' ' + desc;
-      const plat = PLATFORM.find(([, re]) => re.test(text)); if (!plat || !beauty.test(text)) continue;
+      const plat = PLATFORM.find(([, re]) => re.test(text)); if (!plat || (beauty && !beauty.test(text))) continue;
       const url = it.originallink || it.link, key = title.replace(/\s/g, '').slice(0, 18);
       if (seen.has(url) || seenTitle.has(key)) continue; seen.add(url); seenTitle.add(key);
       let host = ''; try { host = new URL(url).hostname.replace(/^www\./, ''); } catch {}
