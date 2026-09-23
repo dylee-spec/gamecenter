@@ -1,0 +1,14 @@
+{
+  "naverApi": "hub",
+  "weeksOfHistory": 9,
+  "anchorKeyword": "화장품",
+  "minGrowthPct": 30,
+  "minVolumeIndex": 0.02,
+  "maxTrends": 7,
+  "minTagCount": 3,
+  "maxDiscovered": 30,
+  "claudeModel": "claude-sonnet-5",
+  "discoveryQueries": ["메이크업", "스킨케어", "화장품 추천", "올리브영", "뷰티 꿀팁", "헤어 스타일링", "네일"],
+  "stopTags": ["shorts", "쇼츠", "short", "뷰티", "beauty", "메이크업", "makeup", "화장품", "추천", "리뷰", "review", "광고", "협찬", "유료광고", "youtube", "유튜브", "fyp", "꿀팁", "브이로그", "vlog", "grwm", "데일리", "daily", "skincare", "스킨케어", "kbeauty", "k뷰티", "올리브영", "oliveyoung", "trending", "viral", "추천템", "뷰티유튜버", "shortsvideo", "youtubeshorts"],
+  "seedKeywords": ["쿠션", "립틴트", "선크림", "톤업크림", "클렌징오일", "앰플", "토너패드", "마스크팩", "PDRN", "엑소좀", "레티놀", "나이아신아마이드", "비타민C세럼", "세라마이드", "블러셔", "하이라이터", "컨실러", "아이섀도우 팔레트", "마스카라", "아이라이너", "립오일", "립밤", "헤어오일", "두피케어", "바디로션", "향수", "젤네일", "속눈썹펌", "뷰티디바이스", "괄사", "여드름패치", "쿨링패드", "블러 쿠션", "글로우 메이크업", "색조 팔레트", "립 글로스"]
+}

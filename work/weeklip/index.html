@@ -111,6 +111,7 @@ img{max-width:100%;display:block}
 .ref .arrow{font-size:14px;color:var(--g500);padding-right:8px}
 .ref:hover .arrow{color:var(--blue)}
 .srcs{margin-top:16px;font-size:13px;color:var(--g500)}
+.data-line{margin-top:16px;display:flex;align-items:center;gap:16px;padding:14px 18px;background:var(--g50);border-radius:16px}.data-line b{display:block;font-size:17px;color:var(--blue-dark)}.data-line span{display:block;font-size:13px;color:var(--g500);margin-top:2px}.spark{flex:none}
 .srcs a{text-decoration:underline;text-underline-offset:2px}
 .pager{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:40px auto 80px}
 .pager a,.pager div{background:#fff;border-radius:20px;padding:22px 24px;display:flex;flex-direction:column;gap:6px}
@@ -147,91 +148,10 @@ footer b{color:var(--g700);font-size:16px;display:block;margin-bottom:10px}
    1) 출처에 기록된 트렌드만 싣는다. 출처가 월 단위뿐이면 주차로 쪼개지 않고 결산호로 묶는다.
    2) 참고 영상은 실제 재생 가능 여부를 확인한 것만 싣는다. (2026-09-23 확인)
    3) '위클립 제안'은 편집부 아이디어로, 사실 정보와 구분해 표시한다. */
-const IB=id=>({name:'인스타공백닷컴 밈 사전',url:'https://www.instablank.com/meme/'+id});
-const HSAD9={name:'HSAD 월간 2026밈 9월 편',url:'https://blog.hsad.co.kr/3776'};
-const yt=(id,ch,cap,k)=>({id,ch,cap,k});
-
-const ISSUES=[
-{id:'2026-08',card:'2026년 8월 결산',label:'2026년 8월 결산 특별호',range:'8월 1일 ~ 8월 31일',pub:'9월 23일 발행',
- headline:'단점부터 말하는 후기,\n랜덤 책갈피 수집, 옛 사진 재현까지',
- intro:'8월은 주 단위로 기록된 자료가 없어서, 한 달 동안 유행으로 기록된 트렌드를 한 번에 모아 결산호로 정리했어요. 가격을 먼저 털어놓는 후기 화법부터 편의점을 돌며 책갈피를 모으는 수집 인증, 오래된 사진을 같은 구도로 다시 찍는 재현 포맷까지, 브랜드가 바로 따라 해볼 만한 것들이 유난히 많았던 달이에요. 각 트렌드 끝에 실제 영상을 볼 수 있는 링크를 달아 뒀으니, 제작 전에 꼭 한 번 확인해 보세요.',
- trends:[
- {t:'민음사 빵 수집 인증',period:'2026년 8월',ind:'편의점 · 식품 · 서점 · 문구',src:[IB(210),HSAD9],
-  body:['8월 21일, GS25가 출판사 민음사와 손잡고 세계문학전집과 시집 표지를 본뜬 포장의 빵을 내놨어요. 봉투 안에는 민음사 책 디자인을 활용한 <b>책갈피 20종 중 하나가 무작위로</b> 들어 있어요.','반응은 뜨거웠어요. 출시 나흘 만에 누적 5만 개가 팔렸고, 점포마다 발주 수량이 제한될 만큼 품절이 이어졌어요. 중고 거래에서는 책갈피만 빵값보다 비싸게 거래되기도 했고요. 자연스럽게 여러 편의점을 돌며 책갈피를 모으는 <b>\'수집 인증\'</b>이 SNS에 퍼졌어요.'],
-  idea:'랜덤 구성품이 들어가는 제품이라면 이 구조를 그대로 가져올 수 있어요. "20종 중 몇 개 모았을까요?"로 시작해 지금까지 모은 것을 쭉 늘어놓고, 아직 못 찾은 번호를 공개하며 끝내 보세요.',
-  refs:[yt('hJjh2YZibio','민음사TV','민음사 직원들이 말하는 텍스트힙','관련'),yt('_5WNMChVrt4','Mhz 므흐즈: MBC RADIO','텍스트힙 열풍의 주역, 민음사 편집자','관련'),yt('r4f9FSY0SmE','MBC 라디오 시사','민음사 빵 품절 대란과 텍스트힙 분석','해설')]},
- {t:'죽이세유, 영화 속 사투리 대사',period:'2026년 7월 ~ 8월',ind:'지역 가게 · 전 업종',src:[IB(163)],
-  body:['나홍진 감독의 영화 「호프」에서 배우 음문석이 연기한 목수 \'양배\'. 그의 <b>충청도 사투리 대사들이 통째로 유행어</b>가 됐어요. 7월 말부터 8월까지 이어진 흐름이에요.','핵심 대사를 그대로 따라 하는 영상과 함께, 캐릭터가 왜 이렇게 사랑받는지 분석하는 영상도 꾸준히 올라오고 있어요.'],
-  idea:'지역에 뿌리를 둔 가게라면 말투를 빌려 우리 가게에서 벌어지는 상황을 직접 연기해 볼 수 있어요. 영화 장면이나 음성을 그대로 가져다 쓰지 말고, 말투만 빌려 오는 게 핵심이에요.',
-  refs:[yt('sg7fQSUys8k','어깨너머','밈의 핵심 대사를 쓴 영상','활용'),yt('Mb4J-kFXo3o','iMBC연예','영화와 배우 관련 영상','관련'),yt('d3H0F03Hxpw','18.5도','캐릭터 분석','해설')]},
- {t:'또 가고 싶은 OO입니다',period:'2026년 8월',ind:'카페 · 식당 · 숙소 · 공연',src:[IB(173)],
-  body:['"18만 원이지만 또 가고 싶은 콘서트입니다." 이렇게 <b>단점을 먼저 꺼내 놓고 "또 가고 싶다"로 끝맺는</b> 후기 화법이 8월에 유행했어요.','같은 문장 구조에 가격만 바꿔 붙이는 후기 영상이 시리즈처럼 이어지고 있어요. 100만 원짜리 경험도, 67만 원짜리 경험도 모두 "또 가고 싶은" 곳이 되는 식이죠.'],
-  idea:'카페, 식당, 숙소처럼 경험을 파는 곳이라면 바로 쓸 수 있는 화법이에요. "OO원이지만 또 가고 싶은 우리 가게입니다"로 시작해 좋았던 장면 세 컷을 보여주세요. 단점을 솔직하게 먼저 말할수록 뒤에 오는 칭찬이 더 믿음직하게 들려요.',
-  refs:[yt('kcd1_lUdGLg','더들리','100만 원이지만 또 가고 싶은','활용'),yt('pf43w7-IPeQ','더들리','비싸지만 또 가고 싶은','활용'),yt('GHx1Xeb2lsI','더들리','67만 원이지만 또 가고 싶은','활용')]},
- {t:'진스터, 직접 만드는 종이 잡지',period:'2026년 8월',ind:'문구 · 서점 · 소품샵 · 카페',src:[IB(177)],
-  body:['직접 만든 종이 잡지 \'진(zine)\'을 만들고 나누는 사람을 <b>\'진스터\'</b>라고 불러요. 책 읽는 모습을 멋으로 여기는 \'텍스트힙\' 다음으로 이어지는 아날로그 흐름으로 소개되고 있어요.','\'진스터콜\'을 외치며 밈처럼 쓰는 영상도 함께 올라오면서, 진 만들기가 하나의 놀이처럼 번지고 있어요.'],
-  idea:'문구점이나 서점, 소품샵이라면 가위와 풀로 한 장을 완성하는 손 클로즈업만으로도 충분해요. 매장에서 만든 진을 손님에게 나눠 주는 장면까지 이어지면 자연스럽게 이야기가 생겨요.',
-  refs:[yt('3fjNIW3HOcU','내가 뭘 본거지','진스터 밈 사용','활용'),yt('_uzLHdDWKxA','진젤승','진스터 밈 사용','활용'),yt('aw7AVHzcgDA','EBSDocumentary (EBS 다큐)','텍스트힙 문화 설명','해설')]},
- {t:'샤키라 컴퓨터 짤, 본인 재현',period:'2026년 8월',ind:'오래된 가게 · 브랜드 전반',src:[IB(186)],
-  body:['1997년 샤키라가 꺼진 컴퓨터 앞에 앉아 있는 사진은 오래전부터 쓰이던 고전 짤이에요. 그런데 8월, <b>샤키라 본인이 같은 장면을 그대로 재현</b>하면서 이 짤이 다시 화제가 됐어요.','재현 장면을 소개하는 영상이 해외 채널을 중심으로 빠르게 퍼졌어요.'],
-  idea:'\'옛날 사진 재현\'은 역사가 길수록 힘이 세지는 포맷이에요. 가게의 옛 사진을 꺼내 같은 자리, 같은 포즈로 지금을 찍어 나란히 보여주세요. 샤키라의 사진 자체는 쓰지 않는 게 안전해요.',
-  refs:[yt('IiQFsa2fjBI','Khaled Trends','샤키라의 재현 영상','관련'),yt('SFo7V9SuUmM','James Anderson USA','아이코닉 밈 재현','관련'),yt('JCOe85sOhHA','Buzz Arena','바이럴 컴퓨터 밈 재현','관련')]},
- {t:'페탈 의자 챌린지',period:'2026년 8월',ind:'카페 · 가구 · 공간 대여',src:[IB(189)],
-  body:['아리아나 그란데의 \'petal\' 뮤직비디오에는 <b>의자 사이를 옮겨 다니는 안무</b>가 나와요. 이걸 따라 하는 챌린지가 8월 틱톡에서 유행했어요.','원본 뮤직비디오와 함께, 여러 개의 의자를 늘어놓고 안무를 재현한 영상들이 이어지고 있어요.'],
-  idea:'의자가 많은 카페나 공간 대여 업체라면 공간을 한 번에 보여주는 방법으로 쓸 수 있어요. 다만 원곡은 브랜드 계정에서 쓸 수 없는 경우가 많으니 음원 권한부터 꼭 확인하세요.',
-  refs:[yt('afSgBNwmZrQ','ArianaGrandeVevo','원본 뮤직비디오','원본'),yt('Fdhd1boXPSU','유니버설 뮤직 코리아','원본 뮤직비디오 (자막)','원본'),yt('qwgG4rlerqI','OFD Studio','의자 안무 재현','활용')]},
- {t:'제발 지옥 같은 여기서 날 꺼내줘',period:'2026년 8월',ind:'전 업종',src:[IB(219)],
-  body:['MC몽의 노래 \'죽을 만큼 아파서\' 속 가사 한 줄을 <b>아주 사소한 곤란에 갖다 붙이는</b> 과장 밈이에요.','게임 속 상황, 산책을 거부하는 강아지, 일상의 곤란한 순간까지 소재를 가리지 않고 쓰이고 있어요.'],
-  idea:'곤란한 상황을 먼저 보여준 뒤, 우리 제품이나 서비스가 그 상황에서 "꺼내 주는" 구조로 바꿔 보세요. 원곡 음원은 권리 확인이 필요하니 가사는 자막으로 한 줄만 인용하는 편이 안전해요.',
-  refs:[yt('TvPKxeadolI','체리씌','게임 상황에 적용','활용'),yt('f9uMdclX9ew','아메A-Me','강아지 상황에 적용','활용'),yt('aFh120czbaw','한지 살려 내','일상 상황에 적용','활용')]},
- {t:'L을 가져가 (Take the L)',period:'2026년 8월',ind:'게임 · 스포츠 · 팀 콘텐츠',src:[IB(223)],
-  body:['영어권에서는 패배를 \'L\', 승리를 \'W\'로 줄여 써요. 여기서 나온 \'Take the L\'은 <b>"진 걸 인정해라"</b>라는 뜻이에요.','8월에는 번역체 그대로 \'L을 가져가\'라는 형태로 국내 커뮤니티와 숏폼에 퍼졌고, 게임이나 스포츠, 논쟁처럼 승패가 갈리는 상황에 두루 쓰이고 있어요.'],
-  idea:'도발하는 느낌이 있는 표현이라 고객을 향해 쓰기보다는 직원들끼리의 내기 콘텐츠에 어울려요. 진 사람이 "L 가져갑니다"라고 깔끔하게 인정하는 장면으로 마무리해 보세요.',
-  refs:[yt('B9bJ0IiI6Co','밈달팽이','밈 개념 설명','해설'),yt('pm6xyyv4cyo','권루트 KeonRoot','유행과 뜻 설명','해설'),yt('-zOatojA2lM','권루트 로블록스','관련 영상','관련')]},
- {t:'The Other Cavaliers, 나머지들',period:'2026년 8월',ind:'게임 · 팀 콘텐츠',src:[IB(183)],
-  body:['미국 SNL의 스킷 \'The Other Cavaliers\'는 르브론 제임스를 뺀 <b>나머지 팀원들을 쓸모없는 존재로</b> 그린 코너예요.','이 장면이 "우리 팀원들 진짜 도움이 안 돼"를 표현하는 리액션으로 쓰이면서, 팀 게임 커뮤니티에서 크게 유행했어요.'],
-  idea:'혼자 바쁘게 뛰어다니는 한 명과 뒤에 멀뚱히 서 있는 나머지 팀원 구도를 직접 찍어 보세요. 마지막에 다 같이 돕는 반전으로 끝내면 팀 분위기까지 살아나요. 원본 스킷 영상은 쓰지 마세요.',
-  refs:[yt('2MPAFtD4Vdw','Nizaritoo','나머지들 밈 활용','활용'),yt('d9HGjZd_Fm8','Saturday Night Live','SNL 원본 스킷','원본')]},
- {t:'연락 없네 잘 살아',period:'2026년 8월',ind:'앱 · 온라인몰 · 예약 서비스',src:[IB(221)],
-  body:['답장이 조금 늦었다는 이유만으로 <b>곧장 이별을 통보하는 척하는</b> 과장 투정 밈이에요.','장난스럽게 서운함을 표현할 때 쓰는 말이라, 진지하게 받아들여질 수 있는 사이에서는 조심해서 쓰는 게 좋다는 이야기도 함께 나와요.'],
-  idea:'장바구니에 담아 두고 결제하지 않은 고객에게 "연락 없네… 잘 살아"라고 투정 부리는 브랜드 캐릭터는 어떨까요. 끝까지 가벼운 톤을 유지하는 게 핵심이에요.',
-  refs:[yt('6DNUMBs7EgM','금새락','밈 문구 사용','활용'),yt('wbnDtFMNue8','이와열','밈 문구 사용','활용')]}
- ]},
-{id:'2026-09-4',card:'2026년 9월 4주차',label:'2026년 9월 4주차 · 창간호',range:'9월 21일 ~ 9월 27일',pub:'9월 23일 발행',
- headline:'이번 주는 직접 찍어서\n인증하는 트렌드가 많아요',
- intro:'위클립의 첫 호예요. 이번 주에는 9월 들어 유행으로 기록된 트렌드 7개를 모았어요. 결정을 몇 번이나 번복한 문자 한 통부터 1년 동선을 지도 한 장으로 보여주는 인증, 마카롱을 우유에 말아 먹는 조합까지, 누구나 직접 찍어서 보여줄 수 있는 포맷이 눈에 많이 띄었어요. 7개 중 4개는 두 곳 이상의 트렌드 기록에서 함께 확인된 것들이에요. 각 트렌드 끝에 실제 영상 링크를 달아 뒀으니 제작 전에 참고해 보세요.',
- trends:[
- {t:'9월 포기하겠습니다',period:'2026년 9월',ind:'전 업종',src:[IB(211),HSAD9],
-  body:['"포기하겠습니다… 아니 진행하겠습니다… 죄송합니다 그냥 포기하겠습니다." 면접을 두고 오간 <b>갈팡질팡 문자 한 통</b>이 9월 숏폼의 단골 소재가 됐어요.','결정을 몇 번이나 뒤집는 문장 자체가 멘붕을 표현하는 밈이 된 거죠. 지역 뉴스에서 원본을 다룰 만큼 알려졌고, 문구를 그대로 재현하거나 제목에 붙여 쓰는 영상이 이어지고 있어요. HSAD의 9월 밈 모음 제목에도 이 문장이 쓰였을 정도예요.'],
-  idea:'신메뉴 출시를 앞둔 사장님의 문자 화면으로 바꿔 보면 어떨까요. "포기하겠습니다… 아니 출시하겠습니다…"처럼 번복을 반복하다가 마지막에 출시일을 공개하는 식이에요. 원본 문자의 당사자를 떠올리게 하거나 놀리는 방향은 피하는 게 좋아요.',
-  refs:[yt('x_u_gp2o1fs','KNN NEWS','밈 원본을 다룬 뉴스','해설'),yt('VasqWhId6V0','연동이네','밈 문구 재현','활용'),yt('pG2BjtTLP-M','비공식 뮤직','밈 제목 활용','활용')]},
- {t:'구글 타임라인 이동 경로 인증',period:'2026년 9월',ind:'여행 · 배달 · 이동 서비스',src:[IB(215),HSAD9],
-  body:['구글 지도 타임라인에 쌓인 이동 기록을 내려받아 <b>지도 위에 궤적으로 그려 주는</b> 도구가 화제예요. 1년 동안 어디를 다녔는지 한 장의 지도로 보여주는 인증이 유행처럼 번졌어요.','사용법과 만드는 방법을 알려주는 영상도 여럿 올라와 있어서, 누구나 따라 만들 수 있다는 점이 확산에 한몫했어요.'],
-  idea:'배달이나 출장처럼 이동이 곧 일인 업종이라면 "우리 기사님의 한 달"을 지도 한 장으로 보여줄 수 있어요. 위치 기록은 개인정보라서 집이나 개인 동선이 드러나지 않게 꼭 가려 주세요.',
-  refs:[yt('or7ChgsNUXg','뷰브 TV','비주얼라이저 사용법','해설'),yt('zcl3UyMssO4','킁킁','유행하는 타임라인 영상','활용'),yt('wVU-N99y68E','스마트한스푼','비주얼라이저 영상 만들기','해설')]},
- {t:'마카롱 말먹',period:'2026년 9월',ind:'카페 · 디저트',src:[IB(216),HSAD9],
-  body:['마카롱을 우유나 아이스 아메리카노에 퐁당 <b>말아서 떠먹는 조합</b>이 9월의 먹거리 트렌드로 떠올랐어요.','먹방 크리에이터들이 마카롱이 잠기는 모습과 떠먹는 소리를 ASMR 소재로 삼으면서 빠르게 퍼졌어요.'],
-  idea:'카페라면 이미 있는 재료만으로 오늘 바로 찍을 수 있는 소재예요. 마카롱이 우유에 떨어지는 소리로 시작해 숟가락으로 떠먹는 소리까지 이어 가고, 마지막에 매장 메뉴로 연결해 보세요.',
-  refs:[yt('TBKlW96IQ2A','S.M.S Vibe','마카롱 우유 말먹 설명','해설'),yt('-O8h1DxX56Q','황형구','유행 설명','해설'),yt('-lAE3ZQC2R4','떵개떵','마카롱 우유 말먹 먹방','활용')]},
- {t:'로블록스 근황',period:'2026년 9월',ind:'게임 · 키즈 · 캐릭터',src:[IB(213),HSAD9],
-  body:['게임 플랫폼 로블록스 안에서 밥을 먹고, ASMR을 하고, 춤을 추는 <b>엉뚱한 일상을 \'근황\'처럼 공유</b>하는 밈이에요.','캐릭터가 음식을 먹는 로블록스 먹방 ASMR 영상이 따로 만들어질 만큼 변주가 다양해요.'],
-  idea:'캐릭터가 있는 브랜드라면 "요즘 우리 캐릭터 근황"으로 게임 속 일상과 실제 매장 모습을 번갈아 보여줄 수 있어요. 게임 화면을 쓸 때는 해당 플랫폼의 이용 약관을 먼저 확인하세요.',
-  refs:[yt('gUtQ9326OiY','후원','로블록스 근황 공유','활용'),yt('1OyuR9rK3PQ','ASMRoblox','로블록스 먹방 ASMR','활용')]},
- {t:'Remember November 2026',period:'2026년 9월',ind:'시즌 마케팅 · 연말 예고',src:[IB(224)],
-  body:['AI로 만든 북극곰이 <b>"2026년 11월이 온다"</b>고 노래하는 영상이에요. 무슨 뜻인지 알 수 없는 예언 같은 어감이 오히려 중독성을 만들면서 9월 초 숏폼에 자주 등장했어요.','밈 제작용 그린스크린 소스까지 공유될 만큼 따라 만드는 영상이 많아요.'],
-  idea:'11월에 행사나 신제품이 있다면 예고편으로 딱 맞는 소재예요. 원본 AI 영상을 그대로 가져오기보다는 우리 캐릭터나 제품으로 새로 만드는 편이 안전해요.',
-  refs:[yt('HS0hu-RMKgY','I Green Screen Things','밈 제작용 그린스크린','관련'),yt('JJAaUEcxU5o','Cake cake cake cake cake cake','북극곰 밈 영상','활용'),yt('NQfTkFx4xcQ','what is this currasier doin on the calculator','북극곰 밈 활용','활용')]},
- {t:'색소폰이 커지고 있다',period:'2026년 9월',ind:'전 업종',src:[IB(225)],
-  body:['90년대 영화에 나올 법한 <b>불길한 색소폰 배경음</b>을 평범한 일상 장면에 깔아서, 곧 무슨 일이 벌어질 것 같은 긴장감을 만드는 밈이에요.','원본 사운드와 함께 이 소리가 어디서 왔는지 설명하는 영상들도 퍼지고 있어요.'],
-  idea:'평화로운 매장 풍경에 색소폰 소리가 점점 커지다가, 대량 주문이 들어오는 반전으로 마무리해 보세요. 사운드는 상업용 사용 권한을 먼저 확인해야 해요.',
-  refs:[yt('olc4RzxlwXI','SnoopNPurple','원본 밈 사운드','원본'),yt('AJzEbPXHzc4','Meme Super Shop','밈 유래 설명','해설'),yt('txJlE3K7eus','Viral Music Hits','원본 사운드 설명','해설')]},
- {t:'Kinda Chic To',period:'2026년 9월',ind:'전 업종',src:[IB(226)],
-  body:['"~하는 게 좀 시크하지"라는 문장을 반복하면서 <b>돈과는 상관없는 소소한 성취</b>를 늘어놓는 캡션 밈이에요. 제때 자는 습관, 화내지 않고 넘긴 하루 같은 것들이 \'시크함\'이 되는 거죠.','4월 말 처음 등장해 여름 내내 릴스와 틱톡에서 퍼졌고, 9월에도 활발히 쓰이고 있어요. 사진 한 장에 자막만 얹으면 되니 진입 장벽도 낮아요.'],
-  idea:'"매일 같은 시간에 문 여는 게 좀 시크하지"처럼 브랜드가 꾸준히 지켜온 것들을 늘어놓아 보세요. 마지막 줄에 브랜드가 지키는 가치를 담으면 자연스럽게 마무리돼요.',
-  refs:[yt('HMh5Fcgu1wI','Meme Hope','밈 예시','활용'),yt('uBVgtNs8Dj0','BeckyBex','소소한 성장 자랑 예시','활용'),yt('Qzu3H3CUIQQ','알고보면','의미와 유행 분석','해설')]}
- ]}
-];
-const NEXT_ISSUE='9월 28일 월요일';
+let ISSUES=[];
+const nextMonday=()=>{const n=new Date(Date.now()+9*3600e3);const w=(n.getUTCDay()+6)%7;const m=new Date(Date.UTC(n.getUTCFullYear(),n.getUTCMonth(),n.getUTCDate()+(7-w)));return `${m.getUTCMonth()+1}월 ${m.getUTCDate()}일 월요일`};
+const NEXT_ISSUE=nextMonday();
+const spark=s=>{if(!s||s.length<2)return'';const W=160,H=40,mx=Math.max(...s.map(x=>x.ratio))||1;const pts=s.map((x,i)=>`${(i/(s.length-1)*W).toFixed(1)},${(H-2-x.ratio/mx*(H-6)).toFixed(1)}`).join(' ');const last=pts.split(' ').pop().split(',');return `<svg class="spark" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" aria-hidden="true"><polyline points="${pts}" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="${last[0]}" cy="${last[1]}" r="3.5" fill="var(--blue)"/></svg>`};
 
 const pad=n=>String(n).padStart(2,'0');
 const latest=()=>ISSUES[ISSUES.length-1];
@@ -241,17 +161,25 @@ const watch=id=>`https://www.youtube.com/watch?v=${id}`;
 const refCount=is=>is.trends.reduce((n,t)=>n+t.refs.length,0);
 const app=document.getElementById('app');
 const setNav=k=>document.querySelectorAll('[data-nav]').forEach(a=>a.dataset.nav===k?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current'));
-const footer=()=>`<footer><div class="wrap"><b>위클립</b><p>매주 월요일, 출처가 확인된 숏폼 트렌드와 기획 아이디어를 전해드려요.</p><p>트렌드 설명은 출처를 바탕으로 위클립이 다시 쓴 글이며, 영상과 이미지의 권리는 각 게시자에게 있어요.</p></div></footer>`;
+const methodHTML=()=>`<section class="section method" id="method"><div class="wrap">
+    <div class="sec-head"><div><h2>트렌드를 고르는 기준</h2><p>위클립은 매주 같은 규칙으로 뷰티 트렌드를 골라요.</p></div></div>
+    <div class="rules">
+      <div class="rule"><b>검색 데이터가 올랐는가</b><p>네이버 데이터랩 공식 API로 뷰티 키워드의 주간 검색 추이를 확인해요. 지난주 검색량이 직전 4주 평균보다 30% 이상 오른 키워드만 후보가 돼요.</p></div>
+      <div class="rule"><b>실제 영상이 있는가</b><p>유튜브 공식 API로 최근 7일 안에 올라온 공개 쇼츠를 찾아요. 조회수 상위 영상이 2개 이상 있어야 실어요.</p></div>
+      <div class="rule"><b>사람이 확인했는가</b><p>초안은 자동으로 만들지만, 데이터에 없는 숫자나 과장된 효능 표현이 없는지 담당자가 검수한 뒤에만 발행해요.</p></div>
+    </div></div></section>`;
+const footer=()=>`<footer><div class="wrap"><b>위클립</b><p>매주 월요일, 데이터로 확인한 뷰티 트렌드와 기획 아이디어를 전해드려요.</p><p>트렌드 설명은 출처를 바탕으로 위클립이 다시 쓴 글이며, 영상과 이미지의 권리는 각 게시자에게 있어요.</p></div></footer>`;
 
 function renderHome(){
   const L=latest(), past=[...ISSUES].reverse().slice(1);
+  if(!L){app.innerHTML=`<div class="view"><section class="hero"><div class="wrap"><p class="eyebrow">뷰티 마케터를 위한 주간 트렌드</p><h1>이번 주 뷰티 트렌드<br>위클립이 알려드릴게요</h1><p class="lead">검색 데이터로 고르고, 실제 영상으로 확인하고, 바로 쓸 기획까지.</p><div class="latest"><div><span class="pill">첫 호 준비 중</span><h2>${NEXT_ISSUE}</h2><p class="meta">첫 뷰티 주간호가 이날 오전 9시에 발행돼요.</p></div></div></div></section>${methodHTML()}${footer()}</div>`;return}
   app.innerHTML=`<div class="view">
   <section class="hero"><div class="wrap">
-    <p class="eyebrow">매주 월요일 아침 발행</p>
-    <h1>이번 주 트렌드<br>위클립이 알려드릴게요</h1>
-    <p class="lead">숏폼 트렌드 정리부터 바로 쓸 수 있는 기획 아이디어까지 한 번에.</p>
+    <p class="eyebrow">뷰티 마케터를 위한 주간 트렌드 · 매주 월요일 오전 9시</p>
+    <h1>이번 주 뷰티 트렌드<br>위클립이 알려드릴게요</h1>
+    <p class="lead">검색 데이터로 고르고, 실제 영상으로 확인하고, 바로 쓸 기획까지.</p>
     <div class="latest">
-      <div><span class="pill">이번 주 최신호</span><h2>${L.card}</h2>
+      <div><span class="pill">이번 주 최신호</span><h2>${L.label}</h2>
         <p class="meta">${L.range} · 트렌드 ${L.trends.length}개 · 참고 영상 ${refCount(L)}개</p>
         <a class="go-btn" href="#/issue/${L.id}">이번 주 트렌드 읽기 →</a></div>
       <div class="preview">${L.trends.slice(0,3).map((t,i)=>`<a href="#/issue/${L.id}/${i+1}"><span class="num">${pad(i+1)}</span>${t.t}</a>`).join('')}<small>외 ${L.trends.length-3}개 트렌드</small></div>
@@ -261,17 +189,11 @@ function renderHome(){
     <div class="sec-head"><div><h2>지난 호 모아보기</h2><p>지나간 트렌드도 다시 꺼내 볼 수 있어요.</p></div>
       <label class="search"><input id="q" type="search" placeholder="키워드로 지난 트렌드 찾기" aria-label="지난 트렌드 검색"></label></div>
     <div class="rows">${past.map(is=>`<a class="row" href="#/issue/${is.id}" data-s="${is.trends.map(t=>t.t+' '+t.ind).join(' ').toLowerCase()}">
-      <span><b>${is.card}</b><small>${is.range} · 트렌드 ${is.trends.length}개</small></span>
-      <span class="tags">${is.trends.slice(0,3).map(t=>`<span class="chip">${t.t}</span>`).join('')}</span><span class="go">읽기 ›</span></a>`).join('')}</div>
+      <span><b>${is.label}</b><small>${is.range} · 트렌드 ${is.trends.length}개</small></span>
+      <span class="tags">${is.trends.slice(0,3).map(t=>`<span class="chip">${t.keyword||t.t}</span>`).join('')}</span><span class="go">읽기 ›</span></a>`).join('')}</div>
     <div class="empty" id="none" hidden>검색 결과가 없어요. 다른 키워드로 찾아보세요.</div>
   </div></section>
-  <section class="section method" id="method"><div class="wrap">
-    <div class="sec-head"><div><h2>트렌드를 고르는 기준</h2><p>위클립은 아래 세 가지를 모두 통과한 트렌드만 실어요.</p></div></div>
-    <div class="rules">
-      <div class="rule"><b>기록으로 확인된 트렌드</b><p>공개된 트렌드 기록(인스타공백닷컴 밈 사전, HSAD 월간 밈 등)에 해당 기간의 유행으로 올라 있어야 해요. 기록이 월 단위뿐이면 주차로 쪼개지 않고 결산호로 묶어요.</p></div>
-      <div class="rule"><b>실제 영상 2개 이상</b><p>지금 유튜브에서 재생되는지 확인한 참고 영상이 2개 이상 있어야 해요. 삭제됐거나 볼 수 없는 영상은 뺐어요.</p></div>
-      <div class="rule"><b>브랜드가 써도 안전한 포맷</b><p>특정인을 겨냥하거나 조롱하는 밈, 정치 관련 밈, 다른 브랜드의 광고 자체, 실존 인물 이름을 가져다 써야 하는 밈은 제외해요.</p></div>
-    </div></div></section>
+  ${methodHTML()}
   ${footer()}</div>`;
   const q=document.getElementById('q');
   q.addEventListener('input',()=>{const v=q.value.trim().toLowerCase();let n=0;document.querySelectorAll('.row').forEach(r=>{const ok=!v||r.dataset.s.includes(v);r.hidden=!ok;if(ok)n++});document.getElementById('none').hidden=n>0});
@@ -288,33 +210,34 @@ function renderIssue(id,idx){
     <nav class="toc" aria-label="이번 호 목차"><b>이번 호에서 다룬 트렌드</b><ol>${is.trends.map((t,k)=>`<li><a href="#/issue/${is.id}/${k+1}"><span class="num">${pad(k+1)}</span>${t.t}</a></li>`).join('')}</ol></nav>
     ${is.trends.map((t,k)=>{const f=t.refs[0];return `<section class="post" id="t${k+1}">
       <div class="post-head"><span class="no">${pad(k+1)}</span><h2>${t.t}</h2></div>
-      <p class="tag-line">유행 시기 ${t.period} · 추천 업종 ${t.ind}</p>
+      <div class="data-line">${spark(t.series)}<div><b>직전 4주 평균 대비 ${t.growthPct>=0?"+":""}${t.growthPct}%</b><span>네이버 검색 추이 · 지난주(${is.dataRange}) 기준</span></div></div>
       <figure class="figure"><a href="${watch(f.id)}" target="_blank" rel="noopener noreferrer" aria-label="${f.ch} 영상 보기"><img src="${thumb(f.id)}" alt="${t.t} 관련 영상 썸네일" loading="lazy"><span class="play"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span></span></a>
         <figcaption>이미지 출처 유튜브 채널 '${f.ch}'</figcaption></figure>
       ${t.body.map(p=>`<p class="body">${p}</p>`).join('')}
-      <div class="suggest"><b>이렇게 활용해 보세요</b><p>${t.idea}</p><small>위클립 편집부의 제안이에요.</small></div>
-      <div class="refs"><b>직접 보고 참고하세요</b><div class="ref-list">${t.refs.map(r=>`<a class="ref" href="${watch(r.id)}" target="_blank" rel="noopener noreferrer"><img src="${thumb(r.id)}" alt="" loading="lazy"><span><strong>${r.ch}</strong><span class="cap"><span class="k">${r.k}</span>${r.cap}</span></span><span class="arrow">↗</span></a>`).join('')}</div></div>
+      ${t.idea&&!t.idea.startsWith("(")?`<div class="suggest"><b>이렇게 활용해 보세요</b><p>${t.idea}</p><small>위클립 편집부의 제안이에요.</small></div>`:""}
+      <div class="refs"><b>직접 보고 참고하세요</b><div class="ref-list">${t.refs.map(r=>`<a class="ref" href="${watch(r.id)}" target="_blank" rel="noopener noreferrer"><img src="${thumb(r.id)}" alt="" loading="lazy"><span><strong>${r.ch}</strong><span class="cap">${r.title}</span><span class="cap">조회수 ${r.views.toLocaleString("ko-KR")}회 · ${r.published} 게시</span></span><span class="arrow">↗</span></a>`).join('')}</div></div>
       <p class="srcs">출처 · ${t.src.map(s=>`<a href="${s.url}" target="_blank" rel="noopener noreferrer">${s.name}</a>`).join(' · ')}</p>
     </section>`}).join('')}
   </div></article>
   <div class="col"><nav class="pager" aria-label="호 이동">
-    ${prev?`<a href="#/issue/${prev.id}"><span>← 이전 호</span><b>${prev.card}</b></a>`:`<div><span>← 이전 호</span><b>첫 번째 호예요</b></div>`}
-    ${next?`<a class="next" href="#/issue/${next.id}"><span>다음 호 →</span><b>${next.card}</b></a>`:`<div class="next"><span>다음 호 →</span><b>${NEXT_ISSUE}에 공개돼요</b></div>`}
+    ${prev?`<a href="#/issue/${prev.id}"><span>← 이전 호</span><b>${prev.label}</b></a>`:`<div><span>← 이전 호</span><b>첫 번째 호예요</b></div>`}
+    ${next?`<a class="next" href="#/issue/${next.id}"><span>다음 호 →</span><b>${next.label}</b></a>`:`<div class="next"><span>다음 호 →</span><b>${NEXT_ISSUE}에 공개돼요</b></div>`}
   </nav></div>${footer()}</div>`;
   if(idx){const el=document.getElementById('t'+idx);if(el)requestAnimationFrame(()=>el.scrollIntoView({behavior:'smooth'}))}else window.scrollTo(0,0);
 }
 
 function route(){
   const [a,b,c]=location.hash.replace(/^#\/?/,'').split('/');
-  if(a==='issue'){setNav(b===latest().id?'latest':'archive');renderIssue(b,c?+c:null);return}
-  if(a==='latest'){location.replace('#/issue/'+latest().id);return}
+  if(a==='issue'){setNav(latest()&&b===latest().id?'latest':'archive');renderIssue(b,c?+c:null);return}
+  if(a==='latest'){if(latest())location.replace('#/issue/'+latest().id);else location.replace('#/');return}
   const onHome=!!document.getElementById('archive');
   if(!onHome)renderHome();
   setNav(['archive','method'].includes(a)?a:'');
   if(['archive','method'].includes(a))requestAnimationFrame(()=>{const el=document.getElementById(a);if(el)window.scrollTo({top:el.offsetTop-72,behavior:onHome?'smooth':'auto'})});
   else window.scrollTo({top:0,behavior:onHome?'smooth':'auto'});
 }
-addEventListener('hashchange',route);route();
+addEventListener('hashchange',route);
+fetch('issues.json?'+Date.now()).then(r=>r.ok?r.json():[]).catch(()=>[]).then(d=>{ISSUES=Array.isArray(d)?d:[];route()});
 </script>
 </body>
 </html>
