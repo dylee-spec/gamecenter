@@ -1,0 +1,54 @@
+name: 위클립 주간 발행
+on:
+  schedule:
+    - cron: '0 21 * * 0'   # 매주 월요일 06:00 (KST) 초안 생성
+    - cron: '0 0 * * 1'    # 매주 월요일 09:00 (KST) 승인된 초안 발행
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'draft = 초안 만들기, publish = 승인된 초안 발행'
+        type: choice
+        options: [draft, publish]
+        default: draft
+permissions:
+  contents: write
+  pull-requests: write
+  pages: write
+jobs:
+  draft:
+    if: (github.event_name == 'schedule' && github.event.schedule == '0 21 * * 0') || (github.event_name == 'workflow_dispatch' && inputs.mode == 'draft')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: 데이터 수집과 초안 작성
+        env:
+          NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
+          NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/weeklip/collect.mjs
+      - name: 검수용 PR 만들기
+        env: { GH_TOKEN: '${{ github.token }}' }
+        run: |
+          source /tmp/weeklip_meta.env
+          git config user.name "weeklip-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "weeklip/$ISSUE_ID"
+          git add work/weeklip/issues.json
+          git commit -m "위클립 $ISSUE_LABEL 초안"
+          git push -f -u origin "weeklip/$ISSUE_ID"
+          gh label create "발행 승인" --color 3182F6 --description "검수 완료, 월요일 9시 발행" 2>/dev/null || true
+          gh pr create --base main --head "weeklip/$ISSUE_ID" --title "위클립 $ISSUE_LABEL 초안" --body-file /tmp/weeklip_pr.md || gh pr edit "weeklip/$ISSUE_ID" --body-file /tmp/weeklip_pr.md
+  publish:
+    if: (github.event_name == 'schedule' && github.event.schedule == '0 0 * * 1') || (github.event_name == 'workflow_dispatch' && inputs.mode == 'publish')
+    runs-on: ubuntu-latest
+    steps:
+      - name: 승인된 초안 발행
+        env: { GH_TOKEN: '${{ github.token }}' }
+        run: |
+          prs=$(gh pr list --repo "$GITHUB_REPOSITORY" --label "발행 승인" --state open --json number --jq '.[].number')
+          [ -z "$prs" ] && { echo "승인된 초안이 없어요"; exit 0; }
+          for n in $prs; do gh pr merge "$n" --repo "$GITHUB_REPOSITORY" --squash --delete-branch; done
+          gh api -X POST "repos/$GITHUB_REPOSITORY/pages/builds" || true
