@@ -35,6 +35,7 @@
 - draft.json의 cases는 뉴스 검색으로 모은 기사 목록이에요. 이를 참고하고 웹 검색으로 보강해서, 지난주 날짜가 확인되는 기사·공식 자료 기반으로 3~5개를 블로그형으로 다시 써요.
 - 각 사례: brand, platform(인스타그램/릴스/틱톡/유튜브), title, body(2~3문장), point(가져갈 포인트, 편집부 제안), sourceUrl, sourceName, sourceDate(YYYY-MM-DD), postUrl(있을 때만)
 - 원문을 직접 열어 브랜드 이름과 날짜가 맞는지 확인한 것만 실어요. 블로그형으로 쓴 사례는 `mode` 필드를 빼요.
+- 확인되는 사례가 없으면 억지로 채우지 말고 `cases`를 빈 배열로 둬요. (섹션이 자동으로 숨겨져요)
 
 ## 클라이언트 브랜드 동향 (`clients`)
 - 수치는 그대로 두고 손대지 않아요. 클라이언트 목록은 `scripts/weeklip/config.json`의 clientBrands에서 관리해요.
