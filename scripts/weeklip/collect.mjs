@@ -6,7 +6,8 @@ import { findCases } from './cases.mjs';
 import { shoppingClicks, shoppingDemo, clientWatch, bannedIn } from './extras.mjs';
 
 const CFG = JSON.parse(fs.readFileSync('scripts/weeklip/config.json', 'utf8'));
-const ISSUES_PATH = 'work/weeklip/issues.json';
+const DRAFT = process.env.WEEKLIP_OUT === 'draft';
+const ISSUES_PATH = DRAFT ? 'work/weeklip/draft.json' : 'work/weeklip/issues.json';
 const { NAVER_CLIENT_ID, NAVER_CLIENT_SECRET, YOUTUBE_API_KEY, ANTHROPIC_API_KEY } = process.env;
 if (!NAVER_CLIENT_ID || !NAVER_CLIENT_SECRET || !YOUTUBE_API_KEY) {
   console.error('필수 키가 없어요: NAVER_CLIENT_ID, NAVER_CLIENT_SECRET, YOUTUBE_API_KEY'); process.exit(1);
@@ -197,7 +198,7 @@ const caseRes = await findCases({ apiKey: ANTHROPIC_API_KEY, model: CFG.claudeMo
   naverId: NAVER_CLIENT_ID, naverSecret: NAVER_CLIENT_SECRET, newsQueries: CFG.newsQueries, beautyWords: CFG.beautyWords });
 warnings.push(...caseRes.notes);
 if (!picked.length && !caseRes.cases.length) { console.log('기준을 넘은 트렌드가 없어 이번 주는 발행하지 않아요.'); fs.writeFileSync('/tmp/weeklip_skip', '1'); process.exit(0); }
-const all = fs.existsSync(ISSUES_PATH) ? JSON.parse(fs.readFileSync(ISSUES_PATH, 'utf8')) : [];
+const all = DRAFT ? [] : fs.existsSync(ISSUES_PATH) ? JSON.parse(fs.readFileSync(ISSUES_PATH, 'utf8')) : [];
 const newIssue = { ...issue,
   headline: picked.length ? `이번 주 검색량이 가장 크게 오른\n뷰티 키워드는 '${picked[0].keyword}'${((picked[0].keyword.at(-1).charCodeAt(0) - 0xAC00) % 28) ? '이에요' : '예요'}` : '이번 주는 기준을 넘은 트렌드가 없었어요',
   intro: `지난주(${issue.dataRange}) 네이버 검색 데이터에서 직전 4주 평균보다 ${CFG.minGrowthPct}% 이상 오른 뷰티 키워드 ${picked.length}개를 골랐어요. 키워드마다 최근 올라온 쇼츠 중 조회수가 높은 영상을 참고용으로 붙였어요.`,
