@@ -39,4 +39,23 @@
 
 ## 클라이언트 브랜드 동향 (`clients`)
 - 수치는 그대로 두고 손대지 않아요. 클라이언트 목록은 `scripts/weeklip/config.json`의 clientBrands에서 관리해요.
+- 영상·기사는 브랜드 이름으로 검색한 결과라 동명의 다른 대상이 섞일 수 있어요. 영상 제목이 브랜드와 무관하면(예: 티젠 → 게임 선수) 그 브랜드의 `video`를 null로 바꾸고 `clientsIntro`에 이유를 밝혀요.
 - 화면에는 브랜드별 문단으로 자동 표시돼요. 더 자연스럽게 다듬고 싶으면 각 브랜드에 `summary`(HTML 문단, 수치는 데이터 그대로)를, 섹션 앞에 `clientsIntro`(이번 주 전체 흐름 1~2문장)를 넣어요.
+
+## 발행 요청을 받았을 때 (Claude 작업 메모)
+요청 문구 예: "이번주 위클립 발행해줘", "위클립 이번 주 호 올려줘". 저장소: https://github.com/dylee-spec/gamecenter
+
+1. **수집 실행**: 크롬 확장으로 https://github.com/dylee-spec/gamecenter/actions/workflows/weeklip.yml 에서 Run workflow → 초록 Run workflow. 1~2분 기다려요.
+2. **데이터 읽기**: bash에서 `curl -sL https://github.com/dylee-spec/gamecenter/raw/main/work/weeklip/draft.json` 으로 읽어요. `id`가 이번 주(예: 2026-09-w5)인지, `dataRange`가 지난주인지 먼저 확인해요.
+3. **글쓰기**: 위 규칙대로 trends·formats·cases·clients를 채워요. 형식과 문체는 issues.json의 `2026-09-w4` 호를 본보기로 삼아요. 트렌드 `refs`는 draft.json 값(id, ch, title, views, published)을 그대로 써요.
+4. **issues.json 만들기**: 현재 issues.json을 raw 주소로 받아, 같은 id가 있으면 교체하고 없으면 배열 끝에 추가해요. 현재 호가 첫 호 앞뒤로 정렬되는지(오래된 호가 앞) 확인해요.
+5. **올리기**: https://github.com/dylee-spec/gamecenter/edit/main/work/weeklip/issues.json 편집 화면에서 에디터 내용을 새 파일로 바꿔 커밋해요. 긴 내용은 gzip+base64로 나눠 sessionStorage에 옮긴 뒤 브라우저에서 풀어 CodeMirror(`.cm-content`의 cmTile→view)에 dispatch하고, 조각마다 SHA-256으로 확인해요. Commit changes... 버튼은 좌표 클릭이 가장 안정적이에요.
+6. **검증**: 커밋 후 raw 주소로 다시 받아 JSON 내용이 같은지 비교하고, https://dylee-spec.github.io/gamecenter/work/weeklip/ 에서 호가 보이는지 확인해요.
+7. **보고**: 이번 호에 실린 트렌드와 포맷, 빠진 섹션과 그 이유(예: 검증된 브랜드 사례 없음)를 담당자에게 한국어로 짧게 알려요.
+
+## 발행 전 체크리스트
+- [ ] 모든 숫자가 draft.json 또는 확인한 출처와 일치한다
+- [ ] 광고 금지 표현이 없다
+- [ ] 참고 영상 링크가 모두 실제로 열린다
+- [ ] 해석 문장은 편집부 해석이라고 밝혔다
+- [ ] 확인 안 된 섹션은 비웠다(억지로 채우지 않았다)
