@@ -1,0 +1,1263 @@
+[
+  {
+    "id": "2026-09-w4",
+    "label": "2026년 9월 4주차",
+    "range": "9월 21일 ~ 9월 27일",
+    "pub": "9월 24일 발행",
+    "dataRange": "9월 14일 ~ 9월 20일",
+    "historyRange": "7월 20일 ~ 9월 20일",
+    "headline": "이번 주 검색량이 가장 크게 오른\n뷰티 키워드는 '바디로션'이에요",
+    "intro": "지난주(9월 14일 ~ 9월 20일) 네이버 검색 데이터에서 직전 4주 평균보다 30% 이상 오른 뷰티 키워드 5개를 골랐어요. 키워드마다 최근 올라온 쇼츠 중 조회수가 높은 영상을 참고용으로 붙였어요.",
+    "trends": [
+      {
+        "t": "바디로션",
+        "keyword": "바디로션",
+        "growthPct": 40,
+        "volumeIndex": 2.944,
+        "yoyPct": -35,
+        "lastYearGrowthPct": 0,
+        "seasonal": false,
+        "clickGrowthPct": 29,
+        "demo": {
+          "femalePct": 70,
+          "topAge": "50대",
+          "topAgePct": 37
+        },
+        "series": [
+          {
+            "period": "2026-07-20",
+            "ratio": 14.38
+          },
+          {
+            "period": "2026-07-27",
+            "ratio": 15.93
+          },
+          {
+            "period": "2026-08-03",
+            "ratio": 14.99
+          },
+          {
+            "period": "2026-08-10",
+            "ratio": 15.65
+          },
+          {
+            "period": "2026-08-17",
+            "ratio": 16.32
+          },
+          {
+            "period": "2026-08-24",
+            "ratio": 20.95
+          },
+          {
+            "period": "2026-08-31",
+            "ratio": 25.07
+          },
+          {
+            "period": "2026-09-07",
+            "ratio": 27.39
+          },
+          {
+            "period": "2026-09-14",
+            "ratio": 31.38
+          }
+        ],
+        "body": [
+          "네이버 데이터랩 기준으로 지난주 '바디로션' 검색량이 직전 4주 평균보다 40% 늘었어요. 작년 같은 주와 비교하면 35% 적었어요. 작년 이맘때는 이런 상승이 없었어요.",
+          "네이버쇼핑 화장품/미용 분야에서 이 키워드의 클릭은 직전 4주 평균보다 29% 늘었어요. 지난주 쇼핑 클릭 중 여성 비중은 70%였어요. 연령대로는 50대가 37%로 가장 많았어요.",
+          "최근 올라온 관련 쇼츠 중 조회수가 가장 높은 영상은 '뷰티조아' 채널의 영상으로, 조회수 13,207회를 기록하고 있어요."
+        ],
+        "idea": "(편집자 작성 필요) 이 트렌드를 우리 브랜드 콘텐츠로 옮길 아이디어를 적어 주세요.",
+        "refs": [
+          {
+            "id": "QzeU3p8GFlE",
+            "ch": "뷰티조아",
+            "title": "백화점향수 맞먹는 5천원 다이소템?",
+            "views": 13207,
+            "published": "2026-09-22",
+            "windowDays": 7
+          },
+          {
+            "id": "DnswLx6GLN0",
+            "ch": "핫픽",
+            "title": "대학병원 피부과에 깔린 문채원 추천 로션  #연예인추천 #꿀템 #연예인추천템 #동안템 #뷰티템",
+            "views": 10855,
+            "published": "2026-09-20",
+            "windowDays": 7
+          },
+          {
+            "id": "kMiTPK58uYU",
+            "ch": "룩스쿨",
+            "title": "(추석)의외로 저렴해서 선물하기 좋은 명품선물 9가지",
+            "views": 10312,
+            "published": "2026-09-19",
+            "windowDays": 7
+          }
+        ],
+        "src": [
+          {
+            "name": "네이버 데이터랩 검색어 트렌드",
+            "url": "https://datalab.naver.com/keyword/trendSearch.naver"
+          },
+          {
+            "name": "YouTube Data API",
+            "url": "https://www.youtube.com/results?search_query=%EB%B0%94%EB%94%94%EB%A1%9C%EC%85%98"
+          }
+        ]
+      },
+      {
+        "t": "진정크림",
+        "keyword": "진정크림",
+        "growthPct": 39,
+        "volumeIndex": 0.064,
+        "yoyPct": 42,
+        "lastYearGrowthPct": -24,
+        "seasonal": false,
+        "clickGrowthPct": 37,
+        "demo": {
+          "femalePct": 67,
+          "topAge": "20대",
+          "topAgePct": 44
+        },
+        "series": [
+          {
+            "period": "2026-07-20",
+            "ratio": 0.71
+          },
+          {
+            "period": "2026-07-27",
+            "ratio": 1.05
+          },
+          {
+            "period": "2026-08-03",
+            "ratio": 0.74
+          },
+          {
+            "period": "2026-08-10",
+            "ratio": 1.1
+          },
+          {
+            "period": "2026-08-17",
+            "ratio": 1.1
+          },
+          {
+            "period": "2026-08-24",
+            "ratio": 1.1
+          },
+          {
+            "period": "2026-08-31",
+            "ratio": 1.72
+          },
+          {
+            "period": "2026-09-07",
+            "ratio": 1.97
+          },
+          {
+            "period": "2026-09-14",
+            "ratio": 2.05
+          }
+        ],
+        "body": [
+          "네이버 데이터랩 기준으로 지난주 '진정크림' 검색량이 직전 4주 평균보다 39% 늘었어요. 작년 같은 주와 비교하면 42% 많았어요. 작년 이맘때는 이런 상승이 없었어요.",
+          "네이버쇼핑 화장품/미용 분야에서 이 키워드의 클릭은 직전 4주 평균보다 37% 늘었어요. 지난주 쇼핑 클릭 중 여성 비중은 67%였어요. 연령대로는 20대가 44%로 가장 많았어요.",
+          "최근 올라온 관련 쇼츠 중 조회수가 가장 높은 영상은 '셀럽콕' 채널의 영상으로, 조회수 4,085회를 기록하고 있어요."
+        ],
+        "idea": "(편집자 작성 필요) 이 트렌드를 우리 브랜드 콘텐츠로 옮길 아이디어를 적어 주세요.",
+        "refs": [
+          {
+            "id": "qOCUrU_Sz9E",
+            "ch": "셀럽콕",
+            "title": "피부과 1억쓴 언니의 찐추천 인생 크림",
+            "views": 4085,
+            "published": "2026-09-20",
+            "windowDays": 7
+          },
+          {
+            "id": "Gw3yg8BdUtk",
+            "ch": "꿀템바구니",
+            "title": "피부과에 1억썼다는 장윤주 메이크업쌤 추천 정착 크림 top2",
+            "views": 3770,
+            "published": "2026-09-21",
+            "windowDays": 7
+          },
+          {
+            "id": "qv4YM6qJYes",
+            "ch": "뷰티비밀기지",
+            "title": "윤은혜 피부과 안 가고 집에서 트러블 없앤 진짜 비결",
+            "views": 2244,
+            "published": "2026-09-19",
+            "windowDays": 7
+          }
+        ],
+        "src": [
+          {
+            "name": "네이버 데이터랩 검색어 트렌드",
+            "url": "https://datalab.naver.com/keyword/trendSearch.naver"
+          },
+          {
+            "name": "YouTube Data API",
+            "url": "https://www.youtube.com/results?search_query=%EC%A7%84%EC%A0%95%ED%81%AC%EB%A6%BC"
+          }
+        ]
+      },
+      {
+        "t": "세라마이드",
+        "keyword": "세라마이드",
+        "growthPct": 35,
+        "volumeIndex": 0.311,
+        "yoyPct": 21,
+        "lastYearGrowthPct": 5,
+        "seasonal": false,
+        "clickGrowthPct": 98,
+        "demo": {
+          "femalePct": 71,
+          "topAge": "50대",
+          "topAgePct": 41
+        },
+        "series": [
+          {
+            "period": "2026-07-20",
+            "ratio": 12.1
+          },
+          {
+            "period": "2026-07-27",
+            "ratio": 11.09
+          },
+          {
+            "period": "2026-08-03",
+            "ratio": 11.24
+          },
+          {
+            "period": "2026-08-10",
+            "ratio": 11.78
+          },
+          {
+            "period": "2026-08-17",
+            "ratio": 12.15
+          },
+          {
+            "period": "2026-08-24",
+            "ratio": 12.41
+          },
+          {
+            "period": "2026-08-31",
+            "ratio": 16.18
+          },
+          {
+            "period": "2026-09-07",
+            "ratio": 16.12
+          },
+          {
+            "period": "2026-09-14",
+            "ratio": 19.18
+          }
+        ],
+        "body": [
+          "네이버 데이터랩 기준으로 지난주 '세라마이드' 검색량이 직전 4주 평균보다 35% 늘었어요. 작년 같은 주와 비교하면 21% 많았어요. 작년 이맘때는 이런 상승이 없었어요.",
+          "네이버쇼핑 화장품/미용 분야에서 이 키워드의 클릭은 직전 4주 평균보다 98% 늘었어요. 지난주 쇼핑 클릭 중 여성 비중은 71%였어요. 연령대로는 50대가 41%로 가장 많았어요.",
+          "최근 올라온 관련 쇼츠 중 조회수가 가장 높은 영상은 '뷰티플라워' 채널의 영상으로, 조회수 1,128회를 기록하고 있어요."
+        ],
+        "idea": "(편집자 작성 필요) 이 트렌드를 우리 브랜드 콘텐츠로 옮길 아이디어를 적어 주세요.",
+        "refs": [
+          {
+            "id": "vQH5bSYCSkc",
+            "ch": "뷰티플라워",
+            "title": "크림을 세 통째 발랐는데 피부과에서 들은 말 😢",
+            "views": 1128,
+            "published": "2026-09-20",
+            "windowDays": 7
+          },
+          {
+            "id": "rDR__g5EWes",
+            "ch": "Hey Vanshika",
+            "title": "#milk #skincare #toner #ceramide #greentea #hydrating #dryskin #glowingskin #glassskin",
+            "views": 14212,
+            "published": "2026-09-22",
+            "windowDays": 7
+          },
+          {
+            "id": "-Br1OrBXUmI",
+            "ch": "Unbox & Glow",
+            "title": "The Prettiest Tinted Lip Balm with SPF 50! 🍉✨WishCare Ceramide Lip Balm #shorts #viral #lipbalm #fy",
+            "views": 9023,
+            "published": "2026-09-20",
+            "windowDays": 7
+          }
+        ],
+        "src": [
+          {
+            "name": "네이버 데이터랩 검색어 트렌드",
+            "url": "https://datalab.naver.com/keyword/trendSearch.naver"
+          },
+          {
+            "name": "YouTube Data API",
+            "url": "https://www.youtube.com/results?search_query=%EC%84%B8%EB%9D%BC%EB%A7%88%EC%9D%B4%EB%93%9C"
+          }
+        ]
+      },
+      {
+        "t": "립밤",
+        "keyword": "립밤",
+        "growthPct": 31,
+        "volumeIndex": 2.07,
+        "yoyPct": -51,
+        "lastYearGrowthPct": 2,
+        "seasonal": false,
+        "clickGrowthPct": 37,
+        "demo": {
+          "femalePct": 74,
+          "topAge": "40대",
+          "topAgePct": 41
+        },
+        "series": [
+          {
+            "period": "2026-07-20",
+            "ratio": 13.16
+          },
+          {
+            "period": "2026-07-27",
+            "ratio": 14.92
+          },
+          {
+            "period": "2026-08-03",
+            "ratio": 14.76
+          },
+          {
+            "period": "2026-08-10",
+            "ratio": 14.86
+          },
+          {
+            "period": "2026-08-17",
+            "ratio": 16.66
+          },
+          {
+            "period": "2026-08-24",
+            "ratio": 22.69
+          },
+          {
+            "period": "2026-08-31",
+            "ratio": 27.22
+          },
+          {
+            "period": "2026-09-07",
+            "ratio": 27.2
+          },
+          {
+            "period": "2026-09-14",
+            "ratio": 30.77
+          }
+        ],
+        "body": [
+          "네이버 데이터랩 기준으로 지난주 '립밤' 검색량이 직전 4주 평균보다 31% 늘었어요. 작년 같은 주와 비교하면 51% 적었어요. 작년 이맘때는 이런 상승이 없었어요.",
+          "네이버쇼핑 화장품/미용 분야에서 이 키워드의 클릭은 직전 4주 평균보다 37% 늘었어요. 지난주 쇼핑 클릭 중 여성 비중은 74%였어요. 연령대로는 40대가 41%로 가장 많았어요.",
+          "최근 올라온 관련 쇼츠 중 조회수가 가장 높은 영상은 '뷰티조아' 채널의 영상으로, 조회수 334,593회를 기록하고 있어요."
+        ],
+        "idea": "(편집자 작성 필요) 이 트렌드를 우리 브랜드 콘텐츠로 옮길 아이디어를 적어 주세요.",
+        "refs": [
+          {
+            "id": "Ckiqo8mwQj0",
+            "ch": "뷰티조아",
+            "title": "여배우 원픽! 혈색 립밤",
+            "views": 334593,
+            "published": "2026-09-18",
+            "windowDays": 7
+          },
+          {
+            "id": "T_9PBiHFIhk",
+            "ch": "Daily소현",
+            "title": "최애 립밤이 바뀐 날🍦•Daily소현 #16년생 #학생브이로그 #minivlog #fyp",
+            "views": 113746,
+            "published": "2026-09-20",
+            "windowDays": 7
+          },
+          {
+            "id": "1jVWVgqR92I",
+            "ch": "픽토크",
+            "title": "에이티즈 산이 꼭 챙기는 립밤💋 최산의 촉촉한 입술 비결",
+            "views": 25628,
+            "published": "2026-09-21",
+            "windowDays": 7
+          }
+        ],
+        "src": [
+          {
+            "name": "네이버 데이터랩 검색어 트렌드",
+            "url": "https://datalab.naver.com/keyword/trendSearch.naver"
+          },
+          {
+            "name": "YouTube Data API",
+            "url": "https://www.youtube.com/results?search_query=%EB%A6%BD%EB%B0%A4"
+          }
+        ]
+      },
+      {
+        "t": "토너패드",
+        "keyword": "토너패드",
+        "growthPct": 30,
+        "volumeIndex": 0.468,
+        "yoyPct": -6,
+        "lastYearGrowthPct": -17,
+        "seasonal": false,
+        "clickGrowthPct": 2,
+        "demo": {
+          "femalePct": 76,
+          "topAge": "40대",
+          "topAgePct": 32
+        },
+        "series": [
+          {
+            "period": "2026-07-20",
+            "ratio": 10.95
+          },
+          {
+            "period": "2026-07-27",
+            "ratio": 11.03
+          },
+          {
+            "period": "2026-08-03",
+            "ratio": 14.42
+          },
+          {
+            "period": "2026-08-10",
+            "ratio": 14.32
+          },
+          {
+            "period": "2026-08-17",
+            "ratio": 11.56
+          },
+          {
+            "period": "2026-08-24",
+            "ratio": 11.19
+          },
+          {
+            "period": "2026-08-31",
+            "ratio": 12.84
+          },
+          {
+            "period": "2026-09-07",
+            "ratio": 11.75
+          },
+          {
+            "period": "2026-09-14",
+            "ratio": 15.44
+          }
+        ],
+        "body": [
+          "네이버 데이터랩 기준으로 지난주 '토너패드' 검색량이 직전 4주 평균보다 30% 늘었어요. 작년 같은 주와 비교하면 6% 적었어요. 작년 이맘때는 이런 상승이 없었어요.",
+          "네이버쇼핑 화장품/미용 분야에서 이 키워드의 클릭은 직전 4주 평균보다 2% 늘었어요. 지난주 쇼핑 클릭 중 여성 비중은 76%였어요. 연령대로는 40대가 32%로 가장 많았어요.",
+          "최근 올라온 관련 쇼츠 중 조회수가 가장 높은 영상은 '와니쥬니(WannyJunny)' 채널의 영상으로, 조회수 7,924회를 기록하고 있어요."
+        ],
+        "idea": "(편집자 작성 필요) 이 트렌드를 우리 브랜드 콘텐츠로 옮길 아이디어를 적어 주세요.",
+        "refs": [
+          {
+            "id": "wrsiZHK7jcw",
+            "ch": "와니쥬니(WannyJunny)",
+            "title": "아직도 통패드 쓰세요?｜통패드 마지막에 찝찝했던 사람 주목!｜통패드의 불편함(단점)을 바꾼 클라미에르 찰싹패드｜올리브영 입점 기념 할인, 세일 이벤트!",
+            "views": 7924,
+            "published": "2026-09-18",
+            "windowDays": 7
+          },
+          {
+            "id": "gtR8n3sbbyA",
+            "ch": "MEDIHEAL 메디힐",
+            "title": "MEDIHEAL X KAI｜메디힐 더마 패드",
+            "views": 1664,
+            "published": "2026-09-21",
+            "windowDays": 7
+          },
+          {
+            "id": "jUx_Xteoqa4",
+            "ch": "피부당당",
+            "title": "토너패드, 매일 닦고 계세요?",
+            "views": 1359,
+            "published": "2026-09-17",
+            "windowDays": 7
+          }
+        ],
+        "src": [
+          {
+            "name": "네이버 데이터랩 검색어 트렌드",
+            "url": "https://datalab.naver.com/keyword/trendSearch.naver"
+          },
+          {
+            "name": "YouTube Data API",
+            "url": "https://www.youtube.com/results?search_query=%ED%86%A0%EB%84%88%ED%8C%A8%EB%93%9C"
+          }
+        ]
+      }
+    ],
+    "cases": [
+      {
+        "brand": "",
+        "platform": "릴스",
+        "title": "[인터뷰] \"우리는 대세감을 판다\"... 노이즈앤피치 김현성 대표(上)",
+        "body": [
+          "예를 들어 화장품 브랜드가 신제품을 알리고 싶다면 과거처럼 유명 연예인이 아닌 뷰티 유튜버를 섭외해... 북미와 유럽은 틱톡 인스타그램 릴스 기반 콘텐츠를, 일본은 야후재팬 구글재팬 검색 기반 PR을 병행한다. 김..."
+        ],
+        "point": "",
+        "sourceUrl": "https://www.startuptoday.co.kr/news/articleView.html?idxno=813685",
+        "sourceName": "startuptoday.co.kr",
+        "sourceDate": "2026-09-21",
+        "postUrl": "",
+        "mode": "news"
+      },
+      {
+        "brand": "",
+        "platform": "틱톡",
+        "title": "오버사이즈 가고 스키니 왔다… 소비주에도 부는 ‘섹시의 귀환’",
+        "body": [
+          "색조 화장품 업체 e.l.f. 뷰티도 같은 기간 31% 넘게 올랐고, 아베크롬비앤드피치는 53% 상승했다. 로레알도... 틱톡이나 인스타그램에서는 몇 초 안에 사람의 시선을 잡아야 한다. 복잡한 브랜드 철학보다 유명 배우의 몸..."
+        ],
+        "point": "",
+        "sourceUrl": "https://www.chosun.com/economy/money/2026/09/20/72AP4GI3NNA45ACKV45V3S5PYQ/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
+        "sourceName": "chosun.com",
+        "sourceDate": "2026-09-20",
+        "postUrl": "",
+        "mode": "news"
+      },
+      {
+        "brand": "",
+        "platform": "유튜브",
+        "title": "고현정, 흑백 화보로 여전한 아우라…브랜드 협업 근황",
+        "body": [
+          "고현정은 인스타그램과 유튜브 채널을 통해 팬들과 소통하고 있다. 세안법·풋 케어·여행 준비물 등... 향상 캠페인 자선 행사에 꾸준히 참여하며 건강 인식 제고와 기부 활동에 동참하고 있다. 뷰티와 라이프스타일..."
+        ],
+        "point": "",
+        "sourceUrl": "https://www.topstarnews.net/news/articleView.html?idxno=16198708",
+        "sourceName": "topstarnews.net",
+        "sourceDate": "2026-09-18",
+        "postUrl": "",
+        "mode": "news"
+      },
+      {
+        "brand": "",
+        "platform": "인스타그램",
+        "title": "[유통소식] 신세계百, 셰프 손맛 담은 상차림 선물세트 출시",
+        "body": [
+          "세븐일레븐 공식 인스타그램의 비빔밥 시리즈 관련 콘텐츠 누적 조회수는 250만 회를 넘어섰다.... 현대홈쇼핑은 최근 화장품 제조업자개발생산(ODM) 기업 코스맥스와 단독 상품 공동 개발을 위한 업무협약을 맺고 자체..."
+        ],
+        "point": "",
+        "sourceUrl": "http://www.4th.kr/news/articleView.html?idxno=2118117",
+        "sourceName": "4th.kr",
+        "sourceDate": "2026-09-16",
+        "postUrl": "",
+        "mode": "news"
+      },
+      {
+        "brand": "",
+        "platform": "SNS",
+        "title": "'글 못 읽는 한국' 숏폼·AI에 절여진 문해력, 국가 경쟁력까지 흔든다...",
+        "body": [
+          "댄스 챌린지. 저는 방탄소년단 숏폼만 보면 시간 가는지 모르겠어요. ◆ 박주언 : 보다보면 진짜 금방이에요. ◇ 최요한 : 쭉 빠져들어요. 요리 레시피 이거 보고 따라 하기도 하고요. 뷰티 패션이나 지식 정보 영상 굉장히..."
+        ],
+        "point": "",
+        "sourceUrl": "https://news.ifm.kr/news/articleView.html?idxno=479353",
+        "sourceName": "news.ifm.kr",
+        "sourceDate": "2026-09-14",
+        "postUrl": "",
+        "mode": "news"
+      }
+    ],
+    "clients": [
+      {
+        "brand": "아쿠아픽",
+        "growthPct": -4,
+        "yoyPct": -22,
+        "series": [
+          {
+            "period": "2026-07-20",
+            "ratio": 0.3
+          },
+          {
+            "period": "2026-07-27",
+            "ratio": 0.3
+          },
+          {
+            "period": "2026-08-03",
+            "ratio": 0.33
+          },
+          {
+            "period": "2026-08-10",
+            "ratio": 0.32
+          },
+          {
+            "period": "2026-08-17",
+            "ratio": 0.32
+          },
+          {
+            "period": "2026-08-24",
+            "ratio": 0.32
+          },
+          {
+            "period": "2026-08-31",
+            "ratio": 0.33
+          },
+          {
+            "period": "2026-09-07",
+            "ratio": 0.34
+          },
+          {
+            "period": "2026-09-14",
+            "ratio": 0.32
+          }
+        ],
+        "news": 1,
+        "video": {
+          "id": "B45Ibc5Tczo",
+          "ch": "휘또",
+          "title": "양치하고 꼭 챙겨야하는 필수템 | 구강세정기 | 아쿠아픽 | 나이트루틴",
+          "views": 1273,
+          "published": "2026-09-22",
+          "windowDays": 7
+        }
+      },
+      {
+        "brand": "프리메라",
+        "growthPct": -11,
+        "yoyPct": -1,
+        "series": [
+          {
+            "period": "2026-07-20",
+            "ratio": 0.36
+          },
+          {
+            "period": "2026-07-27",
+            "ratio": 0.34
+          },
+          {
+            "period": "2026-08-03",
+            "ratio": 0.41
+          },
+          {
+            "period": "2026-08-10",
+            "ratio": 0.4
+          },
+          {
+            "period": "2026-08-17",
+            "ratio": 0.37
+          },
+          {
+            "period": "2026-08-24",
+            "ratio": 0.41
+          },
+          {
+            "period": "2026-08-31",
+            "ratio": 0.45
+          },
+          {
+            "period": "2026-09-07",
+            "ratio": 0.38
+          },
+          {
+            "period": "2026-09-14",
+            "ratio": 0.36
+          }
+        ],
+        "news": 0,
+        "video": {
+          "id": "5lcvduJ058Q",
+          "ch": "온니4U쇼핑차트",
+          "title": "프리메라 오일투폼 200ml/300ml 꿀조합  사은품 총정리",
+          "views": 296,
+          "published": "2026-09-23",
+          "windowDays": 7
+        }
+      },
+      {
+        "brand": "올리브영",
+        "growthPct": -32,
+        "yoyPct": -8,
+        "series": [
+          {
+            "period": "2026-07-20",
+            "ratio": 42.34
+          },
+          {
+            "period": "2026-07-27",
+            "ratio": 44.88
+          },
+          {
+            "period": "2026-08-03",
+            "ratio": 45.67
+          },
+          {
+            "period": "2026-08-10",
+            "ratio": 43.07
+          },
+          {
+            "period": "2026-08-17",
+            "ratio": 40.33
+          },
+          {
+            "period": "2026-08-24",
+            "ratio": 60.37
+          },
+          {
+            "period": "2026-08-31",
+            "ratio": 96.11
+          },
+          {
+            "period": "2026-09-07",
+            "ratio": 42.86
+          },
+          {
+            "period": "2026-09-14",
+            "ratio": 40.82
+          }
+        ],
+        "news": 0,
+        "video": {
+          "id": "04vmSG5Isy4",
+          "ch": "짤컷",
+          "title": "올리브영에서 이거 모르면 진짜 아깝습니다",
+          "views": 284955,
+          "published": "2026-09-22",
+          "windowDays": 7
+        }
+      },
+      {
+        "brand": "체이싱래빗",
+        "growthPct": -32,
+        "yoyPct": -60,
+        "series": [
+          {
+            "period": "2026-07-20",
+            "ratio": 0.17
+          },
+          {
+            "period": "2026-07-27",
+            "ratio": 0.12
+          },
+          {
+            "period": "2026-08-03",
+            "ratio": 0.09
+          },
+          {
+            "period": "2026-08-10",
+            "ratio": 0.09
+          },
+          {
+            "period": "2026-08-17",
+            "ratio": 0.08
+          },
+          {
+            "period": "2026-08-24",
+            "ratio": 0.13
+          },
+          {
+            "period": "2026-08-31",
+            "ratio": 0.14
+          },
+          {
+            "period": "2026-09-07",
+            "ratio": 0.07
+          },
+          {
+            "period": "2026-09-14",
+            "ratio": 0.07
+          }
+        ],
+        "news": 1,
+        "video": {
+          "id": "8CmntiBEQsI",
+          "ch": "연캠",
+          "title": "워터파크에서 하얀 국물 뚝뚝? 아이돌 뽀송 피부 비결 💦 #워터파크메이크업 #올영선크림 #파데프리",
+          "views": 1285,
+          "published": "2026-09-18",
+          "windowDays": 7
+        }
+      },
+      {
+        "brand": "잇츠스킨",
+        "growthPct": 2,
+        "yoyPct": -28,
+        "series": [
+          {
+            "period": "2026-07-20",
+            "ratio": 6.18
+          },
+          {
+            "period": "2026-07-27",
+            "ratio": 5.21
+          },
+          {
+            "period": "2026-08-03",
+            "ratio": 5.62
+          },
+          {
+            "period": "2026-08-10",
+            "ratio": 6.17
+          },
+          {
+            "period": "2026-08-17",
+            "ratio": 5.19
+          },
+          {
+            "period": "2026-08-24",
+            "ratio": 5.32
+          },
+          {
+            "period": "2026-08-31",
+            "ratio": 5.17
+          },
+          {
+            "period": "2026-09-07",
+            "ratio": 5.44
+          },
+          {
+            "period": "2026-09-14",
+            "ratio": 5.37
+          }
+        ],
+        "news": 0,
+        "video": {
+          "id": "HGBxyuOPK_w",
+          "ch": "리뷰버스",
+          "title": "톤업크림 7천원대? 잇츠스킨 웨딩드레스 퓨어크림 실사용 후기 (★4.7) #shorts",
+          "views": 2803,
+          "published": "2026-09-23",
+          "windowDays": 7
+        }
+      },
+      {
+        "brand": "스킨천사",
+        "growthPct": -4,
+        "yoyPct": -3,
+        "series": [
+          {
+            "period": "2026-07-20",
+            "ratio": 7.08
+          },
+          {
+            "period": "2026-07-27",
+            "ratio": 6.95
+          },
+          {
+            "period": "2026-08-03",
+            "ratio": 8.11
+          },
+          {
+            "period": "2026-08-10",
+            "ratio": 5.86
+          },
+          {
+            "period": "2026-08-17",
+            "ratio": 5.69
+          },
+          {
+            "period": "2026-08-24",
+            "ratio": 6.39
+          },
+          {
+            "period": "2026-08-31",
+            "ratio": 6.72
+          },
+          {
+            "period": "2026-09-07",
+            "ratio": 7.05
+          },
+          {
+            "period": "2026-09-14",
+            "ratio": 6.18
+          }
+        ],
+        "news": 3,
+        "video": {
+          "id": "Zw9nNp-GZtw",
+          "ch": "뷰티리뷰정리",
+          "title": "스킨1004 마다가스카르 센텔라 앰플, 진정을 원하시나요 · 올리브영 리뷰 497건",
+          "views": 1316,
+          "published": "2026-09-17",
+          "windowDays": 7
+        }
+      },
+      {
+        "brand": "에스쁘아",
+        "growthPct": -8,
+        "yoyPct": 2,
+        "series": [
+          {
+            "period": "2026-07-20",
+            "ratio": 40.6
+          },
+          {
+            "period": "2026-07-27",
+            "ratio": 40.42
+          },
+          {
+            "period": "2026-08-03",
+            "ratio": 47.18
+          },
+          {
+            "period": "2026-08-10",
+            "ratio": 43.82
+          },
+          {
+            "period": "2026-08-17",
+            "ratio": 43.93
+          },
+          {
+            "period": "2026-08-24",
+            "ratio": 46.62
+          },
+          {
+            "period": "2026-08-31",
+            "ratio": 51
+          },
+          {
+            "period": "2026-09-07",
+            "ratio": 41.86
+          },
+          {
+            "period": "2026-09-14",
+            "ratio": 42.14
+          }
+        ],
+        "news": 32,
+        "video": {
+          "id": "sV06XPUagk8",
+          "ch": "홍띠끄 hongtique",
+          "title": "에스쁘아 브레미쉬 밤 #말차비비 #후기 ",
+          "views": 3113,
+          "published": "2026-09-23",
+          "windowDays": 7
+        }
+      },
+      {
+        "brand": "티젠",
+        "growthPct": -17,
+        "yoyPct": -51,
+        "series": [
+          {
+            "period": "2026-07-20",
+            "ratio": 13.77
+          },
+          {
+            "period": "2026-07-27",
+            "ratio": 14.58
+          },
+          {
+            "period": "2026-08-03",
+            "ratio": 15.06
+          },
+          {
+            "period": "2026-08-10",
+            "ratio": 14.04
+          },
+          {
+            "period": "2026-08-17",
+            "ratio": 13.01
+          },
+          {
+            "period": "2026-08-24",
+            "ratio": 14
+          },
+          {
+            "period": "2026-08-31",
+            "ratio": 13.88
+          },
+          {
+            "period": "2026-09-07",
+            "ratio": 10.69
+          },
+          {
+            "period": "2026-09-14",
+            "ratio": 10.69
+          }
+        ],
+        "news": 32,
+        "video": {
+          "id": "oTzljRHNqSo",
+          "ch": "롤리원",
+          "title": "티젠한의 밴픽 방향성",
+          "views": 96958,
+          "published": "2026-09-23",
+          "windowDays": 7
+        }
+      },
+      {
+        "brand": "바이탈뷰티",
+        "growthPct": 7,
+        "yoyPct": -26,
+        "series": [
+          {
+            "period": "2026-07-20",
+            "ratio": 9.2
+          },
+          {
+            "period": "2026-07-27",
+            "ratio": 6.52
+          },
+          {
+            "period": "2026-08-03",
+            "ratio": 7.15
+          },
+          {
+            "period": "2026-08-10",
+            "ratio": 7.83
+          },
+          {
+            "period": "2026-08-17",
+            "ratio": 8.08
+          },
+          {
+            "period": "2026-08-24",
+            "ratio": 6.89
+          },
+          {
+            "period": "2026-08-31",
+            "ratio": 9.33
+          },
+          {
+            "period": "2026-09-07",
+            "ratio": 7.29
+          },
+          {
+            "period": "2026-09-14",
+            "ratio": 8.45
+          }
+        ],
+        "news": 6,
+        "video": null
+      },
+      {
+        "brand": "캔메이크",
+        "growthPct": -19,
+        "yoyPct": -17,
+        "series": [
+          {
+            "period": "2026-07-20",
+            "ratio": 33.07
+          },
+          {
+            "period": "2026-07-27",
+            "ratio": 25.09
+          },
+          {
+            "period": "2026-08-03",
+            "ratio": 23.78
+          },
+          {
+            "period": "2026-08-10",
+            "ratio": 21.5
+          },
+          {
+            "period": "2026-08-17",
+            "ratio": 30.71
+          },
+          {
+            "period": "2026-08-24",
+            "ratio": 27.51
+          },
+          {
+            "period": "2026-08-31",
+            "ratio": 25.52
+          },
+          {
+            "period": "2026-09-07",
+            "ratio": 22.65
+          },
+          {
+            "period": "2026-09-14",
+            "ratio": 21.62
+          }
+        ],
+        "news": 0,
+        "video": {
+          "id": "I2GuAOxMAps",
+          "ch": "유진",
+          "title": "일본 캔메이크 화장품 깡✨ #일본 #추천#화장품#무치푸르틴트#무치프르#틴트#생활음계#마이멜로디#makeup#파우더#블러셔#일본추천템#canmake",
+          "views": 1807,
+          "published": "2026-09-18",
+          "windowDays": 7
+        }
+      },
+      {
+        "brand": "닥터코스",
+        "growthPct": 2,
+        "yoyPct": 21,
+        "series": [
+          {
+            "period": "2026-07-20",
+            "ratio": 0.78
+          },
+          {
+            "period": "2026-07-27",
+            "ratio": 0.58
+          },
+          {
+            "period": "2026-08-03",
+            "ratio": 0.87
+          },
+          {
+            "period": "2026-08-10",
+            "ratio": 0.83
+          },
+          {
+            "period": "2026-08-17",
+            "ratio": 0.75
+          },
+          {
+            "period": "2026-08-24",
+            "ratio": 0.85
+          },
+          {
+            "period": "2026-08-31",
+            "ratio": 0.56
+          },
+          {
+            "period": "2026-09-07",
+            "ratio": 0.36
+          },
+          {
+            "period": "2026-09-14",
+            "ratio": 0.64
+          }
+        ],
+        "news": 51,
+        "video": null
+      }
+    ],
+    "formatNews": [
+      {
+        "brand": "",
+        "platform": "릴스",
+        "title": "완전 자연미인인 줄 알았는데…“코 성형 25년 됐다” 고백해 난리 난 ...",
+        "body": [
+          "틱톡과 인스타그램 릴스, 유튜브 쇼츠가 확산의 결정적 도화선이 됐다. 쥬얼리의 'One More Time' ET 춤, 베이비복스의 'Killer'·'Get Up' 시그니처 안무가 15초 안팎의 챌린지 영상으로 재탄생하면서 음원 차트 역주행까지..."
+        ],
+        "point": "",
+        "sourceUrl": "https://www.wikitree.co.kr/articles/1160278",
+        "sourceName": "wikitree.co.kr",
+        "sourceDate": "2026-09-20",
+        "postUrl": "",
+        "mode": "news"
+      },
+      {
+        "brand": "",
+        "platform": "틱톡",
+        "title": "[시사 스터디 카페] K뷰티, 콘텐츠가 되다",
+        "body": [
+          "코스알엑스는 2022년에 틱톡에서 '#SlapSnail'(슬랩 스네일) 챌린지를 유행시켰어. 손바닥 한쪽에 달팽이 점액 성분이 들어간 보습 제품을 바르고 다른 손바닥으로 문지른 뒤 떼어내면, 제품이 끈적하게 늘어나는 모습을..."
+        ],
+        "point": "",
+        "sourceUrl": "https://kids.donga.com/news/articleView.html?idxno=169895",
+        "sourceName": "kids.donga.com",
+        "sourceDate": "2026-09-18",
+        "postUrl": "",
+        "mode": "news"
+      },
+      {
+        "brand": "",
+        "platform": "인스타그램",
+        "title": "LG헬로비전, 청년 '로컬에디터' 키운다…지역 숨은 매력 콘텐츠로",
+        "body": [
+          "발굴해 숏폼과 영상 콘텐츠로 제작할 예정이다. 콘텐츠는 LG헬로비전 지역채널과 인스타그램 '로컬디깅... 로컬에디터 크루 프로젝트는 지역의 삶과 문화를 깊게 파고드는 로컬 디깅 트렌드와 맞물려 지역경제에 새로운..."
+        ],
+        "point": "",
+        "sourceUrl": "https://www.news1.kr/it-science/cc-newmedia/6296866",
+        "sourceName": "news1.kr",
+        "sourceDate": "2026-09-21",
+        "postUrl": "",
+        "mode": "news"
+      },
+      {
+        "brand": "",
+        "platform": "SNS",
+        "title": "[요즈음] 자고 나면 새 디저트…SNS가 바꾼 먹거리 유행",
+        "body": [
+          "두쫀쿠·버터떡 이어 피자설기까지…SNS 타고 유행 빠르게 확산 소비자 79% “디저트 트렌드 너무 빨리... 인천의 한 시장 떡집에서 판매되며 알려진 피자설기는 올해 봄부터 숏폼 영상 등을 통해 입소문을 타기 시작했고..."
+        ],
+        "point": "",
+        "sourceUrl": "https://www.asiatime.co.kr/article/20260918500206",
+        "sourceName": "asiatime.co.kr",
+        "sourceDate": "2026-09-21",
+        "postUrl": "",
+        "mode": "news"
+      },
+      {
+        "brand": "",
+        "platform": "유튜브",
+        "title": "“요새 누가 두쫀쿠 먹나요”…요즘 대세는 이것이라는데",
+        "body": [
+          "구글 트렌드 분석에 따르면 ‘피자설기’ 검색 관심도는 최근 약 2주 만에 50배 이상 뛰었다. 인스타그램과 유튜브에는 피자설기를 직접 먹어보거나 만드는 영상이 잇따라 올라오고 있으며, 일부 영상은 조회수 100만회를..."
+        ],
+        "point": "",
+        "sourceUrl": "https://www.mk.co.kr/article/12157031",
+        "sourceName": "mk.co.kr",
+        "sourceDate": "2026-09-19",
+        "postUrl": "",
+        "mode": "news"
+      },
+      {
+        "brand": "",
+        "platform": "릴스",
+        "title": "AI에게 빼앗긴 ‘모방의 주권’…‘따라 하기’ 열풍은 설계돼 있다",
+        "body": [
+          "숏폼 챌린지, 밈 문화, AI 이미지 스타일, 특정 말투의 유행은 며칠 안에 등장했다가 사라진다. 수백만 명이... 인스타그램의 릴스 리믹스나 템플릿 기능은 이 구조를 가장 잘 보여준다. 누군가의 영상을 그대로 따라 하면서..."
+        ],
+        "point": "",
+        "sourceUrl": "https://www.hani.co.kr/arti/science/future/1278444.html",
+        "sourceName": "hani.co.kr",
+        "sourceDate": "2026-09-18",
+        "postUrl": "",
+        "mode": "news"
+      },
+      {
+        "brand": "",
+        "platform": "틱톡",
+        "title": "[사이언스카페] 한국 자동차만 훔친 ‘기아 보이즈’, SNS가 부추겼다",
+        "body": [
+          "UCLA 연구진, 절도 장면 영상이 모방 범죄 유발 코로나19 대유행기에 미국에서 유독 한국산 자동차가... ‘기아 챌린지(Kia Challenge)’ 같은 태그가 달린 유튜브와 틱톡 영상이 등장했다. 브랜팅엄 교수는 “명시적인..."
+        ],
+        "point": "",
+        "sourceUrl": "https://biz.chosun.com/science-chosun/science/2026/09/16/ELT2DWBHJJAUBBXMAWPQ5MMKCU/?utm_source=naver&utm_medium=original&utm_campaign=biz",
+        "sourceName": "biz.chosun.com",
+        "sourceDate": "2026-09-16",
+        "postUrl": "",
+        "mode": "news"
+      },
+      {
+        "brand": "",
+        "platform": "인스타그램",
+        "title": "LG헬로비전, 청년 영상 크리에이터 ‘로컬에디터 크루’ 키운다",
+        "body": [
+          "발굴해 숏폼과 영상 콘텐츠를 제작하게 된다. 콘텐츠는 LG헬로비전 지역채널과 인스타그램 ‘로컬디깅’... LG헬로비전은 이번 프로젝트가 지역의 문화를 파고드는 ‘로컬 디깅’ 트렌드와 맞물려 지역 경제에 활력을..."
+        ],
+        "point": "",
+        "sourceUrl": "https://biz.heraldcorp.com/article/10879944?ref=naver",
+        "sourceName": "biz.heraldcorp.com",
+        "sourceDate": "2026-09-21",
+        "postUrl": "",
+        "mode": "news"
+      },
+      {
+        "brand": "",
+        "platform": "SNS",
+        "title": "회차 결제 넘어 통합 월정액으로… '원스토리'의 승부수",
+        "body": [
+          "센서타워의 '2026년 전 세계 AI 앱 트렌드 인사이트'에 따르면 올해 1분기 AI 동반자 앱 매출은 1억5000만달러로... 웹툰과 웹소설, 숏폼 드라마는 제작자와 출판사, 영상 제작사 등 권리관계가 서로 다르다. 통합 구독 매출을..."
+        ],
+        "point": "",
+        "sourceUrl": "https://www.ebn.co.kr/news/articleView.html?idxno=1724938",
+        "sourceName": "ebn.co.kr",
+        "sourceDate": "2026-09-19",
+        "postUrl": "",
+        "mode": "news"
+      },
+      {
+        "brand": "",
+        "platform": "유튜브",
+        "title": "국립순천대학교 앵커사업단, '마케팅 역량 강화'... 실습형 AI 교육 완수",
+        "body": [
+          "이와 함께 AI 기반 영상 제작 및 최신 트렌드를 반영한 숏폼 편집 기법, 생성형 인공지능 산출물의 저작권 검토와 상업적 활용 가이드라인을 비롯해 SNS, 유튜브, 웹사이트 등 다양한 채널에 맞춘 콘텐츠 제작과 배포..."
+        ],
+        "point": "",
+        "sourceUrl": "https://www.newsworker.co.kr/news/articleView.html?idxno=505101",
+        "sourceName": "newsworker.co.kr",
+        "sourceDate": "2026-09-18",
+        "postUrl": "",
+        "mode": "news"
+      }
+    ]
+  }
+]
