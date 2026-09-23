@@ -2,7 +2,7 @@
 // 원칙: 수치는 API 원본 그대로 쓰고, 확인되지 않은 사실은 쓰지 않는다.
 // 필요 환경변수: NAVER_CLIENT_ID, NAVER_CLIENT_SECRET, YOUTUBE_API_KEY, (선택) ANTHROPIC_API_KEY
 import fs from 'node:fs';
-import { findCases } from './cases.mjs';
+import { findCases, newsCases } from './cases.mjs';
 import { shoppingClicks, shoppingDemo, clientWatch, bannedIn } from './extras.mjs';
 
 const CFG = JSON.parse(fs.readFileSync('scripts/weeklip/config.json', 'utf8'));
@@ -197,12 +197,15 @@ const clients = CFG.clientBrands?.length ? await clientWatch(CFG.clientBrands, {
 const caseRes = await findCases({ apiKey: ANTHROPIC_API_KEY, model: CFG.claudeModel, from: new Date(+dataEnd - 6 * DAY), to: dataEnd, max: CFG.maxCases || 5,
   naverId: NAVER_CLIENT_ID, naverSecret: NAVER_CLIENT_SECRET, newsQueries: CFG.newsQueries, beautyWords: CFG.beautyWords });
 warnings.push(...caseRes.notes);
+// 업종 구분 없이 요즘 유행하는 영상 포맷·챌린지 관련 기사 (편집할 때 참고 자료)
+const fmtRes = await newsCases({ naverId: NAVER_CLIENT_ID, naverSecret: NAVER_CLIENT_SECRET, queries: CFG.formatQueries || [], from: new Date(+dataEnd - 6 * DAY), to: new Date(+dataEnd + DAY), max: CFG.maxFormatNews || 10 });
+warnings.push(...fmtRes.notes);
 if (!picked.length && !caseRes.cases.length) { console.log('기준을 넘은 트렌드가 없어 이번 주는 발행하지 않아요.'); fs.writeFileSync('/tmp/weeklip_skip', '1'); process.exit(0); }
 const all = DRAFT ? [] : fs.existsSync(ISSUES_PATH) ? JSON.parse(fs.readFileSync(ISSUES_PATH, 'utf8')) : [];
 const newIssue = { ...issue,
   headline: picked.length ? `이번 주 검색량이 가장 크게 오른\n뷰티 키워드는 '${picked[0].keyword}'${((picked[0].keyword.at(-1).charCodeAt(0) - 0xAC00) % 28) ? '이에요' : '예요'}` : '이번 주는 기준을 넘은 트렌드가 없었어요',
   intro: `지난주(${issue.dataRange}) 네이버 검색 데이터에서 직전 4주 평균보다 ${CFG.minGrowthPct}% 이상 오른 뷰티 키워드 ${picked.length}개를 골랐어요. 키워드마다 최근 올라온 쇼츠 중 조회수가 높은 영상을 참고용으로 붙였어요.`,
-  trends: picked, cases: caseRes.cases, clients };
+  trends: picked, cases: caseRes.cases, clients, ...(DRAFT ? { formatNews: fmtRes.cases } : {}) };
 const next = all.filter(i => i.id !== issue.id).concat(newIssue);
 fs.writeFileSync(ISSUES_PATH, JSON.stringify(next, null, 2) + '\n');
 
