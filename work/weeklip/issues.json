@@ -7,7 +7,7 @@
     "dataRange": "9월 14일 ~ 9월 20일",
     "historyRange": "7월 20일 ~ 9월 20일",
     "headline": "9월 중순, 바디로션과 립밤\n검색이 크게 늘었어요",
-    "intro": "위클립의 첫 뷰티 주간호예요. 지난주(9월 14일 ~ 20일) 네이버 검색 데이터에서 직전 4주 평균보다 30% 이상 오른 뷰티 키워드 5개를 골랐어요. 바디로션, 진정크림, 세라마이드, 립밤처럼 보습·진정과 관련된 키워드가 넷이나 올라왔고, 다섯 키워드 모두 작년 이맘때는 이런 상승이 없었어요. 키워드마다 네이버쇼핑 클릭 변화와 성별·연령 비중, 지난주 조회수가 높았던 쇼츠를 함께 붙였어요. 뒤에는 업종과 상관없이 요즘 유행하는 영상 포맷과 우리 클라이언트 브랜드 동향도 이어져요.",
+    "intro": "위클립의 첫 뷰티 주간호예요. 지난주(9월 14일 ~ 20일) 네이버 검색 데이터에서 직전 4주 평균보다 30% 이상 오른 뷰티 키워드 5개를 골랐어요. 바디로션, 진정크림, 세라마이드, 립밤처럼 보습·진정과 관련된 키워드가 넷이나 올라왔고, 다섯 키워드 모두 작년 이맘때는 이런 상승이 없었어요. 뒤에는 최근 7일 유튜브 업로드가 실제로 크게 늘어난 유행 포맷 두 가지와, 20개 클라이언트 브랜드의 지난주 동향과 이슈가 이어져요.",
     "trends": [
       {
         "t": "바디로션",
@@ -274,7 +274,7 @@
         "body": [
           "지난주 <b>'세라마이드' 검색량은 직전 4주 평균보다 35% 늘었어요.</b> 9월 첫째 주에 한 단계 올라선 뒤 지난주에 다시 올랐고, 작년 같은 주보다도 21% 많아요. 다만 검색 규모는 '화장품'의 약 0.3배로 작은 편이에요.",
           "눈에 띄는 건 쇼핑이에요. 네이버쇼핑 화장품/미용 분야에서 <b>클릭이 98% 늘어</b> 이번 호 키워드 중 가장 크게 올랐어요. 지난주 쇼핑 클릭은 여성이 71%였고, 연령대로는 50대가 41%로 가장 많았어요.",
-          "이번 수집에서는 조회수 상위 쇼츠가 모두 해외 영상이었어요. 세라마이드가 들어간 립밤과 토너를 소개하는 영어 영상, 세라마이드와 함께 쓰기 좋은 성분을 정리한 일본어 영상이 올라와 있어요."
+          "이번 수집에서는 조회수 상위 쇼츠가 모두 해외 영상이었어요. 세라마이드가 들어간 틴트 립밤과 토너를 직접 써 보는 영어권 영상이 올라와 있어요."
         ],
         "refs": [
           {
@@ -291,14 +291,6 @@
             "title": "#milk #skincare #toner #ceramide #greentea #hydrating #dryskin #glowingskin #glassskin",
             "views": 7341,
             "published": "2026-09-22",
-            "windowDays": 7
-          },
-          {
-            "id": "p9774v2ubt8",
-            "ch": "なぎ | スキンケア研究室",
-            "title": "セラミドの効果を高める相性のいい成分4選✨",
-            "views": 6476,
-            "published": "2026-09-17",
             "windowDays": 7
           }
         ],
@@ -572,21 +564,21 @@
         ],
         "refs": [
           {
+            "url": "https://www.youtube.com/watch?v=Y4rBYQM8758",
+            "ch": "TLC",
+            "title": "Kind of chic to have an evil twin",
+            "platform": "쇼츠"
+          },
+          {
+            "url": "https://www.youtube.com/watch?v=qWoeZhVczKQ",
+            "ch": "Vidhii",
+            "title": "Kinda chic to be a flight attendant",
+            "platform": "쇼츠"
+          },
+          {
             "url": "https://www.youtube.com/watch?v=HMh5Fcgu1wI",
             "ch": "Meme Hope",
-            "title": "밈 예시",
-            "platform": "쇼츠"
-          },
-          {
-            "url": "https://www.youtube.com/watch?v=uBVgtNs8Dj0",
-            "ch": "BeckyBex",
-            "title": "소소한 성장 자랑 예시",
-            "platform": "쇼츠"
-          },
-          {
-            "url": "https://www.youtube.com/watch?v=Qzu3H3CUIQQ",
-            "ch": "알고보면",
-            "title": "의미와 유행 분석",
+            "title": "Kinda Chic to Have $3 in Your Bank Account",
             "platform": "쇼츠"
           }
         ],
@@ -606,343 +598,86 @@
             "type": "그래픽·모션",
             "text": "사진 없이 타이포그래피만으로 문장이 한 줄씩 나타나는 텍스트 모션으로 만들어도 이 포맷의 느낌이 살아나요."
           }
-        ]
+        ],
+        "why": "인스타공백닷컴 밈 사전에는 4월 말 처음 등장해 9월에도 활발히 쓰인다고 기록돼 있어요. 실제로 수집일(9월 24일) 기준 최근 7일 동안 'Kinda Chic'으로 올라온 유튜브 영상은 <b>50개 이상</b>으로, 직전 3주 주평균(16.7개)의 3배를 넘었어요. 미국 방송사 TLC 공식 채널도 9월 23일 이 포맷으로 영상을 올릴 만큼, 개인 크리에이터를 넘어 브랜드 계정까지 쓰기 시작한 단계예요.",
+        "signal": {
+          "recent7": 50,
+          "recentCapped": true,
+          "priorWeeklyAvg": 16.7
+        }
       },
       {
-        "title": "색소폰이 커지고 있다: 평범한 장면에 불길한 배경음",
+        "title": "피자설기: 먹어 보고, 만들고, 비틀어 보는 디저트 릴레이",
         "platforms": [
           "릴스",
-          "틱톡",
-          "쇼츠"
-        ],
-        "origin": "밈·사운드",
-        "body": [
-          "90년대 영화에 나올 법한 <b>불길한 색소폰 배경음</b>을 평범한 일상 장면에 깔아서, 곧 무슨 일이 벌어질 것 같은 긴장감을 만드는 포맷이에요.",
-          "장면이 평범할수록 반전이 살아나는 구조라, 업종과 상관없이 응용하기 좋은 포맷이에요."
-        ],
-        "steps": [
-          "아무 일 없는 평화로운 장면",
-          "색소폰 소리가 점점 커지며 긴장감",
-          "예상 밖의 반전 장면"
-        ],
-        "refs": [
-          {
-            "url": "https://www.youtube.com/watch?v=olc4RzxlwXI",
-            "ch": "SnoopNPurple",
-            "title": "원본 밈 사운드",
-            "platform": "쇼츠"
-          },
-          {
-            "url": "https://www.youtube.com/watch?v=AJzEbPXHzc4",
-            "ch": "Meme Super Shop",
-            "title": "밈 유래 설명",
-            "platform": "쇼츠"
-          },
-          {
-            "url": "https://www.youtube.com/watch?v=txJlE3K7eus",
-            "ch": "Viral Music Hits",
-            "title": "원본 사운드 설명",
-            "platform": "쇼츠"
-          }
-        ],
-        "src": [
-          {
-            "name": "인스타공백닷컴 밈 사전",
-            "url": "https://www.instablank.com/meme/225",
-            "date": "2026년 9월 유행 기록"
-          }
-        ],
-        "ideas": [
-          {
-            "type": "촬영 릴스",
-            "text": "평화롭게 스킨케어를 하는 장면에 소리가 점점 커지다가, 거울 속 한쪽 눈썹만 그려져 있는 걸 발견하는 반전처럼 메이크업의 작은 사고를 코믹하게 풀어 보세요."
-          },
-          {
-            "type": "AI 영상·이미지",
-            "text": "AI로 만든 고요한 풍경 속에 소리가 커지다가 거대한 제품이 등장하는 반전 컷으로 만들어도 좋아요. 사운드는 상업용 사용 권한을 먼저 확인해야 해요."
-          }
-        ]
-      },
-      {
-        "title": "9월 포기하겠습니다: 번복하는 문자 화면",
-        "platforms": [
-          "릴스",
-          "쇼츠"
-        ],
-        "origin": "밈·문자 캡처",
-        "body": [
-          "\"포기하겠습니다… 아니 진행하겠습니다… 죄송합니다 그냥 포기하겠습니다.\" 면접을 두고 오간 <b>갈팡질팡 문자 한 통</b>에서 나온 포맷이에요.",
-          "결정을 몇 번이나 뒤집는 문장 자체가 멘붕을 표현해서, 문구를 그대로 재현하거나 제목에 붙여 쓰는 영상이 이어지고 있어요. HSAD의 9월 밈 모음에서도 다뤄졌어요."
-        ],
-        "steps": [
-          "휴대폰 문자 화면",
-          "결정을 번복하는 말풍선 반복",
-          "마지막에 진짜 결정 공개"
-        ],
-        "refs": [
-          {
-            "url": "https://www.youtube.com/watch?v=x_u_gp2o1fs",
-            "ch": "KNN NEWS",
-            "title": "밈 원본을 다룬 뉴스",
-            "platform": "쇼츠"
-          },
-          {
-            "url": "https://www.youtube.com/watch?v=VasqWhId6V0",
-            "ch": "연동이네",
-            "title": "밈 문구 재현",
-            "platform": "쇼츠"
-          },
-          {
-            "url": "https://www.youtube.com/watch?v=pG2BjtTLP-M",
-            "ch": "비공식 뮤직",
-            "title": "밈 제목 활용",
-            "platform": "쇼츠"
-          }
-        ],
-        "src": [
-          {
-            "name": "인스타공백닷컴 밈 사전",
-            "url": "https://www.instablank.com/meme/211",
-            "date": "2026년 9월 유행 기록"
-          },
-          {
-            "name": "HSAD 월간 2026밈 9월 편",
-            "url": "https://blog.hsad.co.kr/3776"
-          }
-        ],
-        "ideas": [
-          {
-            "type": "그래픽·모션",
-            "text": "문자 화면을 그래픽으로 만들고 말풍선이 하나씩 올라오는 모션으로 보여주세요. '이번 신상 컬러 포기하겠습니다… 아니 출시하겠습니다…'처럼 번복하다가 마지막에 최종 컬러를 공개하는 신제품 티저로 쓰기 좋아요."
-          },
-          {
-            "type": "인스타 캐러셀",
-            "text": "같은 내용을 문자 캡처 이미지 여러 장으로 만들어, 넘길 때마다 결정이 바뀌는 캐러셀로 풀어도 돼요. 원본 문자의 당사자를 떠올리게 하는 방향은 피해 주세요."
-          }
-        ]
-      },
-      {
-        "title": "이동 경로 지도 인증: 한 장으로 보여주는 기록",
-        "platforms": [
-          "릴스",
-          "쇼츠"
-        ],
-        "origin": "여행·일상 기록",
-        "body": [
-          "구글 지도 타임라인에 쌓인 이동 기록을 <b>지도 위 궤적으로 그려 주는</b> 인증이 유행했어요. 1년 동안 어디를 다녔는지 한 장의 지도로 보여주는 방식이에요.",
-          "사용법과 만드는 방법을 알려주는 영상도 여럿 올라와 있어서 누구나 따라 만들 수 있다는 점이 확산에 한몫했어요. HSAD 9월 밈 모음에도 소개됐어요."
-        ],
-        "steps": [
-          "궤적이 그려진 지도 한 장",
-          "가장 많이 간 곳 확대",
-          "그곳에서 있었던 일 한 컷"
-        ],
-        "refs": [
-          {
-            "url": "https://www.youtube.com/watch?v=or7ChgsNUXg",
-            "ch": "뷰브 TV",
-            "title": "비주얼라이저 사용법",
-            "platform": "쇼츠"
-          },
-          {
-            "url": "https://www.youtube.com/watch?v=zcl3UyMssO4",
-            "ch": "킁킁",
-            "title": "유행하는 타임라인 영상",
-            "platform": "쇼츠"
-          },
-          {
-            "url": "https://www.youtube.com/watch?v=wVU-N99y68E",
-            "ch": "스마트한스푼",
-            "title": "비주얼라이저 영상 만들기",
-            "platform": "쇼츠"
-          }
-        ],
-        "src": [
-          {
-            "name": "인스타공백닷컴 밈 사전",
-            "url": "https://www.instablank.com/meme/215",
-            "date": "2026년 9월 유행 기록"
-          },
-          {
-            "name": "HSAD 월간 2026밈 9월 편",
-            "url": "https://blog.hsad.co.kr/3776"
-          }
-        ],
-        "ideas": [
-          {
-            "type": "그래픽·모션",
-            "text": "지도 위에 선이 그려지며 팝업스토어, 촬영장, 매장을 차례로 잇는 모션 그래픽으로 '우리 립스틱이 한 달 동안 다녀온 곳'을 보여줄 수 있어요."
-          },
-          {
-            "type": "인스타 캐러셀",
-            "text": "첫 장은 전체 궤적 지도, 다음 장부터는 들른 곳마다 한 장씩 넘기는 구성으로 만들면 오프라인 행사 후기 게시물로도 쓸 수 있어요. 실제 위치 기록을 쓸 때는 개인 동선이 드러나지 않게 가려 주세요."
-          }
-        ]
-      },
-      {
-        "title": "마카롱 말먹: 소리로 먹는 ASMR 조합",
-        "platforms": [
           "쇼츠",
           "틱톡"
         ],
         "origin": "F&B",
         "body": [
-          "마카롱을 우유나 아이스 아메리카노에 퐁당 <b>말아서 떠먹는 조합</b>이 9월의 먹거리 트렌드로 떠올랐어요.",
-          "먹방 크리에이터들이 마카롱이 잠기는 모습과 떠먹는 소리를 ASMR 소재로 삼으면서 빠르게 퍼졌어요. 말없이 소리와 클로즈업만으로 끝까지 보게 만드는 구성이 핵심이에요."
+          "인천의 한 시장 떡집에서 팔리던 피자 맛 설기떡, <b>'피자설기'</b>가 올봄부터 숏폼 영상을 타고 입소문이 났어요. 두쫀쿠, 버터떡에 이어 SNS가 만든 디저트 유행으로 꼽히고 있어요.",
+          "영상의 흐름은 크게 세 가지예요. 직접 사서 첫입을 먹어 보는 영상, 집에서 만들어 보는 영상, 그리고 '피자설기 말고 이것' 같은 식으로 비틀어 새 버전을 내놓는 패러디 영상이에요. 예능 프로그램까지 이 흐름을 소재로 삼았어요."
         ],
+        "why": "매일경제(9월 19일)는 구글 트렌드 기준 '피자설기' 검색 관심도가 약 2주 만에 50배 이상 뛰었고, 조회수 100만 회를 넘긴 영상도 있다고 보도했어요. 유튜브에서도 수집일 기준 최근 7일 업로드가 <b>50개 이상</b>으로 직전 3주 주평균(16.7개)의 3배를 넘었고, 9월 23일 하루에만 조회수 5만~20만 회대 영상이 여럿 올라왔어요. 지금 한창 뜨고 있는 흐름이에요.",
+        "signal": {
+          "recent7": 50,
+          "recentCapped": true,
+          "priorWeeklyAvg": 16.7
+        },
         "steps": [
-          "재료를 가까이서 보여주기",
-          "넣고 섞는 소리 강조",
-          "한 입 떠먹는 소리로 마무리"
+          "화제 디저트를 받아 드는 첫 컷",
+          "첫입 반응 또는 직접 만드는 과정",
+          "\"이것 말고 이것\" 식의 새 버전 제안"
+        ],
+        "ideas": [
+          {
+            "type": "촬영 릴스",
+            "text": "'피자설기 말고 이것'처럼 유행 문장을 빌려, 화제 디저트의 색감(치즈 옐로·토마토 레드)과 닮은 립·블러셔 컬러를 '먹지 말고 발라 보세요'로 소개하는 구성을 추천해요. 유행 흐름에 올라타면서 제품으로 자연스럽게 넘어갈 수 있어요."
+          },
+          {
+            "type": "그래픽·모션",
+            "text": "떡의 단면처럼 쿠션·파운데이션의 층을 잘라 보여주는 단면 그래픽을 만들고, 층이 하나씩 쌓이는 모션으로 이어 보세요. 촬영 없이도 '속이 꽉 찬' 느낌을 전할 수 있어요."
+          },
+          {
+            "type": "참여형 게시물",
+            "text": "'다음에 뜰 디저트 컬러는?'처럼 디저트 사진과 립 컬러를 짝지어 댓글로 고르게 하는 게시물로 풀어도 좋아요. 음식 이미지는 직접 촬영하거나 권리를 확인한 것만 쓰세요."
+          }
         ],
         "refs": [
           {
-            "url": "https://www.youtube.com/watch?v=TBKlW96IQ2A",
-            "ch": "S.M.S Vibe",
-            "title": "마카롱 우유 말먹 설명",
+            "url": "https://www.youtube.com/watch?v=W6OutqbqYWQ",
+            "ch": "권또또 KWONTTOT",
+            "title": "한정선, 피자설기 다 비켜 권주부 요리가 온다",
             "platform": "쇼츠"
           },
           {
-            "url": "https://www.youtube.com/watch?v=-O8h1DxX56Q",
-            "ch": "황형구",
-            "title": "유행 설명",
+            "url": "https://www.youtube.com/watch?v=oEwIpyWovNc",
+            "ch": "띠미 ddimmi",
+            "title": "피자설기 말고 피자 찹쌀떡 먹어주세요",
             "platform": "쇼츠"
           },
           {
-            "url": "https://www.youtube.com/watch?v=-lAE3ZQC2R4",
-            "ch": "떵개떵",
-            "title": "마카롱 우유 말먹 먹방",
+            "url": "https://www.youtube.com/watch?v=OhxH1PKWxj8",
+            "ch": "JTBC Voyage",
+            "title": "피자 설기보다 맛있는(?) 김풍 피자 | 냉장고를 부탁해",
             "platform": "쇼츠"
           }
         ],
         "src": [
           {
-            "name": "인스타공백닷컴 밈 사전",
-            "url": "https://www.instablank.com/meme/216",
-            "date": "2026년 9월 유행 기록"
+            "name": "매일경제",
+            "url": "https://www.mk.co.kr/article/12157031",
+            "date": "2026-09-19"
           },
           {
-            "name": "HSAD 월간 2026밈 9월 편",
-            "url": "https://blog.hsad.co.kr/3776"
-          }
-        ],
-        "ideas": [
-          {
-            "type": "촬영 릴스",
-            "text": "쿠션 퍼프를 톡톡 두드리는 소리, 립글로스 뚜껑을 여는 소리, 크림을 스패출러로 뜨는 소리를 가까이서 담고, 마지막에 발색이나 제형을 보여주며 끝내 보세요."
-          },
-          {
-            "type": "AI 영상·이미지",
-            "text": "촬영이 어렵다면 제형이 천천히 흐르고 부서지는 AI 클로즈업 영상에 ASMR 사운드를 입혀도 같은 몰입감을 만들 수 있어요."
+            "name": "아시아타임즈",
+            "url": "https://www.asiatime.co.kr/article/20260918500206",
+            "date": "2026-09-21"
           }
         ]
       }
     ],
     "clients": [
-      {
-        "brand": "아쿠아픽",
-        "growthPct": -4,
-        "yoyPct": -22,
-        "series": [
-          {
-            "period": "2026-07-20",
-            "ratio": 0.3
-          },
-          {
-            "period": "2026-07-27",
-            "ratio": 0.3
-          },
-          {
-            "period": "2026-08-03",
-            "ratio": 0.33
-          },
-          {
-            "period": "2026-08-10",
-            "ratio": 0.32
-          },
-          {
-            "period": "2026-08-17",
-            "ratio": 0.32
-          },
-          {
-            "period": "2026-08-24",
-            "ratio": 0.32
-          },
-          {
-            "period": "2026-08-31",
-            "ratio": 0.33
-          },
-          {
-            "period": "2026-09-07",
-            "ratio": 0.34
-          },
-          {
-            "period": "2026-09-14",
-            "ratio": 0.32
-          }
-        ],
-        "news": 1,
-        "video": {
-          "id": "B45Ibc5Tczo",
-          "ch": "휘또",
-          "title": "양치하고 꼭 챙겨야하는 필수템 | 구강세정기 | 아쿠아픽 | 나이트루틴",
-          "views": 1273,
-          "published": "2026-09-22",
-          "windowDays": 7
-        }
-      },
-      {
-        "brand": "프리메라",
-        "growthPct": -11,
-        "yoyPct": -1,
-        "series": [
-          {
-            "period": "2026-07-20",
-            "ratio": 0.36
-          },
-          {
-            "period": "2026-07-27",
-            "ratio": 0.34
-          },
-          {
-            "period": "2026-08-03",
-            "ratio": 0.41
-          },
-          {
-            "period": "2026-08-10",
-            "ratio": 0.4
-          },
-          {
-            "period": "2026-08-17",
-            "ratio": 0.37
-          },
-          {
-            "period": "2026-08-24",
-            "ratio": 0.41
-          },
-          {
-            "period": "2026-08-31",
-            "ratio": 0.45
-          },
-          {
-            "period": "2026-09-07",
-            "ratio": 0.38
-          },
-          {
-            "period": "2026-09-14",
-            "ratio": 0.36
-          }
-        ],
-        "news": 0,
-        "video": {
-          "id": "5lcvduJ058Q",
-          "ch": "온니4U쇼핑차트",
-          "title": "프리메라 오일투폼 200ml/300ml 꿀조합  사은품 총정리",
-          "views": 296,
-          "published": "2026-09-23",
-          "windowDays": 7
-        }
-      },
       {
         "brand": "올리브영",
         "growthPct": -32,
@@ -985,67 +720,327 @@
             "ratio": 40.82
           }
         ],
-        "news": 0,
+        "news": 563,
+        "newsCapped": true,
         "video": {
           "id": "04vmSG5Isy4",
           "ch": "짤컷",
           "title": "올리브영에서 이거 모르면 진짜 아깝습니다",
-          "views": 284955,
+          "views": 314748,
           "published": "2026-09-22",
           "windowDays": 7
-        }
+        },
+        "issues": [
+          {
+            "text": "올리브영이 상반기 매출 3조 원을 처음 넘기고 점유율 21.5%를 기록했다는 보도가 나왔어요.",
+            "tone": "good",
+            "source": "한스경제",
+            "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=866956",
+            "date": "2026-09-21"
+          },
+          {
+            "text": "외국인 관광객 사이에서 낯선 편집숍이 'K뷰티 성지'가 됐다는 분석 기사가 실렸어요.",
+            "tone": "good",
+            "source": "이뉴스투데이",
+            "url": "http://www.enewstoday.co.kr/news/articleView.html?idxno=2472",
+            "date": "2026-09-20"
+          },
+          {
+            "text": "하반기 신입사원 공개채용을 시작하며 글로벌·테크 인재를 뽑겠다고 밝혔어요.",
+            "tone": "info",
+            "source": "위메이크뉴스",
+            "url": "https://wemakenews.co.kr/news/view.php?no=26339",
+            "date": "2026-09-18"
+          }
+        ]
       },
       {
-        "brand": "체이싱래빗",
-        "growthPct": -32,
-        "yoyPct": -60,
+        "brand": "펩시",
+        "growthPct": -3,
+        "yoyPct": -31,
         "series": [
           {
             "period": "2026-07-20",
-            "ratio": 0.17
+            "ratio": 0.27
           },
           {
             "period": "2026-07-27",
-            "ratio": 0.12
+            "ratio": 0.28
           },
           {
             "period": "2026-08-03",
-            "ratio": 0.09
+            "ratio": 0.29
           },
           {
             "period": "2026-08-10",
-            "ratio": 0.09
+            "ratio": 0.26
           },
           {
             "period": "2026-08-17",
-            "ratio": 0.08
+            "ratio": 0.26
           },
           {
             "period": "2026-08-24",
-            "ratio": 0.13
+            "ratio": 0.24
           },
           {
             "period": "2026-08-31",
-            "ratio": 0.14
+            "ratio": 0.25
           },
           {
             "period": "2026-09-07",
-            "ratio": 0.07
+            "ratio": 0.22
           },
           {
             "period": "2026-09-14",
-            "ratio": 0.07
+            "ratio": 0.23
           }
         ],
-        "news": 1,
+        "news": 52,
+        "newsCapped": false,
         "video": {
-          "id": "8CmntiBEQsI",
-          "ch": "연캠",
-          "title": "워터파크에서 하얀 국물 뚝뚝? 아이돌 뽀송 피부 비결 💦 #워터파크메이크업 #올영선크림 #파데프리",
-          "views": 1285,
+          "id": "m5x0sm52FsQ",
+          "ch": "Cápsula Memes",
+          "title": "Coca Cola Realmente Acabó con Pepsi 💀🥤",
+          "views": 11479588,
           "published": "2026-09-18",
           "windowDays": 7
-        }
+        },
+        "issues": [
+          {
+            "text": "존슨앤드존슨 호아킨 두아토 회장이 펩시콜라 사외이사로 위촉됐다는 소식이 있었어요.",
+            "tone": "info",
+            "source": "약업신문",
+            "url": "https://www.yakup.com/news/index.html?mode=view&cat=16&nid=3",
+            "date": "2026-09-21"
+          }
+        ]
+      },
+      {
+        "brand": "조아제약",
+        "growthPct": -16,
+        "yoyPct": -2,
+        "series": [
+          {
+            "period": "2026-07-20",
+            "ratio": 0.7
+          },
+          {
+            "period": "2026-07-27",
+            "ratio": 0.46
+          },
+          {
+            "period": "2026-08-03",
+            "ratio": 0.36
+          },
+          {
+            "period": "2026-08-10",
+            "ratio": 0.26
+          },
+          {
+            "period": "2026-08-17",
+            "ratio": 0.17
+          },
+          {
+            "period": "2026-08-24",
+            "ratio": 0.51
+          },
+          {
+            "period": "2026-08-31",
+            "ratio": 0.39
+          },
+          {
+            "period": "2026-09-07",
+            "ratio": 0.27
+          },
+          {
+            "period": "2026-09-14",
+            "ratio": 0.28
+          }
+        ],
+        "news": 8,
+        "newsCapped": false,
+        "video": null,
+        "issues": [
+          {
+            "text": "블루 오프너와 손잡고 일본 돈키호테 등 판매처 2,000곳을 목표로 일본 수출 확대에 나섰어요.",
+            "tone": "good",
+            "source": "뉴스1",
+            "url": "https://www.news1.kr/bio/pharmaceutical-bio/6296844",
+            "date": "2026-09-21"
+          },
+          {
+            "text": "손익분기점을 앞두고 시가총액 200억 원 회복에 도전한다는 분석 기사가 나왔어요. 같은 주 코스닥 저시총 바이오 기업의 상장폐지 우려를 다룬 기사도 이어졌어요.",
+            "tone": "info",
+            "source": "데일리팜",
+            "url": "https://www.dailypharm.com/user/news/342446?REFERER=NP",
+            "date": "2026-09-14"
+          }
+        ]
+      },
+      {
+        "brand": "티젠",
+        "growthPct": -22,
+        "yoyPct": -41,
+        "series": [
+          {
+            "period": "2026-07-20",
+            "ratio": 0.6
+          },
+          {
+            "period": "2026-07-27",
+            "ratio": 0.58
+          },
+          {
+            "period": "2026-08-03",
+            "ratio": 0.59
+          },
+          {
+            "period": "2026-08-10",
+            "ratio": 0.56
+          },
+          {
+            "period": "2026-08-17",
+            "ratio": 0.52
+          },
+          {
+            "period": "2026-08-24",
+            "ratio": 0.54
+          },
+          {
+            "period": "2026-08-31",
+            "ratio": 0.53
+          },
+          {
+            "period": "2026-09-07",
+            "ratio": 0.41
+          },
+          {
+            "period": "2026-09-14",
+            "ratio": 0.39
+          }
+        ],
+        "news": 3,
+        "newsCapped": false,
+        "video": null,
+        "issues": [
+          {
+            "text": "당·지방·콜레스테롤 제로를 내세운 '에너지티 부스트 30스틱'을 출시했어요.",
+            "tone": "good",
+            "source": "글로벌에픽",
+            "url": "http://www.globalepic.co.kr/view.php?ud=20260917091839262048",
+            "date": "2026-09-17"
+          }
+        ]
+      },
+      {
+        "brand": "에스쁘아JP",
+        "growthPct": -8,
+        "yoyPct": 2,
+        "series": [
+          {
+            "period": "2026-07-20",
+            "ratio": 40.6
+          },
+          {
+            "period": "2026-07-27",
+            "ratio": 40.42
+          },
+          {
+            "period": "2026-08-03",
+            "ratio": 47.18
+          },
+          {
+            "period": "2026-08-10",
+            "ratio": 43.82
+          },
+          {
+            "period": "2026-08-17",
+            "ratio": 43.93
+          },
+          {
+            "period": "2026-08-24",
+            "ratio": 46.62
+          },
+          {
+            "period": "2026-08-31",
+            "ratio": 51
+          },
+          {
+            "period": "2026-09-07",
+            "ratio": 41.86
+          },
+          {
+            "period": "2026-09-14",
+            "ratio": 42.14
+          }
+        ],
+        "news": 3,
+        "newsCapped": false,
+        "video": null,
+        "issues": []
+      },
+      {
+        "brand": "캔메이크",
+        "growthPct": -19,
+        "yoyPct": -17,
+        "series": [
+          {
+            "period": "2026-07-20",
+            "ratio": 18.63
+          },
+          {
+            "period": "2026-07-27",
+            "ratio": 14.14
+          },
+          {
+            "period": "2026-08-03",
+            "ratio": 13.4
+          },
+          {
+            "period": "2026-08-10",
+            "ratio": 12.11
+          },
+          {
+            "period": "2026-08-17",
+            "ratio": 17.31
+          },
+          {
+            "period": "2026-08-24",
+            "ratio": 15.5
+          },
+          {
+            "period": "2026-08-31",
+            "ratio": 14.38
+          },
+          {
+            "period": "2026-09-07",
+            "ratio": 12.76
+          },
+          {
+            "period": "2026-09-14",
+            "ratio": 12.18
+          }
+        ],
+        "news": 0,
+        "newsCapped": false,
+        "video": {
+          "id": "I2GuAOxMAps",
+          "ch": "유진",
+          "title": "일본 캔메이크 화장품 깡✨ #일본 #추천#화장품#무치푸르틴트#무치프르#틴트#생활음계#마이멜로디#makeup#파우더#블러셔#일본추천템#canmake",
+          "views": 1860,
+          "published": "2026-09-18",
+          "windowDays": 7
+        },
+        "issues": [
+          {
+            "text": "공식 인스타그램에서 일본 현지에서 품절 대란이 났던 '클리어 베일 세팅 파우더'의 9월 21일 국내 출시를 예고했어요.",
+            "tone": "good",
+            "source": "캔메이크 코리아 인스타그램",
+            "url": "https://www.instagram.com/p/DdWDwbVifnl/",
+            "date": "2026-09-16"
+          }
+        ]
       },
       {
         "brand": "잇츠스킨",
@@ -1090,6 +1085,7 @@
           }
         ],
         "news": 0,
+        "newsCapped": false,
         "video": {
           "id": "HGBxyuOPK_w",
           "ch": "리뷰버스",
@@ -1097,156 +1093,463 @@
           "views": 2803,
           "published": "2026-09-23",
           "windowDays": 7
-        }
+        },
+        "issues": []
       },
       {
-        "brand": "스킨천사",
+        "brand": "체이싱래빗",
+        "growthPct": -32,
+        "yoyPct": -60,
+        "series": [
+          {
+            "period": "2026-07-20",
+            "ratio": 12.44
+          },
+          {
+            "period": "2026-07-27",
+            "ratio": 8.66
+          },
+          {
+            "period": "2026-08-03",
+            "ratio": 6.76
+          },
+          {
+            "period": "2026-08-10",
+            "ratio": 6.56
+          },
+          {
+            "period": "2026-08-17",
+            "ratio": 6.11
+          },
+          {
+            "period": "2026-08-24",
+            "ratio": 9.24
+          },
+          {
+            "period": "2026-08-31",
+            "ratio": 9.83
+          },
+          {
+            "period": "2026-09-07",
+            "ratio": 4.93
+          },
+          {
+            "period": "2026-09-14",
+            "ratio": 5.15
+          }
+        ],
+        "news": 1,
+        "newsCapped": false,
+        "video": null,
+        "issues": [
+          {
+            "text": "무신사·에이블리의 뷰티 PB 경쟁을 다룬 기사에 이름이 언급됐어요.",
+            "tone": "info",
+            "source": "뉴스토마토",
+            "url": "http://www.newstomato.com/ReadNews.aspx?no=1314056&inflow=N",
+            "date": "2026-09-17"
+          }
+        ]
+      },
+      {
+        "brand": "아쿠아픽",
         "growthPct": -4,
-        "yoyPct": -3,
+        "yoyPct": -22,
         "series": [
           {
             "period": "2026-07-20",
-            "ratio": 7.08
+            "ratio": 6.87
           },
           {
             "period": "2026-07-27",
-            "ratio": 6.95
+            "ratio": 6.88
           },
           {
             "period": "2026-08-03",
-            "ratio": 8.11
+            "ratio": 7.48
           },
           {
             "period": "2026-08-10",
-            "ratio": 5.86
+            "ratio": 7.42
           },
           {
             "period": "2026-08-17",
-            "ratio": 5.69
+            "ratio": 7.38
           },
           {
             "period": "2026-08-24",
-            "ratio": 6.39
+            "ratio": 7.4
           },
           {
             "period": "2026-08-31",
-            "ratio": 6.72
+            "ratio": 7.45
           },
           {
             "period": "2026-09-07",
-            "ratio": 7.05
+            "ratio": 7.8
           },
           {
             "period": "2026-09-14",
-            "ratio": 6.18
+            "ratio": 7.2
           }
         ],
-        "news": 3,
+        "news": 1,
+        "newsCapped": false,
         "video": {
-          "id": "Zw9nNp-GZtw",
-          "ch": "뷰티리뷰정리",
-          "title": "스킨1004 마다가스카르 센텔라 앰플, 진정을 원하시나요 · 올리브영 리뷰 497건",
-          "views": 1316,
-          "published": "2026-09-17",
+          "id": "B45Ibc5Tczo",
+          "ch": "휘또",
+          "title": "양치하고 꼭 챙겨야하는 필수템 | 구강세정기 | 아쿠아픽 | 나이트루틴",
+          "views": 1289,
+          "published": "2026-09-22",
           "windowDays": 7
-        }
+        },
+        "issues": [
+          {
+            "text": "입냄새 관리를 다룬 에스콰이어 코리아 기사에 언급됐어요.",
+            "tone": "info",
+            "source": "에스콰이어 코리아",
+            "url": "https://www.esquirekorea.co.kr/article/1909552",
+            "date": "2026-09-14"
+          }
+        ]
       },
       {
-        "brand": "에스쁘아",
-        "growthPct": -8,
-        "yoyPct": 2,
+        "brand": "GS SHOP",
+        "growthPct": -6,
+        "yoyPct": -9,
         "series": [
           {
             "period": "2026-07-20",
-            "ratio": 40.6
+            "ratio": 86.43
           },
           {
             "period": "2026-07-27",
-            "ratio": 40.42
+            "ratio": 74.52
           },
           {
             "period": "2026-08-03",
-            "ratio": 47.18
+            "ratio": 82.69
           },
           {
             "period": "2026-08-10",
-            "ratio": 43.82
+            "ratio": 78.71
           },
           {
             "period": "2026-08-17",
-            "ratio": 43.93
+            "ratio": 70.4
           },
           {
             "period": "2026-08-24",
-            "ratio": 46.62
+            "ratio": 72.79
           },
           {
             "period": "2026-08-31",
-            "ratio": 51
+            "ratio": 70.31
           },
           {
             "period": "2026-09-07",
-            "ratio": 41.86
+            "ratio": 70.32
           },
           {
             "period": "2026-09-14",
-            "ratio": 42.14
+            "ratio": 66.77
           }
         ],
-        "news": 32,
+        "news": 184,
+        "newsCapped": false,
         "video": {
-          "id": "sV06XPUagk8",
-          "ch": "홍띠끄 hongtique",
-          "title": "에스쁘아 브레미쉬 밤 #말차비비 #후기 ",
-          "views": 3113,
-          "published": "2026-09-23",
+          "id": "a8cXaKW5k6c",
+          "ch": "GS SHOP",
+          "title": "지금 딱 제철인 만능 코디템✨ | 엔니튜드 26FW 하프슬리브니트",
+          "views": 88875,
+          "published": "2026-09-22",
           "windowDays": 7
-        }
+        },
+        "issues": [
+          {
+            "text": "스타 출연이 홈쇼핑 매출을 움직인다는 기사, 추석 먹거리가 '간편·프리미엄'으로 나뉜다는 홈쇼핑 트렌드 기사에 함께 다뤄졌어요.",
+            "tone": "info",
+            "source": "매일경제",
+            "url": "https://www.mk.co.kr/article/12156680",
+            "date": "2026-09-20"
+          },
+          {
+            "text": "운영사 GS리테일이 소비자학 전공생 47명에게 장학금 7,500만 원을 전달했어요.",
+            "tone": "info",
+            "source": "뉴스1",
+            "url": "https://www.news1.kr/industry/distribution/6296891",
+            "date": "2026-09-21"
+          }
+        ]
       },
       {
-        "brand": "티젠",
-        "growthPct": -17,
-        "yoyPct": -51,
+        "brand": "스킨1004",
+        "growthPct": -3,
+        "yoyPct": 41,
         "series": [
           {
             "period": "2026-07-20",
-            "ratio": 13.77
+            "ratio": 10.46
           },
           {
             "period": "2026-07-27",
-            "ratio": 14.58
+            "ratio": 9.81
           },
           {
             "period": "2026-08-03",
-            "ratio": 15.06
+            "ratio": 10.76
           },
           {
             "period": "2026-08-10",
-            "ratio": 14.04
+            "ratio": 8.21
           },
           {
             "period": "2026-08-17",
-            "ratio": 13.01
+            "ratio": 8.53
           },
           {
             "period": "2026-08-24",
-            "ratio": 14
+            "ratio": 8.79
           },
           {
             "period": "2026-08-31",
-            "ratio": 13.88
+            "ratio": 9.63
           },
           {
             "period": "2026-09-07",
-            "ratio": 10.69
+            "ratio": 10.51
           },
           {
             "period": "2026-09-14",
-            "ratio": 10.69
+            "ratio": 9.13
           }
         ],
-        "news": 32,
-        "video": null
+        "news": 34,
+        "newsCapped": false,
+        "video": null,
+        "issues": [
+          {
+            "text": "'비타민 C 96 파우더'를 출시했어요.",
+            "tone": "good",
+            "source": "보건신문",
+            "url": "http://www.bokuennews.com/news/article.html?no=284420",
+            "date": "2026-09-17"
+          },
+          {
+            "text": "유럽 H&B 매장, 항공사, 크루즈까지 K뷰티 유통이 넓어지고 있다는 기획 기사에 함께 소개됐어요.",
+            "tone": "good",
+            "source": "머니투데이",
+            "url": "https://www.mt.co.kr/living/2026/09/19/2026091413285369715",
+            "date": "2026-09-19"
+          },
+          {
+            "text": "구다이글로벌의 IPO 관련 기사에 함께 언급됐어요.",
+            "tone": "info",
+            "source": "인사이트",
+            "url": "https://www.insight.co.kr/news/574249",
+            "date": "2026-09-18"
+          }
+        ]
+      },
+      {
+        "brand": "세일즈포스",
+        "growthPct": -32,
+        "yoyPct": -44,
+        "series": [
+          {
+            "period": "2026-07-20",
+            "ratio": 2.83
+          },
+          {
+            "period": "2026-07-27",
+            "ratio": 2.92
+          },
+          {
+            "period": "2026-08-03",
+            "ratio": 2.49
+          },
+          {
+            "period": "2026-08-10",
+            "ratio": 2.47
+          },
+          {
+            "period": "2026-08-17",
+            "ratio": 2.55
+          },
+          {
+            "period": "2026-08-24",
+            "ratio": 10.68
+          },
+          {
+            "period": "2026-08-31",
+            "ratio": 4.31
+          },
+          {
+            "period": "2026-09-07",
+            "ratio": 2.57
+          },
+          {
+            "period": "2026-09-14",
+            "ratio": 3.44
+          }
+        ],
+        "news": 383,
+        "newsCapped": false,
+        "video": {
+          "id": "eYpSq7y8Rxk",
+          "ch": "dreamforce",
+          "title": "Sam Altman Meets Salesforce CEO Marc Benioff at Dreamforce 🤖 #dreamforce #salesforce #samaltman",
+          "views": 79779,
+          "published": "2026-09-18",
+          "windowDays": 7
+        },
+        "issues": [
+          {
+            "text": "샌프란시스코에서 연례 행사 '드림포스 2026'이 열렸어요.",
+            "tone": "info",
+            "source": "이코노믹리뷰",
+            "url": "https://www.econovill.com/news/articleView.html?idxno=751018",
+            "date": "2026-09-20"
+          },
+          {
+            "text": "슬랙이 AI 비서를 앞세워 '업무 운영체제'로 진화한다는 기사가 나왔어요.",
+            "tone": "info",
+            "source": "조선비즈",
+            "url": "https://biz.chosun.com/it-science/ict/2026/09/20/JWBMISOVYFB",
+            "date": "2026-09-20"
+          }
+        ]
+      },
+      {
+        "brand": "마리끌레르",
+        "growthPct": -38,
+        "yoyPct": -38,
+        "series": [
+          {
+            "period": "2026-07-20",
+            "ratio": 22.82
+          },
+          {
+            "period": "2026-07-27",
+            "ratio": 26
+          },
+          {
+            "period": "2026-08-03",
+            "ratio": 44.91
+          },
+          {
+            "period": "2026-08-10",
+            "ratio": 69.64
+          },
+          {
+            "period": "2026-08-17",
+            "ratio": 61.68
+          },
+          {
+            "period": "2026-08-24",
+            "ratio": 44.24
+          },
+          {
+            "period": "2026-08-31",
+            "ratio": 27.91
+          },
+          {
+            "period": "2026-09-07",
+            "ratio": 26.7
+          },
+          {
+            "period": "2026-09-14",
+            "ratio": 24.86
+          }
+        ],
+        "news": 88,
+        "newsCapped": false,
+        "video": {
+          "id": "LgFchjfZ9hk",
+          "ch": "Giant_Tree ",
+          "title": "✨️준호 얼굴에서 빛이 나✨️마리끌레르 시세이도 화보 #이준호 #LEEJUNHO #시세이도 출처 marieclairekorea",
+          "views": 11190,
+          "published": "2026-09-18",
+          "windowDays": 7
+        },
+        "issues": [
+          {
+            "text": "배우 박해수, '닥터X'의 김지원·이정은 화보를 공개했어요.",
+            "tone": "info",
+            "source": "슬리스트",
+            "url": "https://www.slist.kr/news/articleView.html?idxno=767647",
+            "date": "2026-09-21"
+          }
+        ]
+      },
+      {
+        "brand": "에스트라",
+        "growthPct": 13,
+        "yoyPct": 53,
+        "series": [
+          {
+            "period": "2026-07-20",
+            "ratio": 26.12
+          },
+          {
+            "period": "2026-07-27",
+            "ratio": 28.77
+          },
+          {
+            "period": "2026-08-03",
+            "ratio": 29.64
+          },
+          {
+            "period": "2026-08-10",
+            "ratio": 34.52
+          },
+          {
+            "period": "2026-08-17",
+            "ratio": 31.88
+          },
+          {
+            "period": "2026-08-24",
+            "ratio": 35.65
+          },
+          {
+            "period": "2026-08-31",
+            "ratio": 41.68
+          },
+          {
+            "period": "2026-09-07",
+            "ratio": 33.95
+          },
+          {
+            "period": "2026-09-14",
+            "ratio": 40.34
+          }
+        ],
+        "news": 197,
+        "newsCapped": false,
+        "video": {
+          "id": "poGSBQb28AQ",
+          "ch": "리뷰잇 Leview It",
+          "title": "보습크림 2만 명이 재구매하는 이유? 에스트라 아토베리어365 크림플러스 후기 (★4.8) #shorts",
+          "views": 3615,
+          "published": "2026-09-22",
+          "windowDays": 7
+        },
+        "issues": [
+          {
+            "text": "모회사 아모레퍼시픽이 매출 목표를 15조 원으로 높였다는 분석 기사가 나왔어요.",
+            "tone": "info",
+            "source": "더비즈",
+            "url": "http://www.the-biz.co.kr/news/articleView.html?idxno=728071",
+            "date": "2026-09-18"
+          },
+          {
+            "text": "아모레퍼시픽이 미국 최대 뷰티 유통사 입점을 검토 중이라는 보도가 있었어요.",
+            "tone": "good",
+            "source": "연합인포맥스",
+            "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4435",
+            "date": "2026-09-19"
+          }
+        ]
       },
       {
         "brand": "바이탈뷰티",
@@ -1255,95 +1558,182 @@
         "series": [
           {
             "period": "2026-07-20",
-            "ratio": 9.2
+            "ratio": 1.97
           },
           {
             "period": "2026-07-27",
-            "ratio": 6.52
+            "ratio": 1.39
           },
           {
             "period": "2026-08-03",
-            "ratio": 7.15
+            "ratio": 1.53
           },
           {
             "period": "2026-08-10",
-            "ratio": 7.83
+            "ratio": 1.67
           },
           {
             "period": "2026-08-17",
-            "ratio": 8.08
+            "ratio": 1.73
           },
           {
             "period": "2026-08-24",
-            "ratio": 6.89
+            "ratio": 1.47
           },
           {
             "period": "2026-08-31",
-            "ratio": 9.33
+            "ratio": 1.99
           },
           {
             "period": "2026-09-07",
-            "ratio": 7.29
+            "ratio": 1.56
           },
           {
             "period": "2026-09-14",
-            "ratio": 8.45
+            "ratio": 1.81
           }
         ],
-        "news": 6,
-        "video": null
+        "news": null,
+        "video": null,
+        "issues": []
       },
       {
-        "brand": "캔메이크",
-        "growthPct": -19,
-        "yoyPct": -17,
+        "brand": "피토/츠바키",
+        "growthPct": -22,
+        "yoyPct": 23,
         "series": [
           {
             "period": "2026-07-20",
-            "ratio": 33.07
+            "ratio": 4.69
           },
           {
             "period": "2026-07-27",
-            "ratio": 25.09
+            "ratio": 5.34
           },
           {
             "period": "2026-08-03",
-            "ratio": 23.78
+            "ratio": 4.81
           },
           {
             "period": "2026-08-10",
-            "ratio": 21.5
+            "ratio": 4.67
           },
           {
             "period": "2026-08-17",
-            "ratio": 30.71
+            "ratio": 5.34
           },
           {
             "period": "2026-08-24",
-            "ratio": 27.51
+            "ratio": 5.46
           },
           {
             "period": "2026-08-31",
-            "ratio": 25.52
+            "ratio": 6.13
           },
           {
             "period": "2026-09-07",
-            "ratio": 22.65
+            "ratio": 4.29
           },
           {
             "period": "2026-09-14",
-            "ratio": 21.62
+            "ratio": 4.14
           }
         ],
-        "news": 0,
-        "video": {
-          "id": "I2GuAOxMAps",
-          "ch": "유진",
-          "title": "일본 캔메이크 화장품 깡✨ #일본 #추천#화장품#무치푸르틴트#무치프르#틴트#생활음계#마이멜로디#makeup#파우더#블러셔#일본추천템#canmake",
-          "views": 1807,
-          "published": "2026-09-18",
-          "windowDays": 7
-        }
+        "news": null,
+        "video": null,
+        "issues": []
+      },
+      {
+        "brand": "라엘",
+        "growthPct": 116,
+        "yoyPct": 126,
+        "series": [
+          {
+            "period": "2026-07-20",
+            "ratio": 11.87
+          },
+          {
+            "period": "2026-07-27",
+            "ratio": 10.07
+          },
+          {
+            "period": "2026-08-03",
+            "ratio": 11.79
+          },
+          {
+            "period": "2026-08-10",
+            "ratio": 10.4
+          },
+          {
+            "period": "2026-08-17",
+            "ratio": 11.57
+          },
+          {
+            "period": "2026-08-24",
+            "ratio": 15.05
+          },
+          {
+            "period": "2026-08-31",
+            "ratio": 12.51
+          },
+          {
+            "period": "2026-09-07",
+            "ratio": 37.66
+          },
+          {
+            "period": "2026-09-14",
+            "ratio": 41.55
+          }
+        ],
+        "news": null,
+        "video": null,
+        "issues": []
+      },
+      {
+        "brand": "메이크온",
+        "growthPct": 15,
+        "yoyPct": -31,
+        "series": [
+          {
+            "period": "2026-07-20",
+            "ratio": 1.18
+          },
+          {
+            "period": "2026-07-27",
+            "ratio": 1.2
+          },
+          {
+            "period": "2026-08-03",
+            "ratio": 1.41
+          },
+          {
+            "period": "2026-08-10",
+            "ratio": 1.19
+          },
+          {
+            "period": "2026-08-17",
+            "ratio": 1.28
+          },
+          {
+            "period": "2026-08-24",
+            "ratio": 1.2
+          },
+          {
+            "period": "2026-08-31",
+            "ratio": 1.3
+          },
+          {
+            "period": "2026-09-07",
+            "ratio": 1.43
+          },
+          {
+            "period": "2026-09-14",
+            "ratio": 1.5
+          }
+        ],
+        "news": null,
+        "video": null,
+        "issues": []
       },
       {
         "brand": "닥터코스",
@@ -1352,46 +1742,85 @@
         "series": [
           {
             "period": "2026-07-20",
-            "ratio": 0.78
+            "ratio": 0.23
           },
           {
             "period": "2026-07-27",
-            "ratio": 0.58
+            "ratio": 0.17
           },
           {
             "period": "2026-08-03",
-            "ratio": 0.87
+            "ratio": 0.25
           },
           {
             "period": "2026-08-10",
-            "ratio": 0.83
+            "ratio": 0.24
           },
           {
             "period": "2026-08-17",
-            "ratio": 0.75
+            "ratio": 0.22
           },
           {
             "period": "2026-08-24",
-            "ratio": 0.85
+            "ratio": 0.25
           },
           {
             "period": "2026-08-31",
-            "ratio": 0.56
+            "ratio": 0.16
           },
           {
             "period": "2026-09-07",
-            "ratio": 0.36
+            "ratio": 0.11
           },
           {
             "period": "2026-09-14",
-            "ratio": 0.64
+            "ratio": 0.19
           }
         ],
-        "news": 51,
-        "video": null
+        "news": null,
+        "video": null,
+        "issues": []
+      },
+      {
+        "brand": "슬로우픽",
+        "growthPct": -72,
+        "yoyPct": null,
+        "series": [
+          {
+            "period": "2026-02-09",
+            "ratio": 0.02
+          },
+          {
+            "period": "2026-02-23",
+            "ratio": 0.02
+          },
+          {
+            "period": "2026-04-06",
+            "ratio": 0.04
+          },
+          {
+            "period": "2026-04-20",
+            "ratio": 0.1
+          },
+          {
+            "period": "2026-04-27",
+            "ratio": 0.1
+          },
+          {
+            "period": "2026-05-04",
+            "ratio": 0.02
+          },
+          {
+            "period": "2026-06-08",
+            "ratio": 0.02
+          }
+        ],
+        "news": null,
+        "video": null,
+        "issues": []
       }
     ],
-    "clientsIntro": "이번 주 11개 브랜드 중 네이버 검색이 직전 4주 평균보다 늘어난 곳은 바이탈뷰티(+7%), 잇츠스킨(+2%), 닥터코스(+2%) 세 곳이었어요. 기사 수와 영상은 브랜드 이름으로 검색한 결과라 이름이 같은 다른 대상이 섞였을 수 있어요. 예를 들어 티젠은 같은 이름의 게임 관련 영상이 잡혀서 영상 항목을 뺐어요.",
+    "clientsIntro": "이번 주 20개 브랜드 중 네이버 검색이 직전 4주 평균보다 늘어난 곳은 메이크온(+15%), 에스트라(+13%), 바이탈뷰티(+7%), 잇츠스킨·닥터코스(+2%)였어요. 라엘은 +116%였지만 같은 이름의 방송인 가족 관련 기사가 쏟아진 주라 브랜드 관심으로 보기는 어려워요. 기사 수와 영상은 브랜드 이름으로 검색한 결과라 이름이 같은 다른 대상이 섞일 수 있어서, 관련 없는 기사가 대부분인 브랜드는 기사 수를 빼고 관련 없는 영상도 뺐어요.",
     "cases": []
   }
 ]
