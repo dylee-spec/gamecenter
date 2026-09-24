@@ -146,8 +146,8 @@ footer b{color:var(--g700);font-size:16px;display:block;margin-bottom:10px}
 .cissues{margin-top:16px;padding-top:14px;border-top:1px solid var(--g100)}
 .cissues b{font-size:13px;color:var(--g600)}
 .cissues ul{list-style:none;margin-top:8px;display:grid;gap:8px}
-.cissues li{display:grid;grid-template-columns:auto 1fr;gap:10px;font-size:15px;line-height:1.65;color:var(--g800)}
-.cissues .tone{font-size:11px;font-weight:700;padding:3px 7px;border-radius:6px;margin-top:3px;white-space:nowrap}
+.cissues li{display:block;font-size:15px;line-height:1.7;color:var(--g800)}
+.cissues .tone{display:inline-block;font-size:11px;font-weight:700;line-height:1.5;padding:1px 7px;border-radius:6px;margin-right:8px;vertical-align:1px;white-space:nowrap}
 .tone.good{background:#E8F8EE;color:#0E8A4B}.tone.bad{background:#FFEBEE;color:#E42939}.tone.info{background:var(--g100);color:var(--g600)}
 .cissues a{color:var(--g500);font-size:13px;text-decoration:underline;text-underline-offset:2px;margin-left:4px}
 
@@ -290,7 +290,7 @@ function renderIssue(id,idx){
   const i=ISSUES.indexOf(is), prev=ISSUES[i-1], next=ISSUES[i+1];
   app.innerHTML=`<div class="view"><article class="article"><div class="col">
     <a class="back" href="#/archive">← 전체 호 보기</a>
-    <p class="issue-meta"><b>${is.label}</b> · ${is.range} · ${is.pub}</p>
+    <p class="issue-meta"><b>${is.label}</b> · ${is.range}</p>
     <h1>${is.headline.replace(/\n/g,'<br>')}</h1>
     <div class="intro-box"><span class="label">이번 호 요약</span><p class="intro">${is.intro}</p></div>
     <nav class="toc" aria-label="이번 호 목차"><b>이번 호에서 다룬 트렌드</b><ol>${is.trends.map((t,k)=>`<li><a href="#/issue/${is.id}/${k+1}"><span class="num">${pad(k+1)}</span>${t.t}</a></li>`).join('')}</ol>${is.formats&&is.formats.length?`<b style="display:block;margin-top:16px">이번 주 유행 포맷</b><ol>${is.formats.map(f=>`<li><span class="toc-f">· ${f.title}</span></li>`).join('')}</ol>`:''}</nav>
