@@ -222,11 +222,21 @@ for (const t of trends) {
 
 // 클라이언트 브랜드 동향
 const newsCount = async q => {
-  try { const r = await fetch(`https://naverapihub.apigw.ntruss.com/search/v1/news?query=${encodeURIComponent(q)}&display=100&start=1&sort=date&format=json`, { headers: { 'X-NCP-APIGW-API-KEY-ID': NAVER_CLIENT_ID, 'X-NCP-APIGW-API-KEY': NAVER_CLIENT_SECRET } });
-    if (!r.ok) return null; const from = new Date(+dataEnd - 6 * DAY), to = new Date(+dataEnd + DAY);
+  try {
+    const from = new Date(+dataEnd - 6 * DAY), to = new Date(+dataEnd + DAY);
     const dec = t => t.replace(/<[^>]+>/g, '').replace(/&quot;/g, '"').replace(/&apos;|&#39;/g, "'").replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
-    const items = ((await r.json()).items || []).filter(i => { const d = new Date(i.pubDate); return d >= from && d < to; });
-    return { count: items.length, items: items.slice(0, 15).map(i => ({ title: dec(i.title), desc: dec(i.description), url: i.originallink || i.link, date: new Date(+new Date(i.pubDate) + 9 * 3600000).toISOString().slice(0, 10) })) };
+    const inWeek = [];
+    // 최신순으로 받아서 지난주 구간에 닿을 때까지 페이지를 넘겨요 (최대 1,000건)
+    for (let start = 1; start <= 901; start += 100) {
+      const r = await fetch(`https://naverapihub.apigw.ntruss.com/search/v1/news?query=${encodeURIComponent(q)}&display=100&start=${start}&sort=date&format=json`, { headers: { 'X-NCP-APIGW-API-KEY-ID': NAVER_CLIENT_ID, 'X-NCP-APIGW-API-KEY': NAVER_CLIENT_SECRET } });
+      if (!r.ok) return inWeek.length ? { count: inWeek.length, capped: true, items: inWeek.slice(0, 15) } : null;
+      const items = (await r.json()).items || [];
+      if (!items.length) break;
+      for (const i of items) { const d = new Date(i.pubDate); if (d >= from && d < to) inWeek.push({ title: dec(i.title), desc: dec(i.description), url: i.originallink || i.link, date: new Date(+d + 9 * 3600000).toISOString().slice(0, 10) }); }
+      if (new Date(items.at(-1).pubDate) < from) return { count: inWeek.length, capped: false, items: inWeek.slice(0, 15) };
+      await sleep(150);
+    }
+    return { count: inWeek.length, capped: true, items: inWeek.slice(0, 15) };
   } catch { return null; }
 };
 const topVideo = async q => { try { const v = await refsFor(q, [7]); return v[0] || null; } catch { return null; } };
@@ -237,7 +247,7 @@ if (CFG.clientBrands?.length) {
     const t = tr.find(x => x.keyword === b.name) || {};
     const n = await newsCount(b.news);
     clients.push({ brand: b.name, growthPct: t.growthPct ?? null, yoyPct: t.yoyPct ?? null, series: t.series || [],
-      news: n ? n.count : null, newsItems: DRAFT && n ? n.items : undefined, video: await topVideo(b.video), issues: [] });
+      news: n ? n.count : null, newsCapped: n ? n.capped : undefined, newsItems: DRAFT && n ? n.items : undefined, video: await topVideo(b.video), issues: [] });
   }
 }
 const caseRes = await findCases({ apiKey: ANTHROPIC_API_KEY, model: CFG.claudeModel, from: new Date(+dataEnd - 6 * DAY), to: dataEnd, max: CFG.maxCases || 5,
