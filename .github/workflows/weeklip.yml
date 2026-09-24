@@ -1,6 +1,11 @@
 name: 위클립 데이터 수집
 on:
   workflow_dispatch:   # 예약 실행 없음. 발행 요청이 있을 때만 수동 실행
+    inputs:
+      formats:
+        description: '검증할 유행 포맷 검색어 (쉼표로 구분, 선택)'
+        required: false
+        default: ''
 permissions:
   contents: write
 jobs:
@@ -13,6 +18,7 @@ jobs:
       - name: 데이터 수집 (사이트에는 올리지 않음)
         env:
           WEEKLIP_OUT: draft
+          FORMAT_QUERIES: ${{ inputs.formats }}
           NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
           NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
