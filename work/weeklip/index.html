@@ -227,7 +227,7 @@ const formatsHTML=is=>!(is.formats&&is.formats.length)?'':`<div class="sec-title
 const josa=(w,a,b)=>{const c=w.charCodeAt(w.length-1);return (c>=0xAC00&&c<=0xD7A3&&(c-0xAC00)%28)?a:b};
 const clientLine=(c,is,noVid)=>{if(c.summary)return c.summary;const p=[];const nm=`<b>${c.brand}</b>${josa(c.brand,'은','는')}`;
   if(c.growthPct!=null)p.push(`${nm} 지난주 네이버 검색이 직전 4주 평균보다 ${Math.abs(c.growthPct)}% ${c.growthPct>=0?'늘었어요':'줄었어요'}${c.yoyPct!=null?`(작년 같은 주 대비 ${sgn(c.yoyPct)})`:''}.`);else p.push(`${nm} 지난주 검색 데이터가 충분하지 않았어요.`);
-  if(c.news!=null)p.push(c.news>0?`지난주 기사는 ${c.news}건이었어요.`:`지난주 기사는 없었어요.`);
+  if(c.news!=null)p.push(c.news>0?`지난주 기사는 ${c.news}건${c.newsCapped?' 이상':''}이었어요.`:`지난주 기사는 없었어요.`);
   if(!noVid)p.push(c.video?`조회수가 가장 높았던 관련 영상은 '${c.video.ch}' 채널의 <a href="https://www.youtube.com/watch?v=${c.video.id}" target="_blank" rel="noopener noreferrer">${c.video.title}</a>(조회수 ${c.video.views.toLocaleString('ko-KR')}회)이에요.`:`지난주 올라온 관련 영상은 찾지 못했어요.`);
   return p.join(' ')};
 const MONO=['#3182F6','#F04452','#00A661','#FE9800','#8B5CF6','#0EA5E9','#E4405F','#14B8A6','#6366F1','#D97706','#DB2777','#475569'];
