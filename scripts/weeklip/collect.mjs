@@ -18,11 +18,13 @@ const DAY = 86400000;
 const kstNow = new Date(Date.now() + 9 * 3600000);               // KST를 UTC 필드로 다룸
 const ymd = d => d.toISOString().slice(0, 10);
 const monday = (() => { const d = new Date(Date.UTC(kstNow.getUTCFullYear(), kstNow.getUTCMonth(), kstNow.getUTCDate())); const w = (d.getUTCDay() + 6) % 7; return new Date(d - w * DAY); })();
-const issueMon = new Date(monday);                                // 이번 호가 다루는 주(월~일)
+// 호가 다루는 주 = 데이터를 모은 주(월~일). 일요일에 돌리면 이번 주, 그 외 요일에는 지난주를 다뤄요.
+const isSunday = kstNow.getUTCDay() === 0;
+const issueMon = new Date(+monday - (isSunday ? 0 : 7 * DAY));
 const issueSun = new Date(+issueMon + 6 * DAY);
-const dataEnd = new Date(+issueMon - DAY);                        // 지난주 일요일
-const dataStart = new Date(+issueMon - CFG.weeksOfHistory * 7 * DAY); // 지난주 포함 N주
-const yoyStart = new Date(+issueMon - (52 + CFG.weeksOfHistory) * 7 * DAY); // 작년 비교용
+const dataEnd = issueSun;                                          // 호가 다루는 주의 일요일
+const dataStart = new Date(+issueMon + 7 * DAY - CFG.weeksOfHistory * 7 * DAY); // 그 주 포함 N주
+const yoyStart = new Date(+dataStart - 52 * 7 * DAY);             // 작년 비교용
 const M = d => d.getUTCMonth() + 1, D = d => d.getUTCDate();
 const first = new Date(Date.UTC(issueMon.getUTCFullYear(), issueMon.getUTCMonth(), 1));
 const weekNo = Math.ceil((D(issueMon) + (first.getUTCDay() + 6) % 7) / 7);
