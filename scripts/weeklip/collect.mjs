@@ -266,7 +266,7 @@ const newIssue = { ...issue,
   intro: `지난주(${issue.dataRange}) 네이버 검색 데이터에서 직전 4주 평균보다 ${CFG.minGrowthPct}% 이상 오른 뷰티 키워드 ${picked.length}개를 골랐어요. 키워드마다 최근 올라온 쇼츠 중 조회수가 높은 영상을 참고용으로 붙였어요.`,
   trends: picked, cases: caseRes.cases, clients, ...(DRAFT ? { formatNews: fmtRes.cases, formatSignals } : {}) };
 // 한국 구글 급상승·인기 검색어 (BigQuery 공개 데이터, 워크플로가 /tmp에 저장)
-const readJ = f => { try { return JSON.parse(fs.readFileSync(f, 'utf8')); } catch { return null; } };
+const readJ = f => { try { const t = fs.readFileSync(f, 'utf8'); return JSON.parse(t.slice(t.indexOf('['), t.lastIndexOf(']') + 1)); } catch { return null; } }; // bq 진행 메시지가 섞여도 JSON 부분만 읽어요
 const gR = readJ('/tmp/gtrends_rising.json'), gT = readJ('/tmp/gtrends_top.json');
 if (DRAFT && (gR || gT)) {
   const beautyRe = new RegExp((CFG.beautyWords || []).join('|'));
