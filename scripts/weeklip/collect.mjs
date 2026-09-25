@@ -193,7 +193,7 @@ function unknownNumbers(text, t) {
 }
 
 // ---------- 실행 ----------
-const discovered = await discoverFromYouTube();
+const discovered = await discoverFromYouTube().catch(e => { console.warn('유튜브 해시태그 발견 실패(할당량 등):', e.message); return []; });
 const candidates = [...new Set([...CFG.seedKeywords, ...discovered])];
 console.log(`후보 ${candidates.length}개 (고정 ${CFG.seedKeywords.length}, 유튜브 발견 ${discovered.length})`);
 const trends = (await naverTrend(candidates))
@@ -203,7 +203,7 @@ const trends = (await naverTrend(candidates))
 const picked = [], warnings = [];
 for (const t of trends) {
   if (picked.length >= CFG.maxTrends) break;
-  t.refs = await refsFor(t.keyword);
+  t.refs = await refsFor(t.keyword).catch(e => { console.warn('유튜브 참고 영상 수집 실패:', e.message); return []; });
   if (t.refs.length < 2) { warnings.push(`'${t.keyword}': 참고 영상이 2개 미만이라 제외`); continue; }
   const sw = { from: dataStart, to: dataEnd, id: NAVER_CLIENT_ID, secret: NAVER_CLIENT_SECRET };
   t.clickGrowthPct = (await shoppingClicks([t.keyword], sw))[t.keyword] ?? null;
