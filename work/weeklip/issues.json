@@ -556,15 +556,15 @@
         ],
         "refs": [
           {
-            "url": "https://www.youtube.com/watch?v=qWoeZhVczKQ",
-            "ch": "Vidhii",
-            "title": "Kinda chic to be a flight attendant",
-            "platform": "쇼츠"
-          },
-          {
             "url": "https://www.youtube.com/watch?v=HMh5Fcgu1wI",
             "ch": "Meme Hope",
             "title": "Kinda Chic to Have $3 in Your Bank Account",
+            "platform": "쇼츠"
+          },
+          {
+            "url": "https://www.youtube.com/watch?v=qWoeZhVczKQ",
+            "ch": "Vidhii",
+            "title": "Kinda chic to be a flight attendant",
             "platform": "쇼츠"
           }
         ],
