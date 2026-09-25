@@ -261,11 +261,11 @@ const footer=()=>`<footer><div class="wrap"><b>위클립</b><p>매주 월요일,
 
 function renderHome(){
   const L=latest(), past=[...ISSUES].reverse().slice(1);
-  if(!L){app.innerHTML=`<div class="view"><section class="hero"><div class="wrap"><p class="eyebrow">뷰티 마케터를 위한 주간 트렌드</p><h1>이번 주 뷰티 트렌드<br>위클립이 알려드릴게요</h1><p class="lead">검색 데이터로 고르고, 실제 영상으로 확인하고, 바로 쓸 기획까지.</p><div class="latest"><div><span class="pill">첫 호 준비 중</span><h2>${NEXT_ISSUE}</h2><p class="meta">첫 뷰티 주간호가 이날 오전 9시에 발행돼요.</p></div></div></div></section>${methodHTML()}${footer()}</div>`;return}
+  if(!L){app.innerHTML=`<div class="view"><section class="hero"><div class="wrap"><p class="eyebrow">기획자를 위한 주간 트렌드</p><h1>이번 주 트렌드<br>위클립이 알려드릴게요</h1><p class="lead">검색 데이터로 고르고, 실제 영상으로 확인하고, 바로 쓸 기획까지.</p><div class="latest"><div><span class="pill">첫 호 준비 중</span><h2>${NEXT_ISSUE}</h2><p class="meta">첫 뷰티 주간호가 이날 오전 9시에 발행돼요.</p></div></div></div></section>${methodHTML()}${footer()}</div>`;return}
   app.innerHTML=`<div class="view">
   <section class="hero"><div class="wrap">
-    <p class="eyebrow">뷰티 마케터를 위한 주간 트렌드 · 매주 월요일 오전 9시</p>
-    <h1>이번 주 뷰티 트렌드<br>위클립이 알려드릴게요</h1>
+    <p class="eyebrow">기획자를 위한 주간 트렌드</p>
+    <h1>이번 주 트렌드<br>위클립이 알려드릴게요</h1>
     <p class="lead">검색 데이터로 고르고, 실제 영상으로 확인하고, 바로 쓸 기획까지.</p>
     <div class="latest">
       <div><span class="pill">이번 주 최신호</span><h2>${L.label}</h2>
