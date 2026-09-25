@@ -19,11 +19,15 @@ const kstNow = new Date(Date.now() + 9 * 3600000);               // KST를 UTC �
 const ymd = d => d.toISOString().slice(0, 10);
 const monday = (() => { const d = new Date(Date.UTC(kstNow.getUTCFullYear(), kstNow.getUTCMonth(), kstNow.getUTCDate())); const w = (d.getUTCDay() + 6) % 7; return new Date(d - w * DAY); })();
 // 호가 다루는 주 = 데이터를 모은 주(월~일). 일요일에 돌리면 이번 주, 그 외 요일에는 지난주를 다뤄요.
+// WEEKLIP_WEEK=current 로 돌리면 요일과 상관없이 이번 주(월요일~오늘)를 모아요 (미리보기용).
 const isSunday = kstNow.getUTCDay() === 0;
-const issueMon = new Date(+monday - (isSunday ? 0 : 7 * DAY));
+const forceCurrent = process.env.WEEKLIP_WEEK === 'current';
+const issueMon = new Date(+monday - (isSunday || forceCurrent ? 0 : 7 * DAY));
 const issueSun = new Date(+issueMon + 6 * DAY);
-const dataEnd = issueSun;                                          // 호가 다루는 주의 일요일
-const dataStart = new Date(+issueMon + 7 * DAY - CFG.weeksOfHistory * 7 * DAY); // 그 주 포함 N주
+const todayKst = new Date(Date.UTC(kstNow.getUTCFullYear(), kstNow.getUTCMonth(), kstNow.getUTCDate()));
+const dataEnd = new Date(Math.min(+issueSun, +todayKst));          // 그 주의 일요일, 아직 안 끝났으면 오늘까지
+const weekDays = Math.round((+dataEnd - +issueMon) / DAY) + 1;     // 이번 주에 모인 날 수 (1~7)
+const dataStart = new Date(+issueMon - (CFG.weeksOfHistory - 1) * 7 * DAY); // 그 주 포함 N주 (월요일 시작)
 const yoyStart = new Date(+dataStart - 52 * 7 * DAY);             // 작년 비교용
 const M = d => d.getUTCMonth() + 1, D = d => d.getUTCDate();
 const first = new Date(Date.UTC(issueMon.getUTCFullYear(), issueMon.getUTCMonth(), 1));
@@ -33,7 +37,8 @@ const issue = {
   label: `${issueMon.getUTCFullYear()}년 ${M(issueMon)}월 ${weekNo}주차`,
   range: `${M(issueMon)}월 ${D(issueMon)}일 ~ ${M(issueSun)}월 ${D(issueSun)}일`,
   pub: `${kstNow.getUTCMonth() + 1}월 ${kstNow.getUTCDate()}일 발행`,
-  dataRange: `${M(new Date(+dataEnd - 6 * DAY))}월 ${D(new Date(+dataEnd - 6 * DAY))}일 ~ ${M(dataEnd)}월 ${D(dataEnd)}일`,
+  dataRange: `${M(issueMon)}월 ${D(issueMon)}일 ~ ${M(dataEnd)}월 ${D(dataEnd)}일`,
+  partialWeek: weekDays < 7 ? weekDays : undefined,
   historyRange: `${M(dataStart)}월 ${D(dataStart)}일 ~ ${M(dataEnd)}월 ${D(dataEnd)}일`,
 };
 
@@ -69,11 +74,22 @@ async function discoverFromYouTube() {
 }
 
 // ---------- 2) 네이버 데이터랩: 주간 검색 추이 ----------
+// 일별 데이터를 월요일 시작 주 단위의 '하루 평균'으로 묶어요. 이번 주가 아직 안 끝났어도 지난주와 공정하게 비교돼요.
+function weeklyMeans(daily) {
+  const m = new Map(daily.map(x => [x.period, x.ratio]));
+  const out = [];
+  for (let w = new Date(+yoyStart); +w <= +dataEnd; w = new Date(+w + 7 * DAY)) {
+    let sum = 0, n = 0;
+    for (let k = 0; k < 7; k++) { const day = new Date(+w + k * DAY); if (+day > +dataEnd) break; sum += m.get(ymd(day)) || 0; n++; }
+    out.push({ period: ymd(w), ratio: n ? sum / n : 0 });
+  }
+  return out;
+}
 async function naverTrend(words) {
   const out = [];
   for (let i = 0; i < words.length; i += 4) {
     const group = words.slice(i, i + 4);
-    const body = { startDate: ymd(yoyStart), endDate: ymd(dataEnd), timeUnit: 'week',
+    const body = { startDate: ymd(yoyStart), endDate: ymd(dataEnd), timeUnit: 'date',
       keywordGroups: [CFG.anchorKeyword, ...group].map(k => typeof k === 'string' ? { groupName: k, keywords: [k] } : { groupName: k.name, keywords: k.keywords.slice(0, 20) }) };
     // 2026-07-31 이후 신규 키는 NAVER API HUB(네이버 클라우드), 이전 키는 개발자센터(레거시)
     const hub = CFG.naverApi !== 'legacy';
@@ -82,10 +98,10 @@ async function naverTrend(words) {
         ? { 'X-NCP-APIGW-API-KEY-ID': NAVER_CLIENT_ID, 'X-NCP-APIGW-API-KEY': NAVER_CLIENT_SECRET, 'Content-Type': 'application/json' }
         : { 'X-Naver-Client-Id': NAVER_CLIENT_ID, 'X-Naver-Client-Secret': NAVER_CLIENT_SECRET, 'Content-Type': 'application/json' },
       body: JSON.stringify(body) });
-    const anchor = j.results[0].data || [];
+    const anchor = weeklyMeans(j.results[0].data || []);
     const anchorLast = anchor.at(-1)?.ratio || 0;
     for (const r of j.results.slice(1)) {
-      const d = r.data; if (d.length < 3) continue;
+      const d = weeklyMeans(r.data || []); if (d.length < 3) continue;
       const last = d.at(-1).ratio, prev = d.slice(-5, -1).map(x => x.ratio);
       const prevAvg = prev.reduce((a, b) => a + b, 0) / (prev.length || 1);
       let yoyPct = null, lastYearGrowthPct = null;
@@ -127,7 +143,7 @@ async function blogCount(q) {
   try {
     const r = await fetch(`https://naverapihub.apigw.ntruss.com/search/v1/blog?query=${encodeURIComponent(q)}&display=100&start=1&sort=date&format=json`, { headers: { 'X-NCP-APIGW-API-KEY-ID': NAVER_CLIENT_ID, 'X-NCP-APIGW-API-KEY': NAVER_CLIENT_SECRET } });
     if (!r.ok) return null;
-    const from = ymd(new Date(+dataEnd - 6 * DAY)).replace(/-/g, ''), to = ymd(dataEnd).replace(/-/g, '');
+    const from = ymd(issueMon).replace(/-/g, ''), to = ymd(dataEnd).replace(/-/g, '');
     const items = (await r.json()).items || [];
     const n = items.filter(i => i.postdate >= from && i.postdate <= to).length;
     return { count: n, capped: n >= 100 || (items.length === 100 && items.at(-1).postdate >= from) };
@@ -207,9 +223,9 @@ for (const t of trends) {
   if (picked.length >= CFG.maxTrends) break;
   t.refs = await refsFor(t.keyword).catch(e => { console.warn('유튜브 참고 영상 수집 실패:', e.message); return []; });
   if (t.refs.length < 2) { warnings.push(`'${t.keyword}': 참고 영상이 2개 미만이라 제외`); continue; }
-  const sw = { from: dataStart, to: dataEnd, id: NAVER_CLIENT_ID, secret: NAVER_CLIENT_SECRET };
+  const sw = { from: dataStart, to: dataEnd, weekStart: issueMon, id: NAVER_CLIENT_ID, secret: NAVER_CLIENT_SECRET };
   t.clickGrowthPct = (await shoppingClicks([t.keyword], sw))[t.keyword] ?? null;
-  t.demo = await shoppingDemo(t.keyword, { ...sw, from: new Date(+dataEnd - 6 * DAY) });
+  t.demo = await shoppingDemo(t.keyword, { ...sw, from: issueMon });
   t.blog7 = await blogCount(t.keyword);
   let txt = await draftText(t);
   const bad = unknownNumbers([...txt.body, txt.idea].join(' '), t);
@@ -225,7 +241,7 @@ for (const t of trends) {
 // 클라이언트 브랜드 동향
 const newsCount = async q => {
   try {
-    const from = new Date(+dataEnd - 6 * DAY), to = new Date(+dataEnd + DAY);
+    const from = issueMon, to = new Date(+dataEnd + DAY);
     const dec = t => t.replace(/<[^>]+>/g, '').replace(/&quot;/g, '"').replace(/&apos;|&#39;/g, "'").replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
     const inWeek = [];
     // 최신순으로 받아서 지난주 구간에 닿을 때까지 페이지를 넘겨요 (최대 1,000건)
@@ -258,14 +274,14 @@ if (CFG.clientBrands?.length) {
       news: n ? n.count : null, newsCapped: n ? n.capped : undefined, newsItems: DRAFT && n ? n.items : undefined, video: await topVideo(b.video, [b.name, ...(b.keywords || [])]), issues: [] });
   }
 }
-const caseRes = await findCases({ apiKey: ANTHROPIC_API_KEY, model: CFG.claudeModel, from: new Date(+dataEnd - 6 * DAY), to: dataEnd, max: CFG.maxCases || 5,
+const caseRes = await findCases({ apiKey: ANTHROPIC_API_KEY, model: CFG.claudeModel, from: issueMon, to: dataEnd, max: CFG.maxCases || 5,
   naverId: NAVER_CLIENT_ID, naverSecret: NAVER_CLIENT_SECRET, newsQueries: CFG.newsQueries, beautyWords: CFG.beautyWords });
 warnings.push(...caseRes.notes);
 // 업종 구분 없이 요즘 유행하는 영상 포맷·챌린지 관련 기사 (편집할 때 참고 자료)
 const fmtQueries = [...new Set([...(CFG.formatCandidates || []), ...String(process.env.FORMAT_QUERIES || '').split(',').map(x => x.trim()).filter(Boolean)])];
 const formatSignals = [];
 for (const q of fmtQueries) { try { formatSignals.push(await formatSignal(q)); } catch (e) { warnings.push(`포맷 신호 수집 실패: ${q}`); } }
-const fmtRes = await newsCases({ naverId: NAVER_CLIENT_ID, naverSecret: NAVER_CLIENT_SECRET, queries: CFG.formatQueries || [], from: new Date(+dataEnd - 6 * DAY), to: new Date(+dataEnd + DAY), max: CFG.maxFormatNews || 10 });
+const fmtRes = await newsCases({ naverId: NAVER_CLIENT_ID, naverSecret: NAVER_CLIENT_SECRET, queries: CFG.formatQueries || [], from: issueMon, to: new Date(+dataEnd + DAY), max: CFG.maxFormatNews || 10 });
 warnings.push(...fmtRes.notes);
 if (!picked.length && !caseRes.cases.length) { console.log('기준을 넘은 트렌드가 없어 이번 주는 발행하지 않아요.'); fs.writeFileSync('/tmp/weeklip_skip', '1'); process.exit(0); }
 const all = DRAFT ? [] : fs.existsSync(ISSUES_PATH) ? JSON.parse(fs.readFileSync(ISSUES_PATH, 'utf8')) : [];
