@@ -215,7 +215,7 @@ const dataChips=t=>{const c=[];
   if(t.demo&&t.demo.topAge)c.push(`<span class="dchip">최다 연령 <b>${t.demo.topAge} ${t.demo.topAgePct}%</b></span>`);
   return c.length?`<div class="dchips">${c.join('')}</div>`:''};
 const ytId=u=>{const m=(u||'').match(/(?:v=|youtu\.be\/|shorts\/)([\w-]{11})/);return m?m[1]:null};
-const formatsHTML=is=>!(is.formats&&is.formats.length)?'':`<div class="sec-title"><small>PART 2</small><h2>이번 주 유행</h2><p>일은 잠깐 내려놓고, 요즘 사람들이 뭐에 빠져 있는지 구경해 봐요. 이번 주에 실제로 화제가 된 것들을 모았어요.</p></div>
+const formatsHTML=is=>!(is.formats&&is.formats.length)?'':`<div class="sec-title"><small>PART 2</small><h2>이번 주 유행</h2></div>
   ${is.formats.map((f,i)=>{const r0=(f.refs||[]).find(r=>ytId(r.url));const id=r0?ytId(r0.url):null;return `<section class="case fmt" id="f${i+1}"><span class="fnum">TREND ${pad(i+1)}</span><div class="case-top" style="margin-top:10px"><span class="plat hot">${f.category||'유행 포맷'}</span>${(f.platforms||[]).map(p=>`<span class="plat ${/릴스/.test(p)?'reels':/인스타/.test(p)?'ig':/틱톡/.test(p)?'tt':/유튜브|쇼츠/.test(p)?'yt':''}">${p}</span>`).join('')}${f.origin?`<span class="chip">처음 뜬 곳 · ${f.origin}</span>`:''}</div>
     <h3>${f.title}</h3>
     ${id?`<figure class="figure"><a href="${r0.url}" target="_blank" rel="noopener noreferrer" aria-label="${r0.ch} 영상 보기"><img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt="${f.title} 관련 영상 썸네일" loading="lazy"><span class="play"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span></span></a><figcaption>이미지 출처 유튜브 채널 '${r0.ch}'</figcaption></figure>`:''}
