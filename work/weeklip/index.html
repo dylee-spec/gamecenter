@@ -248,11 +248,14 @@ const refCount=is=>is.trends.reduce((n,t)=>n+t.refs.length,0);
 const app=document.getElementById('app');
 const setNav=k=>document.querySelectorAll('[data-nav]').forEach(a=>a.dataset.nav===k?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current'));
 const methodHTML=()=>`<section class="section method" id="method"><div class="wrap">
-    <div class="sec-head"><div><h2>트렌드를 고르는 기준</h2><p>위클립은 매주 같은 규칙으로 뷰티 트렌드를 골라요.</p></div></div>
+    <div class="sec-head"><div><h2>위클립이 트렌드를 고르는 기준</h2><p>매주 같은 규칙으로 데이터를 모으고, 확인된 것만 실어요.</p></div></div>
     <div class="rules">
-      <div class="rule"><b>검색 데이터가 올랐는가</b><p>네이버 데이터랩 공식 API로 뷰티 키워드의 주간 검색 추이를 확인해요. 지난주 검색량이 직전 4주 평균보다 30% 이상 오른 키워드만 후보가 되고, 작년 같은 시기와 비교해 해마다 오는 계절 수요인지 올해 새로 뜬 흐름인지 함께 표시해요.</p></div>
-      <div class="rule"><b>실제 영상이 있는가</b><p>유튜브 공식 API로 최근 7일 안에 올라온 공개 쇼츠를 찾아요. 조회수 상위 영상이 2개 이상 있어야 실어요.</p></div>
-      <div class="rule"><b>사실과 표현을 점검했는가</b><p>글은 자동으로 작성되지만, 데이터에 없는 숫자나 화장품 광고에서 쓰면 안 되는 효능 표현이 들어가면 자동으로 걸러내고 데이터 문장으로 대체해요.</p></div>
+      <div class="rule"><b>검색이 실제로 올랐는가</b><p>네이버 데이터랩 공식 API로 뷰티 키워드의 주간 검색 추이를 봐요. 지난주 검색량이 직전 4주 평균보다 30% 이상 오른 키워드만 후보가 되고, 작년 같은 시기와 비교해 해마다 오는 계절 수요인지 올해 새로 뜬 흐름인지 표시해요. 네이버쇼핑 화장품/미용 분야의 클릭 변화와 성별·연령 비중도 함께 확인해요.</p></div>
+      <div class="rule"><b>구글에서도 뜨고 있는가</b><p>구글이 BigQuery에 공개한 Google Trends 데이터로 한국 급상승·인기 검색어를 확인해요. 우리 트렌드나 클라이언트 브랜드가 목록에 오르면 근거로 함께 밝혀요.</p></div>
+      <div class="rule"><b>실제 콘텐츠가 있는가</b><p>유튜브 공식 API로 최근 7일 안에 올라온 공개 쇼츠를 찾아, 조회수 상위 영상이 2개 이상 있어야 실어요. 뜻풀이·유래 설명·사용법 같은 해설 영상은 빼고, 실제로 트렌드를 보여주는 콘텐츠만 참고 영상으로 붙여요.</p></div>
+      <div class="rule"><b>이번 주에 뜨는 포맷인가</b><p>유행 포맷은 최근 7일 유튜브 업로드가 직전 3주 주평균보다 뚜렷이 많거나, 날짜가 확인되는 최근 기사가 있을 때만 실어요. 오래된 영상만 많은 포맷은 빼고, 그렇게 판단한 근거를 본문에 적어요.</p></div>
+      <div class="rule"><b>클라이언트를 대할 때 알아야 할 것</b><p>클라이언트 브랜드마다 검색량 변화, 지난주 기사 수, 대표 영상, 그리고 신제품·사업·협업은 물론 안 좋은 소식까지 이번 주 이슈를 정리해요. 이름이 같은 다른 대상의 기사와 영상은 걸러내요.</p></div>
+      <div class="rule"><b>사실과 표현을 점검했는가</b><p>모든 숫자는 데이터에서 그대로 가져오고, 해석이 들어간 문장은 편집부 해석이라고 밝혀요. 화장품 광고에서 쓰면 안 되는 효능 표현은 쓰지 않고, 확인되지 않은 내용은 억지로 채우지 않고 비워 둬요.</p></div>
     </div></div></section>`;
 const footer=()=>`<footer><div class="wrap"><b>위클립</b><p>매주 월요일, 데이터로 확인한 뷰티 트렌드와 기획 아이디어를 전해드려요.</p><p>트렌드 설명은 출처를 바탕으로 위클립이 다시 쓴 글이며, 영상과 이미지의 권리는 각 게시자에게 있어요.</p></div></footer>`;
 
