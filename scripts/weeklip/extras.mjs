@@ -8,16 +8,21 @@ function hubPost(path, body, id, secret) {
   return fetch(HUB + path, { method: 'POST', headers: { 'X-NCP-APIGW-API-KEY-ID': id, 'X-NCP-APIGW-API-KEY': secret, 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
     .then(async r => (r.ok ? r.json() : null)).catch(() => null);
 }
+// 일별 클릭을 월요일 시작 주 단위 하루 평균으로 묶어요 (아직 안 끝난 주도 공정하게 비교)
+const weekly = (daily, from, to) => { const m = new Map(daily.map(x => [x.period, x.ratio])); const out = [];
+  for (let w = new Date(+from); +w <= +to; w = new Date(+w + 7 * 86400000)) { let s = 0, n = 0;
+    for (let k = 0; k < 7; k++) { const d = new Date(+w + k * 86400000); if (+d > +to) break; s += m.get(ymd(d)) || 0; n++; }
+    out.push({ period: ymd(w), ratio: n ? s / n : 0 }); } return out; };
 const growth = d => { if (!d || d.length < 5) return null; const last = d.at(-1).ratio, prev = d.slice(-5, -1).map(x => x.ratio); const avg = prev.reduce((a, b) => a + b, 0) / 4; return avg > 0 ? Math.round((last / avg - 1) * 100) : null; };
 
 // 네이버쇼핑 화장품/미용 분야에서 키워드별 클릭 추이 (직전 4주 평균 대비)
-export async function shoppingClicks(keywords, { from, to, id, secret }) {
+export async function shoppingClicks(keywords, { from, to, weekStart, id, secret }) {
   const out = {};
   for (let i = 0; i < keywords.length; i += 5) {
     const group = keywords.slice(i, i + 5);
-    const j = await hubPost('/shopping/v1/category/keywords', { startDate: ymd(from), endDate: ymd(to), timeUnit: 'week', category: BEAUTY_CAT,
+    const j = await hubPost('/shopping/v1/category/keywords', { startDate: ymd(from), endDate: ymd(to), timeUnit: 'date', category: BEAUTY_CAT,
       keyword: group.map(k => ({ name: k, param: [k] })) }, id, secret);
-    for (const r of j?.results || []) { const g = growth(r.data); if (g !== null) out[r.title] = g; }
+    for (const r of j?.results || []) { const g = growth(weekly(r.data || [], from, to)); if (g !== null) out[r.title] = g; }
     await sleep(250);
   }
   return out;
