@@ -211,7 +211,7 @@ const dataChips=t=>{const c=[];
   if(t.lastYearGrowthPct!=null)c.push(t.seasonal?`<span class="dchip season">작년 이맘때도 상승 (계절성)</span>`:`<span class="dchip new">올해 새로 뜬 흐름</span>`);
   if(t.clickGrowthPct!=null)c.push(`<span class="dchip">쇼핑 클릭 <b>${sgn(t.clickGrowthPct)}</b></span>`);
   if(t.demo&&t.demo.femalePct!=null)c.push(`<span class="dchip">쇼핑 클릭 여성 <b>${t.demo.femalePct}%</b></span>`);
-  if(t.blog7)c.push(`<span class="dchip">지난주 네이버 블로그 <b>${t.blog7.count}건${t.blog7.capped?' 이상':''}</b></span>`);
+  if(t.blog7)c.push(`<span class="dchip">이번 주 네이버 블로그 <b>${t.blog7.count}건${t.blog7.capped?' 이상':''}</b></span>`);
   if(t.demo&&t.demo.topAge)c.push(`<span class="dchip">최다 연령 <b>${t.demo.topAge} ${t.demo.topAgePct}%</b></span>`);
   return c.length?`<div class="dchips">${c.join('')}</div>`:''};
 const ytId=u=>{const m=(u||'').match(/(?:v=|youtu\.be\/|shorts\/)([\w-]{11})/);return m?m[1]:null};
@@ -227,14 +227,14 @@ const formatsHTML=is=>!(is.formats&&is.formats.length)?'':`<div class="sec-title
     ${f.src&&f.src.length?`<p class="srcs">출처 · ${f.src.map(s=>`<a href="${s.url}" target="_blank" rel="noopener noreferrer">${s.name}</a>${s.date?' '+s.date:''}`).join(' · ')}</p>`:''}</section>`}).join('')}`;
 const josa=(w,a,b)=>{const c=w.charCodeAt(w.length-1);return (c>=0xAC00&&c<=0xD7A3&&(c-0xAC00)%28)?a:b};
 const clientLine=(c,is,noVid)=>{if(c.summary)return c.summary;const p=[];const nm=`<b>${c.brand}</b>${josa(c.brand,'은','는')}`;
-  if(c.growthPct!=null)p.push(`${nm} 지난주 네이버 검색이 직전 4주 평균보다 ${Math.abs(c.growthPct)}% ${c.growthPct>=0?'늘었어요':'줄었어요'}${c.yoyPct!=null?`(작년 같은 주 대비 ${sgn(c.yoyPct)})`:''}.`);else p.push(`${nm} 지난주 검색 데이터가 충분하지 않았어요.`);
-  if(c.news!=null)p.push(c.news>0?`지난주 기사는 ${c.news}건${c.newsCapped?' 이상':''}이었어요.`:`지난주 기사는 없었어요.`);
-  if(!noVid)p.push(c.video?`조회수가 가장 높았던 관련 영상은 '${c.video.ch}' 채널의 <a href="https://www.youtube.com/watch?v=${c.video.id}" target="_blank" rel="noopener noreferrer">${c.video.title}</a>(조회수 ${c.video.views.toLocaleString('ko-KR')}회)이에요.`:`지난주 올라온 관련 영상은 찾지 못했어요.`);
+  if(c.growthPct!=null)p.push(`${nm} 이번 주 네이버 검색이 직전 4주 평균보다 ${Math.abs(c.growthPct)}% ${c.growthPct>=0?'늘었어요':'줄었어요'}${c.yoyPct!=null?`(작년 같은 주 대비 ${sgn(c.yoyPct)})`:''}.`);else p.push(`${nm} 이번 주 검색 데이터가 충분하지 않았어요.`);
+  if(c.news!=null)p.push(c.news>0?`이번 주 기사는 ${c.news}건${c.newsCapped?' 이상':''}이었어요.`:`이번 주 기사는 없었어요.`);
+  if(!noVid)p.push(c.video?`조회수가 가장 높았던 관련 영상은 '${c.video.ch}' 채널의 <a href="https://www.youtube.com/watch?v=${c.video.id}" target="_blank" rel="noopener noreferrer">${c.video.title}</a>(조회수 ${c.video.views.toLocaleString('ko-KR')}회)이에요.`:`이번 주 올라온 관련 영상은 찾지 못했어요.`);
   return p.join(' ')};
 const MONO=['#3182F6','#F04452','#00A661','#FE9800','#8B5CF6','#0EA5E9','#E4405F','#14B8A6','#6366F1','#D97706','#DB2777','#475569'];
-const clientsHTML=is=>!(is.clients&&is.clients.length)?'':`<div class="sec-title"><small>PART ${is.cases&&is.cases.length?4:3}</small><h2>우리 클라이언트 브랜드 동향</h2><p>지난주(${is.dataRange}) 네이버 검색량 변화와 기사 수, 조회수가 가장 높았던 관련 영상을 브랜드별로 정리했어요.</p></div>
+const clientsHTML=is=>!(is.clients&&is.clients.length)?'':`<div class="sec-title"><small>PART ${is.cases&&is.cases.length?4:3}</small><h2>우리 클라이언트 브랜드 동향</h2><p>${is.dataRange} 네이버 검색량 변화와 기사 수, 조회수가 가장 높았던 관련 영상을 브랜드별로 정리했어요.</p></div>
   ${is.clientsIntro?`<p class="body client-intro">${is.clientsIntro}</p>`:''}
-  <div class="clients-list">${is.clients.map((c,i)=>{const g=c.growthPct;const cls=g==null?'na':g>=0?'up':'down';const txt=clientLine(c,is,true)+(c.video?' 조회수가 가장 높았던 관련 영상은 아래와 같아요.':' 지난주 올라온 관련 영상은 찾지 못했어요.');return `<article class="ccard"><div class="ccard-top">${c.logo?`<span class="mono logo"><img src="${c.logo}" alt="${c.brand} 로고"></span>`:`<span class="mono" style="background:${MONO[i%MONO.length]}">${c.brand.slice(0,1)}</span>`}<b>${c.brand}</b><span class="badge ${cls}">${g==null?'데이터 부족':'검색 '+sgn(g)}</span></div>
+  <div class="clients-list">${is.clients.map((c,i)=>{const g=c.growthPct;const cls=g==null?'na':g>=0?'up':'down';const txt=clientLine(c,is,true)+(c.video?' 조회수가 가장 높았던 관련 영상은 아래와 같아요.':' 이번 주 올라온 관련 영상은 찾지 못했어요.');return `<article class="ccard"><div class="ccard-top">${c.logo?`<span class="mono logo"><img src="${c.logo}" alt="${c.brand} 로고"></span>`:`<span class="mono" style="background:${MONO[i%MONO.length]}">${c.brand.slice(0,1)}</span>`}<b>${c.brand}</b><span class="badge ${cls}">${g==null?'데이터 부족':'검색 '+sgn(g)}</span></div>
     <p class="ctext">${txt}</p>
     ${c.issues&&c.issues.length?`<div class="cissues"><b>이번 주 이슈</b><ul>${c.issues.map(x=>`<li><span class="tone ${x.tone||'info'}">${x.tone==='good'?'호재':x.tone==='bad'?'주의':'소식'}</span><span>${x.text}${x.url?`<a href="${x.url}" target="_blank" rel="noopener noreferrer">${x.source||'기사'}</a>`:''}</span></li>`).join('')}</ul></div>`:''}
     ${c.video?`<a class="cvid" href="https://www.youtube.com/watch?v=${c.video.id}" target="_blank" rel="noopener noreferrer"><img src="https://i.ytimg.com/vi/${c.video.id}/hqdefault.jpg" alt="" loading="lazy"><span><strong>${c.video.ch}</strong>${c.video.title}<br>조회수 ${c.video.views.toLocaleString('ko-KR')}회</span></a>`:''}</article>`}).join('')}</div>`;
@@ -251,11 +251,11 @@ const setNav=k=>document.querySelectorAll('[data-nav]').forEach(a=>a.dataset.nav
 const methodHTML=()=>`<section class="section method" id="method"><div class="wrap">
     <div class="sec-head"><div><h2>위클립이 트렌드를 고르는 기준</h2><p>매주 같은 규칙으로 데이터를 모으고, 확인된 것만 실어요.</p></div></div>
     <div class="rules">
-      <div class="rule"><b>검색이 실제로 올랐는가</b><p>네이버 데이터랩 공식 API로 뷰티 키워드의 주간 검색 추이를 봐요. 지난주 검색량이 직전 4주 평균보다 30% 이상 오른 키워드만 후보가 되고, 작년 같은 시기와 비교해 해마다 오는 계절 수요인지 올해 새로 뜬 흐름인지 표시해요. 네이버쇼핑 화장품/미용 분야의 클릭 변화와 성별·연령 비중도 함께 확인해요.</p></div>
+      <div class="rule"><b>검색이 실제로 올랐는가</b><p>네이버 데이터랩 공식 API로 뷰티 키워드의 주간 검색 추이를 봐요. 한 주의 하루 평균 검색량이 직전 4주보다 30% 이상 오른 키워드만 후보가 되고, 작년 같은 시기와 비교해 해마다 오는 계절 수요인지 올해 새로 뜬 흐름인지 표시해요. 네이버쇼핑 화장품/미용 분야의 클릭 변화와 성별·연령 비중도 함께 확인해요.</p></div>
       <div class="rule"><b>구글에서도 뜨고 있는가</b><p>구글이 BigQuery에 공개한 Google Trends 데이터로 한국 급상승·인기 검색어를 확인해요. 우리 트렌드나 클라이언트 브랜드가 목록에 오르면 근거로 함께 밝혀요.</p></div>
       <div class="rule"><b>실제 콘텐츠가 있는가</b><p>유튜브 공식 API로 최근 7일 안에 올라온 공개 쇼츠를 찾아, 조회수 상위 영상이 2개 이상 있어야 실어요. 뜻풀이·유래 설명·사용법 같은 해설 영상은 빼고, 실제로 트렌드를 보여주는 콘텐츠만 참고 영상으로 붙여요.</p></div>
       <div class="rule"><b>이번 주에 뜨는 포맷인가</b><p>유행 포맷은 최근 7일 유튜브 업로드가 직전 3주 주평균보다 뚜렷이 많거나, 날짜가 확인되는 최근 기사가 있을 때만 실어요. 오래된 영상만 많은 포맷은 빼고, 그렇게 판단한 근거를 본문에 적어요.</p></div>
-      <div class="rule"><b>클라이언트를 대할 때 알아야 할 것</b><p>클라이언트 브랜드마다 검색량 변화, 지난주 기사 수, 대표 영상, 그리고 신제품·사업·협업은 물론 안 좋은 소식까지 이번 주 이슈를 정리해요. 이름이 같은 다른 대상의 기사와 영상은 걸러내요.</p></div>
+      <div class="rule"><b>클라이언트를 대할 때 알아야 할 것</b><p>클라이언트 브랜드마다 검색량 변화, 그 주의 기사 수, 대표 영상, 그리고 신제품·사업·협업은 물론 안 좋은 소식까지 이번 주 이슈를 정리해요. 이름이 같은 다른 대상의 기사와 영상은 걸러내요.</p></div>
       <div class="rule"><b>사실과 표현을 점검했는가</b><p>모든 숫자는 데이터에서 그대로 가져오고, 해석이 들어간 문장은 편집부 해석이라고 밝혀요. 화장품 광고에서 쓰면 안 되는 효능 표현은 쓰지 않고, 확인되지 않은 내용은 억지로 채우지 않고 비워 둬요.</p></div>
     </div></div></section>`;
 const footer=()=>`<footer><div class="wrap"><b>위클립</b><p>매주 월요일, 데이터로 확인한 뷰티 트렌드와 기획 아이디어를 전해드려요.</p><p>트렌드 설명은 출처를 바탕으로 위클립이 다시 쓴 글이며, 영상과 이미지의 권리는 각 게시자에게 있어요.</p></div></footer>`;
@@ -298,10 +298,10 @@ function renderIssue(id,idx){
     <h1>${is.headline.replace(/\n/g,'<br>')}</h1>
     <div class="intro-box"><span class="label">이번 호 요약</span><p class="intro">${is.intro}</p></div>
     <nav class="toc" aria-label="이번 호 목차"><b>이번 호에서 다룬 트렌드</b><ol>${is.trends.map((t,k)=>`<li><a href="#/issue/${is.id}/${k+1}"><span class="num">${pad(k+1)}</span>${t.t}</a></li>`).join('')}</ol>${is.formats&&is.formats.length?`<b style="display:block;margin-top:16px">이번 주 유행</b><ol>${is.formats.map(f=>`<li><span class="toc-f">· ${f.title}</span></li>`).join('')}</ol>`:''}</nav>
-    <div class="sec-title"><small>PART 1</small><h2>이번 주 뷰티 트렌드</h2><p>지난주 네이버 검색이 크게 오른 뷰티 키워드를 데이터와 실제 영상으로 살펴봐요.</p></div>
+    <div class="sec-title"><small>PART 1</small><h2>이번 주 뷰티 트렌드</h2><p>네이버 검색이 크게 오른 뷰티 키워드를 데이터와 실제 영상으로 살펴봐요.</p></div>
     ${is.trends.map((t,k)=>{const f=t.refs[0];return `<section class="post" id="t${k+1}">
       <div class="post-head"><span class="no">${pad(k+1)}</span><h2>${t.t}</h2></div>
-      <div class="data-line">${spark(t.series)}<div><b>직전 4주 평균 대비 ${t.growthPct>=0?"+":""}${t.growthPct}%</b><span>네이버 검색 추이 · 지난주(${is.dataRange}) 기준</span></div></div>
+      <div class="data-line">${spark(t.series)}<div><b>직전 4주 평균 대비 ${t.growthPct>=0?"+":""}${t.growthPct}%</b><span>네이버 검색 추이 · ${is.dataRange} 기준</span></div></div>
       ${dataChips(t)}
       <figure class="figure"><a href="${watch(f.id)}" target="_blank" rel="noopener noreferrer" aria-label="${f.ch} 영상 보기"><img src="${thumb(f.id)}" alt="${t.t} 관련 영상 썸네일" loading="lazy"><span class="play"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span></span></a>
         <figcaption>이미지 출처 유튜브 채널 '${f.ch}'</figcaption></figure>
@@ -312,7 +312,7 @@ function renderIssue(id,idx){
       <p class="srcs">출처 · ${t.src.map(s=>`<a href="${s.url}" target="_blank" rel="noopener noreferrer">${s.name}</a>`).join(' · ')}</p>
     </section>`}).join('')}
     ${formatsHTML(is)}
-    ${(is.cases&&is.cases.length)?`<div class="sec-title"><small>PART 3</small><h2>이번 주 브랜드 사례</h2><p>${is.cases[0].mode==='news'?'지난주 보도된 기사 중 뷰티 브랜드의 인스타그램·릴스·틱톡·유튜브 활용 소식을 모았어요. 요약은 기사 원문 일부이니 자세한 내용은 원문에서 확인하세요.':'지난주 기사와 공개 자료에 소개된 뷰티 브랜드의 인스타그램·릴스·틱톡·유튜브 활용 사례예요. 출처에 적힌 내용만 옮겼어요.'}</p></div>
+    ${(is.cases&&is.cases.length)?`<div class="sec-title"><small>PART 3</small><h2>이번 주 브랜드 사례</h2><p>${is.cases[0].mode==='news'?'이번 주 보도된 기사 중 뷰티 브랜드의 인스타그램·릴스·틱톡·유튜브 활용 소식을 모았어요. 요약은 기사 원문 일부이니 자세한 내용은 원문에서 확인하세요.':'이번 주 기사와 공개 자료에 소개된 뷰티 브랜드의 인스타그램·릴스·틱톡·유튜브 활용 사례예요. 출처에 적힌 내용만 옮겼어요.'}</p></div>
     ${is.cases.map(c=>{const k=/릴스/.test(c.platform)?'reels':/인스타/.test(c.platform)?'ig':/틱톡/.test(c.platform)?'tt':/유튜브/.test(c.platform)?'yt':'';return `<section class="case"><div class="case-top"><span class="plat ${k}">${c.platform}</span>${c.brand?`<span class="chip">${c.brand}</span>`:""}</div>
       <h3>${c.title}</h3>${c.body.map(p=>`<p class="body">${p}</p>`).join('')}
       ${c.point?`<div class="suggest"><b>가져갈 포인트</b><p>${c.point}</p><small>위클립 편집부의 제안이에요.</small></div>`:''}
