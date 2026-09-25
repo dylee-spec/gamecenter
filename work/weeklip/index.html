@@ -118,6 +118,7 @@ img{max-width:100%;display:block}
 @media (max-width:860px){.clients{grid-template-columns:1fr}}
 .steps{margin:16px 0 0 20px;display:grid;gap:6px;font-size:16px;line-height:1.7;color:var(--g800)}.ref-ph{width:120px;aspect-ratio:16/9;border-radius:10px;background:var(--g100);display:grid;place-items:center;font-size:13px;font-weight:700;color:var(--g600)}
 .client-prose p.body,.client-intro{font-size:17px;line-height:1.9;color:var(--g800);margin-top:18px}.client-prose a{color:var(--blue-dark);text-decoration:underline;text-underline-offset:2px}
+.plat.hot{background:#FFF1E6;color:#E8590C}
 .srcs a{text-decoration:underline;text-underline-offset:2px}
 .pager{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:40px auto 80px}
 .pager a,.pager div{background:#fff;border-radius:20px;padding:22px 24px;display:flex;flex-direction:column;gap:6px}
@@ -214,14 +215,14 @@ const dataChips=t=>{const c=[];
   if(t.demo&&t.demo.topAge)c.push(`<span class="dchip">최다 연령 <b>${t.demo.topAge} ${t.demo.topAgePct}%</b></span>`);
   return c.length?`<div class="dchips">${c.join('')}</div>`:''};
 const ytId=u=>{const m=(u||'').match(/(?:v=|youtu\.be\/|shorts\/)([\w-]{11})/);return m?m[1]:null};
-const formatsHTML=is=>!(is.formats&&is.formats.length)?'':`<div class="sec-title"><small>PART 2</small><h2>이번 주 유행 포맷</h2><p>업종과 상관없이 요즘 릴스·틱톡·쇼츠에서 많이 쓰이는 영상 구성과 챌린지예요. 뷰티 브랜드라면 어떻게 가져올 수 있을지도 함께 적었어요.</p></div>
-  ${is.formats.map((f,i)=>{const r0=(f.refs||[]).find(r=>ytId(r.url));const id=r0?ytId(r0.url):null;return `<section class="case fmt" id="f${i+1}"><span class="fnum">FORMAT ${pad(i+1)}</span><div class="case-top" style="margin-top:10px">${(f.platforms||[]).map(p=>`<span class="plat ${/릴스/.test(p)?'reels':/인스타/.test(p)?'ig':/틱톡/.test(p)?'tt':/유튜브|쇼츠/.test(p)?'yt':''}">${p}</span>`).join('')}${f.origin?`<span class="chip">처음 뜬 곳 · ${f.origin}</span>`:''}</div>
+const formatsHTML=is=>!(is.formats&&is.formats.length)?'':`<div class="sec-title"><small>PART 2</small><h2>이번 주 유행</h2><p>일은 잠깐 내려놓고, 요즘 사람들이 뭐에 빠져 있는지 구경해 봐요. 밈, 팝업·굿즈, 취미, 먹거리, 해외 트렌드부터 숏폼 포맷까지 이번 주에 뜬 것들을 모았어요.</p></div>
+  ${is.formats.map((f,i)=>{const r0=(f.refs||[]).find(r=>ytId(r.url));const id=r0?ytId(r0.url):null;return `<section class="case fmt" id="f${i+1}"><span class="fnum">TREND ${pad(i+1)}</span><div class="case-top" style="margin-top:10px"><span class="plat hot">${f.category||'유행 포맷'}</span>${(f.platforms||[]).map(p=>`<span class="plat ${/릴스/.test(p)?'reels':/인스타/.test(p)?'ig':/틱톡/.test(p)?'tt':/유튜브|쇼츠/.test(p)?'yt':''}">${p}</span>`).join('')}${f.origin?`<span class="chip">처음 뜬 곳 · ${f.origin}</span>`:''}</div>
     <h3>${f.title}</h3>
     ${id?`<figure class="figure"><a href="${r0.url}" target="_blank" rel="noopener noreferrer" aria-label="${r0.ch} 영상 보기"><img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt="${f.title} 관련 영상 썸네일" loading="lazy"><span class="play"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span></span></a><figcaption>이미지 출처 유튜브 채널 '${r0.ch}'</figcaption></figure>`:''}
     ${(f.body||[]).map(p=>`<p class="body">${p}</p>`).join('')}
-    ${f.why?`<div class="why"><b>왜 지금 이 포맷인가요?</b><p>${f.why}</p>${f.signal?`<div class="dchips"><span class="dchip">최근 7일 유튜브 업로드 <b>${f.signal.recent7}${f.signal.recentCapped?'개 이상':'개'}</b></span><span class="dchip">직전 3주 주평균 <b>${f.signal.priorWeeklyAvg}개</b></span></div>`:''}</div>`:''}
+    ${f.why?`<div class="why"><b>${(f.category||'유행 포맷')==='유행 포맷'?'왜 지금 이 포맷인가요?':'왜 요즘 뜨고 있나요?'}</b><p>${f.why}</p>${f.signal?`<div class="dchips"><span class="dchip">최근 7일 유튜브 업로드 <b>${f.signal.recent7}${f.signal.recentCapped?'개 이상':'개'}</b></span><span class="dchip">직전 3주 주평균 <b>${f.signal.priorWeeklyAvg}개</b></span></div>`:''}</div>`:''}
     ${f.steps&&f.steps.length?`<ol class="steps">${f.steps.map(x=>`<li>${x}</li>`).join('')}</ol>`:''}
-    ${ideasHTML(f.ideas,'뷰티 브랜드라면 이렇게',f.beautyIdea)}
+    ${ideasHTML(f.ideas,(f.category||'유행 포맷')==='유행 포맷'?'뷰티 브랜드라면 이렇게':'기획자라면 이렇게 써 보세요',f.beautyIdea)}
     ${f.refs&&f.refs.length?`<div class="refs"><b>직접 보고 참고하세요</b><div class="ref-list">${f.refs.map(r=>{const id2=ytId(r.url);return `<a class="ref" href="${r.url}" target="_blank" rel="noopener noreferrer">${id2?`<img src="https://i.ytimg.com/vi/${id2}/hqdefault.jpg" alt="" loading="lazy">`:`<span class="ref-ph">${r.platform||'영상'}</span>`}<span><strong>${r.ch||r.platform||''}</strong><span class="cap">${r.title||''}</span></span><span class="arrow">↗</span></a>`}).join('')}</div></div>`:''}
     ${f.src&&f.src.length?`<p class="srcs">출처 · ${f.src.map(s=>`<a href="${s.url}" target="_blank" rel="noopener noreferrer">${s.name}</a>${s.date?' '+s.date:''}`).join(' · ')}</p>`:''}</section>`}).join('')}`;
 const josa=(w,a,b)=>{const c=w.charCodeAt(w.length-1);return (c>=0xAC00&&c<=0xD7A3&&(c-0xAC00)%28)?a:b};
@@ -296,7 +297,7 @@ function renderIssue(id,idx){
     <p class="issue-meta"><b>${is.label}</b> · ${is.range}</p>
     <h1>${is.headline.replace(/\n/g,'<br>')}</h1>
     <div class="intro-box"><span class="label">이번 호 요약</span><p class="intro">${is.intro}</p></div>
-    <nav class="toc" aria-label="이번 호 목차"><b>이번 호에서 다룬 트렌드</b><ol>${is.trends.map((t,k)=>`<li><a href="#/issue/${is.id}/${k+1}"><span class="num">${pad(k+1)}</span>${t.t}</a></li>`).join('')}</ol>${is.formats&&is.formats.length?`<b style="display:block;margin-top:16px">이번 주 유행 포맷</b><ol>${is.formats.map(f=>`<li><span class="toc-f">· ${f.title}</span></li>`).join('')}</ol>`:''}</nav>
+    <nav class="toc" aria-label="이번 호 목차"><b>이번 호에서 다룬 트렌드</b><ol>${is.trends.map((t,k)=>`<li><a href="#/issue/${is.id}/${k+1}"><span class="num">${pad(k+1)}</span>${t.t}</a></li>`).join('')}</ol>${is.formats&&is.formats.length?`<b style="display:block;margin-top:16px">이번 주 유행</b><ol>${is.formats.map(f=>`<li><span class="toc-f">· ${f.title}</span></li>`).join('')}</ol>`:''}</nav>
     <div class="sec-title"><small>PART 1</small><h2>이번 주 뷰티 트렌드</h2><p>지난주 네이버 검색이 크게 오른 뷰티 키워드를 데이터와 실제 영상으로 살펴봐요.</p></div>
     ${is.trends.map((t,k)=>{const f=t.refs[0];return `<section class="post" id="t${k+1}">
       <div class="post-head"><span class="no">${pad(k+1)}</span><h2>${t.t}</h2></div>
