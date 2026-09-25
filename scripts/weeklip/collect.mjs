@@ -25,7 +25,7 @@ const forceCurrent = process.env.WEEKLIP_WEEK === 'current';
 const issueMon = new Date(+monday - (isSunday || forceCurrent ? 0 : 7 * DAY));
 const issueSun = new Date(+issueMon + 6 * DAY);
 const todayKst = new Date(Date.UTC(kstNow.getUTCFullYear(), kstNow.getUTCMonth(), kstNow.getUTCDate()));
-const dataEnd = new Date(Math.min(+issueSun, +todayKst));          // 그 주의 일요일, 아직 안 끝났으면 오늘까지
+const dataEnd = new Date(Math.min(+issueSun, +todayKst - DAY));    // 그 주의 일요일, 아직 안 끝났으면 어제까지 (오늘은 집계 중이라 제외)
 const weekDays = Math.round((+dataEnd - +issueMon) / DAY) + 1;     // 이번 주에 모인 날 수 (1~7)
 const dataStart = new Date(+issueMon - (CFG.weeksOfHistory - 1) * 7 * DAY); // 그 주 포함 N주 (월요일 시작)
 const yoyStart = new Date(+dataStart - 52 * 7 * DAY);             // 작년 비교용
@@ -80,7 +80,7 @@ function weeklyMeans(daily) {
   const out = [];
   for (let w = new Date(+yoyStart); +w <= +dataEnd; w = new Date(+w + 7 * DAY)) {
     let sum = 0, n = 0;
-    for (let k = 0; k < 7; k++) { const day = new Date(+w + k * DAY); if (+day > +dataEnd) break; sum += m.get(ymd(day)) || 0; n++; }
+    for (let k = 0; k < 7; k++) { const day = new Date(+w + k * DAY); if (+day > +dataEnd) break; if (m.has(ymd(day))) { sum += m.get(ymd(day)); n++; } } // 아직 집계 안 된 날은 빼고 평균
     out.push({ period: ymd(w), ratio: n ? sum / n : 0 });
   }
   return out;
