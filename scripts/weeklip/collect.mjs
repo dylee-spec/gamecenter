@@ -241,7 +241,13 @@ const newsCount = async q => {
     return { count: inWeek.length, capped: true, items: inWeek.slice(0, 15) };
   } catch { return null; }
 };
-const topVideo = async q => { try { const v = await refsFor(q, [7]); return v[0] || null; } catch { return null; } };
+const topVideo = async (q, names = []) => { try {
+  const v = await refsFor(q, [7]);
+  const norm = x => (x || '').toLowerCase().replace(/\s/g, '');
+  const keys = [...new Set([q, ...names].flatMap(x => [norm(x), norm(x).split('/')[0]]).filter(k => k.length >= 2))];
+  // 브랜드와 관련 있는 영상만: 제목이나 채널명에 브랜드 이름이 있어야 해요 (밈·팬 재업로드 등은 제외 단어로 이미 걸러요)
+  return v.find(x => keys.some(k => norm(x.title).includes(k) || norm(x.ch).includes(k))) || null;
+} catch { return null; } };
 const clients = [];
 if (CFG.clientBrands?.length) {
   const tr = await naverTrend(CFG.clientBrands.map(b => ({ name: b.name, keywords: b.keywords })));
@@ -249,7 +255,7 @@ if (CFG.clientBrands?.length) {
     const t = tr.find(x => x.keyword === b.name) || {};
     const n = await newsCount(b.news);
     clients.push({ brand: b.name, growthPct: t.growthPct ?? null, yoyPct: t.yoyPct ?? null, series: t.series || [],
-      news: n ? n.count : null, newsCapped: n ? n.capped : undefined, newsItems: DRAFT && n ? n.items : undefined, video: await topVideo(b.video), issues: [] });
+      news: n ? n.count : null, newsCapped: n ? n.capped : undefined, newsItems: DRAFT && n ? n.items : undefined, video: await topVideo(b.video, [b.name, ...(b.keywords || [])]), issues: [] });
   }
 }
 const caseRes = await findCases({ apiKey: ANTHROPIC_API_KEY, model: CFG.claudeModel, from: new Date(+dataEnd - 6 * DAY), to: dataEnd, max: CFG.maxCases || 5,
