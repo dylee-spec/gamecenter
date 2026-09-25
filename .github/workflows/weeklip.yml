@@ -6,6 +6,11 @@ on:
         description: '검증할 유행 포맷 검색어 (쉼표로 구분, 선택)'
         required: false
         default: ''
+      week:
+        description: '수집할 주 (auto = 일요일엔 이번 주, 그 외엔 지난주 / current = 이번 주 월요일~오늘)'
+        type: choice
+        options: [auto, current]
+        default: auto
 permissions:
   contents: write
 jobs:
@@ -37,6 +42,7 @@ jobs:
       - name: 데이터 수집 (사이트에는 올리지 않음)
         env:
           WEEKLIP_OUT: draft
+          WEEKLIP_WEEK: ${{ inputs.week }}
           FORMAT_QUERIES: ${{ inputs.formats }}
           NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
           NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
