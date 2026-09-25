@@ -265,6 +265,17 @@ const newIssue = { ...issue,
   headline: picked.length ? `이번 주 검색량이 가장 크게 오른\n뷰티 키워드는 '${picked[0].keyword}'${((picked[0].keyword.at(-1).charCodeAt(0) - 0xAC00) % 28) ? '이에요' : '예요'}` : '이번 주는 기준을 넘은 트렌드가 없었어요',
   intro: `지난주(${issue.dataRange}) 네이버 검색 데이터에서 직전 4주 평균보다 ${CFG.minGrowthPct}% 이상 오른 뷰티 키워드 ${picked.length}개를 골랐어요. 키워드마다 최근 올라온 쇼츠 중 조회수가 높은 영상을 참고용으로 붙였어요.`,
   trends: picked, cases: caseRes.cases, clients, ...(DRAFT ? { formatNews: fmtRes.cases, formatSignals } : {}) };
+// 한국 구글 급상승·인기 검색어 (BigQuery 공개 데이터, 워크플로가 /tmp에 저장)
+const readJ = f => { try { return JSON.parse(fs.readFileSync(f, 'utf8')); } catch { return null; } };
+const gR = readJ('/tmp/gtrends_rising.json'), gT = readJ('/tmp/gtrends_top.json');
+if (DRAFT && (gR || gT)) {
+  const beautyRe = new RegExp((CFG.beautyWords || []).join('|'));
+  const clientNames = (CFG.clientBrands || []).flatMap(b => [b.name, ...(b.keywords || [])].map(x => x.split(' ')[0]));
+  const tag = x => ({ ...x, rank: +x.rank, percent_gain: x.percent_gain != null ? +x.percent_gain : undefined,
+    beauty: beautyRe.test(x.term), client: clientNames.find(n => n && x.term.includes(n)) || null });
+  newIssue.googleTrends = { source: 'Google Trends (BigQuery 공개 데이터셋, KR)', refreshDate: (gR?.[0] || gT?.[0])?.refresh_date || null,
+    week: (gR?.[0] || gT?.[0])?.week || null, rising: (gR || []).map(tag), top: (gT || []).map(tag) };
+} else if (DRAFT) warnings.push('구글 트렌드(BigQuery) 데이터 없음 — GCP_SA_KEY 확인');
 const next = all.filter(i => i.id !== issue.id).concat(newIssue);
 fs.writeFileSync(ISSUES_PATH, JSON.stringify(next, null, 2) + '\n');
 
