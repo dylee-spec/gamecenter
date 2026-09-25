@@ -6,505 +6,9 @@
     "pub": "9월 25일 발행",
     "dataRange": "9월 14일 ~ 9월 20일",
     "historyRange": "7월 20일 ~ 9월 20일",
-    "headline": "이번 주 검색량이 가장 크게 오른\n뷰티 키워드는 '바디로션'이에요",
-    "intro": "지난주(9월 14일 ~ 9월 20일) 네이버 검색 데이터에서 직전 4주 평균보다 30% 이상 오른 뷰티 키워드 5개를 골랐어요. 키워드마다 최근 올라온 쇼츠 중 조회수가 높은 영상을 참고용으로 붙였어요.",
-    "trends": [
-      {
-        "t": "바디로션",
-        "keyword": "바디로션",
-        "growthPct": 40,
-        "volumeIndex": 2.944,
-        "yoyPct": -35,
-        "lastYearGrowthPct": 0,
-        "seasonal": false,
-        "clickGrowthPct": 29,
-        "demo": {
-          "femalePct": 70,
-          "topAge": "50대",
-          "topAgePct": 37
-        },
-        "blog7": {
-          "count": 0,
-          "capped": true
-        },
-        "series": [
-          {
-            "period": "2026-07-20",
-            "ratio": 14.38
-          },
-          {
-            "period": "2026-07-27",
-            "ratio": 15.93
-          },
-          {
-            "period": "2026-08-03",
-            "ratio": 14.99
-          },
-          {
-            "period": "2026-08-10",
-            "ratio": 15.65
-          },
-          {
-            "period": "2026-08-17",
-            "ratio": 16.32
-          },
-          {
-            "period": "2026-08-24",
-            "ratio": 20.95
-          },
-          {
-            "period": "2026-08-31",
-            "ratio": 25.07
-          },
-          {
-            "period": "2026-09-07",
-            "ratio": 27.39
-          },
-          {
-            "period": "2026-09-14",
-            "ratio": 31.38
-          }
-        ],
-        "body": [
-          "네이버 데이터랩 기준으로 지난주 '바디로션' 검색량이 직전 4주 평균보다 40% 늘었어요. 작년 같은 주와 비교하면 35% 적었어요. 작년 이맘때는 이런 상승이 없었어요.",
-          "네이버쇼핑 화장품/미용 분야에서 이 키워드의 클릭은 직전 4주 평균보다 29% 늘었어요. 지난주 쇼핑 클릭 중 여성 비중은 70%였어요. 연령대로는 50대가 37%로 가장 많았어요.",
-          "최근 올라온 관련 쇼츠 중 조회수가 가장 높은 영상은 '룩스쿨' 채널의 영상으로, 조회수 10,548회를 기록하고 있어요."
-        ],
-        "idea": "(편집자 작성 필요) 이 트렌드를 우리 브랜드 콘텐츠로 옮길 아이디어를 적어 주세요.",
-        "refs": [
-          {
-            "id": "kMiTPK58uYU",
-            "ch": "룩스쿨",
-            "title": "(추석)의외로 저렴해서 선물하기 좋은 명품선물 9가지",
-            "views": 10548,
-            "published": "2026-09-19",
-            "windowDays": 7
-          },
-          {
-            "id": "RPYVZGhnhu0",
-            "ch": "셀바스",
-            "title": "향수보다 더 좋다 난리 난 아이유 살냄새템 눕방 라방에서 공개",
-            "views": 10089,
-            "published": "2026-09-18",
-            "windowDays": 7
-          },
-          {
-            "id": "8YvwRxw19ws",
-            "ch": "이주부 Ms. Lee",
-            "title": "코스트코 회원들 벌써 다 사 갔어요!! 난리난 신상 Best 3",
-            "views": 9213,
-            "published": "2026-09-23",
-            "windowDays": 7
-          }
-        ],
-        "src": [
-          {
-            "name": "네이버 데이터랩 검색어 트렌드",
-            "url": "https://datalab.naver.com/keyword/trendSearch.naver"
-          },
-          {
-            "name": "YouTube Data API",
-            "url": "https://www.youtube.com/results?search_query=%EB%B0%94%EB%94%94%EB%A1%9C%EC%85%98"
-          }
-        ]
-      },
-      {
-        "t": "진정크림",
-        "keyword": "진정크림",
-        "growthPct": 39,
-        "volumeIndex": 0.064,
-        "yoyPct": 42,
-        "lastYearGrowthPct": -24,
-        "seasonal": false,
-        "clickGrowthPct": 37,
-        "demo": {
-          "femalePct": 67,
-          "topAge": "20대",
-          "topAgePct": 44
-        },
-        "blog7": {
-          "count": 0,
-          "capped": true
-        },
-        "series": [
-          {
-            "period": "2026-07-20",
-            "ratio": 0.71
-          },
-          {
-            "period": "2026-07-27",
-            "ratio": 1.05
-          },
-          {
-            "period": "2026-08-03",
-            "ratio": 0.74
-          },
-          {
-            "period": "2026-08-10",
-            "ratio": 1.1
-          },
-          {
-            "period": "2026-08-17",
-            "ratio": 1.1
-          },
-          {
-            "period": "2026-08-24",
-            "ratio": 1.1
-          },
-          {
-            "period": "2026-08-31",
-            "ratio": 1.72
-          },
-          {
-            "period": "2026-09-07",
-            "ratio": 1.97
-          },
-          {
-            "period": "2026-09-14",
-            "ratio": 2.05
-          }
-        ],
-        "body": [
-          "네이버 데이터랩 기준으로 지난주 '진정크림' 검색량이 직전 4주 평균보다 39% 늘었어요. 작년 같은 주와 비교하면 42% 많았어요. 작년 이맘때는 이런 상승이 없었어요.",
-          "네이버쇼핑 화장품/미용 분야에서 이 키워드의 클릭은 직전 4주 평균보다 37% 늘었어요. 지난주 쇼핑 클릭 중 여성 비중은 67%였어요. 연령대로는 20대가 44%로 가장 많았어요.",
-          "최근 올라온 관련 쇼츠 중 조회수가 가장 높은 영상은 '꿀템바구니' 채널의 영상으로, 조회수 6,526회를 기록하고 있어요."
-        ],
-        "idea": "(편집자 작성 필요) 이 트렌드를 우리 브랜드 콘텐츠로 옮길 아이디어를 적어 주세요.",
-        "refs": [
-          {
-            "id": "Gw3yg8BdUtk",
-            "ch": "꿀템바구니",
-            "title": "피부과에 1억썼다는 장윤주 메이크업쌤 추천 정착 크림 top2",
-            "views": 6526,
-            "published": "2026-09-21",
-            "windowDays": 7
-          },
-          {
-            "id": "qOCUrU_Sz9E",
-            "ch": "셀럽콕",
-            "title": "피부과 1억쓴 언니의 찐추천 인생 크림",
-            "views": 4783,
-            "published": "2026-09-20",
-            "windowDays": 7
-          },
-          {
-            "id": "qv4YM6qJYes",
-            "ch": "뷰티비밀기지",
-            "title": "윤은혜 피부과 안 가고 집에서 트러블 없앤 진짜 비결",
-            "views": 2246,
-            "published": "2026-09-19",
-            "windowDays": 7
-          }
-        ],
-        "src": [
-          {
-            "name": "네이버 데이터랩 검색어 트렌드",
-            "url": "https://datalab.naver.com/keyword/trendSearch.naver"
-          },
-          {
-            "name": "YouTube Data API",
-            "url": "https://www.youtube.com/results?search_query=%EC%A7%84%EC%A0%95%ED%81%AC%EB%A6%BC"
-          }
-        ]
-      },
-      {
-        "t": "세라마이드",
-        "keyword": "세라마이드",
-        "growthPct": 35,
-        "volumeIndex": 0.311,
-        "yoyPct": 21,
-        "lastYearGrowthPct": 5,
-        "seasonal": false,
-        "clickGrowthPct": 98,
-        "demo": {
-          "femalePct": 71,
-          "topAge": "50대",
-          "topAgePct": 41
-        },
-        "blog7": {
-          "count": 0,
-          "capped": true
-        },
-        "series": [
-          {
-            "period": "2026-07-20",
-            "ratio": 12.1
-          },
-          {
-            "period": "2026-07-27",
-            "ratio": 11.09
-          },
-          {
-            "period": "2026-08-03",
-            "ratio": 11.24
-          },
-          {
-            "period": "2026-08-10",
-            "ratio": 11.78
-          },
-          {
-            "period": "2026-08-17",
-            "ratio": 12.15
-          },
-          {
-            "period": "2026-08-24",
-            "ratio": 12.41
-          },
-          {
-            "period": "2026-08-31",
-            "ratio": 16.18
-          },
-          {
-            "period": "2026-09-07",
-            "ratio": 16.12
-          },
-          {
-            "period": "2026-09-14",
-            "ratio": 19.18
-          }
-        ],
-        "body": [
-          "네이버 데이터랩 기준으로 지난주 '세라마이드' 검색량이 직전 4주 평균보다 35% 늘었어요. 작년 같은 주와 비교하면 21% 많았어요. 작년 이맘때는 이런 상승이 없었어요.",
-          "네이버쇼핑 화장품/미용 분야에서 이 키워드의 클릭은 직전 4주 평균보다 98% 늘었어요. 지난주 쇼핑 클릭 중 여성 비중은 71%였어요. 연령대로는 50대가 41%로 가장 많았어요.",
-          "최근 올라온 관련 쇼츠 중 조회수가 가장 높은 영상은 '뷰티플라워' 채널의 영상으로, 조회수 1,128회를 기록하고 있어요."
-        ],
-        "idea": "(편집자 작성 필요) 이 트렌드를 우리 브랜드 콘텐츠로 옮길 아이디어를 적어 주세요.",
-        "refs": [
-          {
-            "id": "vQH5bSYCSkc",
-            "ch": "뷰티플라워",
-            "title": "크림을 세 통째 발랐는데 피부과에서 들은 말 😢",
-            "views": 1128,
-            "published": "2026-09-20",
-            "windowDays": 7
-          },
-          {
-            "id": "vpt4zdHxJXU",
-            "ch": "Hey Vanshika",
-            "title": "#lipbalm #wishcare #tintedlipbalm #lipshades #ceramides #blush #lipcare #drylips #healthylips",
-            "views": 21612,
-            "published": "2026-09-23",
-            "windowDays": 7
-          },
-          {
-            "id": "rDR__g5EWes",
-            "ch": "Hey Vanshika",
-            "title": "#milk #skincare #toner #ceramide #greentea #hydrating #dryskin #glowingskin #glassskin",
-            "views": 17447,
-            "published": "2026-09-22",
-            "windowDays": 7
-          }
-        ],
-        "src": [
-          {
-            "name": "네이버 데이터랩 검색어 트렌드",
-            "url": "https://datalab.naver.com/keyword/trendSearch.naver"
-          },
-          {
-            "name": "YouTube Data API",
-            "url": "https://www.youtube.com/results?search_query=%EC%84%B8%EB%9D%BC%EB%A7%88%EC%9D%B4%EB%93%9C"
-          }
-        ]
-      },
-      {
-        "t": "립밤",
-        "keyword": "립밤",
-        "growthPct": 31,
-        "volumeIndex": 2.07,
-        "yoyPct": -51,
-        "lastYearGrowthPct": 2,
-        "seasonal": false,
-        "clickGrowthPct": 37,
-        "demo": {
-          "femalePct": 74,
-          "topAge": "40대",
-          "topAgePct": 41
-        },
-        "blog7": {
-          "count": 0,
-          "capped": true
-        },
-        "series": [
-          {
-            "period": "2026-07-20",
-            "ratio": 13.16
-          },
-          {
-            "period": "2026-07-27",
-            "ratio": 14.92
-          },
-          {
-            "period": "2026-08-03",
-            "ratio": 14.76
-          },
-          {
-            "period": "2026-08-10",
-            "ratio": 14.86
-          },
-          {
-            "period": "2026-08-17",
-            "ratio": 16.66
-          },
-          {
-            "period": "2026-08-24",
-            "ratio": 22.69
-          },
-          {
-            "period": "2026-08-31",
-            "ratio": 27.22
-          },
-          {
-            "period": "2026-09-07",
-            "ratio": 27.2
-          },
-          {
-            "period": "2026-09-14",
-            "ratio": 30.77
-          }
-        ],
-        "body": [
-          "네이버 데이터랩 기준으로 지난주 '립밤' 검색량이 직전 4주 평균보다 31% 늘었어요. 작년 같은 주와 비교하면 51% 적었어요. 작년 이맘때는 이런 상승이 없었어요.",
-          "네이버쇼핑 화장품/미용 분야에서 이 키워드의 클릭은 직전 4주 평균보다 37% 늘었어요. 지난주 쇼핑 클릭 중 여성 비중은 74%였어요. 연령대로는 40대가 41%로 가장 많았어요.",
-          "최근 올라온 관련 쇼츠 중 조회수가 가장 높은 영상은 '뷰티조아' 채널의 영상으로, 조회수 360,009회를 기록하고 있어요."
-        ],
-        "idea": "(편집자 작성 필요) 이 트렌드를 우리 브랜드 콘텐츠로 옮길 아이디어를 적어 주세요.",
-        "refs": [
-          {
-            "id": "Ckiqo8mwQj0",
-            "ch": "뷰티조아",
-            "title": "여배우 원픽! 혈색 립밤",
-            "views": 360009,
-            "published": "2026-09-18",
-            "windowDays": 7
-          },
-          {
-            "id": "T_9PBiHFIhk",
-            "ch": "Daily소현",
-            "title": "최애 립밤이 바뀐 날🍦•Daily소현 #16년생 #학생브이로그 #minivlog #fyp",
-            "views": 123852,
-            "published": "2026-09-20",
-            "windowDays": 7
-          },
-          {
-            "id": "1jVWVgqR92I",
-            "ch": "픽토크",
-            "title": "에이티즈 산이 꼭 챙기는 립밤💋 최산의 촉촉한 입술 비결",
-            "views": 28735,
-            "published": "2026-09-21",
-            "windowDays": 7
-          }
-        ],
-        "src": [
-          {
-            "name": "네이버 데이터랩 검색어 트렌드",
-            "url": "https://datalab.naver.com/keyword/trendSearch.naver"
-          },
-          {
-            "name": "YouTube Data API",
-            "url": "https://www.youtube.com/results?search_query=%EB%A6%BD%EB%B0%A4"
-          }
-        ]
-      },
-      {
-        "t": "토너패드",
-        "keyword": "토너패드",
-        "growthPct": 30,
-        "volumeIndex": 0.468,
-        "yoyPct": -6,
-        "lastYearGrowthPct": -17,
-        "seasonal": false,
-        "clickGrowthPct": 2,
-        "demo": {
-          "femalePct": 76,
-          "topAge": "40대",
-          "topAgePct": 32
-        },
-        "blog7": {
-          "count": 0,
-          "capped": true
-        },
-        "series": [
-          {
-            "period": "2026-07-20",
-            "ratio": 10.95
-          },
-          {
-            "period": "2026-07-27",
-            "ratio": 11.03
-          },
-          {
-            "period": "2026-08-03",
-            "ratio": 14.42
-          },
-          {
-            "period": "2026-08-10",
-            "ratio": 14.32
-          },
-          {
-            "period": "2026-08-17",
-            "ratio": 11.56
-          },
-          {
-            "period": "2026-08-24",
-            "ratio": 11.19
-          },
-          {
-            "period": "2026-08-31",
-            "ratio": 12.84
-          },
-          {
-            "period": "2026-09-07",
-            "ratio": 11.75
-          },
-          {
-            "period": "2026-09-14",
-            "ratio": 15.44
-          }
-        ],
-        "body": [
-          "네이버 데이터랩 기준으로 지난주 '토너패드' 검색량이 직전 4주 평균보다 30% 늘었어요. 작년 같은 주와 비교하면 6% 적었어요. 작년 이맘때는 이런 상승이 없었어요.",
-          "네이버쇼핑 화장품/미용 분야에서 이 키워드의 클릭은 직전 4주 평균보다 2% 늘었어요. 지난주 쇼핑 클릭 중 여성 비중은 76%였어요. 연령대로는 40대가 32%로 가장 많았어요.",
-          "최근 올라온 관련 쇼츠 중 조회수가 가장 높은 영상은 '와니쥬니(WannyJunny)' 채널의 영상으로, 조회수 7,924회를 기록하고 있어요."
-        ],
-        "idea": "(편집자 작성 필요) 이 트렌드를 우리 브랜드 콘텐츠로 옮길 아이디어를 적어 주세요.",
-        "refs": [
-          {
-            "id": "wrsiZHK7jcw",
-            "ch": "와니쥬니(WannyJunny)",
-            "title": "아직도 통패드 쓰세요?｜통패드 마지막에 찝찝했던 사람 주목!｜통패드의 불편함(단점)을 바꾼 클라미에르 찰싹패드｜올리브영 입점 기념 할인, 세일 이벤트!",
-            "views": 7924,
-            "published": "2026-09-18",
-            "windowDays": 7
-          },
-          {
-            "id": "gtR8n3sbbyA",
-            "ch": "MEDIHEAL 메디힐",
-            "title": "MEDIHEAL X KAI｜메디힐 더마 패드",
-            "views": 1746,
-            "published": "2026-09-21",
-            "windowDays": 7
-          },
-          {
-            "id": "BllUrnw8Iyw",
-            "ch": "카와잇쵸",
-            "title": "레전드늦은 올영세일깡 제출합니다.. || #카와잇쵸 #올영세일추천 #올리브영 #올영세일깡 #올영세일 #올리브영깡 #라운드랩 #아비브 #토너패드 #클렌징워터 #추천 #깡 #퇴사할게여",
-            "views": 1378,
-            "published": "2026-09-19",
-            "windowDays": 7
-          }
-        ],
-        "src": [
-          {
-            "name": "네이버 데이터랩 검색어 트렌드",
-            "url": "https://datalab.naver.com/keyword/trendSearch.naver"
-          },
-          {
-            "name": "YouTube Data API",
-            "url": "https://www.youtube.com/results?search_query=%ED%86%A0%EB%84%88%ED%8C%A8%EB%93%9C"
-          }
-        ]
-      }
-    ],
+    "headline": "이번 주는 기준을 넘은 트렌드가 없었어요",
+    "intro": "지난주(9월 14일 ~ 9월 20일) 네이버 검색 데이터에서 직전 4주 평균보다 30% 이상 오른 뷰티 키워드 0개를 골랐어요. 키워드마다 최근 올라온 쇼츠 중 조회수가 높은 영상을 참고용으로 붙였어요.",
+    "trends": [],
     "cases": [
       {
         "brand": "",
@@ -714,14 +218,7 @@
             "date": "2026-09-21"
           }
         ],
-        "video": {
-          "id": "04vmSG5Isy4",
-          "ch": "짤컷",
-          "title": "올리브영에서 이거 모르면 진짜 아깝습니다",
-          "views": 324324,
-          "published": "2026-09-22",
-          "windowDays": 7
-        },
+        "video": null,
         "issues": []
       },
       {
@@ -860,14 +357,7 @@
             "date": "2026-09-18"
           }
         ],
-        "video": {
-          "id": "CJ8oJppzejs",
-          "ch": "FUN?",
-          "title": "코카콜라 vs 펩시 신경전에 끼지도 못하는 환타 ㅠㅠ",
-          "views": 2164350,
-          "published": "2026-09-18",
-          "windowDays": 7
-        },
+        "video": null,
         "issues": []
       },
       {
@@ -1031,14 +521,7 @@
             "date": "2026-09-17"
           }
         ],
-        "video": {
-          "id": "WzCidKGZZlY",
-          "ch": "다온이의 1분 쇼핑",
-          "title": "5. 티젠 콤부차 레몬, 5g, 30개입, 2개",
-          "views": 306,
-          "published": "2026-09-19",
-          "windowDays": 7
-        },
+        "video": null,
         "issues": []
       },
       {
@@ -1153,14 +636,7 @@
         "news": 0,
         "newsCapped": false,
         "newsItems": [],
-        "video": {
-          "id": "I2GuAOxMAps",
-          "ch": "유진",
-          "title": "일본 캔메이크 화장품 깡✨ #일본 #추천#화장품#무치푸르틴트#무치프르#틴트#생활음계#마이멜로디#makeup#파우더#블러셔#일본추천템#canmake",
-          "views": 1876,
-          "published": "2026-09-18",
-          "windowDays": 7
-        },
+        "video": null,
         "issues": []
       },
       {
@@ -1208,14 +684,7 @@
         "news": 0,
         "newsCapped": false,
         "newsItems": [],
-        "video": {
-          "id": "HGBxyuOPK_w",
-          "ch": "리뷰버스",
-          "title": "톤업크림 7천원대? 잇츠스킨 웨딩드레스 퓨어크림 실사용 후기 (★4.7) #shorts",
-          "views": 1184,
-          "published": "2026-09-23",
-          "windowDays": 7
-        },
+        "video": null,
         "issues": []
       },
       {
@@ -1270,14 +739,7 @@
             "date": "2026-09-17"
           }
         ],
-        "video": {
-          "id": "8CmntiBEQsI",
-          "ch": "연캠",
-          "title": "워터파크에서 하얀 국물 뚝뚝? 아이돌 뽀송 피부 비결 💦 #워터파크메이크업 #올영선크림 #파데프리",
-          "views": 1287,
-          "published": "2026-09-18",
-          "windowDays": 7
-        },
+        "video": null,
         "issues": []
       },
       {
@@ -1520,15 +982,15 @@
         "newsCapped": false,
         "newsItems": [
           {
-            "title": "[K-뷰티 新 르네상스] ④“K뷰티 주세요”유럽 H&B, 항공사, 크루즈까지...",
-            "desc": "조선미녀, 스킨1004 등 해외에서 인기인 한국 기초 화장품으로 6단계 루틴을 구성한 패키지다. 소매가 76파운드 상품을 44파운드에 선보여 가격 저항도 낮췄다. 바이오던스 콜라겐 마스크가 기내에서 팔린 첫 한국... ",
-            "url": "https://www.dnews.co.kr/uhtml/view.jsp?idxno=202609201141097770807",
-            "date": "2026-09-21"
-          },
-          {
             "title": "[K-뷰티 新 르네상스] ② 미국ㆍ유럽 뚫은 브랜드들, K-뷰티 생태계 먹여...",
             "desc": "한국화장품제조는 ‘스킨1004’ 운영사 크레이버코퍼레이션 한 곳이 매출의 38.8%인 478억원을 차지했다. 제닉은 최대 고객사 물량인 ‘바이오던스’매출이 548억원으로 87.4% 늘며 매출의 69.8%를 채웠다. 바이오던스가... ",
             "url": "https://www.dnews.co.kr/uhtml/view.jsp?idxno=202609201137446160803",
+            "date": "2026-09-21"
+          },
+          {
+            "title": "[K-뷰티 新 르네상스] ④“K뷰티 주세요”유럽 H&B, 항공사, 크루즈까지...",
+            "desc": "조선미녀, 스킨1004 등 해외에서 인기인 한국 기초 화장품으로 6단계 루틴을 구성한 패키지다. 소매가 76파운드 상품을 44파운드에 선보여 가격 저항도 낮췄다. 바이오던스 콜라겐 마스크가 기내에서 팔린 첫 한국... ",
+            "url": "https://www.dnews.co.kr/uhtml/view.jsp?idxno=202609201141097770807",
             "date": "2026-09-21"
           },
           {
@@ -1610,14 +1072,7 @@
             "date": "2026-09-17"
           }
         ],
-        "video": {
-          "id": "rRuq-baUnmQ",
-          "ch": "데이진서 jinseo",
-          "title": "관리에 진심인 여자가 찐으로 하는 나이트 루틴 스킨케어 #nightroutine #나이트루틴",
-          "views": 4220,
-          "published": "2026-09-20",
-          "windowDays": 7
-        },
+        "video": null,
         "issues": []
       },
       {
@@ -1756,14 +1211,7 @@
             "date": "2026-09-20"
           }
         ],
-        "video": {
-          "id": "eYpSq7y8Rxk",
-          "ch": "dreamforce",
-          "title": "Sam Altman Meets Salesforce CEO Marc Benioff at Dreamforce 🤖 #dreamforce #salesforce #samaltman",
-          "views": 79852,
-          "published": "2026-09-18",
-          "windowDays": 7
-        },
+        "video": null,
         "issues": []
       },
       {
@@ -1854,15 +1302,15 @@
             "date": "2026-09-21"
           },
           {
-            "title": "9월 넷째 주 별자리 운세｜마리끌레르(Marie Claire Korea)",
-            "desc": "",
-            "url": "https://www.marieclairekorea.com/horoscope/horoscope-weekly/2026/09/horoscope2609_4/?utm_source=naver&utm_medium=partnership",
-            "date": "2026-09-21"
-          },
-          {
             "title": "9월 넷째 주 염소자리 별자리 운세｜마리끌레르(Marie Claire Korea)",
             "desc": "잘 맞는다고 소문난 마리끌레르 별자리, 9월 넷째 주 염소자리 별자리 운세가 궁금하다면?",
             "url": "https://www.marieclairekorea.com/mc-likes/2026/09/horoscope2609_4_capricorn/?utm_source=naver&utm_medium=partnership",
+            "date": "2026-09-21"
+          },
+          {
+            "title": "9월 넷째 주 별자리 운세｜마리끌레르(Marie Claire Korea)",
+            "desc": "",
+            "url": "https://www.marieclairekorea.com/horoscope/horoscope-weekly/2026/09/horoscope2609_4/?utm_source=naver&utm_medium=partnership",
             "date": "2026-09-21"
           },
           {
@@ -1884,21 +1332,21 @@
             "date": "2026-09-21"
           },
           {
-            "title": "9월 넷째 주 사자자리 별자리 운세｜마리끌레르(Marie Claire Korea)",
-            "desc": "잘 맞는다고 소문난 마리끌레르 별자리, 9월 넷째 주 사자자리 별자리 운세가 궁금하다면?",
-            "url": "https://www.marieclairekorea.com/mc-likes/2026/09/horoscope2609_4_leo/?utm_source=naver&utm_medium=partnership",
-            "date": "2026-09-21"
-          },
-          {
             "title": "9월 넷째 주 처녀자리 별자리 운세｜마리끌레르(Marie Claire Korea)",
             "desc": "잘 맞는다고 소문난 마리끌레르 별자리, 9월 넷째 주 처녀자리 별자리 운세가 궁금하다면?",
             "url": "https://www.marieclairekorea.com/mc-likes/2026/09/horoscope2609_4_virgo/?utm_source=naver&utm_medium=partnership",
             "date": "2026-09-21"
           },
           {
-            "title": "9월 넷째 주 게자리 별자리 운세｜마리끌레르(Marie Claire Korea)",
-            "desc": "잘 맞는다고 소문난 마리끌레르 별자리, 9월 넷째 주 게자리 별자리 운세가 궁금하다면?",
-            "url": "https://www.marieclairekorea.com/mc-likes/2026/09/horoscope2609_4_cancer/?utm_source=naver&utm_medium=partnership",
+            "title": "9월 넷째 주 사자자리 별자리 운세｜마리끌레르(Marie Claire Korea)",
+            "desc": "잘 맞는다고 소문난 마리끌레르 별자리, 9월 넷째 주 사자자리 별자리 운세가 궁금하다면?",
+            "url": "https://www.marieclairekorea.com/mc-likes/2026/09/horoscope2609_4_leo/?utm_source=naver&utm_medium=partnership",
+            "date": "2026-09-21"
+          },
+          {
+            "title": "9월 넷째 주 쌍둥이자리 별자리 운세｜마리끌레르(Marie Claire Korea)",
+            "desc": "잘 맞는다고 소문난 마리끌레르 별자리, 9월 넷째 주 쌍둥이자리 별자리 운세가 궁금하다면?",
+            "url": "https://www.marieclairekorea.com/mc-likes/2026/09/horoscope2609_4_gemini/?utm_source=naver&utm_medium=partnership",
             "date": "2026-09-21"
           }
         ],
@@ -2554,6 +2002,432 @@
         "mode": "news"
       }
     ],
-    "formatSignals": []
+    "formatSignals": [],
+    "googleTrends": {
+      "source": "Google Trends (BigQuery 공개 데이터셋, KR)",
+      "refreshDate": "2026-09-24",
+      "week": "2026-09-20",
+      "rising": [
+        {
+          "percent_gain": 11800,
+          "rank": 1,
+          "refresh_date": "2026-09-24",
+          "term": "롯데 대 한화",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        },
+        {
+          "percent_gain": 10900,
+          "rank": 2,
+          "refresh_date": "2026-09-24",
+          "term": "kia 대 두산",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        },
+        {
+          "percent_gain": 7600,
+          "rank": 3,
+          "refresh_date": "2026-09-24",
+          "term": "내일 날씨",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        },
+        {
+          "percent_gain": 6900,
+          "rank": 4,
+          "refresh_date": "2026-09-24",
+          "term": "임현식",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        },
+        {
+          "percent_gain": 6650,
+          "rank": 5,
+          "refresh_date": "2026-09-24",
+          "term": "김지민",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        },
+        {
+          "percent_gain": 5700,
+          "rank": 6,
+          "refresh_date": "2026-09-24",
+          "term": "쇼트 트랙 김건우",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        },
+        {
+          "percent_gain": 5100,
+          "rank": 7,
+          "refresh_date": "2026-09-24",
+          "term": "트윈스 대 자이언츠",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        },
+        {
+          "percent_gain": 5100,
+          "rank": 8,
+          "refresh_date": "2026-09-24",
+          "term": "nc 대 삼성",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        },
+        {
+          "percent_gain": 5050,
+          "rank": 9,
+          "refresh_date": "2026-09-24",
+          "term": "시어머니",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        },
+        {
+          "percent_gain": 4850,
+          "rank": 10,
+          "refresh_date": "2026-09-24",
+          "term": "쇼트 트랙",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        },
+        {
+          "percent_gain": 4750,
+          "rank": 11,
+          "refresh_date": "2026-09-24",
+          "term": "김건우",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        },
+        {
+          "percent_gain": 4500,
+          "rank": 12,
+          "refresh_date": "2026-09-24",
+          "term": "하얀 마피아 의 시대",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        },
+        {
+          "percent_gain": 4450,
+          "rank": 13,
+          "refresh_date": "2026-09-24",
+          "term": "기아 쏘렌토",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        },
+        {
+          "percent_gain": 4450,
+          "rank": 14,
+          "refresh_date": "2026-09-24",
+          "term": "정을영",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        },
+        {
+          "percent_gain": 4150,
+          "rank": 15,
+          "refresh_date": "2026-09-24",
+          "term": "망내",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        },
+        {
+          "percent_gain": 3100,
+          "rank": 16,
+          "refresh_date": "2026-09-24",
+          "term": "샤인 머스 캣",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        },
+        {
+          "percent_gain": 2950,
+          "rank": 17,
+          "refresh_date": "2026-09-24",
+          "term": "김수용",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        },
+        {
+          "percent_gain": 2950,
+          "rank": 18,
+          "refresh_date": "2026-09-24",
+          "term": "헬리콥터",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        },
+        {
+          "percent_gain": 2850,
+          "rank": 19,
+          "refresh_date": "2026-09-24",
+          "term": "nc 대 kt",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        },
+        {
+          "percent_gain": 2700,
+          "rank": 20,
+          "refresh_date": "2026-09-24",
+          "term": "차예련",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        },
+        {
+          "percent_gain": 2700,
+          "rank": 21,
+          "refresh_date": "2026-09-24",
+          "term": "한다 감",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        },
+        {
+          "percent_gain": 2450,
+          "rank": 22,
+          "refresh_date": "2026-09-24",
+          "term": "sk 그룹",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        },
+        {
+          "percent_gain": 2000,
+          "rank": 23,
+          "refresh_date": "2026-09-24",
+          "term": "김세 의",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        },
+        {
+          "percent_gain": 1900,
+          "rank": 24,
+          "refresh_date": "2026-09-24",
+          "term": "임창정",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        },
+        {
+          "percent_gain": 1900,
+          "rank": 25,
+          "refresh_date": "2026-09-24",
+          "term": "kia 타이거즈",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        }
+      ],
+      "top": [
+        {
+          "rank": 2,
+          "refresh_date": "2026-09-24",
+          "term": "박위",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        },
+        {
+          "rank": 3,
+          "refresh_date": "2026-09-24",
+          "term": "승리",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        },
+        {
+          "rank": 4,
+          "refresh_date": "2026-09-24",
+          "term": "포로",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        },
+        {
+          "rank": 5,
+          "refresh_date": "2026-09-24",
+          "term": "며느리",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        },
+        {
+          "rank": 6,
+          "refresh_date": "2026-09-24",
+          "term": "상속세",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        },
+        {
+          "rank": 7,
+          "refresh_date": "2026-09-24",
+          "term": "대한민국 대법관",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        },
+        {
+          "rank": 8,
+          "refresh_date": "2026-09-24",
+          "term": "삼전닉스",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        },
+        {
+          "rank": 9,
+          "refresh_date": "2026-09-24",
+          "term": "리 성금",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        },
+        {
+          "rank": 10,
+          "refresh_date": "2026-09-24",
+          "term": "윤여정",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        },
+        {
+          "rank": 11,
+          "refresh_date": "2026-09-24",
+          "term": "전설의 사내",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        },
+        {
+          "rank": 12,
+          "refresh_date": "2026-09-24",
+          "term": "마이클 버리",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        },
+        {
+          "rank": 13,
+          "refresh_date": "2026-09-24",
+          "term": "재테크",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        },
+        {
+          "rank": 14,
+          "refresh_date": "2026-09-24",
+          "term": "약국",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        },
+        {
+          "rank": 15,
+          "refresh_date": "2026-09-24",
+          "term": "현숙",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        },
+        {
+          "rank": 16,
+          "refresh_date": "2026-09-24",
+          "term": "마우스",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        },
+        {
+          "rank": 17,
+          "refresh_date": "2026-09-24",
+          "term": "최준희",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        },
+        {
+          "rank": 18,
+          "refresh_date": "2026-09-24",
+          "term": "건강",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        },
+        {
+          "rank": 19,
+          "refresh_date": "2026-09-24",
+          "term": "걷기",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        },
+        {
+          "rank": 20,
+          "refresh_date": "2026-09-24",
+          "term": "박진영",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        },
+        {
+          "rank": 21,
+          "refresh_date": "2026-09-24",
+          "term": "습관",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        },
+        {
+          "rank": 22,
+          "refresh_date": "2026-09-24",
+          "term": "은지원",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        },
+        {
+          "rank": 23,
+          "refresh_date": "2026-09-24",
+          "term": "토트넘 홋스퍼 fc",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        },
+        {
+          "rank": 24,
+          "refresh_date": "2026-09-24",
+          "term": "상어",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        },
+        {
+          "rank": 25,
+          "refresh_date": "2026-09-24",
+          "term": "두산에너 빌리티",
+          "week": "2026-09-20",
+          "beauty": false,
+          "client": null
+        }
+      ]
+    }
   }
 ]
