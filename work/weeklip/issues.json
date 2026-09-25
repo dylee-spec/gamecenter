@@ -392,14 +392,6 @@
             "views": 274745,
             "published": "2026-09-16",
             "windowDays": 7
-          },
-          {
-            "id": "T_9PBiHFIhk",
-            "ch": "Daily소현",
-            "title": "최애 립밤이 바뀐 날🍦•Daily소현 #16년생 #학생브이로그 #minivlog #fyp",
-            "views": 108871,
-            "published": "2026-09-20",
-            "windowDays": 7
           }
         ],
         "src": [
@@ -563,12 +555,6 @@
           "마지막 줄에 가장 하고 싶은 말"
         ],
         "refs": [
-          {
-            "url": "https://www.youtube.com/watch?v=Y4rBYQM8758",
-            "ch": "TLC",
-            "title": "Kind of chic to have an evil twin",
-            "platform": "쇼츠"
-          },
           {
             "url": "https://www.youtube.com/watch?v=qWoeZhVczKQ",
             "ch": "Vidhii",
@@ -798,14 +784,7 @@
         ],
         "news": 52,
         "newsCapped": false,
-        "video": {
-          "id": "m5x0sm52FsQ",
-          "ch": "Cápsula Memes",
-          "title": "Coca Cola Realmente Acabó con Pepsi 💀🥤",
-          "views": 11479588,
-          "published": "2026-09-18",
-          "windowDays": 7
-        },
+        "video": null,
         "issues": [
           {
             "text": "존슨앤드존슨 호아킨 두아토 회장이 펩시콜라 사외이사로 위촉됐다는 소식이 있었어요.",
@@ -1464,14 +1443,7 @@
         ],
         "news": 88,
         "newsCapped": false,
-        "video": {
-          "id": "LgFchjfZ9hk",
-          "ch": "Giant_Tree ",
-          "title": "✨️준호 얼굴에서 빛이 나✨️마리끌레르 시세이도 화보 #이준호 #LEEJUNHO #시세이도 출처 marieclairekorea",
-          "views": 11190,
-          "published": "2026-09-18",
-          "windowDays": 7
-        },
+        "video": null,
         "issues": [
           {
             "text": "배우 박해수, '닥터X'의 김지원·이정은 화보를 공개했어요.",
