@@ -432,6 +432,31 @@
             "url": "https://www.insight.co.kr/news/575197",
             "date": "2026-09-24"
           }
+        ],
+        "platforms": [
+          "쇼츠",
+          "릴스",
+          "틱톡"
+        ],
+        "refs": [
+          {
+            "url": "https://www.youtube.com/watch?v=0Bbsn488GLg",
+            "ch": "(쇼츠)",
+            "title": "요즘 카페에서 가장 핫한 메뉴 우베 라떼",
+            "platform": "쇼츠"
+          },
+          {
+            "url": "https://www.youtube.com/watch?v=DglWbRwe5YA",
+            "ch": "(쇼츠)",
+            "title": "요즘 핫한 우베라떼 #빽다방",
+            "platform": "쇼츠"
+          },
+          {
+            "url": "https://www.youtube.com/watch?v=YlfIszm6AEk",
+            "ch": "Angelo Marasigan",
+            "title": "ONLY Eating Ube Foods for 24 HOURS!",
+            "platform": "쇼츠"
+          }
         ]
       },
       {
@@ -453,6 +478,30 @@
             "name": "국민일보",
             "url": "https://www.kmib.co.kr/article/view.asp?arcid=9000017028&cp=nv",
             "date": "2026-09-24"
+          }
+        ],
+        "platforms": [
+          "릴스",
+          "쇼츠"
+        ],
+        "refs": [
+          {
+            "url": "https://www.youtube.com/watch?v=guzNV-BMNJc",
+            "ch": "AWC Entertainment",
+            "title": "AI DOL(에이아이돌) 'I Wash' | Teaser #1",
+            "platform": "쇼츠"
+          },
+          {
+            "url": "https://www.youtube.com/watch?v=S4i-7q0Edpc",
+            "ch": "AWC Entertainment",
+            "title": "AI DOL(에이아이돌) 'I Wash' | Teaser #2",
+            "platform": "쇼츠"
+          },
+          {
+            "url": "https://www.youtube.com/watch?v=mWG6O98TeAc",
+            "ch": "AWC Entertainment",
+            "title": "AI DOL(에이아이돌) 'I Wash' | Teaser #3",
+            "platform": "쇼츠"
           }
         ]
       }
