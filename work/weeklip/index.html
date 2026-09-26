@@ -39,7 +39,7 @@ img{max-width:100%;display:block}
 .latest .meta{color:var(--blue-soft);font-size:16px}
 .latest .go-btn{display:inline-block;margin-top:28px;background:#fff;color:var(--blue-dark);font-weight:700;font-size:16px;padding:14px 22px;border-radius:14px;transition:background .15s}
 .latest .go-btn:hover{background:var(--blue-bg)}
-.preview{display:flex;flex-direction:column;gap:10px}
+.preview{display:flex;flex-direction:column;justify-content:center;align-self:center;gap:10px}
 .preview a{background:#fff;color:var(--g900);border-radius:16px;padding:16px 20px;display:flex;gap:10px;align-items:center;font-weight:700;transition:transform .15s var(--ease)}
 .preview a:hover{transform:translateX(4px)}
 .num{color:var(--blue);font-weight:700;font-variant-numeric:tabular-nums}
@@ -262,17 +262,17 @@ const footer=()=>`<footer><div class="wrap"><b>위클립</b><p>매주 월요일,
 
 function renderHome(){
   const L=latest(), past=[...ISSUES].reverse().slice(1);
-  if(!L){app.innerHTML=`<div class="view"><section class="hero"><div class="wrap"><p class="eyebrow">기획자를 위한 주간 트렌드</p><h1>이번 주 트렌드<br>위클립이 알려드릴게요</h1><p class="lead">검색 데이터로 고르고, 실제 영상으로 확인하고, 바로 쓸 기획까지.</p><div class="latest"><div><span class="pill">첫 호 준비 중</span><h2>${NEXT_ISSUE}</h2><p class="meta">첫 뷰티 주간호가 이날 오전 9시에 발행돼요.</p></div></div></div></section>${methodHTML()}${footer()}</div>`;return}
+  if(!L){app.innerHTML=`<div class="view"><section class="hero"><div class="wrap"><p class="eyebrow">기획자를 위한 주간 트렌드</p><h1>이번 주 트렌드<br>위클립이 알려드릴게요</h1><p class="lead">검색 데이터로 고르고, 실제 영상으로 확인까지.</p><div class="latest"><div><span class="pill">첫 호 준비 중</span><h2>${NEXT_ISSUE}</h2><p class="meta">첫 뷰티 주간호가 이날 오전 9시에 발행돼요.</p></div></div></div></section>${methodHTML()}${footer()}</div>`;return}
   app.innerHTML=`<div class="view">
   <section class="hero"><div class="wrap">
     <p class="eyebrow">기획자를 위한 주간 트렌드</p>
     <h1>이번 주 트렌드<br>위클립이 알려드릴게요</h1>
-    <p class="lead">검색 데이터로 고르고, 실제 영상으로 확인하고, 바로 쓸 기획까지.</p>
+    <p class="lead">검색 데이터로 고르고, 실제 영상으로 확인까지.</p>
     <div class="latest">
       <div><span class="pill">이번 주 최신호</span><h2>${L.label}</h2>
-        <p class="meta">${L.range} · 트렌드 ${L.trends.length}개 · 참고 영상 ${refCount(L)}개</p>
+        <p class="meta">트렌드 ${L.trends.length}개</p>
         <a class="go-btn" href="#/issue/${L.id}">이번 주 트렌드 읽기 →</a></div>
-      <div class="preview">${L.trends.slice(0,3).map((t,i)=>`<a href="#/issue/${L.id}/${i+1}"><span class="num">${pad(i+1)}</span>${t.t}</a>`).join('')}<small>외 ${L.trends.length-3}개 트렌드</small></div>
+      <div class="preview">${L.trends.slice(0,3).map((t,i)=>`<a href="#/issue/${L.id}/${i+1}"><span class="num">${pad(i+1)}</span>${t.t}</a>`).join('')}</div>
     </div>
   </div></section>
   <section class="section" id="archive"><div class="wrap">
