@@ -75,6 +75,7 @@ async function discoverFromYouTube() {
 
 // ---------- 2) 네이버 데이터랩: 주간 검색 추이 ----------
 // 일별 데이터를 월요일 시작 주 단위의 '하루 평균'으로 묶어요. 이번 주가 아직 안 끝났어도 지난주와 공정하게 비교돼요.
+let naverLastDate = null;
 function weeklyMeans(daily) {
   const m = new Map(daily.map(x => [x.period, x.ratio]));
   const out = [];
@@ -98,6 +99,7 @@ async function naverTrend(words) {
         ? { 'X-NCP-APIGW-API-KEY-ID': NAVER_CLIENT_ID, 'X-NCP-APIGW-API-KEY': NAVER_CLIENT_SECRET, 'Content-Type': 'application/json' }
         : { 'X-Naver-Client-Id': NAVER_CLIENT_ID, 'X-Naver-Client-Secret': NAVER_CLIENT_SECRET, 'Content-Type': 'application/json' },
       body: JSON.stringify(body) });
+    { const ld = (j.results[0].data || []).at(-1)?.period; if (ld && (!naverLastDate || ld > naverLastDate)) naverLastDate = ld; } // 네이버 데이터가 실제로 들어온 마지막 날
     const anchor = weeklyMeans(j.results[0].data || []);
     const anchorLast = anchor.at(-1)?.ratio || 0;
     for (const r of j.results.slice(1)) {
@@ -300,6 +302,7 @@ if (DRAFT && (gR || gT)) {
   newIssue.googleTrends = { source: 'Google Trends (BigQuery 공개 데이터셋, KR)', refreshDate: (gR?.[0] || gT?.[0])?.refresh_date || null,
     week: (gR?.[0] || gT?.[0])?.week || null, rising: (gR || []).map(tag), top: (gT || []).map(tag) };
 } else if (DRAFT) warnings.push('구글 트렌드(BigQuery) 데이터 없음 — GCP_SA_KEY 확인');
+newIssue.naverLastDate = naverLastDate; // 예: 2026-09-27 이면 그 주 일요일까지 다 들어온 것
 const next = all.filter(i => i.id !== issue.id).concat(newIssue);
 fs.writeFileSync(ISSUES_PATH, JSON.stringify(next, null, 2) + '\n');
 
