@@ -18,23 +18,25 @@ const DAY = 86400000;
 const kstNow = new Date(Date.now() + 9 * 3600000);               // KST를 UTC 필드로 다룸
 const ymd = d => d.toISOString().slice(0, 10);
 const monday = (() => { const d = new Date(Date.UTC(kstNow.getUTCFullYear(), kstNow.getUTCMonth(), kstNow.getUTCDate())); const w = (d.getUTCDay() + 6) % 7; return new Date(d - w * DAY); })();
-// 호가 다루는 주 = 데이터를 모은 주(월~일). 일요일에 돌리면 이번 주, 그 외 요일에는 지난주를 다뤄요.
-// WEEKLIP_WEEK=current 로 돌리면 요일과 상관없이 이번 주(월요일~오늘)를 모아요 (미리보기용).
-const isSunday = kstNow.getUTCDay() === 0;
+// 호가 다루는 기간 = 일요일~토요일 한 주. 월요일에 발행해요 (네이버 데이터가 하루 이틀 늦게 들어오기 때문).
+// 예: 9월 28일(월) 수집 → 9월 20일(일) ~ 26일(토) 데이터. 이틀 전까지 들어온 가장 최근 토요일을 끝으로 잡아요.
+// WEEKLIP_WEEK=current 로 돌리면 이번 주 일요일~어제를 모아요 (미리보기용).
 const forceCurrent = process.env.WEEKLIP_WEEK === 'current';
-const issueMon = new Date(+monday - (isSunday || forceCurrent ? 0 : 7 * DAY));
-const issueSun = new Date(+issueMon + 6 * DAY);
 const todayKst = new Date(Date.UTC(kstNow.getUTCFullYear(), kstNow.getUTCMonth(), kstNow.getUTCDate()));
-const dataEnd = new Date(Math.min(+issueSun, +todayKst - DAY));    // 그 주의 일요일, 아직 안 끝났으면 어제까지 (오늘은 집계 중이라 제외)
-const weekDays = Math.round((+dataEnd - +issueMon) / DAY) + 1;     // 이번 주에 모인 날 수 (1~7)
-const dataStart = new Date(+issueMon - (CFG.weeksOfHistory - 1) * 7 * DAY); // 그 주 포함 N주 (월요일 시작)
+let dataEnd, issueMon;                                             // issueMon = 기간 시작일(일요일)
+if (forceCurrent) { dataEnd = new Date(+todayKst - DAY); issueMon = new Date(+dataEnd - dataEnd.getUTCDay() * DAY); }
+else { const t2 = new Date(+todayKst - 2 * DAY); dataEnd = new Date(+t2 - ((t2.getUTCDay() + 1) % 7) * DAY); issueMon = new Date(+dataEnd - 6 * DAY); }
+const issueSun = new Date(+issueMon + 6 * DAY);                    // 기간 마지막 날(토요일)
+const labelDay = new Date(+issueMon + DAY);                        // 주차 이름은 그 주 월요일 기준
+const weekDays = Math.round((+dataEnd - +issueMon) / DAY) + 1;     // 모인 날 수 (1~7)
+const dataStart = new Date(+issueMon - (CFG.weeksOfHistory - 1) * 7 * DAY); // 그 주 포함 N주 (일요일 시작)
 const yoyStart = new Date(+dataStart - 52 * 7 * DAY);             // 작년 비교용
 const M = d => d.getUTCMonth() + 1, D = d => d.getUTCDate();
-const first = new Date(Date.UTC(issueMon.getUTCFullYear(), issueMon.getUTCMonth(), 1));
-const weekNo = Math.ceil((D(issueMon) + (first.getUTCDay() + 6) % 7) / 7);
+const first = new Date(Date.UTC(labelDay.getUTCFullYear(), labelDay.getUTCMonth(), 1));
+const weekNo = Math.ceil((D(labelDay) + (first.getUTCDay() + 6) % 7) / 7);
 const issue = {
-  id: `${issueMon.getUTCFullYear()}-${String(M(issueMon)).padStart(2, '0')}-w${weekNo}`,
-  label: `${issueMon.getUTCFullYear()}년 ${M(issueMon)}월 ${weekNo}주차`,
+  id: `${labelDay.getUTCFullYear()}-${String(M(labelDay)).padStart(2, '0')}-w${weekNo}`,
+  label: `${labelDay.getUTCFullYear()}년 ${M(labelDay)}월 ${weekNo}주차`,
   range: `${M(issueMon)}월 ${D(issueMon)}일 ~ ${M(issueSun)}월 ${D(issueSun)}일`,
   pub: `${kstNow.getUTCMonth() + 1}월 ${kstNow.getUTCDate()}일 발행`,
   dataRange: `${M(issueMon)}월 ${D(issueMon)}일 ~ ${M(dataEnd)}월 ${D(dataEnd)}일`,
