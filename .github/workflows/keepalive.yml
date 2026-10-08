@@ -1,0 +1,18 @@
+name: Supabase 깨우기
+on:
+  schedule:
+    - cron: '0 0 */3 * *'   # 3일마다 (한국시간 오전 9시경)
+  workflow_dispatch:
+permissions: {}
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: DB 읽기 요청 (무료 플랜 자동 정지 방지)
+        run: |
+          code=$(curl -s -o /tmp/out.json -w '%{http_code}' \
+            "https://ptwupwbdedgenmbwniwj.supabase.co/rest/v1/udm_scores?select=name&limit=1" \
+            -H "apikey: sb_publishable_42ATZwFevpMbuN5gL36kxg_FtOqmDL1" \
+            -H "Authorization: Bearer sb_publishable_42ATZwFevpMbuN5gL36kxg_FtOqmDL1")
+          echo "HTTP $code"; head -c 200 /tmp/out.json
+          [ "$code" = "200" ]
