@@ -9,64 +9,49 @@
 <style>
 /* 토스 스타일. 글자 크기 5단계(32/24/20/17/14), 굵기 2단계(500/700).
    파랑(#1b64da)은 '핵심·강조' 한 가지 뜻으로만 씀: 브랜드 강조, NEW, 주 버튼.
-   이번 주 소식은 React Bits AccordionGallery 동작을 정적 페이지용으로 옮긴 것.
-   제목은 이미지 위가 아니라 패널 아래 흰 띠에 둠(이미지 속 글자와 겹치지 않게). */
+   이번 주 소식은 움직임 없는 단순한 카드. 배경은 React Bits Aurora(파랑 계열, 밝은 배경용, 마우스 반응 끔). */
 :root{--bg:#f2f4f6;--surface:#fff;--ink:#191f28;--ink2:#4e5968;--ink3:#5f6b7a;--line:#e5e8eb;--frame:#eef2f7;--brand:#1b64da;--brand-dark:#1957c2}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:Pretendard Variable,Pretendard,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:17px;font-weight:500;line-height:1.7;word-break:keep-all;overflow-wrap:break-word}
 a{color:inherit}
-h1,h2{margin:0;font-weight:700}
-.wrap{max-width:760px;margin:0 auto;padding:0 24px}
+h1,h2,h3{margin:0;font-weight:700}
 a:focus-visible{outline:3px solid var(--ink);outline-offset:2px;border-radius:6px}
 
-.top{display:flex;align-items:center;justify-content:space-between;height:64px}
-.top a{display:inline-flex;align-items:center;min-height:32px;font-size:14px;color:var(--ink3);text-decoration:none}
-.top a:hover{color:var(--ink)}
-.top span{font-size:14px;color:var(--ink3)}
+/* 배경 오로라: 화면 위쪽에 걸리고 아래로 갈수록 회색 배경에 스며듦 */
+.aurora{position:absolute;left:0;right:0;top:0;height:640px;overflow:hidden;z-index:0;pointer-events:none}
+.aurora-canvas{position:absolute;inset:0;display:block;width:100%;height:100%}
+.aurora:after{content:"";position:absolute;left:0;right:0;bottom:0;height:200px;background:linear-gradient(to bottom,rgba(242,244,246,0),var(--bg))}
+.aurora-fallback{background:radial-gradient(80% 60% at 30% 0,rgba(27,100,218,.18),rgba(27,100,218,0) 70%),radial-gradient(60% 50% at 80% 0,rgba(92,124,255,.16),rgba(92,124,255,0) 70%)}
+.wrap{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:0 24px}
 
-.hero{padding:16px 0 8px}
+.top{display:flex;align-items:center;justify-content:space-between;height:64px}
+.top a{display:inline-flex;align-items:center;min-height:32px;font-size:14px;color:var(--ink);text-decoration:none}
+.top span{font-size:14px;color:var(--ink)}
+
+.hero{padding:40px 0 8px}
 .hero h1{font-size:32px;line-height:1.3;letter-spacing:-.02em}
-.hero h1 b{color:var(--brand);font-weight:700}
-.hero p{margin:6px 0 0;color:var(--ink2)}
+.hero h1 b{color:var(--brand-dark);font-weight:700}
+.hero p{margin:6px 0 0;color:var(--ink)}
 
 .part{margin:40px 0 16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .part h2{font-size:24px;line-height:1.35;letter-spacing:-.02em}
-.part small{font-size:14px;color:var(--ink3)}
+.part small{font-size:14px;color:var(--ink)}
 .new{display:inline-block;background:var(--brand);color:#fff;font-size:14px;font-weight:700;border-radius:999px;padding:0 10px;line-height:24px}
 
-/* 펼쳐지는 패널 */
-.ag{display:flex;gap:8px;height:360px}
-.ag-p{position:relative;flex:1 1 0;min-width:0;overflow:hidden;border-radius:20px;background:var(--frame);text-decoration:none;color:var(--ink);transition:flex-grow .5s cubic-bezier(.2,.8,.2,1)}
-.ag-p.on{flex-grow:4.3}
-.ag-p:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
-.ag-m{position:absolute;left:0;right:0;top:0;bottom:0;display:flex;align-items:center;justify-content:center;transition:bottom .5s cubic-bezier(.2,.8,.2,1)}
-.ag-p.on .ag-m{bottom:104px}
-.ag-m img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-.ag-art{height:80%;max-width:92%;display:flex;align-items:center;justify-content:center}
-.ag-art svg{height:100%;width:auto;max-width:100%;filter:drop-shadow(0 8px 18px rgba(25,31,40,.12))}
-.ag-m.has-pic .ag-art{display:none}
-/* 접힌 칸: 사진 대신 같은 그림체의 작은 일러스트만 보여서 잘린 조각이 생기지 않게 */
-.ag-p:not(.on) .ag-m img{display:none}
-.ag-p:not(.on) .ag-m.has-pic .ag-art{display:flex}
-.ag-p:not(.on) .ag-art{position:absolute;left:10%;right:10%;bottom:20px;height:auto;max-width:none}
-.ag-p:not(.on) .ag-art svg{width:100%;height:auto}
-.ag-v{position:absolute;left:50%;top:20px;transform:translateX(-50%);writing-mode:vertical-rl;text-orientation:sideways;font-size:17px;font-weight:700;white-space:nowrap;color:var(--ink)}
-.ag-p.on .ag-v{display:none}
-.ag-l{position:absolute;left:0;right:0;bottom:0;height:104px;background:var(--surface);padding:14px 20px;display:none;flex-direction:column;justify-content:center;border-top:1px solid var(--line)}
-.ag-p.on .ag-l{display:flex}
-.ag-d{font-size:14px;color:var(--ink3)}
-.ag-t{font-size:20px;line-height:1.4;font-weight:700;letter-spacing:-.02em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-
-/* 이번 주 소식 목록(모든 제목이 항상 보이게) */
-.week{list-style:none;margin:16px 0 0;padding:8px 24px;background:var(--surface);border-radius:20px}
-.week li a{display:flex;gap:16px;align-items:baseline;padding:14px 0;border-top:1px solid var(--line);text-decoration:none}
-.week li:first-child a{border-top:0}
-.week .svc{flex:none;width:136px;font-size:14px;color:var(--ink3)}
-.week .t{font-weight:700}
-.week .s{display:block;color:var(--ink2)}
-.week li a:hover .t,.week li.on .t{text-decoration:underline;text-underline-offset:3px}
+/* 이번 주 소식 카드: 움직임 없이 한 번에 모두 보임 */
+.cards{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.cards li{display:flex}
+.card{display:flex;flex-direction:column;width:100%;background:var(--surface);border-radius:20px;overflow:hidden;text-decoration:none;box-shadow:0 1px 2px rgba(25,31,40,.06)}
+.thumb{position:relative;aspect-ratio:16/9;background:var(--frame);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.thumb .art{height:82%;display:flex;align-items:center;justify-content:center}
+.thumb .art svg{height:100%;width:auto;filter:drop-shadow(0 8px 18px rgba(25,31,40,.12))}
+.thumb.has-pic .art{display:none}
+.body{padding:16px 20px 20px}
+.meta{margin:0 0 4px;font-size:14px;color:var(--ink3)}
+.card h3{font-size:20px;line-height:1.4;letter-spacing:-.02em}
+.sum{margin:6px 0 0;color:var(--ink2)}
 .cta{display:flex;align-items:center;justify-content:center;margin:16px 0 0;min-height:52px;border-radius:14px;background:var(--brand);color:#fff;font-weight:700;text-decoration:none}
-.cta:hover{background:var(--brand-dark)}
 
 /* 발행 목록 */
 .list{list-style:none;margin:0;padding:8px 24px;background:var(--surface);border-radius:20px}
@@ -74,8 +59,7 @@ a:focus-visible{outline:3px solid var(--ink);outline-offset:2px;border-radius:6p
 .list li:first-child a{border-top:0}
 .list .rl{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--ink3);flex-wrap:wrap}
 .list .rl strong{font-size:17px;color:var(--ink);font-weight:700}
-.list .rt{margin-top:2px;font-weight:700}
-.list li a:hover .rt{text-decoration:underline;text-underline-offset:3px}
+.list .rt{display:block;margin-top:2px;font-weight:700}
 .list .cnt{flex:none;font-size:14px;color:var(--ink3);text-align:right}
 .empty{padding:20px 0;color:var(--ink2)}
 .about{margin:24px 8px 0;font-size:14px;color:var(--ink3)}
@@ -83,20 +67,12 @@ footer{padding:32px 0 64px;text-align:center;font-size:14px;color:var(--ink3)}
 
 @media(max-width:640px){
   .hero h1{font-size:24px}
-  .ag{flex-direction:column;height:auto}
-  .ag-p,.ag-p.on{flex:none;height:264px}
-  .ag-p .ag-m{bottom:104px}
-  .ag-p:not(.on) .ag-m img{display:block}
-  .ag-p:not(.on) .ag-m.has-pic .ag-art{display:none}
-  .ag-p:not(.on) .ag-art{position:static;height:80%}
-  .ag-v{display:none}
-  .ag-p .ag-l{display:flex}
-  .week li a{flex-direction:column;gap:2px}
+  .cards{grid-template-columns:1fr}
 }
-@media(prefers-reduced-motion:reduce){.ag-p,.ag-m{transition:none}}
 </style>
 </head>
 <body>
+<div class="aurora" id="aurora"></div>
 <div class="wrap">
   <header class="top">
     <a href="../../index.html#work">← 업무센터로 돌아가기</a>
@@ -110,8 +86,7 @@ footer{padding:32px 0 64px;text-align:center;font-size:14px;color:var(--ink3)}
 
     <section aria-labelledby="wk" id="weekSec" hidden>
       <div class="part"><h2 id="wk">이번 주 업데이트</h2><span class="new">NEW!</span><small id="range"></small></div>
-      <div class="ag" id="ag"></div>
-      <ol class="week" id="week"></ol>
+      <ul class="cards" id="cards"></ul>
       <a class="cta" id="cta" href="issue.html">이번 호 전체 읽기</a>
     </section>
 
@@ -124,37 +99,19 @@ footer{padding:32px 0 64px;text-align:center;font-size:14px;color:var(--ink3)}
   <footer>빨리 따라와! AI 소식! · PLAY LAB</footer>
 </div>
 <script src="art.js"></script>
+<script src="aurora.js"></script>
 <script>
 'use strict';
 const $ = id => document.getElementById(id);
 const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const okUrl = u => /^https:\/\//.test(u || '');
-function art(n){ return (window.AINEWS_ART && n.art && window.AINEWS_ART[n.art]) || ''; }
-function media(n){
-  const a = art(n), pic = okUrl(n.img);
-  return '<span class="ag-m' + (pic ? ' has-pic' : '') + '">' + (a ? '<span class="ag-art">' + a + '</span>' : '') +
-    (pic ? '<img src="' + esc(n.img) + '" alt="" referrerpolicy="no-referrer" onerror="this.parentNode.classList.remove(\'has-pic\');this.remove()">' : '') + '</span>';
+function thumb(n){
+  const a = (window.AINEWS_ART && n.art && window.AINEWS_ART[n.art]) || '', pic = okUrl(n.img);
+  return '<div class="thumb' + (pic ? ' has-pic' : '') + '">' + (a ? '<span class="art">' + a + '</span>' : '') +
+    (pic ? '<img src="' + esc(n.img) + '" alt="" referrerpolicy="no-referrer" onerror="this.parentNode.classList.remove(\'has-pic\');this.remove()">' : '') + '</div>';
 }
-function setup(panels, rows, start){
-  let cur = -1, timer = 0;
-  const set = i => { if (i === cur) return; cur = i;
-    panels.forEach((p,k) => { p.classList.toggle('on', k === i); if (k === i) p.setAttribute('aria-current','true'); else p.removeAttribute('aria-current'); });
-    rows.forEach((r,k) => r.classList.toggle('on', k === i)); };
-  // 마우스가 지나가기만 해도 바뀌지 않도록 잠깐 머물렀을 때만 펼침
-  const soon = i => { clearTimeout(timer); timer = setTimeout(() => set(i), 160); };
-  const stop = () => clearTimeout(timer);
-  panels.forEach((p,i) => {
-    p.addEventListener('mouseenter', () => soon(i));
-    p.addEventListener('mouseleave', stop);
-    p.addEventListener('focus', () => set(i));
-    p.addEventListener('click', e => { if (i !== cur) { e.preventDefault(); set(i); } });
-    p.addEventListener('keydown', e => {
-      const k = e.key; if (k !== 'ArrowRight' && k !== 'ArrowLeft') return;
-      e.preventDefault(); const n = (i + (k === 'ArrowRight' ? 1 : panels.length - 1)) % panels.length; panels[n].focus();
-    });
-  });
-  rows.forEach((r,i) => { r.addEventListener('mouseenter', () => soon(i)); r.addEventListener('mouseleave', stop); });
-  set(start);
+if (window.AINEWS_AURORA) {
+  window.AINEWS_AURORA($('aurora'), { colorStops: ['#7aa7ff', '#1b64da', '#5c7cff'], amplitude: 1, blend: 0.6, height: 0.42, speed: 0.6, glow: 0.6, layers: 2, direction: 'top', lightMode: true, opacity: 0.5 });
 }
 fetch('issues.json?_=' + Date.now()).then(r => { if (!r.ok) throw 0; return r.json(); }).then(list => {
   list.reverse(); // 최신 발행이 맨 위
@@ -162,17 +119,14 @@ fetch('issues.json?_=' + Date.now()).then(r => { if (!r.ok) throw 0; return r.js
   $('weekSec').hidden = false;
   $('range').textContent = it.label + ' · ' + it.range;
   $('cta').href = base;
-  $('ag').innerHTML = it.news.map((n,i) =>
-    '<a class="ag-p" href="' + base + '#n' + i + '" aria-label="' + esc(n.title) + '">' + media(n) +
-    '<span class="ag-v" aria-hidden="true">' + esc(n.short || n.tag) + '</span>' +
-    '<span class="ag-l"><span class="ag-d">' + esc(n.tag) + ' · ' + esc(n.date) + '</span><span class="ag-t">' + esc(n.title) + '</span></span></a>').join('');
-  $('week').innerHTML = it.news.map((n,i) =>
-    '<li><a href="' + base + '#n' + i + '"><span class="svc">' + esc(n.short || n.tag) + '</span><span><span class="t">' + esc(n.title) + '</span>' + (n.sum ? '<span class="s">' + esc(n.sum) + '</span>' : '') + '</span></a></li>').join('');
-  setup([].slice.call(document.querySelectorAll('.ag-p')), [].slice.call(document.querySelectorAll('#week li')), Math.min(it.lead || 0, it.news.length - 1));
+  $('cards').innerHTML = it.news.map((n,i) =>
+    '<li><a class="card" href="' + base + '#n' + i + '">' + thumb(n) +
+    '<div class="body"><p class="meta">' + esc(n.tag) + ' · ' + esc(n.date) + '</p><h3>' + esc(n.title) + '</h3>' +
+    (n.sum ? '<p class="sum">' + esc(n.sum) + '</p>' : '') + '</div></a></li>').join('');
   $('cnt').textContent = '총 ' + list.length + '회';
   $('list').innerHTML = list.map((x,i) =>
     '<li><a href="issue.html?id=' + encodeURIComponent(x.id) + '"><span><span class="rl"><strong>' + esc(x.label) + '</strong><span>' + esc(x.range) + '</span>' + (i === 0 ? '<span class="new">NEW!</span>' : '') + '</span>' +
-    '<span class="rt" style="display:block">' + esc(String(x.headline).replace(/\n/g, ' ')) + '</span></span><span class="cnt">업데이트 ' + x.news.length + '건<br>꿀팁 ' + x.tips.length + '건</span></a></li>').join('');
+    '<span class="rt">' + esc(String(x.headline).replace(/\n/g, ' ')) + '</span></span><span class="cnt">업데이트 ' + x.news.length + '건<br>꿀팁 ' + x.tips.length + '건</span></a></li>').join('');
 }).catch(() => { $('list').innerHTML = '<li class="empty">목록을 불러오지 못했어요. 페이지를 새로 고쳐 주세요.</li>'; });
 </script>
 </body>
