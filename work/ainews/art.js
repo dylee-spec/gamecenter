@@ -1,4 +1,4 @@
-/* 빨리 따라와! AI 소식! 커버 일러스트. 소식 내용에 맞춰 직접 그린 그림이에요(외부 이미지·브랜드 로고 없음). */
+/* 빨리 따라와! AI 소식! 커버 일러스트(밝은 회청색 바탕 #eef2f7 위에 놓이도록 그림). 소식 내용에 맞춰 직접 그린 그림이에요(외부 이미지·브랜드 로고 없음). */
 window.AINEWS_ART = (function () {
   var W = '#fff';
   function wrap(inner) {
@@ -7,9 +7,9 @@ window.AINEWS_ART = (function () {
   return {
     /* 질문에 맞춰 글·표·그래프가 한 화면에 섞여 나오는 화면 */
     ui: wrap(
-      '<rect x="40" y="26" width="320" height="248" rx="22" fill="' + W + '" fill-opacity=".14"/>' +
-      '<rect x="64" y="52" width="150" height="14" rx="7" fill="' + W + '" fill-opacity=".9"/>' +
-      '<rect x="64" y="76" width="230" height="10" rx="5" fill="' + W + '" fill-opacity=".5"/>' +
+      '<rect x="40" y="26" width="320" height="248" rx="22" fill="#1b64da" fill-opacity=".08"/>' +
+      '<rect x="64" y="52" width="150" height="14" rx="7" fill="#1e3a8a"/>' +
+      '<rect x="64" y="76" width="230" height="10" rx="5" fill="#1b64da" fill-opacity=".2"/>' +
       '<rect x="64" y="104" width="136" height="96" rx="12" fill="' + W + '" fill-opacity=".95"/>' +
       '<rect x="76" y="116" width="112" height="10" rx="5" fill="#1b64da" fill-opacity=".25"/>' +
       '<rect x="76" y="134" width="112" height="10" rx="5" fill="#1b64da" fill-opacity=".15"/>' +
@@ -35,12 +35,12 @@ window.AINEWS_ART = (function () {
     ),
     /* 작고 빠른 모델: 번개 */
     fast: wrap(
-      '<circle cx="200" cy="150" r="118" fill="' + W + '" fill-opacity=".12"/>' +
-      '<circle cx="200" cy="150" r="82" fill="' + W + '" fill-opacity=".18"/>' +
-      '<path d="M222 40 L130 168 H190 L172 262 L270 124 H208 Z" fill="' + W + '"/>' +
-      '<rect x="40" y="108" width="62" height="10" rx="5" fill="' + W + '" fill-opacity=".7"/>' +
-      '<rect x="24" y="134" width="84" height="10" rx="5" fill="' + W + '" fill-opacity=".5"/>' +
-      '<rect x="48" y="160" width="54" height="10" rx="5" fill="' + W + '" fill-opacity=".7"/>'
+      '<circle cx="200" cy="150" r="118" fill="#1b64da" fill-opacity=".07"/>' +
+      '<circle cx="200" cy="150" r="82" fill="#1b64da" fill-opacity=".1"/>' +
+      '<path d="M222 40 L130 168 H190 L172 262 L270 124 H208 Z" fill="#1b64da"/>' +
+      '<rect x="40" y="108" width="62" height="10" rx="5" fill="#1b64da" fill-opacity=".35"/>' +
+      '<rect x="24" y="134" width="84" height="10" rx="5" fill="#1b64da" fill-opacity=".22"/>' +
+      '<rect x="48" y="160" width="54" height="10" rx="5" fill="#1b64da" fill-opacity=".35"/>'
     ),
     /* 월간 API 크레딧: 쌓인 코인과 카드 */
     credit: wrap(
@@ -64,14 +64,14 @@ window.AINEWS_ART = (function () {
       '<g stroke="#1b64da" stroke-opacity=".35" stroke-width="2"><path d="M70 60 H258 M70 80 H258 M70 100 H258" stroke-dasharray="2 8"/></g>' +
       '<circle cx="268" cy="188" r="58" fill="#1b64da" fill-opacity=".92" stroke="#fff" stroke-width="12"/>' +
       '<path d="M244 190 L260 206 L294 168" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>' +
-      '<path d="M310 232 L350 272" stroke="#fff" stroke-width="16" stroke-linecap="round"/>'
+      '<path d="M310 232 L350 272" stroke="#1e3a8a" stroke-width="16" stroke-linecap="round"/>'
     ),
     /* 회의 녹음 요약: 마이크와 글 */
     rec: wrap(
-      '<rect x="64" y="40" width="130" height="220" rx="22" fill="' + W + '" fill-opacity=".14"/>' +
-      '<rect x="104" y="70" width="50" height="86" rx="25" fill="' + W + '"/>' +
-      '<path d="M84 132 C84 176 124 176 124 176 C124 176 164 176 164 132" fill="none" stroke="' + W + '" stroke-width="8" stroke-linecap="round" transform="translate(5 0)"/>' +
-      '<rect x="120" y="184" width="8" height="26" rx="4" fill="' + W + '" transform="translate(5 0)"/>' +
+      '<rect x="64" y="40" width="130" height="220" rx="22" fill="#1b64da" fill-opacity=".08"/>' +
+      '<rect x="104" y="70" width="50" height="86" rx="25" fill="#1b64da"/>' +
+      '<path d="M84 132 C84 176 124 176 124 176 C124 176 164 176 164 132" fill="none" stroke="#1b64da" stroke-width="8" stroke-linecap="round" transform="translate(5 0)"/>' +
+      '<rect x="120" y="184" width="8" height="26" rx="4" fill="#1b64da" transform="translate(5 0)"/>' +
       '<rect x="224" y="60" width="120" height="180" rx="16" fill="' + W + '" fill-opacity=".95"/>' +
       '<rect x="240" y="80" width="64" height="10" rx="5" fill="#1b64da"/>' +
       '<rect x="240" y="104" width="88" height="8" rx="4" fill="#1b64da" fill-opacity=".3"/>' +
@@ -84,14 +84,14 @@ window.AINEWS_ART = (function () {
     ),
     /* 종이 문서 스캔: 폰과 문서 */
     scan: wrap(
-      '<rect x="110" y="26" width="180" height="248" rx="28" fill="' + W + '" fill-opacity=".16"/>' +
+      '<rect x="110" y="26" width="180" height="248" rx="28" fill="#1b64da" fill-opacity=".08"/>' +
       '<rect x="132" y="56" width="136" height="188" rx="10" fill="' + W + '" fill-opacity=".95"/>' +
       '<rect x="148" y="76" width="70" height="10" rx="5" fill="#1b64da"/>' +
       '<rect x="148" y="100" width="104" height="7" rx="3.5" fill="#1b64da" fill-opacity=".3"/>' +
       '<rect x="148" y="116" width="96" height="7" rx="3.5" fill="#1b64da" fill-opacity=".3"/>' +
       '<rect x="148" y="132" width="104" height="7" rx="3.5" fill="#1b64da" fill-opacity=".3"/>' +
       '<rect x="148" y="148" width="80" height="7" rx="3.5" fill="#1b64da" fill-opacity=".3"/>' +
-      '<g fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"><path d="M122 92 V66 H148"/><path d="M278 92 V66 H252"/><path d="M122 208 V234 H148"/><path d="M278 208 V234 H252"/></g>' +
+      '<g fill="none" stroke="#1b64da" stroke-width="6" stroke-linecap="round"><path d="M122 92 V66 H148"/><path d="M278 92 V66 H252"/><path d="M122 208 V234 H148"/><path d="M278 208 V234 H252"/></g>' +
       '<rect x="132" y="160" width="136" height="6" rx="3" fill="#1b64da"/>'
     ),
     /* 비교표·계산기 */
@@ -124,8 +124,8 @@ window.AINEWS_ART = (function () {
       '<rect x="106" y="130" width="160" height="8" rx="4" fill="#1b64da" fill-opacity=".3"/>' +
       '<rect x="106" y="170" width="86" height="40" rx="20" fill="#1b64da"/>' +
       '<path d="M128 190 L140 178 V202 Z" fill="' + W + '"/><rect x="146" y="186" width="30" height="8" rx="4" fill="' + W + '"/>' +
-      '<path d="M300 46 L310 74 L338 84 L310 94 L300 122 L290 94 L262 84 L290 74 Z" fill="' + W + '"/>' +
-      '<path d="M342 128 L347 142 L361 147 L347 152 L342 166 L337 152 L323 147 L337 142 Z" fill="' + W + '" fill-opacity=".7"/>'
+      '<path d="M300 46 L310 74 L338 84 L310 94 L300 122 L290 94 L262 84 L290 74 Z" fill="#1b64da"/>' +
+      '<path d="M342 128 L347 142 L361 147 L347 152 L342 166 L337 152 L323 147 L337 142 Z" fill="#1b64da" fill-opacity=".55"/>'
     ),
     /* CSV 차트 */
     chart: wrap(
@@ -141,8 +141,8 @@ window.AINEWS_ART = (function () {
       '<circle cx="200" cy="150" r="104" fill="' + W + '" fill-opacity=".95"/>' +
       '<circle cx="200" cy="150" r="104" fill="none" stroke="#1b64da" stroke-opacity=".25" stroke-width="10"/>' +
       '<path d="M200 90 V150 L240 176" fill="none" stroke="#1b64da" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>' +
-      '<path d="M306 98 A116 116 0 0 1 316 188" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round"/>' +
-      '<path d="M322 166 L318 196 L292 184" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>'
+      '<path d="M306 98 A116 116 0 0 1 316 188" fill="none" stroke="#1b64da" stroke-width="10" stroke-linecap="round"/>' +
+      '<path d="M322 166 L318 196 L292 184" fill="none" stroke="#1b64da" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>'
     )
   };
 })();
