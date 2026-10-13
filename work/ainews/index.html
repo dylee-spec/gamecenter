@@ -9,7 +9,7 @@
 <style>
 /* 토스 스타일. 글자 크기 5단계(32/24/20/17/14), 굵기 2단계(500/700).
    파랑(#1b64da)은 '핵심·강조' 한 가지 뜻으로만 씀: 브랜드 강조, NEW, 주 버튼.
-   이번 주 소식은 움직임 없는 단순한 카드. 배경은 React Bits Aurora(파랑 계열, 밝은 배경용, 마우스 반응 끔). */
+   이번 주 소식은 움직임 없는 단순한 카드. 배경은 React Bits Grainient(파랑 계열, 마우스 반응 끔, 아주 느리게 흐름). */
 :root{--bg:#f2f4f6;--surface:#fff;--ink:#191f28;--ink2:#4e5968;--ink3:#5f6b7a;--line:#e5e8eb;--frame:#eef2f7;--brand:#1b64da;--brand-dark:#1957c2}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:Pretendard Variable,Pretendard,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:17px;font-weight:500;line-height:1.7;word-break:keep-all;overflow-wrap:break-word}
@@ -17,11 +17,10 @@ a{color:inherit}
 h1,h2,h3{margin:0;font-weight:700}
 a:focus-visible{outline:3px solid var(--ink);outline-offset:2px;border-radius:6px}
 
-/* 배경 오로라: 화면 위쪽에 걸리고 아래로 갈수록 회색 배경에 스며듦 */
-.aurora{position:absolute;left:0;right:0;top:0;height:640px;overflow:hidden;z-index:0;pointer-events:none}
-.aurora-canvas{position:absolute;inset:0;display:block;width:100%;height:100%}
-.aurora:after{content:"";position:absolute;left:0;right:0;bottom:0;height:200px;background:linear-gradient(to bottom,rgba(242,244,246,0),var(--bg))}
-.aurora-fallback{background:radial-gradient(80% 60% at 30% 0,rgba(27,100,218,.18),rgba(27,100,218,0) 70%),radial-gradient(60% 50% at 80% 0,rgba(92,124,255,.16),rgba(92,124,255,0) 70%)}
+/* 배경 그라데이션(Grainient): 화면 위쪽에 걸리고 아래로 갈수록 회색 배경에 스며듦 */
+.bg{position:absolute;left:0;right:0;top:0;height:640px;overflow:hidden;z-index:0;pointer-events:none}
+.bg:after{content:"";position:absolute;left:0;right:0;bottom:0;height:220px;background:linear-gradient(to bottom,rgba(242,244,246,0),var(--bg))}
+.bg-fallback{background:linear-gradient(to bottom,#a9c4f2,#dfe9fb 55%,var(--bg))}
 .wrap{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:0 24px}
 
 .top{display:flex;align-items:center;justify-content:space-between;height:64px}
@@ -74,7 +73,7 @@ footer{padding:32px 0 64px;text-align:center;font-size:14px;color:var(--ink3)}
 </style>
 </head>
 <body>
-<div class="aurora" id="aurora"></div>
+<div class="bg" id="bg"></div>
 <div class="wrap">
   <header class="top">
     <a href="../../index.html#work">← 업무센터로 돌아가기</a>
@@ -101,7 +100,7 @@ footer{padding:32px 0 64px;text-align:center;font-size:14px;color:var(--ink3)}
   <footer>빨리 따라와! AI 소식! · PLAY LAB</footer>
 </div>
 <script src="art.js"></script>
-<script src="aurora.js"></script>
+<script src="grainient.js"></script>
 <script>
 'use strict';
 const $ = id => document.getElementById(id);
@@ -112,9 +111,10 @@ function thumb(n){
   return '<div class="thumb' + (pic ? ' has-pic' : '') + '">' + (a ? '<span class="art">' + a + '</span>' : '') +
     (pic ? '<img src="' + esc(n.img) + '" alt="" referrerpolicy="no-referrer" onerror="this.parentNode.classList.remove(\'has-pic\');this.remove()">' : '') + '</div>';
 }
-if (window.AINEWS_AURORA) {
-  window.AINEWS_AURORA($('aurora'), { colorStops: ['#7aa7ff', '#1b64da', '#5c7cff'], amplitude: 1, blend: 0.6, height: 0.42, speed: 0.6, glow: 0.6, layers: 2, direction: 'top', lightMode: true, opacity: 0.5 });
-}
+if (window.AINEWS_GRAINIENT) {
+  // 첫 색은 페이지 바탕색(아래쪽), 마지막 색이 화면 맨 위. 글자가 잘 읽히도록 가장 진한 색도 밝은 파랑으로 둠
+  window.AINEWS_GRAINIENT($('bg'), { colors: ['#f2f4f6', '#e2ebfa', '#bcd1f6', '#8fb2ef', '#6a98e8'], angle: 0, flow: 0.9, scale: 1.1, speed: 0.5, silk: 0.35, grainAmount: 0.05, grainSize: 1.2 });
+} else { $('bg').classList.add('bg-fallback'); }
 fetch('issues.json?_=' + Date.now()).then(r => { if (!r.ok) throw 0; return r.json(); }).then(list => {
   list.reverse(); // 최신 발행이 맨 위
   const it = list[0], base = 'issue.html?id=' + encodeURIComponent(it.id);
