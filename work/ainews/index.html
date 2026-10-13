@@ -41,6 +41,8 @@ a:focus-visible{outline:3px solid var(--ink);outline-offset:2px;border-radius:6p
 /* 이번 주 소식 카드: 움직임 없이 한 번에 모두 보임 */
 .cards{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .cards li{display:flex}
+.cards+.grp{margin-top:40px}
+.grp{margin:0 0 12px;font-size:17px;font-weight:700}
 .card{display:flex;flex-direction:column;width:100%;background:var(--surface);border-radius:20px;overflow:hidden;text-decoration:none;box-shadow:0 1px 2px rgba(25,31,40,.06)}
 .thumb{position:relative;aspect-ratio:16/9;background:var(--frame);display:flex;align-items:center;justify-content:center;overflow:hidden}
 .thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
@@ -86,7 +88,7 @@ footer{padding:32px 0 64px;text-align:center;font-size:14px;color:var(--ink3)}
 
     <section aria-labelledby="wk" id="weekSec" hidden>
       <div class="part"><h2 id="wk">이번 주 업데이트</h2><span class="new">NEW!</span><small id="range"></small></div>
-      <ul class="cards" id="cards"></ul>
+      <div id="cards"></div>
       <a class="cta" id="cta" href="issue.html">이번 호 전체 읽기</a>
     </section>
 
@@ -119,10 +121,16 @@ fetch('issues.json?_=' + Date.now()).then(r => { if (!r.ok) throw 0; return r.js
   $('weekSec').hidden = false;
   $('range').textContent = it.label + ' · ' + it.range;
   $('cta').href = base;
-  $('cards').innerHTML = it.news.map((n,i) =>
+  // 묶음(이번 주 / 지난 출시)별로 카드를 나눠 보여줌. 첫 묶음은 제목이 '이번 주 업데이트'라 따로 이름을 달지 않음
+  const all = it.news.map((n,i) => [n,i]);
+  const groups = it.groups && it.groups.length
+    ? it.groups.map((g,k) => ({ label: k ? g.label : '', rows: all.filter(([n]) => (n.group || it.groups[0].id) === g.id) })).filter(g => g.rows.length)
+    : [{ label: '', rows: all }];
+  const card = ([n,i]) =>
     '<li><a class="card" href="' + base + '#n' + i + '">' + thumb(n) +
     '<div class="body"><p class="meta">' + esc(n.tag) + ' · ' + esc(n.date) + '</p><h3>' + esc(n.title) + '</h3>' +
-    (n.sum ? '<p class="sum">' + esc(n.sum) + '</p>' : '') + '</div></a></li>').join('');
+    (n.sum ? '<p class="sum">' + esc(n.sum) + '</p>' : '') + '</div></a></li>';
+  $('cards').innerHTML = groups.map(g => (g.label ? '<p class="grp">' + esc(g.label) + '</p>' : '') + '<ul class="cards">' + g.rows.map(card).join('') + '</ul>').join('');
   $('cnt').textContent = '총 ' + list.length + '회';
   $('list').innerHTML = list.map((x,i) =>
     '<li><a href="issue.html?id=' + encodeURIComponent(x.id) + '"><span><span class="rl"><strong>' + esc(x.label) + '</strong><span>' + esc(x.range) + '</span>' + (i === 0 ? '<span class="new">NEW!</span>' : '') + '</span>' +

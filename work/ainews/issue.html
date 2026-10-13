@@ -57,6 +57,11 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--ink);outline-offset
 .item{padding:99px 0 100px;border-top:1px solid var(--line);scroll-margin-top:16px}
 .card>h2+.item{border-top:0;padding-top:24px}
 .card>.item:last-child{padding-bottom:24px}
+/* 업데이트 안의 묶음(이번 주 / 지난 출시) */
+.subgrp{margin:0;font-size:17px;font-weight:700;color:var(--ink)}
+.card>h2+.subgrp{margin-top:24px}
+.subgrp+.item{border-top:0;padding-top:16px}
+.item+.subgrp{border-top:1px solid var(--line);padding-top:99px}
 .banner{position:relative;margin:0 0 16px;aspect-ratio:3/1;border-radius:16px;background:var(--frame);overflow:hidden;display:flex;align-items:center;justify-content:center}
 .banner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 .banner .art{height:86%;display:flex;align-items:center;justify-content:center}
@@ -142,6 +147,12 @@ function item(n, i, kind){
     '<a class="src" href="' + (okUrl(n.url) ? esc(n.url) : '#') + '" target="_blank" rel="noopener">출처 보기: ' + esc(n.src) + ' (새 창)</a>' +
     (n.use ? '<div class="use"><b>활용법</b><span>' + esc(n.use) + '</span></div>' : '') + '</article>';
 }
+// 업데이트를 묶음별로 나눔. 묶음 정보가 없으면 한 덩어리로 둠
+function groupsOf(it){
+  const all = it.news.map((n,i) => [n,i]);
+  if (!it.groups || !it.groups.length) return [{ label: '', rows: all }];
+  return it.groups.map(g => ({ label: g.label, short: g.short || g.label, rows: all.filter(([n]) => (n.group || it.groups[0].id) === g.id) })).filter(g => g.rows.length);
+}
 function render(list, id){
   const latest = list[0];
   const it = list.find(x => x.id === id) || latest;
@@ -149,15 +160,15 @@ function render(list, id){
   const terms = it.terms || [];
   const glance =
     '<section class="card glance" aria-labelledby="gh"><h2 id="gh">이번 주 한눈에</h2>' +
-    '<p class="grp">업데이트 ' + it.news.length + '건</p><ol>' +
-    it.news.map((n,i) => '<li><a href="#n' + i + '"><span class="svc">' + esc(svcName(n)) + '</span><span><span class="t">' + esc(n.title) + '</span>' + (n.sum ? '<span class="s">' + esc(n.sum) + '</span>' : '') + '</span></a></li>').join('') +
-    '</ol><p class="grp">꿀팁 ' + it.tips.length + '건</p><ol class="tips">' +
+    groupsOf(it).map(g => '<p class="grp">' + esc(g.short || '업데이트') + ' ' + g.rows.length + '건</p><ol>' +
+      g.rows.map(([n,i]) => '<li><a href="#n' + i + '"><span class="svc">' + esc(svcName(n)) + '</span><span><span class="t">' + esc(n.title) + '</span>' + (n.sum ? '<span class="s">' + esc(n.sum) + '</span>' : '') + '</span></a></li>').join('') + '</ol>').join('') +
+    '<p class="grp">꿀팁 ' + it.tips.length + '건</p><ol class="tips">' +
     it.tips.map((t,i) => '<li><a href="#t' + i + '"><span class="svc">' + esc(svcName(t)) + '</span><span class="t">' + esc(t.title) + '</span></a></li>').join('') +
     '</ol>' + (terms.length ? '<p class="more">모르는 말이 나오면 맨 아래 <a href="#terms">용어 풀이</a>를 보세요.</p>' : '') + '</section>';
   $('main').innerHTML =
     '<section class="hero"><p class="kicker"><strong>' + esc(it.label) + '</strong><span>' + esc(it.range) + '</span>' + (it === latest ? '<span class="new">NEW!</span>' : '') + '</p>' +
     '<h1>' + esc(it.headline) + '</h1></section>' + glance +
-    '<section class="card" id="updates" aria-labelledby="uh"><h2 id="uh">업데이트<small>' + it.news.length + '건</small></h2>' + it.news.map((n,i) => item(n,i,'n')).join('') + '</section>' +
+    '<section class="card" id="updates" aria-labelledby="uh"><h2 id="uh">업데이트<small>' + it.news.length + '건</small></h2>' + groupsOf(it).map(g => (g.label ? '<p class="subgrp">' + esc(g.label) + '</p>' : '') + g.rows.map(([n,i]) => item(n,i,'n')).join('')).join('') + '</section>' +
     '<section class="card" id="tips" aria-labelledby="th"><h2 id="th">꿀팁<small>' + it.tips.length + '건</small></h2>' + it.tips.map((t,i) => item(t,i,'t')).join('') + '</section>' +
     (terms.length ? '<section class="card" id="terms" aria-labelledby="dh"><h2 id="dh">용어 풀이<small>' + terms.length + '개</small></h2><dl class="terms">' + terms.map(t => '<dt>' + esc(t.t) + '</dt><dd>' + esc(t.d) + '</dd>').join('') + '</dl></section>' : '') +
     '<p class="about">공식 발표와 공식 릴리스 노트에서 날짜와 내용을 직접 확인한 소식만 실어요. 각 소식 아래 출처를 눌러 원문을 볼 수 있어요.</p>';
