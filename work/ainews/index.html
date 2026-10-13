@@ -38,6 +38,10 @@ a:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
 .ag-p:not(.on) .ag-m{filter:grayscale(.75) brightness(.9)}
 .ag-m:before{content:attr(data-mark);position:absolute;left:24px;top:64px;font-size:88px;line-height:1;letter-spacing:-3px;font-weight:700;color:rgba(255,255,255,.12);white-space:nowrap}
 .ag-m.has-art:before{display:none}
+.ag-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.ag-m.has-img .ag-art{display:none}
+.ag-m.has-img~.ag-tag{background:rgba(10,20,50,.55)}
+.ag-m.has-img:after{background:linear-gradient(180deg,rgba(10,20,50,.1) 0%,rgba(10,20,50,.35) 35%,rgba(10,20,50,.9) 100%)}
 .ag-art{position:absolute;left:0;right:0;top:64px;bottom:128px;display:flex;align-items:center;justify-content:center;padding:0 20px}
 .ag-art svg{width:100%;height:100%;max-width:440px}
 .ag-p:not(.on) .ag-art{opacity:.8}
@@ -94,6 +98,7 @@ footer{margin-top:32px;text-align:center;color:var(--ink3);font-size:13px;font-w
 'use strict';
 const $ = id => document.getElementById(id);
 const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function img(n){return n.img&&/^https:\/\//.test(n.img)?'<img class="ag-img" src="'+esc(n.img)+'" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">':'';}
 function art(n){return (window.AINEWS_ART&&n.art&&window.AINEWS_ART[n.art])||'';}
 function tone(tag){const t=String(tag||'').toLowerCase();
   if(t.indexOf('chatgpt')>-1||t.indexOf('openai')>-1)return 'c-chatgpt';if(t.indexOf('claude')>-1)return 'c-claude';
@@ -118,7 +123,7 @@ fetch('issues.json?_='+Date.now()).then(r=>{ if(!r.ok) throw 0; return r.json();
   $('agHead').hidden=false;
   $('agHead').innerHTML=esc(it.label)+' 업데이트 <span class="new">NEW!</span><small>'+esc(it.range)+'</small>';
   $('ag').innerHTML=it.news.map((n,i)=>
-    '<a class="ag-p" role="listitem" href="'+base+'#n'+i+'" aria-label="'+esc(n.title)+'"><span class="ag-m '+tone(n.tag)+(art(n)?' has-art':'')+'" data-mark="'+esc(n.tag)+'">'+(art(n)?'<span class="ag-art">'+art(n)+'</span>':'')+'</span>'+
+    '<a class="ag-p" role="listitem" href="'+base+'#n'+i+'" aria-label="'+esc(n.title)+'"><span class="ag-m '+tone(n.tag)+(art(n)?' has-art':'')+(n.img?' has-img':'')+'" data-mark="'+esc(n.tag)+'">'+(art(n)?'<span class="ag-art">'+art(n)+'</span>':'')+img(n)+'</span>'+
     '<span class="ag-tag">'+esc(n.tag)+'</span><span class="ag-v" aria-hidden="true">'+esc(n.tag)+'</span>'+
     '<span class="ag-l"><span class="ag-bar"></span><span><span class="ag-t">'+esc(n.title)+'</span><span class="ag-d">'+esc(n.date)+'</span></span></span></a>').join('');
   setup([].slice.call(document.querySelectorAll('.ag-p')), Math.min(it.lead||0,it.news.length-1));

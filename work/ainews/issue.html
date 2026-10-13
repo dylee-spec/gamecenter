@@ -39,6 +39,12 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--ink);outline-offset
 .cover{position:relative;aspect-ratio:16/9;border-radius:16px;display:flex;flex-direction:column;justify-content:flex-end;padding:24px 28px;color:#fff;background:var(--c-etc);overflow:hidden}
 .cover:before{content:attr(data-mark);position:absolute;right:-8px;top:44px;font-size:104px;line-height:1;letter-spacing:-3px;font-weight:700;color:rgba(255,255,255,.12);white-space:nowrap}
 .cover.has-art:before{display:none}
+.cover .pic{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:0}
+.cover.has-pic .art{display:none}
+.cover.has-pic:after{z-index:1;background:linear-gradient(to top,rgba(10,20,50,.9),rgba(10,20,50,.35) 45%,rgba(10,20,50,.1) 100%)}
+.cover.has-pic .chip,.cover.has-pic h4{z-index:2}
+.cover.has-pic .chip{background:rgba(10,20,50,.55)}
+.credit{display:block;margin:8px 0 0;font-size:13px;font-weight:700;color:var(--ink3)}
 .cover .art{position:absolute;left:0;right:0;top:48px;bottom:84px;display:flex;align-items:center;justify-content:center;padding:0 24px}
 .cover .art svg{height:100%;width:auto;max-width:100%}
 .cover:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.4),rgba(0,0,0,0) 65%)}
@@ -105,12 +111,12 @@ function tone(tag){
   if (t.indexOf('perplexity')>-1) return 'c-perplexity';
   return '';
 }
-function cover(tag, title, key){
+function cover(tag, title, key, pic){
   var a=(window.AINEWS_ART&&key&&window.AINEWS_ART[key])||'';
-  return '<div class="cover '+tone(tag)+(a?' has-art':'')+'" data-mark="'+esc(tag)+'">'+(a?'<span class="art">'+a+'</span>':'')+'<span class="chip">'+esc(tag)+'</span><h4>'+esc(title)+'</h4></div>';
+  return '<div class="cover '+tone(tag)+(a?' has-art':'')+(pic&&/^https:\/\//.test(pic)?' has-pic':'')+'" data-mark="'+esc(tag)+'">'+(a?'<span class="art">'+a+'</span>':'')+(pic&&/^https:\/\//.test(pic)?'<img class="pic" src="'+esc(pic)+'" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.classList.remove(\'has-pic\');this.remove()">':'')+'<span class="chip">'+esc(tag)+'</span><h4>'+esc(title)+'</h4></div>';
 }
 function item(n, i, kind){
-  return '<article class="item" id="'+kind+i+'">'+cover(n.tag||n.tool, n.title, n.art)+
+  return '<article class="item" id="'+kind+i+'">'+cover(n.tag||n.tool, n.title, n.art, n.img)+(n.img&&n.imgsrc?'<span class="credit">이미지 · '+esc(n.imgsrc)+'</span>':'')+
     '<span class="date">'+esc(n.date||n.when)+'</span>'+
     (n.steps?'<ol>'+n.steps.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ol>':'<p>'+esc(n.body)+'</p>')+
     (n.prompt?'<div class="pbox"><b>그대로 복사해서 쓰세요</b><pre>'+esc(n.prompt)+'</pre><button type="button" class="copy">프롬프트 복사하기</button></div>':'')+
