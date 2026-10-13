@@ -63,8 +63,8 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--ink);outline-offset
 .banner.has-pic .art{display:none}
 .meta{margin:0 0 6px;font-size:14px;color:var(--ink3)}
 .item h3{font-size:20px;line-height:1.45;letter-spacing:-.02em}
-.sum{margin:6px 0 16px}
-.use{display:flex;gap:12px;background:var(--brand-bg);border-radius:12px;padding:14px 16px;margin:0 0 16px}
+.sum{margin:6px 0 12px}
+.use{display:flex;gap:12px;background:var(--brand-bg);border-radius:12px;padding:14px 16px;margin:16px 0 0}
 .use b{flex:none;font-size:14px;font-weight:700;color:var(--brand);line-height:29px}
 .body{margin:0 0 12px}
 .item ol.steps{margin:0 0 12px;padding:0;list-style:none;counter-reset:s}
@@ -135,11 +135,11 @@ function item(n, i, kind){
     '<p class="meta">' + meta + '</p>' +
     '<h3 id="' + kind + i + 'h">' + esc(n.title) + '</h3>' +
     (n.sum ? '<p class="sum">' + esc(n.sum) + '</p>' : '') +
-    (n.use ? '<div class="use"><b>활용법</b><span>' + esc(n.use) + '</span></div>' : '') +
     (n.steps ? '<ol class="steps">' + n.steps.map(x => '<li>' + esc(x) + '</li>').join('') + '</ol>' : (n.body ? '<p class="body">' + esc(n.body) + '</p>' : '')) +
     (n.prompt ? '<div class="pbox"><span class="lbl">그대로 복사해서 쓰는 프롬프트</span><pre>' + esc(n.prompt) + '</pre><button type="button" class="copy">프롬프트 복사하기</button></div>' : '') +
     ((n.detail || n.note) ? '<p class="note"><b>참고</b>' + esc(n.detail || n.note) + '</p>' : '') +
-    '<a class="src" href="' + (okUrl(n.url) ? esc(n.url) : '#') + '" target="_blank" rel="noopener">출처 보기: ' + esc(n.src) + ' (새 창)</a></article>';
+    '<a class="src" href="' + (okUrl(n.url) ? esc(n.url) : '#') + '" target="_blank" rel="noopener">출처 보기: ' + esc(n.src) + ' (새 창)</a>' +
+    (n.use ? '<div class="use"><b>활용법</b><span>' + esc(n.use) + '</span></div>' : '') + '</article>';
 }
 function render(list, id){
   const latest = list[0];
