@@ -70,12 +70,6 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--ink);outline-offset
 .src{display:inline-flex;align-items:center;min-height:32px;font-size:14px;color:var(--ink3);text-decoration:underline;text-underline-offset:3px}
 .src:hover{color:var(--ink)}
 
-/* 용어 풀이 */
-.terms{margin:16px 0 0;display:grid;grid-template-columns:auto 1fr;column-gap:24px}
-.terms dt{font-weight:700;padding:12px 0;border-top:1px solid var(--line)}
-.terms dd{margin:0;padding:12px 0;border-top:1px solid var(--line);color:var(--ink2)}
-.terms dt:first-of-type,.terms dt:first-of-type+dd{border-top:0}
-
 .about{margin:8px 0 0;font-size:14px;color:var(--ink3);padding:0 8px}
 footer{padding:32px 0 64px;text-align:center;font-size:14px;color:var(--ink3)}
 .err{background:var(--surface);border-radius:24px;padding:28px;color:var(--ink2)}
@@ -83,8 +77,6 @@ footer{padding:32px 0 64px;text-align:center;font-size:14px;color:var(--ink3)}
 @media(max-width:640px){
   .card{padding:24px 20px}
   .hero h1{font-size:24px}
-  .terms{grid-template-columns:1fr}
-  .terms dd{border-top:0;padding-top:0}
 }
 </style>
 </head>
@@ -138,13 +130,11 @@ function render(list, id){
   const latest = list[0];
   const it = list.find(x => x.id === id) || latest;
   document.title = it.label + ' · 빨리 따라와! AI 소식!';
-  const terms = it.terms || [];
   $('main').innerHTML =
     '<section class="hero"><p class="kicker"><strong>' + esc(it.label) + '</strong><span>' + esc(it.range) + '</span>' + (it === latest ? '<span class="new">NEW!</span>' : '') + '</p>' +
     '<h1>' + esc(it.headline) + '</h1></section>' +
     '<section class="card" id="updates" aria-labelledby="uh"><h2 id="uh">업데이트<small>' + it.news.length + '건</small></h2>' + groupsOf(it).map(g => (g.label ? '<p class="subgrp">' + esc(g.label) + '</p>' : '') + g.rows.map(([n,i]) => item(n,i,'n')).join('')).join('') + '</section>' +
     '<section class="card" id="tips" aria-labelledby="th"><h2 id="th">꿀팁<small>' + it.tips.length + '건</small></h2>' + it.tips.map((t,i) => item(t,i,'t')).join('') + '</section>' +
-    (terms.length ? '<section class="card" id="terms" aria-labelledby="dh"><h2 id="dh">용어 풀이<small>' + terms.length + '개</small></h2><dl class="terms">' + terms.map(t => '<dt>' + esc(t.t) + '</dt><dd>' + esc(t.d) + '</dd>').join('') + '</dl></section>' : '') +
     '<p class="about">공식 발표와 공식 릴리스 노트에서 날짜와 내용을 직접 확인한 소식만 실어요. 각 소식 아래 출처를 눌러 원문을 볼 수 있어요.</p>';
   document.querySelectorAll('.copy').forEach(b => b.onclick = () => {
     const t = b.previousElementSibling.textContent;
