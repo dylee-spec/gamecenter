@@ -37,22 +37,6 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--ink);outline-offset
 .card>h2{font-size:24px;line-height:1.35;letter-spacing:-.02em;display:flex;align-items:baseline;gap:8px}
 .card>h2 small{font-size:14px;font-weight:500;color:var(--ink3);letter-spacing:0}
 
-/* 이번 주 한눈에 */
-.glance .grp{margin:24px 0 4px;font-size:14px;font-weight:700;color:var(--ink3)}
-.glance ol{list-style:none;margin:0;padding:0}
-.glance li a{display:flex;gap:16px;align-items:baseline;padding:12px 0;border-top:1px solid var(--line);text-decoration:none}
-.glance li:first-child a{border-top:0}
-.glance .svc{flex:none;width:96px;font-size:14px;color:var(--ink3)}
-.glance .t{font-weight:700}
-.glance .s{display:block;font-weight:500;color:var(--ink2)}
-.glance li a:hover .t{text-decoration:underline;text-underline-offset:3px}
-.glance .tips{display:grid;grid-template-columns:1fr 1fr;column-gap:24px}
-.glance .tips li a{padding:12px 0;flex-direction:column;gap:0}
-.glance .tips .svc{width:auto}
-.glance .tips li:nth-child(2) a{border-top:0}
-.glance .more{margin:16px 0 0;font-size:14px;color:var(--ink3)}
-.glance .more a{color:var(--ink2)}
-
 /* 소식 하나 */
 .item{padding:99px 0 100px;border-top:1px solid var(--line);scroll-margin-top:16px}
 .card>h2+.item{border-top:0;padding-top:24px}
@@ -99,9 +83,6 @@ footer{padding:32px 0 64px;text-align:center;font-size:14px;color:var(--ink3)}
 @media(max-width:640px){
   .card{padding:24px 20px}
   .hero h1{font-size:24px}
-  .glance .tips{grid-template-columns:1fr}
-  .glance .tips li:nth-child(2) a{border-top:1px solid var(--line)}
-  .glance li a{flex-direction:column;gap:2px}
   .terms{grid-template-columns:1fr}
   .terms dd{border-top:0;padding-top:0}
 }
@@ -151,23 +132,16 @@ function item(n, i, kind){
 function groupsOf(it){
   const all = it.news.map((n,i) => [n,i]);
   if (!it.groups || !it.groups.length) return [{ label: '', rows: all }];
-  return it.groups.map(g => ({ label: g.label, short: g.short || g.label, rows: all.filter(([n]) => (n.group || it.groups[0].id) === g.id) })).filter(g => g.rows.length);
+  return it.groups.map(g => ({ label: g.label, rows: all.filter(([n]) => (n.group || it.groups[0].id) === g.id) })).filter(g => g.rows.length);
 }
 function render(list, id){
   const latest = list[0];
   const it = list.find(x => x.id === id) || latest;
   document.title = it.label + ' · 빨리 따라와! AI 소식!';
   const terms = it.terms || [];
-  const glance =
-    '<section class="card glance" aria-labelledby="gh"><h2 id="gh">이번 주 한눈에</h2>' +
-    groupsOf(it).map(g => '<p class="grp">' + esc(g.short || '업데이트') + ' ' + g.rows.length + '건</p><ol>' +
-      g.rows.map(([n,i]) => '<li><a href="#n' + i + '"><span class="svc">' + esc(svcName(n)) + '</span><span><span class="t">' + esc(n.title) + '</span>' + (n.sum ? '<span class="s">' + esc(n.sum) + '</span>' : '') + '</span></a></li>').join('') + '</ol>').join('') +
-    '<p class="grp">꿀팁 ' + it.tips.length + '건</p><ol class="tips">' +
-    it.tips.map((t,i) => '<li><a href="#t' + i + '"><span class="svc">' + esc(svcName(t)) + '</span><span class="t">' + esc(t.title) + '</span></a></li>').join('') +
-    '</ol>' + (terms.length ? '<p class="more">모르는 말이 나오면 맨 아래 <a href="#terms">용어 풀이</a>를 보세요.</p>' : '') + '</section>';
   $('main').innerHTML =
     '<section class="hero"><p class="kicker"><strong>' + esc(it.label) + '</strong><span>' + esc(it.range) + '</span>' + (it === latest ? '<span class="new">NEW!</span>' : '') + '</p>' +
-    '<h1>' + esc(it.headline) + '</h1></section>' + glance +
+    '<h1>' + esc(it.headline) + '</h1></section>' +
     '<section class="card" id="updates" aria-labelledby="uh"><h2 id="uh">업데이트<small>' + it.news.length + '건</small></h2>' + groupsOf(it).map(g => (g.label ? '<p class="subgrp">' + esc(g.label) + '</p>' : '') + g.rows.map(([n,i]) => item(n,i,'n')).join('')).join('') + '</section>' +
     '<section class="card" id="tips" aria-labelledby="th"><h2 id="th">꿀팁<small>' + it.tips.length + '건</small></h2>' + it.tips.map((t,i) => item(t,i,'t')).join('') + '</section>' +
     (terms.length ? '<section class="card" id="terms" aria-labelledby="dh"><h2 id="dh">용어 풀이<small>' + terms.length + '개</small></h2><dl class="terms">' + terms.map(t => '<dt>' + esc(t.t) + '</dt><dd>' + esc(t.d) + '</dd>').join('') + '</dl></section>' : '') +
