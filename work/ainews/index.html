@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>빨리 따라와! AI 소식!</title>
+<meta name="description" content="매주 월요일, 한 주의 AI 소식과 꿀팁을 5분 안에 따라잡아요.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+/* 색 의미: 주황 = 이 사이트 강조(NEW 표시 포함) 하나뿐. 빨강·파랑 미사용(R7-03, R7-05). 글자 크기 48/30/18/16/13, 굵기 500/700/800(R7-07). */
+:root{--ink:#1d1b19;--ink2:#4a4641;--ink3:#6a655e;--line:#ebe5db;--bg:#fcfaf6;--brand:#e4510f;--brand-bg:#fdeee3;--c-chatgpt:#2f5d50;--c-claude:#8a4b36;--c-gemini:#5b3f6b;--c-google:#5c5f3a;--c-perplexity:#7a3f55;--c-etc:#3b3834}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Pretendard Variable,Pretendard,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:16px;font-weight:500;line-height:1.8;word-break:keep-all}
+a{color:inherit}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px 112px}
+.top{display:flex;align-items:center;justify-content:space-between;height:64px}
+.back{display:inline-flex;align-items:center;min-height:32px;font-size:13px;font-weight:700;color:var(--ink3);text-decoration:none}
+.back:hover{color:var(--ink)}
+.brand{font-size:13px;font-weight:700;color:var(--ink3)}
+.mast{padding:48px 0 0}
+.pill{display:inline-block;background:var(--brand-bg);color:var(--brand);border-radius:4px;padding:2px 10px;font-size:13px;font-weight:800}
+.mast h1{margin:16px 0 8px;font-size:48px;line-height:1.15;letter-spacing:-2px;font-weight:800}
+.mast h1 b{color:var(--brand);font-weight:800}
+.mast p{margin:0;font-size:18px;color:var(--ink2)}
+.part{margin:56px 0 24px;padding-top:20px;border-top:4px solid var(--ink);font-size:30px;font-weight:800;letter-spacing:-1px;display:flex;align-items:baseline;gap:12px}
+.part small{font-size:13px;font-weight:700;color:var(--brand);letter-spacing:0}
+.new{display:inline-block;background:var(--brand);color:#fff;font-size:13px;font-weight:800;border-radius:4px;padding:0 8px;line-height:22px;letter-spacing:.3px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+@media(max-width:800px){.grid{grid-template-columns:1fr}}
+.item{display:flex;flex-direction:column;text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.item:hover{border-color:var(--ink)}
+.cover{position:relative;aspect-ratio:16/9;display:flex;flex-direction:column;justify-content:flex-end;padding:24px;color:#fff;background:var(--c-etc);overflow:hidden}
+.cover:before{content:"";position:absolute;right:-60px;top:-80px;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.08)}
+.cover:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.4),rgba(0,0,0,0) 65%)}
+.cover>*{position:relative;z-index:1}
+.cover .chip{position:absolute;left:24px;top:20px;font-size:13px;font-weight:700;background:rgba(255,255,255,.2);border-radius:999px;padding:2px 12px}
+.cover .new{position:absolute;right:20px;top:20px}
+.cover h4{margin:0;font-size:30px;line-height:1.3;letter-spacing:-1.2px;font-weight:800;text-align:left}
+.c-chatgpt{background:var(--c-chatgpt)}.c-claude{background:var(--c-claude)}.c-gemini{background:var(--c-gemini)}.c-google{background:var(--c-google)}.c-perplexity{background:var(--c-perplexity)}
+.info{padding:20px 24px 24px;display:flex;flex-direction:column;gap:4px}
+.info .rl{font-size:13px;font-weight:700;color:var(--ink3)}
+.info .rt{font-size:18px;line-height:1.5;font-weight:800;color:var(--ink);white-space:normal}
+.item:hover .rt{color:var(--brand)}
+.info .cnt{font-size:13px;font-weight:700;color:var(--ink3);margin-top:8px}
+.empty{padding:28px 0;color:var(--ink2)}
+a:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.about{margin-top:64px;background:#fff;border-radius:8px;padding:24px;color:var(--ink2)}
+.about b{color:var(--ink);font-weight:800}
+footer{margin-top:32px;text-align:center;color:var(--ink3);font-size:13px;font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><a class="back" href="../../index.html#work">← 업무센터로 돌아가기</a><span class="brand">PLAY LAB</span></div>
+  <header class="mast">
+    <span class="pill">매주 월요일 발행</span>
+    <h1>빨리 따라와!<br><b>AI 소식!</b></h1>
+    <p>이번 주 AI, 5분이면 따라잡아요</p>
+  </header>
+  <div class="part">발행 목록<small id="cnt"></small></div>
+  <main id="list" class="grid"><div class="empty">불러오는 중이에요…</div></main>
+  <section class="about"><b>이 소식은 이렇게 만들어요.</b> 공식 릴리스 노트와 공식 발표를 직접 열어 날짜와 내용을 확인한 것만 싣고, 각 소식 아래에 출처를 달아요. 문장은 쉽게 다시 썼어요.</section>
+  <footer>빨리 따라와! AI 소식! · PLAY LAB</footer>
+</div>
+<script>
+'use strict';
+const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function tone(tag){const t=String(tag||'').toLowerCase();
+  if(t.indexOf('chatgpt')>-1||t.indexOf('openai')>-1)return 'c-chatgpt';if(t.indexOf('claude')>-1)return 'c-claude';
+  if(t.indexOf('gemini')>-1)return 'c-gemini';if(t.indexOf('google')>-1)return 'c-google';if(t.indexOf('perplexity')>-1)return 'c-perplexity';return '';}
+fetch('issues.json?_='+Date.now()).then(r=>{ if(!r.ok) throw 0; return r.json(); }).then(list=>{
+  list.reverse(); // 최신 발행이 왼쪽 위, 이어서 오른쪽, 다음 줄 순서
+  document.getElementById('cnt').textContent = '총 '+list.length+'회';
+  document.getElementById('list').innerHTML = list.map((it,i)=>{
+    const lead = it.news[it.lead||0];
+    return '<a class="item" href="issue.html?id='+encodeURIComponent(it.id)+'"><div class="cover '+tone(lead.tag)+'"><span class="chip">'+esc(lead.tag)+'</span>'+(i===0?'<span class="new">NEW!</span>':'')+'<h4>'+esc(lead.title)+'</h4></div>'+
+    '<div class="info"><span class="rl">'+esc(it.label)+' · '+esc(it.range)+'</span><span class="rt">'+esc(String(it.headline).replace(/\n/g,' '))+'</span><span class="cnt">업데이트 '+it.news.length+'건 · 꿀팁 '+it.tips.length+'건</span></div></a>';
+  }).join('');
+}).catch(()=>{ document.getElementById('list').innerHTML='<div class="empty">목록을 불러오지 못했어요. 페이지를 새로 고쳐 주세요.</div>'; });
+</script>
+</body>
+</html>
