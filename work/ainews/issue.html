@@ -7,89 +7,90 @@
 <meta name="description" content="매주 월요일, 한 주의 AI 소식과 꿀팁을 5분 안에 따라잡아요.">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
-/* 색 의미표 (R7-01): 도구 색 = 어떤 AI 서비스인지 구분(커버 이미지에만 사용). 주황 = 이 사이트 강조 하나뿐. 빨강·파랑 미사용(R7-03, R7-05).
-   글자 크기 5단계: 48 / 30 / 18 / 16 / 13 (R7-07). 굵기 3단계: 500 / 700 / 800. */
-:root{--ink:#1d1b19;--ink2:#4a4641;--ink3:#6a655e;--line:#ebe5db;--bg:#fcfaf6;--brand:#e4510f;--brand-bg:#fdeee3;
-  --c-chatgpt:#2f5d50;--c-claude:#8a4b36;--c-gemini:#5b3f6b;--c-google:#5c5f3a;--c-perplexity:#7a3f55;--c-etc:#3b3834}
+/* 토스 스타일, 파랑 계열. 글자 크기 40/24/18/16/13, 굵기 500/700. 파랑(#1b64da) = 이 사이트 강조 하나뿐. 커버 이미지는 서비스별로 파랑 계열 명도를 달리함. 본문 글자는 파랑을 쓰지 않음(R7-05). */
+:root{--bg:#f2f4f6;--ink:#191f28;--ink2:#4e5968;--ink3:#5f6b7a;--line:#e5e8eb;--soft:#f2f4f6;--brand:#1b64da;--brand-bg:#e8f3ff;
+  --c-chatgpt:#1b64da;--c-claude:#1e3a8a;--c-gemini:#2f55b8;--c-google:#0b4f8f;--c-perplexity:#3d4f9c;--c-etc:#333d4b}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:Pretendard Variable,Pretendard,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:16px;font-weight:500;line-height:1.8;word-break:keep-all}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Pretendard Variable,Pretendard,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:16px;font-weight:500;line-height:1.7;word-break:keep-all}
 a{color:inherit}
-.wrap{max-width:760px;margin:0 auto;padding:0 24px 112px}
+.wrap{max-width:760px;margin:0 auto;padding:0 24px 96px}
 .top{display:flex;align-items:center;justify-content:space-between;height:64px}
 .back{display:inline-flex;align-items:center;min-height:32px;font-size:13px;font-weight:700;color:var(--ink3);text-decoration:none}
 .back:hover{color:var(--ink)}
 .brand{font-size:13px;font-weight:700;color:var(--ink3)}
-.mast{padding:48px 0 32px;border-bottom:2px solid var(--ink)}
-.pill{display:inline-block;background:var(--brand-bg);color:var(--brand);border-radius:4px;padding:2px 10px;font-size:13px;font-weight:800}
-.mast h1{margin:16px 0 8px;font-size:48px;line-height:1.15;letter-spacing:-2px;font-weight:800}
-.mast h1 b{color:var(--brand);font-weight:800}
-.mast p{margin:0;font-size:18px;color:var(--ink2)}
-.issue{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:16px 0;border-bottom:1px solid var(--line)}
-.issue h2{margin:0;font-size:18px;font-weight:800}
-.issue .range{font-size:13px;font-weight:700;color:var(--ink3);margin-left:8px}
-.select{display:flex;gap:8px}
-.select button{border:1px solid var(--line);background:transparent;color:var(--ink2);font:inherit;font-size:13px;font-weight:700;min-height:32px;padding:0 14px;border-radius:999px;cursor:pointer}
-.select button[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
-button:focus-visible,a:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
-.big{margin:48px 0 0;font-size:30px;line-height:1.4;letter-spacing:-1.2px;font-weight:800;white-space:pre-line}
-.lead{margin:16px 0 0;color:var(--ink2);font-size:18px;white-space:pre-line}
-.toc{margin:32px 0 0;padding:20px 24px;background:#fff;border-radius:8px}
-.toc b{font-size:13px;font-weight:800;color:var(--ink3)}
-.toc ol{margin:8px 0 0;padding:0;list-style:none}
-.toc a{display:flex;gap:12px;min-height:32px;align-items:center;font-size:16px;font-weight:700;text-decoration:none}
-.toc a:hover{color:var(--brand)}
-.toc i{font-style:normal;font-size:13px;font-weight:800;color:var(--brand);width:24px}
-.part{margin:112px 0 0;padding-top:20px;border-top:4px solid var(--ink);font-size:30px;font-weight:800;letter-spacing:-1px;color:var(--ink);display:flex;align-items:baseline;gap:12px}.part small{font-size:13px;font-weight:700;color:var(--brand);letter-spacing:0}
-.story{margin-top:56px}
-.story .no{font-size:13px;font-weight:800;color:var(--brand)}
-.cover{position:relative;aspect-ratio:16/9;margin:12px 0 0;border-radius:12px;display:flex;flex-direction:column;justify-content:flex-end;padding:28px 32px;color:#fff;background:var(--c-etc);overflow:hidden}
-.cover:before{content:"";position:absolute;right:-70px;top:-90px;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,.08)}
+.head{padding:24px 0 8px}
+.pill{display:inline-block;background:var(--brand-bg);color:var(--brand);border-radius:999px;padding:4px 12px;font-size:13px;font-weight:700}
+.head h1{margin:16px 0 8px;font-size:40px;line-height:1.25;letter-spacing:-1.2px;font-weight:700}
+.head h1 b{color:var(--brand);font-weight:700}
+.head .range{margin:0;font-size:16px;color:var(--ink2)}
+.head .range b{color:var(--ink);font-weight:700;margin-right:8px}
+.big{margin:32px 0 0;font-size:24px;line-height:1.45;letter-spacing:-.6px;font-weight:700;white-space:pre-line}
+.lead{margin:12px 0 0;color:var(--ink2);font-size:16px}
+.jump{display:flex;gap:8px;flex-wrap:wrap;margin:24px 0 0}
+.jump a{display:inline-flex;align-items:center;min-height:32px;padding:0 14px;border-radius:999px;background:#fff;font-size:13px;font-weight:700;text-decoration:none;color:var(--ink2)}
+.jump a:hover{background:var(--ink);color:#fff}
+a:focus-visible,button:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+
+.panel{margin-top:16px;background:#fff;border-radius:24px;padding:32px 32px 8px}
+.panel>h2{margin:0;font-size:24px;line-height:1.3;letter-spacing:-.6px;font-weight:700;display:flex;align-items:baseline;gap:8px}
+.panel>h2 small{font-size:13px;font-weight:700;color:var(--brand);letter-spacing:0}
+.item{padding:32px 0;border-top:1px solid var(--line);margin-top:24px;scroll-margin-top:16px}
+.item:first-of-type{margin-top:16px}
+.cover{position:relative;aspect-ratio:16/9;border-radius:16px;display:flex;flex-direction:column;justify-content:flex-end;padding:24px 28px;color:#fff;background:var(--c-etc);overflow:hidden}
+.cover:before{content:attr(data-mark);position:absolute;right:-8px;top:44px;font-size:104px;line-height:1;letter-spacing:-3px;font-weight:700;color:rgba(255,255,255,.12);white-space:nowrap}
+.cover.has-art:before{display:none}
+.cover .art{position:absolute;left:0;right:0;top:48px;bottom:84px;display:flex;align-items:center;justify-content:center;padding:0 24px}
+.cover .art svg{height:100%;width:auto;max-width:100%}
 .cover:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.4),rgba(0,0,0,0) 65%)}
 .cover>*{position:relative;z-index:1}
-.cover .chip{position:absolute;left:32px;top:24px;font-size:13px;font-weight:700;background:rgba(255,255,255,.2);border-radius:999px;padding:2px 12px}
-.cover h4{margin:0;font-size:30px;line-height:1.3;letter-spacing:-1.2px;font-weight:800;text-align:left;max-width:90%}
+.cover .chip{position:absolute;left:28px;top:22px;font-size:13px;font-weight:700;background:rgba(255,255,255,.2);border-radius:999px;padding:2px 12px}
+.cover h4{margin:0;font-size:24px;line-height:1.35;letter-spacing:-.6px;font-weight:700;text-align:left;max-width:90%;text-wrap:balance}
 .c-chatgpt{background:var(--c-chatgpt)}.c-claude{background:var(--c-claude)}.c-gemini{background:var(--c-gemini)}.c-google{background:var(--c-google)}.c-perplexity{background:var(--c-perplexity)}
-.date{display:block;margin:16px 0 8px;font-size:13px;font-weight:700;color:var(--ink3)}
-.story p{margin:0 0 16px;color:var(--ink);font-size:16px}
-.story p.detail{color:var(--ink2);border-left:3px solid var(--line);padding-left:16px}
-.story ol{margin:0 0 16px;padding-left:22px;font-size:16px}
-.story ol li{margin-bottom:6px}
-.src{font-size:13px;font-weight:700;color:var(--ink3);text-decoration:underline;text-underline-offset:3px;display:inline-flex;align-items:center;min-height:32px}
-.src:hover{color:var(--ink)}
-.toc .grp{margin-top:12px;font-size:13px;font-weight:800;color:var(--ink3)}
-.pbox{background:#fff;border-radius:8px;padding:16px 20px;margin:0 0 16px}
-.pbox b{font-size:13px;font-weight:800;color:var(--ink3)}
-.pbox pre{margin:8px 0 12px;white-space:pre-wrap;font:inherit;font-size:16px;color:var(--ink)}
+.date{display:block;margin:16px 0 4px;font-size:13px;font-weight:700;color:var(--ink3)}
+.item p{margin:0 0 12px;font-size:16px}
+.item p.detail{background:var(--soft);border-radius:12px;padding:12px 16px;color:var(--ink2)}
+.item ol{margin:8px 0 16px;padding:0;list-style:none;counter-reset:s}
+.item ol li{counter-increment:s;display:flex;gap:12px;margin-bottom:8px}
+.item ol li:before{content:counter(s);flex:none;width:24px;height:24px;margin-top:2px;border-radius:50%;background:var(--ink);color:#fff;font-size:13px;font-weight:700;display:grid;place-items:center;line-height:1}
+.pbox{background:var(--soft);border-radius:16px;padding:16px 20px;margin:0 0 12px}
+.pbox b{font-size:13px;font-weight:700;color:var(--ink3)}
+.pbox pre{margin:4px 0 12px;white-space:pre-wrap;font:inherit;font-size:16px;color:var(--ink)}
+.use{display:flex;gap:12px;background:var(--brand-bg);border-radius:12px;padding:14px 16px;margin:0 0 12px;font-size:16px}
+.use b{flex:none;font-size:13px;font-weight:700;color:var(--brand);line-height:26px}
+.use span{color:var(--ink)}
 .copy{border:0;background:var(--ink);color:#fff;font:inherit;font-size:13px;font-weight:700;min-height:32px;padding:0 14px;border-radius:999px;cursor:pointer}
-.terms{margin-top:16px}
-.term{padding:16px 0;border-bottom:1px solid var(--line)}
-.term b{display:block;font-size:18px;font-weight:800}
-.term span{color:var(--ink2);font-size:16px}
-.about{margin-top:80px;background:#fff;border-radius:8px;padding:24px;color:var(--ink2);font-size:16px}
-.about b{color:var(--ink);font-weight:800}
+.src{display:inline-flex;align-items:center;min-height:32px;padding:0 14px;border-radius:999px;background:var(--soft);color:var(--ink);font-size:13px;font-weight:700;text-decoration:none}
+.src:hover{background:var(--line)}
+.term{padding:20px 0;border-top:1px solid var(--line)}
+.term:first-of-type{margin-top:16px}
+.term b{display:block;font-size:18px;font-weight:700}
+.term span{color:var(--ink2)}
+.panel .term:last-child{padding-bottom:28px}
+.about{margin-top:16px;background:#fff;border-radius:24px;padding:24px 32px;color:var(--ink2)}
+.about b{color:var(--ink);font-weight:700}
 footer{margin-top:32px;text-align:center;color:var(--ink3);font-size:13px;font-weight:700}
-.err{padding:28px 0;color:var(--ink2)}
+.err{background:#fff;border-radius:24px;padding:28px;color:var(--ink2);margin-top:16px}
 </style>
 </head>
 <body>
 <div class="wrap">
   <div class="top"><a class="back" href="index.html">← 발행 목록으로 돌아가기</a><span class="brand">PLAY LAB</span></div>
 
-  <header class="mast">
+  <header class="head">
     <span class="pill">매주 월요일 발행</span>
-    <h1>빨리 따라와!<br><b>AI 소식!</b></h1>
-    <p>이번 주 AI, 5분이면 따라잡아요</p>
+    <h1>빨리 따라와! <b>AI 소식!</b></h1>
+    <p class="range" id="issueBar"></p>
   </header>
 
-  <div class="issue" id="issueBar"></div>
   <main id="main"><div class="err">불러오는 중이에요…</div></main>
 
   <section class="about">
-    <b>이 소식은 이렇게 만들어요.</b> 공식 릴리스 노트와 공식 발표를 직접 열어 날짜와 내용을 확인한 것만 싣고, 각 카드 아래에 출처를 달아요. 인스타그램 등에서 먼저 본 소식도 공식 출처로 확인되지 않으면 싣지 않아요. 문장은 쉽게 다시 썼어요.
+    <b>이 소식은 이렇게 만들어요.</b> 공식 릴리스 노트와 공식 발표를 직접 열어 날짜와 내용을 확인한 것만 싣고, 각 소식 아래에 출처를 달아요. 인스타그램 등에서 먼저 본 소식도 공식 출처로 확인되지 않으면 싣지 않아요. 문장은 쉽게 다시 썼어요.
   </section>
   <footer>빨리 따라와! AI 소식! · PLAY LAB</footer>
 </div>
 
+<script src="art.js"></script>
 <script>
 'use strict';
 const $ = id => document.getElementById(id);
@@ -104,30 +105,31 @@ function tone(tag){
   if (t.indexOf('perplexity')>-1) return 'c-perplexity';
   return '';
 }
-function cover(tag, title){
-  return '<div class="cover '+tone(tag)+'"><span class="chip">'+esc(tag)+'</span><h4>'+esc(title)+'</h4></div>';
+function cover(tag, title, key){
+  var a=(window.AINEWS_ART&&key&&window.AINEWS_ART[key])||'';
+  return '<div class="cover '+tone(tag)+(a?' has-art':'')+'" data-mark="'+esc(tag)+'">'+(a?'<span class="art">'+a+'</span>':'')+'<span class="chip">'+esc(tag)+'</span><h4>'+esc(title)+'</h4></div>';
 }
-function story(n, i, kind){
-  const id=kind+i;
-  return '<article class="story" id="'+id+'"><span class="no">'+(kind==='n'?'업데이트':'꿀팁')+' '+String(i+1).padStart(2,'0')+'</span>'+cover(n.tag||n.tool, n.title)+
+function item(n, i, kind){
+  return '<article class="item" id="'+kind+i+'">'+cover(n.tag||n.tool, n.title, n.art)+
     '<span class="date">'+esc(n.date||n.when)+'</span>'+
     (n.steps?'<ol>'+n.steps.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ol>':'<p>'+esc(n.body)+'</p>')+
     (n.prompt?'<div class="pbox"><b>그대로 복사해서 쓰세요</b><pre>'+esc(n.prompt)+'</pre><button type="button" class="copy">프롬프트 복사하기</button></div>':'')+
     ((n.detail||n.note)?'<p class="detail">'+esc(n.detail||n.note)+'</p>':'')+
+    (n.use?'<div class="use"><b>활용법</b><span>'+esc(n.use)+'</span></div>':'')+
     '<a class="src" href="'+safeUrl(n.url)+'" target="_blank" rel="noopener">출처 열기 · '+esc(n.src)+'</a></article>';
 }
 function render(list, id){
   const it = list.find(x => x.id === id) || list[0];
-  $('issueBar').innerHTML = '<h2>'+esc(it.label)+'<span class="range">'+esc(it.range)+'</span></h2>'+'';
-  const toc = '<li class="grp">업데이트</li>'+it.news.map((n,i)=>'<li><a href="#n'+i+'"><i>'+String(i+1).padStart(2,'0')+'</i>'+esc(n.title)+'</a></li>').join('')+'<li class="grp">꿀팁</li>'+it.tips.map((n,i)=>'<li><a href="#t'+i+'"><i>'+String(i+1).padStart(2,'0')+'</i>'+esc(n.title)+'</a></li>').join('');
+  $('issueBar').innerHTML = '<b>'+esc(it.label)+'</b>'+esc(it.range);
+  const hasTerms = it.terms && it.terms.length;
   $('main').innerHTML =
     '<div class="big">'+esc(it.headline)+'</div><p class="lead">'+esc(it.intro)+'</p>'+
-    '<nav class="toc" aria-label="이번 주 업데이트 목차"><b>업데이트 총 '+it.news.length+'건 · 꿀팁 총 '+it.tips.length+'건</b><ol>'+toc+'</ol></nav>'+
-    '<div class="part">업데이트<small>총 '+it.news.length+'건</small></div>'+it.news.map((n,i)=>story(n,i,'n')).join('')+
-    '<div class="part">꿀팁<small>총 '+it.tips.length+'건</small></div>'+it.tips.map((t,i)=>story(t,i,'t')).join('')+
-    (it.terms&&it.terms.length?'<div class="part">용어 풀이<small>총 '+it.terms.length+'건</small></div><div class="terms">'+it.terms.map(t=>'<div class="term"><b>'+esc(t.t)+'</b><span>'+esc(t.d)+'</span></div>').join('')+'</div>':'');
+    '<nav class="jump" aria-label="파트 바로가기"><a href="#updates">업데이트 '+it.news.length+'건</a><a href="#tips">꿀팁 '+it.tips.length+'건</a>'+(hasTerms?'<a href="#terms">용어 풀이 '+it.terms.length+'건</a>':'')+'</nav>'+
+    '<section class="panel" id="updates"><h2>업데이트<small>총 '+it.news.length+'건</small></h2>'+it.news.map((n,i)=>item(n,i,'n')).join('')+'</section>'+
+    '<section class="panel" id="tips"><h2>꿀팁<small>총 '+it.tips.length+'건</small></h2>'+it.tips.map((t,i)=>item(t,i,'t')).join('')+'</section>'+
+    (hasTerms?'<section class="panel" id="terms"><h2>용어 풀이<small>총 '+it.terms.length+'건</small></h2>'+it.terms.map(t=>'<div class="term"><b>'+esc(t.t)+'</b><span>'+esc(t.d)+'</span></div>').join('')+'</section>':'');
   document.querySelectorAll('.copy').forEach(b=>b.onclick=()=>{ const t=b.previousElementSibling.textContent; const done=()=>{b.textContent='복사했어요'; setTimeout(()=>b.textContent='프롬프트 복사하기',1800);}; (navigator.clipboard?navigator.clipboard.writeText(t).then(done,()=>{}):Promise.resolve()); });
-  }
+}
 fetch('issues.json?_='+Date.now()).then(r=>{ if(!r.ok) throw 0; return r.json(); }).then(list=>{
   list.reverse();
   render(list, new URLSearchParams(location.search).get('id')||'');
