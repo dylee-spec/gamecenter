@@ -218,7 +218,8 @@ function unknownNumbers(text, t) {
 const discovered = await discoverFromYouTube().catch(e => { console.warn('유튜브 해시태그 발견 실패(할당량 등):', e.message); return []; });
 const candidates = [...new Set([...CFG.seedKeywords, ...discovered])];
 console.log(`후보 ${candidates.length}개 (고정 ${CFG.seedKeywords.length}, 유튜브 발견 ${discovered.length})`);
-const trends = (await naverTrend(candidates))
+const allStats = await naverTrend(candidates);
+const trends = allStats
   .filter(t => t.growthPct !== null && t.growthPct >= CFG.minGrowthPct && t.volumeIndex >= CFG.minVolumeIndex)
   .sort((a, b) => (a.seasonal - b.seasonal) || (b.growthPct - a.growthPct)); // 올해 새로 뜬 흐름을 계절성보다 먼저
 
@@ -287,12 +288,29 @@ const formatSignals = [];
 for (const q of fmtQueries) { try { formatSignals.push(await formatSignal(q)); } catch (e) { warnings.push(`포맷 신호 수집 실패: ${q}`); } }
 const fmtRes = await newsCases({ naverId: NAVER_CLIENT_ID, naverSecret: NAVER_CLIENT_SECRET, queries: CFG.formatQueries || [], from: issueMon, to: new Date(+dataEnd + DAY), max: CFG.maxFormatNews || 10 });
 warnings.push(...fmtRes.notes);
+// 기준(+30%)을 못 넘은 키워드도 편집 참고용으로 남겨요 (draft.json 전용, 사이트에는 안 보임).
+// 기준을 넘은 키워드가 없거나 적은 주에 '가장 많이 오른 키워드'를 사실대로 소개할 수 있게 상위 몇 개는 쇼핑 클릭·참고 영상까지 모아요.
+let watch;
+if (DRAFT) {
+  watch = allStats.filter(t => t.growthPct !== null && t.volumeIndex >= CFG.minVolumeIndex && !picked.some(p => p.keyword === t.keyword))
+    .sort((a, b) => b.growthPct - a.growthPct)
+    .map(t => ({ keyword: t.keyword, growthPct: t.growthPct, volumeIndex: t.volumeIndex, yoyPct: t.yoyPct, lastYearGrowthPct: t.lastYearGrowthPct, seasonal: t.seasonal, series: t.series }));
+  const sw = { from: dataStart, to: dataEnd, weekStart: issueMon, id: NAVER_CLIENT_ID, secret: NAVER_CLIENT_SECRET };
+  const detail = [...new Set([...watch.slice(0, CFG.watchDetail ?? 8), ...[...watch].sort((a, b) => b.volumeIndex - a.volumeIndex).slice(0, 4)])]; // 가장 많이 오른 것 + 검색 규모가 가장 큰 것
+  for (const t of detail) {
+    try {
+      t.clickGrowthPct = (await shoppingClicks([t.keyword], sw))[t.keyword] ?? null;
+      t.demo = await shoppingDemo(t.keyword, { ...sw, from: issueMon });
+      t.refs = await refsFor(t.keyword);
+    } catch (e) { warnings.push(`watch '${t.keyword}' 상세 수집 실패: ${e.message}`); }
+  }
+}
 if (!picked.length && !caseRes.cases.length) { console.log('기준을 넘은 트렌드가 없어 이번 주는 발행하지 않아요.'); fs.writeFileSync('/tmp/weeklip_skip', '1'); process.exit(0); }
 const all = DRAFT ? [] : fs.existsSync(ISSUES_PATH) ? JSON.parse(fs.readFileSync(ISSUES_PATH, 'utf8')) : [];
 const newIssue = { ...issue,
   headline: picked.length ? `이번 주 검색량이 가장 크게 오른\n뷰티 키워드는 '${picked[0].keyword}'${((picked[0].keyword.at(-1).charCodeAt(0) - 0xAC00) % 28) ? '이에요' : '예요'}` : '이번 주는 기준을 넘은 트렌드가 없었어요',
   intro: `지난주(${issue.dataRange}) 네이버 검색 데이터에서 직전 4주 평균보다 ${CFG.minGrowthPct}% 이상 오른 뷰티 키워드 ${picked.length}개를 골랐어요. 키워드마다 최근 올라온 쇼츠 중 조회수가 높은 영상을 참고용으로 붙였어요.`,
-  trends: picked, cases: caseRes.cases, clients, ...(DRAFT ? { formatNews: fmtRes.cases, formatSignals } : {}) };
+  trends: picked, cases: caseRes.cases, clients, ...(DRAFT ? { formatNews: fmtRes.cases, formatSignals, watch } : {}) };
 // 한국 구글 급상승·인기 검색어 (BigQuery 공개 데이터, 워크플로가 /tmp에 저장)
 const readJ = f => { try { const t = fs.readFileSync(f, 'utf8'); return JSON.parse(t.slice(t.indexOf('['), t.lastIndexOf(']') + 1)); } catch { return null; } }; // bq 진행 메시지가 섞여도 JSON 부분만 읽어요
 const gR = readJ('/tmp/gtrends_rising.json'), gT = readJ('/tmp/gtrends_top.json');
