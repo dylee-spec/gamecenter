@@ -6,9 +6,203 @@
     "pub": "10월 19일 발행",
     "dataRange": "10월 11일 ~ 10월 17일",
     "historyRange": "8월 16일 ~ 10월 17일",
-    "headline": "이번 주는 기준을 넘은 트렌드가 없었어요",
-    "intro": "지난주(10월 11일 ~ 10월 17일) 네이버 검색 데이터에서 직전 4주 평균보다 30% 이상 오른 뷰티 키워드 0개를 골랐어요. 키워드마다 최근 올라온 쇼츠 중 조회수가 높은 영상을 참고용으로 붙였어요.",
-    "trends": [],
+    "headline": "이번 주 검색량이 가장 크게 오른\n뷰티 키워드는 '이너뷰티'예요",
+    "intro": "지난주(10월 11일 ~ 10월 17일) 네이버 검색 데이터에서 직전 4주 평균보다 20% 이상 오른 뷰티 키워드 2개를 골랐어요. 키워드마다 최근 올라온 쇼츠 중 조회수가 높은 영상을 참고용으로 붙였어요.",
+    "trends": [
+      {
+        "t": "이너뷰티",
+        "keyword": "이너뷰티",
+        "growthPct": 26,
+        "volumeIndex": 0.079,
+        "yoyPct": -14,
+        "lastYearGrowthPct": 9,
+        "seasonal": false,
+        "clickGrowthPct": null,
+        "demo": null,
+        "blog7": {
+          "count": 0,
+          "capped": true
+        },
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 1.98
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 2.12
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 2.12
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 2.26
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 2.2
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 1.58
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 1.96
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 1.7
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 2.34
+          }
+        ],
+        "body": [
+          "네이버 데이터랩 기준으로 지난주 '이너뷰티' 검색량이 직전 4주 평균보다 26% 늘었어요. 작년 같은 주와 비교하면 14% 적었어요. 작년 이맘때는 이런 상승이 없었어요.",
+          "최근 올라온 관련 쇼츠 중 조회수가 가장 높은 영상은 'Luasa' 채널의 영상으로, 조회수 555,742회를 기록하고 있어요."
+        ],
+        "idea": "(편집자 작성 필요) 이 트렌드를 우리 브랜드 콘텐츠로 옮길 아이디어를 적어 주세요.",
+        "refs": [
+          {
+            "id": "ifFzxfMSVpk",
+            "ch": "Luasa",
+            "title": "이너뷰티까지 관리하겠어 #asmr #고양이 #cat",
+            "views": 555742,
+            "published": "2026-10-15",
+            "windowDays": 7
+          },
+          {
+            "id": "tZrGJmoVYM8",
+            "ch": "YT PRATIP ",
+            "title": "😹😂 이너뷰티까지 관리하겠어 #asmr #고양이#cat",
+            "views": 180894,
+            "published": "2026-10-14",
+            "windowDays": 7
+          },
+          {
+            "id": "2SRI-LZY4Do",
+            "ch": "Tiny Smiles",
+            "title": "🧖‍♀️이너뷰티까지 관리하겠어#asmr#고양이#cat",
+            "views": 142464,
+            "published": "2026-10-14",
+            "windowDays": 7
+          }
+        ],
+        "src": [
+          {
+            "name": "네이버 데이터랩 검색어 트렌드",
+            "url": "https://datalab.naver.com/keyword/trendSearch.naver"
+          },
+          {
+            "name": "YouTube Data API",
+            "url": "https://www.youtube.com/results?search_query=%EC%9D%B4%EB%84%88%EB%B7%B0%ED%8B%B0"
+          }
+        ]
+      },
+      {
+        "t": "마스카라",
+        "keyword": "마스카라",
+        "growthPct": 25,
+        "volumeIndex": 0.258,
+        "yoyPct": -17,
+        "lastYearGrowthPct": 20,
+        "seasonal": true,
+        "clickGrowthPct": -16,
+        "demo": {
+          "femalePct": 98,
+          "topAge": "40대",
+          "topAgePct": 44
+        },
+        "blog7": {
+          "count": 0,
+          "capped": true
+        },
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 6.03
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 5.93
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 6.99
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 6.55
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 5.92
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 4.59
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 5.39
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 5.33
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 6.62
+          }
+        ],
+        "body": [
+          "네이버 데이터랩 기준으로 지난주 '마스카라' 검색량이 직전 4주 평균보다 25% 늘었어요. 작년 같은 주와 비교하면 17% 적었어요. 작년 이맘때도 20% 올랐던 키워드라, 해마다 이 시기에 오르는 흐름일 수 있어요.",
+          "네이버쇼핑 화장품/미용 분야에서 이 키워드의 클릭은 직전 4주 평균보다 16% 줄었어요. 지난주 쇼핑 클릭 중 여성 비중은 98%였어요. 연령대로는 40대가 44%로 가장 많았어요.",
+          "최근 올라온 관련 쇼츠 중 조회수가 가장 높은 영상은 '고우리 Go uri' 채널의 영상으로, 조회수 612,838회를 기록하고 있어요."
+        ],
+        "idea": "(편집자 작성 필요) 이 트렌드를 우리 브랜드 콘텐츠로 옮길 아이디어를 적어 주세요.",
+        "refs": [
+          {
+            "id": "AwTU_GXkrIc",
+            "ch": "고우리 Go uri",
+            "title": "댓글로 난리 났던 내 눈썹, 결국 갈아엎었습니다;; #shorts#makeup",
+            "views": 612838,
+            "published": "2026-10-14",
+            "windowDays": 7
+          },
+          {
+            "id": "ikzHk1X7C6Q",
+            "ch": "셀럽그램",
+            "title": "“여기 있는 거 다 사!” 쇼핑 고수가 고른 뷰티템 3가지",
+            "views": 51307,
+            "published": "2026-10-15",
+            "windowDays": 7
+          },
+          {
+            "id": "haRn0DPRJ9A",
+            "ch": "이쁜숙  추억 쉼터",
+            "title": "#그여자의마스카라#박지현#이쁜숙#전승탁#월미스타#주말댄스#",
+            "views": 13876,
+            "published": "2026-10-15",
+            "windowDays": 7
+          }
+        ],
+        "src": [
+          {
+            "name": "네이버 데이터랩 검색어 트렌드",
+            "url": "https://datalab.naver.com/keyword/trendSearch.naver"
+          },
+          {
+            "name": "YouTube Data API",
+            "url": "https://www.youtube.com/results?search_query=%EB%A7%88%EC%8A%A4%EC%B9%B4%EB%9D%BC"
+          }
+        ]
+      }
+    ],
     "cases": [
       {
         "brand": "",
@@ -124,7 +318,7 @@
             "ratio": 24.8
           }
         ],
-        "news": 728,
+        "news": 720,
         "newsCapped": true,
         "newsItems": [
           {
@@ -146,15 +340,15 @@
             "date": "2026-10-18"
           },
           {
-            "title": "실적 채우기 피로감에… 무실적 혜택 카드 잇따라",
-            "desc": "GS25·다이소·올리브영과 메가MGC커피·빽다방·컴포즈커피·매머드커피 등 저가 커피 브랜드가 대상이다. 네이버플러스·쿠팡와우·배민클럽 등 멤버십 구독료와 알뜰폰 통신 정기결제에도 5% 캐시백이 적용된다.... ",
-            "url": "https://it.chosun.com/news/articleView.html?idxno=2023092172187",
-            "date": "2026-10-18"
-          },
-          {
             "title": "[AI혁명]AI 시대, 앱 체류 시간 늘리기 성공한 버즈빌의 전략",
             "desc": "엘포인트, 올리브영 등 국내외 500여개 플랫폼의 '혜택 존'을 담당하는 기업 간 거래(B2B) 모듈화 사업으로... 도입한 올리브영의 구매 전환율이 170% 이상 증가하는 성과를 확인했다\"고 설명했다. 글로벌 시장 공략도... ",
             "url": "https://view.asiae.co.kr/article/2026101615043729776",
+            "date": "2026-10-18"
+          },
+          {
+            "title": "실적 채우기 피로감에… 무실적 혜택 카드 잇따라",
+            "desc": "GS25·다이소·올리브영과 메가MGC커피·빽다방·컴포즈커피·매머드커피 등 저가 커피 브랜드가 대상이다. 네이버플러스·쿠팡와우·배민클럽 등 멤버십 구독료와 알뜰폰 통신 정기결제에도 5% 캐시백이 적용된다.... ",
+            "url": "https://it.chosun.com/news/articleView.html?idxno=2023092172187",
             "date": "2026-10-18"
           },
           {
@@ -222,7 +416,7 @@
           "id": "H_YxsYRandg",
           "ch": "서채아",
           "title": "올리브영에 나온 모찌 식빵..?🍞",
-          "views": 247669,
+          "views": 247707,
           "published": "2026-10-13",
           "windowDays": 7
         },
@@ -775,7 +969,7 @@
           "id": "KAn_VxuPo2s",
           "ch": "나는야 바난나",
           "title": "일본 캔메이크&세잔느 언박싱,,,⭐️💕 #캔메이크 #세잔느 #일본화장품 #돈키호테 #돈키호테쇼핑 #드럭스토어 #코덕 #beauty #aesthetic",
-          "views": 2694,
+          "views": 2679,
           "published": "2026-10-13",
           "windowDays": 7
         },
@@ -976,7 +1170,7 @@
           "id": "t4SoRa6Rxis",
           "ch": "오늘을담다",
           "title": "✨ 칙칙한 피부 톤이 고민이라면? 체이싱래빗 올어바웃 글로우 톤업 선",
-          "views": 45,
+          "views": 46,
           "published": "2026-10-16",
           "windowDays": 7
         },
@@ -1202,7 +1396,7 @@
           "id": "7nSHVC-clWM",
           "ch": "GS SHOP",
           "title": "[판타지에스] 겨울까지 쭉 입어요 | 코어어센틱 사이드 패널 데님🍂",
-          "views": 311204,
+          "views": 312471,
           "published": "2026-10-12",
           "windowDays": 7
         },
@@ -1494,7 +1688,7 @@
           "id": "w8gBgi6sq6U",
           "ch": "10년 전 오늘",
           "title": "세일즈포스가 발 뺀 트위터 10년 뒤 근황",
-          "views": 1057,
+          "views": 1059,
           "published": "2026-10-16",
           "windowDays": 7
         },
@@ -1704,15 +1898,15 @@
             "date": "2026-10-16"
           },
           {
-            "title": "[K뷰티 호황] ⑤ 빅2 전략…아모레는 '유럽·美 고성장', LG생건은 '닥터...",
-            "desc": "아모레퍼시픽 관계자는 \"라네즈·코스알엑스·에스트라를 3대축으로 미국과 유럽에서 성장하고 있다. 일리윤은 새롭게 뜨고 있는 브랜드다\"라고 밝혔다. 에스트라와 일리윤은 BY26 합산 매출이 4000억원을 넘었다.... ",
-            "url": "https://www.newspim.com/news/view/20261014001090",
-            "date": "2026-10-16"
-          },
-          {
             "title": "'K뷰티 맏형' 아모레의 부활…실적 '껑충', 미래도 '장밋빛'",
             "desc": "라네즈는 립 카테고리 주요 제품을 앞세워 시장 내 입지를 강화했고, 에스트라는 아마존과 세포라에서... 늘렸고, 에스트라와 일리윤 역시 멀티브랜드숍을 중심으로 판매 호조를 이어갔다. 사업부문별로는 헤어... ",
             "url": "https://www.ebn.co.kr/news/articleView.html?idxno=1727914",
+            "date": "2026-10-16"
+          },
+          {
+            "title": "[K뷰티 호황] ⑤ 빅2 전략…아모레는 '유럽·美 고성장', LG생건은 '닥터...",
+            "desc": "아모레퍼시픽 관계자는 \"라네즈·코스알엑스·에스트라를 3대축으로 미국과 유럽에서 성장하고 있다. 일리윤은 새롭게 뜨고 있는 브랜드다\"라고 밝혔다. 에스트라와 일리윤은 BY26 합산 매출이 4000억원을 넘었다.... ",
+            "url": "https://www.newspim.com/news/view/20261014001090",
             "date": "2026-10-16"
           },
           {
@@ -2556,12 +2750,12 @@
       {
         "brand": "",
         "platform": "릴스",
-        "title": "낮엔 모범생, 밤엔 밈짱…“5·18 혐오·스벅 옹호? 인스타는 그냥 놀이...",
+        "title": "10대 72% “노무현 조롱 밈 안다”…극우 키우는 인스타 알고리즘",
         "body": [
-          "인공지능(AI)으로 만든 ‘밈’(meme·온라인 유행 콘텐츠)이다. 지난 5월18일 저녁 7시께, 박기우가... 자극적인 밈과 짧은 릴스에 익숙해지다 보면 “(사고의) 회로가 점점 밈으로 대체된다”고 ‘급진의 20대’ 저자..."
+          "집에 있는 휴대전화의 피드에는 극우 성향의 ‘밈’(meme·온라인 유행 콘텐츠)이 올라온다. “음악이나... 정혁은 “(인스타그램) 릴스 10개를 내리다가 1~2개 정도는 친구들끼리 ‘이거 봐’ 하는 의미로..."
         ],
         "point": "",
-        "sourceUrl": "https://www.hani.co.kr/arti/society/society_general/1281855.html",
+        "sourceUrl": "https://www.hani.co.kr/arti/society/society_general/1281861.html",
         "sourceName": "hani.co.kr",
         "sourceDate": "2026-10-12",
         "postUrl": "",
@@ -2598,12 +2792,12 @@
       {
         "brand": "",
         "platform": "릴스",
-        "title": "10대 72% “노무현 조롱 밈 안다”…극우 키우는 인스타 알고리즘",
+        "title": "낮엔 모범생, 밤엔 밈짱…“5·18 혐오·스벅 옹호? 인스타는 그냥 놀이...",
         "body": [
-          "집에 있는 휴대전화의 피드에는 극우 성향의 ‘밈’(meme·온라인 유행 콘텐츠)이 올라온다. “음악이나... 정혁은 “(인스타그램) 릴스 10개를 내리다가 1~2개 정도는 친구들끼리 ‘이거 봐’ 하는 의미로..."
+          "인공지능(AI)으로 만든 ‘밈’(meme·온라인 유행 콘텐츠)이다. 지난 5월18일 저녁 7시께, 박기우가... 자극적인 밈과 짧은 릴스에 익숙해지다 보면 “(사고의) 회로가 점점 밈으로 대체된다”고 ‘급진의 20대’ 저자..."
         ],
         "point": "",
-        "sourceUrl": "https://www.hani.co.kr/arti/society/society_general/1281861.html",
+        "sourceUrl": "https://www.hani.co.kr/arti/society/society_general/1281855.html",
         "sourceName": "hani.co.kr",
         "sourceDate": "2026-10-12",
         "postUrl": "",
@@ -2708,7 +2902,2950 @@
         "mode": "news"
       }
     ],
-    "formatSignals": [],
+    "formatSignals": [
+      {
+        "query": "로드스터 밈",
+        "recent7": 50,
+        "recentCapped": true,
+        "priorWeeklyAvg": 0.3,
+        "recentViews": 727156,
+        "top": [
+          {
+            "id": "U6IWCyzFTO0",
+            "ch": "Просто любитель",
+            "title": "ЛЕТАЮЩИЕ МЕМЫ 2 // TESLA ROADSTER vs TOYOTA PREVIA 1996",
+            "views": 374598,
+            "published": "2026-10-18"
+          },
+          {
+            "id": "TBnIJ4eECNk",
+            "ch": "KBS News",
+            "title": "[잇슈#태그] “끊어진 다리 건너고 주차 새치기까지?”…테슬라 ‘로드스터’가 쏘아올린 패러디 열풍 / KBS 2026.10.18.",
+            "views": 151024,
+            "published": "2026-10-18"
+          },
+          {
+            "id": "hyv0kFNPflg",
+            "ch": "HaHaX things ",
+            "title": "Why Nobody Should Buy the Tesla Roadster 💀",
+            "views": 48088,
+            "published": "2026-10-18"
+          }
+        ]
+      },
+      {
+        "query": "치이카와 팝콘통",
+        "recent7": 37,
+        "recentCapped": false,
+        "priorWeeklyAvg": 16.7,
+        "recentViews": 808398,
+        "top": [
+          {
+            "id": "gaa8v7sAA3o",
+            "ch": "이슈닭",
+            "title": "되팔이 참교육 중인 먼작귀 치이카와 근황       ㅋㅋㅋ",
+            "views": 630784,
+            "published": "2026-10-13"
+          },
+          {
+            "id": "ZyJqE4-0i6s",
+            "ch": "키덜트빈",
+            "title": "치이카와 개봉주 특전 토벌! 일주일 덕질 언박싱 브이로그📦(나가노마켓, 중국&일본 치이카와 직구, 스미코구라시)",
+            "views": 63980,
+            "published": "2026-10-12"
+          },
+          {
+            "id": "8esHBVttkFk",
+            "ch": "숏달이",
+            "title": "그냥 많이 산 청년 만든 치이카와 근황",
+            "views": 27136,
+            "published": "2026-10-16"
+          }
+        ]
+      },
+      {
+        "query": "꿈꾸던 어른이 되었나요",
+        "recent7": 50,
+        "recentCapped": true,
+        "priorWeeklyAvg": 16.7,
+        "recentViews": 94842,
+        "top": [
+          {
+            "id": "esFeMv4Wv1I",
+            "ch": "행운버튼",
+            "title": "아들들을 위한 아빠의 완벽한 연기력👍",
+            "views": 68056,
+            "published": "2026-10-18"
+          },
+          {
+            "id": "W9da4YNuSPA",
+            "ch": "무나용",
+            "title": "꿈꾸던 어른이 되었나요? #뇌출혈환자 #재활병원 #뇌출혈 #재활치료",
+            "views": 1854,
+            "published": "2026-10-18"
+          },
+          {
+            "id": "iacwU0DRG0A",
+            "ch": "ʚ정쓰ɞ",
+            "title": "이 노래 겁나 조음.. ㄷ #ilit #fypシ #viral #다이브 #ㅊㅊ #구독부탁합니다 #리즘아띄워줘 #포카포장",
+            "views": 1362,
+            "published": "2026-10-18"
+          }
+        ]
+      },
+      {
+        "query": "떡지순례",
+        "recent7": 23,
+        "recentCapped": false,
+        "priorWeeklyAvg": 16.7,
+        "recentViews": 179513,
+        "top": [
+          {
+            "id": "aR_5QoA4F1c",
+            "ch": "NBS투데이플러스",
+            "title": "찐득해서 싫다더니…MZ·외국인 ‘떡지순례’ 빠졌다",
+            "views": 90571,
+            "published": "2026-10-13"
+          },
+          {
+            "id": "0wSSB8wT_AY",
+            "ch": "허니리뷰",
+            "title": "떡이란 떡은 전부 유행 중인 한국 근황 #찹쌀떡 #맛도리 #쿠팡추천",
+            "views": 62133,
+            "published": "2026-10-13"
+          },
+          {
+            "id": "lXLxhLKSoys",
+            "ch": "Arirang News",
+            "title": "Korea's traditional tteok is now the latest dessert craze",
+            "views": 9972,
+            "published": "2026-10-16"
+          }
+        ]
+      },
+      {
+        "query": "L을 가져가",
+        "recent7": 50,
+        "recentCapped": true,
+        "priorWeeklyAvg": 16.7,
+        "recentViews": 318642,
+        "top": [
+          {
+            "id": "fTa2UXlVsno",
+            "ch": "요령이 yoryeong2",
+            "title": "대존잘의 현타 RPG \"L을 가져가 챌린지\"를 하면 레벨업?!",
+            "views": 112917,
+            "published": "2026-10-18"
+          },
+          {
+            "id": "R0nLH9jZnR8",
+            "ch": "10B",
+            "title": "L을 가져가면 죽는다고? 권루트랑 L을 가져가 술래잡기 해봤습니다 ㅋㅋ",
+            "views": 59253,
+            "published": "2026-10-17"
+          },
+          {
+            "id": "s47Oh7Ub2WY",
+            "ch": "동희",
+            "title": "한국인이 만든 L을 가져가 게임ㅋㅋㅋㅋㅋㅋㅋㅋ L을 가져가!! 제발!! 가져가줘!! (로블록스) - 애니메이션 볼 듀얼",
+            "views": 58832,
+            "published": "2026-10-17"
+          }
+        ]
+      },
+      {
+        "query": "샤워 루틴",
+        "recent7": 41,
+        "recentCapped": false,
+        "priorWeeklyAvg": 16.7,
+        "recentViews": 532159,
+        "top": [
+          {
+            "id": "IkRjTyl5QuQ",
+            "ch": "닷위치",
+            "title": "최산의 샤워루틴 꿰뚫고 있는 에이티즈",
+            "views": 114301,
+            "published": "2026-10-17"
+          },
+          {
+            "id": "igY2RJtHJ8U",
+            "ch": "미숭이 miiiyamiii",
+            "title": "장원영 1시간 샤워법 #샤워루틴 #반신욕",
+            "views": 94834,
+            "published": "2026-10-16"
+          },
+          {
+            "id": "ZPqVCC1hevM",
+            "ch": "연수스",
+            "title": "목욕 진심러의 #내돈내산 목욕 꿀템 🫧🤍 #샤워템 #목욕템 #나이트루틴 #nightroutine",
+            "views": 92174,
+            "published": "2026-10-14"
+          }
+        ]
+      },
+      {
+        "query": "틱택토 챌린지",
+        "recent7": 50,
+        "recentCapped": true,
+        "priorWeeklyAvg": 16.7,
+        "recentViews": 961050,
+        "top": [
+          {
+            "id": "QUyxY17PhRs",
+            "ch": "ASMR Gamer",
+            "title": "Tic Tac Toe Game LIVE 🔴 | Brain Challenge",
+            "views": 339000,
+            "published": "2026-10-18"
+          },
+          {
+            "id": "eHNv4iPzESM",
+            "ch": "ASMR Gamer",
+            "title": "Tic Tac Toe LIVE ♾️ | Can You Beat Me?",
+            "views": 225029,
+            "published": "2026-10-17"
+          },
+          {
+            "id": "VKc3bOC2CE0",
+            "ch": "Z Dash",
+            "title": "Messi vs Ronaldo Tic Tac Toe Challenge! Who will lead?😱🔥",
+            "views": 114400,
+            "published": "2026-10-18"
+          }
+        ]
+      },
+      {
+        "query": "불닭 립",
+        "recent7": 1,
+        "recentCapped": false,
+        "priorWeeklyAvg": 0.7,
+        "recentViews": 1707,
+        "top": [
+          {
+            "id": "5XbTmn3NIHg",
+            "ch": "한땀하우스",
+            "title": "불닭을 입술에? 한국 립플럼퍼 써본 외국인 찐반응 #shorts",
+            "views": 1707,
+            "published": "2026-10-12"
+          }
+        ]
+      }
+    ],
+    "watch": [
+      {
+        "keyword": "PDRN",
+        "growthPct": 18,
+        "volumeIndex": 0.878,
+        "yoyPct": 24,
+        "lastYearGrowthPct": -16,
+        "seasonal": false,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 2.07
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 2.8
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 3.62
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 3.63
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 2.39
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 2.04
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 2.84
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 3.65
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 3.23
+          }
+        ],
+        "clickGrowthPct": -21,
+        "demo": {
+          "femalePct": 84,
+          "topAge": "50대",
+          "topAgePct": 40
+        },
+        "refs": [
+          {
+            "id": "d1KwXFRBZD8",
+            "ch": "장수의 비밀",
+            "title": "기미 잡티 검버섯 지우려고 작정한 다이소 이 제품!",
+            "views": 55754,
+            "published": "2026-10-12",
+            "windowDays": 7
+          },
+          {
+            "id": "HED1fSWXmeI",
+            "ch": "L'Oreal Paris Thailand",
+            "title": "เผยผิวกลาสสกินจากภายใน ด้วยเซรั่ม HA PDRN",
+            "views": 1475752,
+            "published": "2026-10-16",
+            "windowDays": 7
+          },
+          {
+            "id": "UdJaMx8QF7A",
+            "ch": "Anua Japan Official",
+            "title": "ひとみPICK✨Anua PDRNセラム",
+            "views": 44116,
+            "published": "2026-10-12",
+            "windowDays": 7
+          }
+        ]
+      },
+      {
+        "keyword": "내돈내산",
+        "growthPct": 18,
+        "volumeIndex": 0.258,
+        "yoyPct": 72,
+        "lastYearGrowthPct": 2,
+        "seasonal": false,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 0.05
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 0.05
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 0.06
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 0.06
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 0.05
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 0.05
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 0.13
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 0.14
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 0.11
+          }
+        ],
+        "clickGrowthPct": null,
+        "demo": null,
+        "refs": [
+          {
+            "id": "J8aKWzXkKRg",
+            "ch": "주부리",
+            "title": "아기 실내복 만 원대로 사는 곳 (내돈내산, 광고❌)",
+            "views": 165362,
+            "published": "2026-10-15",
+            "windowDays": 7
+          },
+          {
+            "id": "WtfHakMXwwU",
+            "ch": "겸다미",
+            "title": "인스타 광고템 내돈내산 솔직후기‼️ 추천템 vs 후회템 2탄 #메이크업 #화장품리뷰",
+            "views": 118553,
+            "published": "2026-10-14",
+            "windowDays": 7
+          },
+          {
+            "id": "wA4JYPXQl0k",
+            "ch": "코스덕",
+            "title": "10월 올영신상 존좋 성공템 딱.6개만 #내돈내산 #솔직리뷰",
+            "views": 114538,
+            "published": "2026-10-13",
+            "windowDays": 7
+          }
+        ]
+      },
+      {
+        "keyword": "콜라겐",
+        "growthPct": 17,
+        "volumeIndex": 1.902,
+        "yoyPct": -11,
+        "lastYearGrowthPct": 10,
+        "seasonal": false,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 40.38
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 39.75
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 46.75
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 45.99
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 55.84
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 42.98
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 46.72
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 46.66
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 56.18
+          }
+        ],
+        "clickGrowthPct": 300,
+        "demo": {
+          "femalePct": 67,
+          "topAge": "20대",
+          "topAgePct": 50
+        },
+        "refs": [
+          {
+            "id": "jWnpnod045E",
+            "ch": "옥지네",
+            "title": "아빠의 질투ㅋㅋㅋㅋㅋ",
+            "views": 116539,
+            "published": "2026-10-16",
+            "windowDays": 7
+          },
+          {
+            "id": "C1oCKBWkwvM",
+            "ch": "퀴즈팍스",
+            "title": "비타민C와 같이 먹으면 효과 2배 되는 영양제",
+            "views": 39277,
+            "published": "2026-10-15",
+            "windowDays": 7
+          },
+          {
+            "id": "OeMxHG4dtYI",
+            "ch": "DAFI'S MENU",
+            "title": "✨Subscriber Asked for Collagen Foods 💚 | Veg Collagen Soup Recipe #ytshorts #viral #health #explore",
+            "views": 703384,
+            "published": "2026-10-17",
+            "windowDays": 7
+          }
+        ]
+      },
+      {
+        "keyword": "코덕",
+        "growthPct": 15,
+        "volumeIndex": 0.031,
+        "yoyPct": -40,
+        "lastYearGrowthPct": -13,
+        "seasonal": false,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 2.46
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 2.15
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 2.45
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 2.11
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 1.54
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 2.02
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 1.76
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 1.97
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 2.1
+          }
+        ],
+        "clickGrowthPct": null,
+        "demo": null,
+        "refs": [
+          {
+            "id": "A6mn4Sa7F6o",
+            "ch": "뽀블",
+            "title": "기억하시나요?!ㅋㅋ #코덕지망생 #코덕계 #마네킹 #화장 #화장해주기 #메이크업 #생활음계 #생활음",
+            "views": 146910,
+            "published": "2026-10-13",
+            "windowDays": 7
+          },
+          {
+            "id": "5WVkoRAR8Nw",
+            "ch": "코덕요정🧚‍♀️",
+            "title": "봄웜 찐친 파우치 털기🍑🍑",
+            "views": 100508,
+            "published": "2026-10-13",
+            "windowDays": 7
+          },
+          {
+            "id": "4qyHhUE8SYY",
+            "ch": "소예",
+            "title": "11) ㅇㄴ 아이폰 이거 맞아요 ?!!?!?? #얀 #코덕 #아이폰#안 #얀 생활음계#얀생음#얀#얀#화장품#화장",
+            "views": 57756,
+            "published": "2026-10-12",
+            "windowDays": 7
+          }
+        ]
+      },
+      {
+        "keyword": "엑소좀",
+        "growthPct": 12,
+        "volumeIndex": 0.307,
+        "yoyPct": -46,
+        "lastYearGrowthPct": 11,
+        "seasonal": false,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 0.94
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 1.04
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 1.02
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 0.98
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 1
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 0.79
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 0.99
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 1.26
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 1.13
+          }
+        ],
+        "clickGrowthPct": 27,
+        "demo": {
+          "femalePct": 78,
+          "topAge": "50대",
+          "topAgePct": 36
+        },
+        "refs": [
+          {
+            "id": "C04AWcNKd-M",
+            "ch": "사요마요?",
+            "title": "다이소 신상 5,000원 캡슐크림, 어떤 색 고를까요? | 닥터CPU 3종 #Shorts",
+            "views": 2180,
+            "published": "2026-10-12",
+            "windowDays": 7
+          },
+          {
+            "id": "P3W5on0xH7o",
+            "ch": "피부리더 닥터박",
+            "title": "포텐자 엑소좀 리쥬란힐러 차이점! 모공·피부결 고민이라면 꼭 보세요 #아트오브샤인의원 #서면피부과",
+            "views": 1294,
+            "published": "2026-10-15",
+            "windowDays": 7
+          },
+          {
+            "id": "U684x_zueys",
+            "ch": "미더베스트",
+            "title": "📌엑소좀 받아도 여드름 안없어지는 이유 #좁쌀여드름 #미더베스트 #이마여드름 #이마요철",
+            "views": 1290,
+            "published": "2026-10-18",
+            "windowDays": 7
+          }
+        ]
+      },
+      {
+        "keyword": "asmr",
+        "growthPct": 12,
+        "volumeIndex": 0.267,
+        "yoyPct": -5,
+        "lastYearGrowthPct": 15,
+        "seasonal": false,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 17.54
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 15.44
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 17.16
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 17.25
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 15.67
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 15.64
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 16.23
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 17.38
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 18.17
+          }
+        ],
+        "clickGrowthPct": null,
+        "demo": null,
+        "refs": [
+          {
+            "id": "qhNZCpImDlQ",
+            "ch": "Jack Sparow",
+            "title": "Soft ASMR Relaxation with Xylophone Sounds 💆🏻‍♂️🎶 #asmr #relaxing #asmrsounds",
+            "views": 13230874,
+            "published": "2026-10-13",
+            "windowDays": 7
+          },
+          {
+            "id": "O5RuC-AifRM",
+            "ch": "Crush & Press",
+            "title": "Can Crayon Survive the Crush? ⚙️🫪 Satisfying #shorts #asmr #oddlysatisfying",
+            "views": 10227290,
+            "published": "2026-10-12",
+            "windowDays": 7
+          },
+          {
+            "id": "yk0xAv_De9k",
+            "ch": "Bang Tyok",
+            "title": "ASMR Gagal Lagi, Mamanya Malah Makin Ngamuk‼️😂",
+            "views": 7898132,
+            "published": "2026-10-15",
+            "windowDays": 7
+          }
+        ]
+      },
+      {
+        "keyword": "앰플",
+        "growthPct": 11,
+        "volumeIndex": 0.279,
+        "yoyPct": -16,
+        "lastYearGrowthPct": 9,
+        "seasonal": false,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 11.69
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 12.46
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 14.37
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 13.13
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 14.49
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 11.63
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 13.19
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 13.21
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 14.6
+          }
+        ],
+        "clickGrowthPct": -1,
+        "demo": {
+          "femalePct": 70,
+          "topAge": "30대",
+          "topAgePct": 33
+        },
+        "refs": [
+          {
+            "id": "VT1Gx9PG1mw",
+            "ch": "회춘프로젝트",
+            "title": "최은경이 소개한 5천 원 다이소 비타민C 앰플! 서울대 교수도 극찬한 초가성비 안티에이징 비법🔥",
+            "views": 1247444,
+            "published": "2026-10-13",
+            "windowDays": 7
+          },
+          {
+            "id": "by_sO9PsBPU",
+            "ch": "뷰티조아",
+            "title": "트와이스 갓지효 찐요물템 스킨케어",
+            "views": 42256,
+            "published": "2026-10-12",
+            "windowDays": 7
+          },
+          {
+            "id": "09nXdavtI_8",
+            "ch": "언니취향",
+            "title": "최은경이 극찬한 다이소 5천원 비타민C 앰플! 놀라운 사용 후기 #최은경 #다이소추천템",
+            "views": 11567,
+            "published": "2026-10-14",
+            "windowDays": 7
+          }
+        ]
+      },
+      {
+        "keyword": "비타민C세럼",
+        "growthPct": 11,
+        "volumeIndex": 0.167,
+        "yoyPct": 13,
+        "lastYearGrowthPct": 21,
+        "seasonal": true,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 10.62
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 10.05
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 13.18
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 11.73
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 10.69
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 9.9
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 10.5
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 9.78
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 11.34
+          }
+        ],
+        "clickGrowthPct": 9,
+        "demo": {
+          "femalePct": 80,
+          "topAge": "40대",
+          "topAgePct": 45
+        },
+        "refs": [
+          {
+            "id": "VT1Gx9PG1mw",
+            "ch": "회춘프로젝트",
+            "title": "최은경이 소개한 5천 원 다이소 비타민C 앰플! 서울대 교수도 극찬한 초가성비 안티에이징 비법🔥",
+            "views": 1247444,
+            "published": "2026-10-13",
+            "windowDays": 7
+          },
+          {
+            "id": "QR428ChjUps",
+            "ch": "살림레시피",
+            "title": "서울대 교수도 극찬하고 최은경이 다이소서 싹 쓸어왔다는 5천원 세럼 #최은경 #최은경화장품 #최은경세럼",
+            "views": 118240,
+            "published": "2026-10-12",
+            "windowDays": 7
+          },
+          {
+            "id": "PGEMpZKvTx8",
+            "ch": "셀럽의 건강비결",
+            "title": "20만원 비타민C 세럼, 8배 비싼 값 할까? 피부과 의사가 2주 비교한 결과",
+            "views": 14475,
+            "published": "2026-10-12",
+            "windowDays": 7
+          }
+        ]
+      },
+      {
+        "keyword": "마스크팩",
+        "growthPct": 10,
+        "volumeIndex": 0.998,
+        "yoyPct": -24,
+        "lastYearGrowthPct": 5,
+        "seasonal": false,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 47.9
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 47.43
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 49.15
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 50.84
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 51.46
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 42.24
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 48.51
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 48.06
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 52.23
+          }
+        ]
+      },
+      {
+        "keyword": "비건 화장품",
+        "growthPct": 10,
+        "volumeIndex": 0.02,
+        "yoyPct": -51,
+        "lastYearGrowthPct": -1,
+        "seasonal": false,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 0.72
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 0.62
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 0.74
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 0.74
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 0.73
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 0.81
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 0.75
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 0.58
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 0.79
+          }
+        ]
+      },
+      {
+        "keyword": "쇼핑쇼츠",
+        "growthPct": 9,
+        "volumeIndex": 0.024,
+        "yoyPct": 159,
+        "lastYearGrowthPct": 11,
+        "seasonal": false,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 1.1
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 1.51
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 1
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 0.74
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 0.98
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 0.77
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 0.9
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 1
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 0.99
+          }
+        ]
+      },
+      {
+        "keyword": "아이섀도우 팔레트",
+        "growthPct": 7,
+        "volumeIndex": 0.036,
+        "yoyPct": -26,
+        "lastYearGrowthPct": 18,
+        "seasonal": false,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 0.89
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 0.9
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 0.94
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 0.72
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 0.86
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 0.8
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 0.91
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 0.91
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 0.93
+          }
+        ]
+      },
+      {
+        "keyword": "토너패드",
+        "growthPct": 6,
+        "volumeIndex": 0.227,
+        "yoyPct": -10,
+        "lastYearGrowthPct": 6,
+        "seasonal": false,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 10.42
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 9.44
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 12.08
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 9.67
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 13.92
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 11.13
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 10.4
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 9.18
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 11.87
+          }
+        ]
+      },
+      {
+        "keyword": "세라마이드",
+        "growthPct": 6,
+        "volumeIndex": 0.162,
+        "yoyPct": 10,
+        "lastYearGrowthPct": 13,
+        "seasonal": false,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 7.34
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 7.24
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 10.14
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 9.96
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 11.52
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 9.5
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 10.19
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 10.35
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 11.04
+          }
+        ]
+      },
+      {
+        "keyword": "하이라이터",
+        "growthPct": 6,
+        "volumeIndex": 0.205,
+        "yoyPct": -33,
+        "lastYearGrowthPct": 12,
+        "seasonal": false,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 14.34
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 14.61
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 15.89
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 13.71
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 12.93
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 12.34
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 14.2
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 13.22
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 13.92
+          }
+        ]
+      },
+      {
+        "keyword": "컨실러",
+        "growthPct": 6,
+        "volumeIndex": 0.258,
+        "yoyPct": -38,
+        "lastYearGrowthPct": 26,
+        "seasonal": true,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 6.14
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 11.17
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 7.23
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 6.49
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 6.89
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 5.53
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 6.29
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 6.21
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 6.63
+          }
+        ]
+      },
+      {
+        "keyword": "헤어오일",
+        "growthPct": 6,
+        "volumeIndex": 0.31,
+        "yoyPct": -25,
+        "lastYearGrowthPct": 14,
+        "seasonal": false,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 6.55
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 6.95
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 7.47
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 6.34
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 6.45
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 5.35
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 6.45
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 5.98
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 6.42
+          }
+        ]
+      },
+      {
+        "keyword": "립 글로스",
+        "growthPct": 6,
+        "volumeIndex": 0.092,
+        "yoyPct": -34,
+        "lastYearGrowthPct": 11,
+        "seasonal": false,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 4.9
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 5.19
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 4.94
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 6.1
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 6.25
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 5.65
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 5.83
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 5.9
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 6.27
+          }
+        ]
+      },
+      {
+        "keyword": "립오일",
+        "growthPct": 5,
+        "volumeIndex": 0.05,
+        "yoyPct": -31,
+        "lastYearGrowthPct": 14,
+        "seasonal": false,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 0.84
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 0.86
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 0.95
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 0.92
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 0.98
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 0.94
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 0.93
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 1.12
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 1.04
+          }
+        ]
+      },
+      {
+        "keyword": "수분크림",
+        "growthPct": 5,
+        "volumeIndex": 0.87,
+        "yoyPct": 20,
+        "lastYearGrowthPct": 3,
+        "seasonal": false,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 22.04
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 22.06
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 24.29
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 25.75
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 30.02
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 28.16
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 35.15
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 34.67
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 33.72
+          }
+        ]
+      },
+      {
+        "keyword": "쿠션",
+        "growthPct": 4,
+        "volumeIndex": 0.647,
+        "yoyPct": -23,
+        "lastYearGrowthPct": 3,
+        "seasonal": false,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 34.65
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 34.18
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 37.6
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 35.55
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 33.44
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 30.29
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 35.38
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 35.79
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 35
+          }
+        ]
+      },
+      {
+        "keyword": "선크림",
+        "growthPct": 4,
+        "volumeIndex": 0.618,
+        "yoyPct": 15,
+        "lastYearGrowthPct": 7,
+        "seasonal": false,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 32.06
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 35.4
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 35.87
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 39.77
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 37.63
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 29.92
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 30.57
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 30.55
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 33.46
+          }
+        ]
+      },
+      {
+        "keyword": "나이아신아마이드",
+        "growthPct": 4,
+        "volumeIndex": 1.771,
+        "yoyPct": 18,
+        "lastYearGrowthPct": 5,
+        "seasonal": false,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 6.08
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 6.86
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 9.65
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 7.94
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 6.2
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 6.01
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 6.71
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 6.04
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 6.51
+          }
+        ]
+      },
+      {
+        "keyword": "뷰티디바이스",
+        "growthPct": 4,
+        "volumeIndex": 0.826,
+        "yoyPct": -20,
+        "lastYearGrowthPct": 10,
+        "seasonal": false,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 24.46
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 24.14
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 27.85
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 37.4
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 28.84
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 26.61
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 31.2
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 30.52
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 30.44
+          }
+        ]
+      },
+      {
+        "keyword": "구강세정기",
+        "growthPct": 4,
+        "volumeIndex": 0.561,
+        "yoyPct": -30,
+        "lastYearGrowthPct": 7,
+        "seasonal": false,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 16.67
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 17.29
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 17.34
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 17.49
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 15.73
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 14.75
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 16.65
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 16.76
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 16.56
+          }
+        ]
+      },
+      {
+        "keyword": "틴트추천",
+        "growthPct": 4,
+        "volumeIndex": 0.059,
+        "yoyPct": -47,
+        "lastYearGrowthPct": 21,
+        "seasonal": true,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 4.34
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 4.22
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 5.02
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 4.14
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 4.31
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 3.21
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 4.07
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 4.01
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 4.04
+          }
+        ]
+      },
+      {
+        "keyword": "괄사",
+        "growthPct": 3,
+        "volumeIndex": 1.153,
+        "yoyPct": -42,
+        "lastYearGrowthPct": 29,
+        "seasonal": true,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 45.17
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 44.71
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 48.75
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 53.84
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 41.96
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 38.8
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 43.91
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 40.54
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 42.47
+          }
+        ]
+      },
+      {
+        "keyword": "콤부차",
+        "growthPct": 3,
+        "volumeIndex": 0.598,
+        "yoyPct": -37,
+        "lastYearGrowthPct": -7,
+        "seasonal": false,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 23.88
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 25.63
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 23.85
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 22.24
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 19.41
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 15.59
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 17.35
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 16.3
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 17.66
+          }
+        ]
+      },
+      {
+        "keyword": "톤업크림",
+        "growthPct": 2,
+        "volumeIndex": 0.297,
+        "yoyPct": -41,
+        "lastYearGrowthPct": 18,
+        "seasonal": false,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 18.07
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 16.65
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 18.22
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 17.37
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 16.29
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 14.36
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 16.86
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 15.4
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 16.07
+          }
+        ]
+      },
+      {
+        "keyword": "블러셔",
+        "growthPct": 2,
+        "volumeIndex": 0.244,
+        "yoyPct": -28,
+        "lastYearGrowthPct": 8,
+        "seasonal": false,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 15.11
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 16.9
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 19.34
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 15.67
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 16.87
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 14.2
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 16.98
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 16.81
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 16.61
+          }
+        ]
+      },
+      {
+        "keyword": "클렌징오일",
+        "growthPct": 1,
+        "volumeIndex": 0.405,
+        "yoyPct": -40,
+        "lastYearGrowthPct": 15,
+        "seasonal": false,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 24.2
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 25.59
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 27.24
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 24.3
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 23.22
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 18.4
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 22.14
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 20.57
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 21.2
+          }
+        ]
+      },
+      {
+        "keyword": "레티놀",
+        "growthPct": 1,
+        "volumeIndex": 0.81,
+        "yoyPct": -19,
+        "lastYearGrowthPct": 27,
+        "seasonal": true,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 2.56
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 2.57
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 3.39
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 3.03
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 3.07
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 2.81
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 3.13
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 2.83
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 2.98
+          }
+        ]
+      },
+      {
+        "keyword": "립틴트",
+        "growthPct": -2,
+        "volumeIndex": 0.081,
+        "yoyPct": -3,
+        "lastYearGrowthPct": -4,
+        "seasonal": false,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 5.55
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 5.38
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 5.75
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 5.07
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 5.17
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 4.29
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 4.04
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 4.29
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 4.36
+          }
+        ]
+      },
+      {
+        "keyword": "젤네일",
+        "growthPct": -2,
+        "volumeIndex": 0.558,
+        "yoyPct": -34,
+        "lastYearGrowthPct": -5,
+        "seasonal": false,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 12.28
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 12.36
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 11.58
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 10.63
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 10.22
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 9.44
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 9.85
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 9.15
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 9.52
+          }
+        ]
+      },
+      {
+        "keyword": "립 틴트",
+        "growthPct": -2,
+        "volumeIndex": 0.081,
+        "yoyPct": -3,
+        "lastYearGrowthPct": -4,
+        "seasonal": false,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 3.97
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 3.85
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 4.11
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 3.63
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 3.7
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 3.07
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 2.89
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 3.07
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 3.12
+          }
+        ]
+      },
+      {
+        "keyword": "다이소화장품",
+        "growthPct": -2,
+        "volumeIndex": 0.405,
+        "yoyPct": -18,
+        "lastYearGrowthPct": -8,
+        "seasonal": false,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 0.17
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 0.18
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 0.18
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 0.17
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 0.17
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 0.18
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 0.19
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 0.18
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 0.17
+          }
+        ]
+      },
+      {
+        "keyword": "올리브영추천템",
+        "growthPct": -3,
+        "volumeIndex": 0.237,
+        "yoyPct": -15,
+        "lastYearGrowthPct": 10,
+        "seasonal": false,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 43.64
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 38.4
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 65.53
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 15.97
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 10.39
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 9.84
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 10.81
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 10.14
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 9.99
+          }
+        ]
+      },
+      {
+        "keyword": "화장",
+        "growthPct": -3,
+        "volumeIndex": 0.163,
+        "yoyPct": -24,
+        "lastYearGrowthPct": 0,
+        "seasonal": false,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 9.97
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 9.82
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 10.17
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 10.78
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 12.58
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 11.66
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 10.85
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 10.51
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 11.06
+          }
+        ]
+      },
+      {
+        "keyword": "다이소추천템",
+        "growthPct": -4,
+        "volumeIndex": 0.37,
+        "yoyPct": -9,
+        "lastYearGrowthPct": -14,
+        "seasonal": false,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 32.87
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 30.97
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 27.28
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 26.97
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 25.44
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 25.41
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 27.91
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 26.47
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 25.15
+          }
+        ]
+      },
+      {
+        "keyword": "여드름패치",
+        "growthPct": -6,
+        "volumeIndex": 0.45,
+        "yoyPct": -29,
+        "lastYearGrowthPct": -18,
+        "seasonal": false,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 18.1
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 18.12
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 18.93
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 18.72
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 19.08
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 16.68
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 17.79
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 16.68
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 16.57
+          }
+        ]
+      },
+      {
+        "keyword": "두피케어",
+        "growthPct": -8,
+        "volumeIndex": 0.152,
+        "yoyPct": -41,
+        "lastYearGrowthPct": -5,
+        "seasonal": false,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 4.21
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 3.95
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 3.79
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 3.35
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 3.4
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 3.3
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 3.58
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 3.37
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 3.15
+          }
+        ]
+      },
+      {
+        "keyword": "속눈썹펌",
+        "growthPct": -8,
+        "volumeIndex": 3.083,
+        "yoyPct": -12,
+        "lastYearGrowthPct": -11,
+        "seasonal": false,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 63.35
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 67.12
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 63.92
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 61.25
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 60.18
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 53.87
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 60.06
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 55.41
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 52.62
+          }
+        ],
+        "clickGrowthPct": 1,
+        "demo": {
+          "femalePct": 96,
+          "topAge": "40대",
+          "topAgePct": 39
+        },
+        "refs": [
+          {
+            "id": "-GTahTsFjx0",
+            "ch": "템캐치",
+            "title": "속펌 끊게 한 똥손도 완벽한 C컬 뷰러 #속눈썹뷰러 #뷰러추천",
+            "views": 118480,
+            "published": "2026-10-12",
+            "windowDays": 7
+          },
+          {
+            "id": "Vu6gvpxg7n0",
+            "ch": "김젠틀",
+            "title": "내가 예민보스라면? #속눈썹샴푸 부터 젠틀한 손길에 #속눈썹펌 받는다",
+            "views": 5562,
+            "published": "2026-10-14",
+            "windowDays": 7
+          },
+          {
+            "id": "efIREGe6EFs",
+            "ch": "이레픽",
+            "title": "이제 속눈썹 펌 하지 말고 '이거' 하세요✨",
+            "views": 4692,
+            "published": "2026-10-13",
+            "windowDays": 7
+          }
+        ]
+      },
+      {
+        "keyword": "쿨링패드",
+        "growthPct": -12,
+        "volumeIndex": 0.027,
+        "yoyPct": -19,
+        "lastYearGrowthPct": -69,
+        "seasonal": false,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 2.04
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 1.92
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 1.83
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 1.37
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 1.31
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 1.22
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 1.08
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 0.94
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 1
+          }
+        ]
+      },
+      {
+        "keyword": "올영",
+        "growthPct": -13,
+        "volumeIndex": 1.431,
+        "yoyPct": 2,
+        "lastYearGrowthPct": -10,
+        "seasonal": false,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 0.67
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 0.89
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 2.21
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 0.7
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 0.63
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 0.79
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 0.72
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 0.68
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 0.62
+          }
+        ]
+      },
+      {
+        "keyword": "다이소",
+        "growthPct": -14,
+        "volumeIndex": 71.079,
+        "yoyPct": 9,
+        "lastYearGrowthPct": -17,
+        "seasonal": false,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 34.37
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 33.41
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 33.29
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 32.21
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 31.26
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 46.36
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 32.56
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 32.64
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 30.66
+          }
+        ],
+        "clickGrowthPct": -100,
+        "demo": null,
+        "refs": [
+          {
+            "id": "tCQ9ZS7T-jc",
+            "ch": "해수인tv yellow aquarium",
+            "title": "소금이가 사고를 쳐서 급하게 다이소에 갔다왔어요",
+            "views": 1455929,
+            "published": "2026-10-15",
+            "windowDays": 7
+          },
+          {
+            "id": "VT1Gx9PG1mw",
+            "ch": "회춘프로젝트",
+            "title": "최은경이 소개한 5천 원 다이소 비타민C 앰플! 서울대 교수도 극찬한 초가성비 안티에이징 비법🔥",
+            "views": 1247444,
+            "published": "2026-10-13",
+            "windowDays": 7
+          },
+          {
+            "id": "5yHXwjNbaeA",
+            "ch": "누네띠네",
+            "title": "다이소 가면 무조건 사오세여",
+            "views": 944487,
+            "published": "2026-10-14",
+            "windowDays": 7
+          }
+        ]
+      },
+      {
+        "keyword": "화장품추천",
+        "growthPct": -18,
+        "volumeIndex": 0.033,
+        "yoyPct": 68,
+        "lastYearGrowthPct": 19,
+        "seasonal": false,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 2.91
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 2.77
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 2.87
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 2.77
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 2.83
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 2.74
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 2.43
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 2.83
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 2.21
+          }
+        ]
+      },
+      {
+        "keyword": "블러셔추천",
+        "growthPct": -20,
+        "volumeIndex": 0.039,
+        "yoyPct": -59,
+        "lastYearGrowthPct": 0,
+        "seasonal": false,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 3.7
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 4.3
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 5.61
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 4.14
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 4.19
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 3.11
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 3.29
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 2.81
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 2.67
+          }
+        ]
+      },
+      {
+        "keyword": "바디로션",
+        "growthPct": -21,
+        "volumeIndex": 2.237,
+        "yoyPct": -7,
+        "lastYearGrowthPct": -24,
+        "seasonal": false,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 14.08
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 18.23
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 22.22
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 24.49
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 27.74
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 40.07
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 61.45
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 64.11
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 38.18
+          }
+        ],
+        "clickGrowthPct": 14,
+        "demo": {
+          "femalePct": 64,
+          "topAge": "50대",
+          "topAgePct": 33
+        },
+        "refs": [
+          {
+            "id": "U3HG-CKVmCA",
+            "ch": "이리유 iliyu",
+            "title": "30대가 되면서 바뀐 특징 4가지_자기관리편✨ #shorts",
+            "views": 64025,
+            "published": "2026-10-15",
+            "windowDays": 7
+          },
+          {
+            "id": "REq7_k6hSEM",
+            "ch": "쏙픽",
+            "title": "다이소뷰티 판도를 뒤집은 브랜드 정체",
+            "views": 49231,
+            "published": "2026-10-16",
+            "windowDays": 7
+          },
+          {
+            "id": "awOz2F6U7eo",
+            "ch": "디에디트 라이프 THE EDIT",
+            "title": "바디 괄사 귀찮은 사람? 이렇게 해보세요 (러쉬 마사지바)",
+            "views": 16036,
+            "published": "2026-10-16",
+            "windowDays": 7
+          }
+        ]
+      },
+      {
+        "keyword": "향수",
+        "growthPct": -23,
+        "volumeIndex": 2.143,
+        "yoyPct": -34,
+        "lastYearGrowthPct": -26,
+        "seasonal": false,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 25.35
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 29.62
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 32.87
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 29.28
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 30.64
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 43.99
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 58.02
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 57.46
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 36.58
+          }
+        ],
+        "clickGrowthPct": 4,
+        "demo": {
+          "femalePct": 68,
+          "topAge": "40대",
+          "topAgePct": 35
+        },
+        "refs": [
+          {
+            "id": "9EzktkPGOr0",
+            "ch": "생활비타민",
+            "title": "다이소에 명품 향수보다 좋은 향이 있다고?",
+            "views": 276273,
+            "published": "2026-10-16",
+            "windowDays": 7
+          },
+          {
+            "id": "nuwZwHf3xW8",
+            "ch": "런닝맨 - 스브스 공식 채널",
+            "title": "박초롱, 주변의 도발에 ‘썸남’ 양세찬에게 돌진하며 향수 자극하는 커플 댄스♨",
+            "views": 244234,
+            "published": "2026-10-18",
+            "windowDays": 7
+          },
+          {
+            "id": "iq1ieMQse4Y",
+            "ch": "화장하는청담언니",
+            "title": "먼지에서 해방되는 미니향수 액자만들기 #청담언니 #요리하는메이크업아티스트",
+            "views": 185225,
+            "published": "2026-10-15",
+            "windowDays": 7
+          }
+        ]
+      },
+      {
+        "keyword": "립밤",
+        "growthPct": -30,
+        "volumeIndex": 1.617,
+        "yoyPct": -26,
+        "lastYearGrowthPct": -27,
+        "seasonal": false,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 12.1
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 17.02
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 21.28
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 21.54
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 23.22
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 42.48
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 61.42
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 63.66
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 33.5
+          }
+        ]
+      },
+      {
+        "keyword": "아이라이너",
+        "growthPct": -45,
+        "volumeIndex": 0.864,
+        "yoyPct": -47,
+        "lastYearGrowthPct": -17,
+        "seasonal": false,
+        "series": [
+          {
+            "period": "2026-08-16",
+            "ratio": 5.43
+          },
+          {
+            "period": "2026-08-23",
+            "ratio": 11.93
+          },
+          {
+            "period": "2026-08-30",
+            "ratio": 16.27
+          },
+          {
+            "period": "2026-09-06",
+            "ratio": 12.83
+          },
+          {
+            "period": "2026-09-13",
+            "ratio": 14.36
+          },
+          {
+            "period": "2026-09-20",
+            "ratio": 34.13
+          },
+          {
+            "period": "2026-09-27",
+            "ratio": 56.15
+          },
+          {
+            "period": "2026-10-04",
+            "ratio": 56.7
+          },
+          {
+            "period": "2026-10-11",
+            "ratio": 22.16
+          }
+        ]
+      }
+    ],
     "googleTrends": {
       "source": "Google Trends (BigQuery 공개 데이터셋, KR)",
       "refreshDate": "2026-10-18",
