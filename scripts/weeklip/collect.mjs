@@ -170,7 +170,7 @@ async function formatSignal(q) {
     views = list.reduce((a, b) => a + b.views, 0);
     top = list.filter(x => !EXPLAIN.test(x.title)).sort((a, b) => b.views - a.views).slice(0, 3);
   }
-  return { query: q, recent7: recentIds.length, recentCapped: recentIds.length >= 50, priorWeeklyAvg: +(priorIds.length / 3).toFixed(1), recentViews: views, top };
+  return { query: q, recent7: recentIds.length, recentCapped: recentIds.length >= 50, priorWeeklyAvg: +(priorIds.length / 3).toFixed(1), priorCapped: priorIds.length >= 50, recentViews: views, top }; // priorCapped=true면 직전 3주 업로드가 검색 상한(50개)에 걸린 것이라 priorWeeklyAvg로 비교하면 안 돼요
 }
 
 // ---------- 4) 글 초안: 주어진 사실만 사용 ----------
