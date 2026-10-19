@@ -2,7 +2,7 @@
   "naverApi": "hub",
   "weeksOfHistory": 9,
   "anchorKeyword": "화장품",
-  "minGrowthPct": 30,
+  "minGrowthPct": 20,
   "minVolumeIndex": 0.02,
   "maxTrends": 7,
   "maxCases": 5,
