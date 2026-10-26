@@ -1,18 +1,52 @@
 name: Supabase 깨우기
+# 오목, 끝말잇기, UDM 너의이름은 기록이 쓰는 Supabase 무료 프로젝트가 일시정지되지 않도록 하루 두 번 DB를 읽어요.
+# 실패하면 저장소에 알림 이슈를 남기고, 다시 성공하면 그 이슈를 자동으로 닫아요.
 on:
   schedule:
-    - cron: '0 0 */3 * *'   # 3일마다 (한국시간 오전 9시경)
+    - cron: '17 0 * * *'    # 매일 한국시간 오전 9시 17분쯤
+    - cron: '17 12 * * *'   # 매일 한국시간 밤 9시 17분쯤
   workflow_dispatch:
-permissions: {}
+permissions:
+  issues: write
+concurrency:
+  group: keepalive
 jobs:
   ping:
     runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: dylee-spec/gamecenter
+      ALERT_TITLE: "Supabase가 잠들었어요 (오목·끝말잇기·UDM 기록 멈춤)"
     steps:
       - name: DB 읽기 요청 (무료 플랜 자동 정지 방지)
         run: |
-          code=$(curl -s -o /tmp/out.json -w '%{http_code}' \
-            "https://ptwupwbdedgenmbwniwj.supabase.co/rest/v1/udm_scores?select=name&limit=1" \
-            -H "apikey: sb_publishable_42ATZwFevpMbuN5gL36kxg_FtOqmDL1" \
-            -H "Authorization: Bearer sb_publishable_42ATZwFevpMbuN5gL36kxg_FtOqmDL1")
-          echo "HTTP $code"; head -c 200 /tmp/out.json
-          [ "$code" = "200" ]
+          HOST="ptwupwbdedgenmbwniwj.supabase.co"
+          URL="https://$HOST/rest/v1/udm_scores?select=name&limit=1"
+          KEY="sb_publishable_42ATZwFevpMbuN5gL36kxg_FtOqmDL1"
+          for i in 1 2 3; do
+            code=$(curl -s -o /tmp/out.json -w '%{http_code}' --max-time 30 "$URL" -H "apikey: $KEY" -H "Authorization: Bearer $KEY" || true)
+            echo "시도 $i: HTTP $code"
+            if [ "$code" = "200" ]; then head -c 200 /tmp/out.json; echo; exit 0; fi
+            sleep 20
+          done
+          if ! getent hosts "$HOST" > /dev/null; then
+            echo "::error::Supabase 주소를 찾을 수 없어요. 프로젝트가 일시정지된 것 같아요. 대시보드에서 Restore project를 눌러 주세요."
+          else
+            echo "::error::Supabase가 응답했지만 읽기에 실패했어요 (HTTP $code)."
+          fi
+          exit 1
+      - name: 실패하면 알림 이슈 남기기
+        if: failure()
+        run: |
+          open=$(gh issue list --state open --search "\"$ALERT_TITLE\" in:title" --json number --jq 'length')
+          if [ "$open" = "0" ]; then
+            gh issue create --title "$ALERT_TITLE" --body "Supabase를 깨우는 정기 요청이 실패했어요. 프로젝트가 일시정지되면 오목, 끝말잇기, UDM 너의이름은 기록이 동작하지 않아요. 해결 방법: https://supabase.com/dashboard/project/ptwupwbdedgenmbwniwj 에서 Restore project를 눌러 주세요. 복구되면 다음 정기 요청 때 이 이슈가 자동으로 닫혀요."
+          else
+            echo "이미 열린 알림 이슈가 있어요."
+          fi
+      - name: 다시 깨어나면 알림 이슈 닫기
+        if: success()
+        run: |
+          for n in $(gh issue list --state open --search "\"$ALERT_TITLE\" in:title" --json number --jq '.[].number'); do
+            gh issue close "$n" --comment "Supabase가 다시 깨어났어요. 정기 요청이 성공했어요."
+          done
