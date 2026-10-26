@@ -56,4 +56,5 @@ jobs:
           git add work/weeklip/draft.json
           git diff --cached --quiet && exit 0
           git commit -m "위클립 데이터 수집 결과"
+          git pull --rebase origin main   # 수집하는 동안 다른 커밋이 올라와도 밀리지 않게
           git push
