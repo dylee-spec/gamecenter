@@ -48,6 +48,14 @@ jobs:
           NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
         run: node scripts/weeklip/collect.mjs
+      - name: 수집 결과 보관 (push가 실패해도 7일 동안 다시 받아 쓸 수 있게)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: weeklip-draft
+          path: work/weeklip/draft.json
+          if-no-files-found: ignore
+          retention-days: 7
       - name: 수집 결과 저장 (work/weeklip/draft.json)
         run: |
           git config user.name "weeklip-bot"
